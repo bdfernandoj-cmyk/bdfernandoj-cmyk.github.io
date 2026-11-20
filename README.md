@@ -9,3 +9,5 @@ python build.py          # genera docs/ (GitHub Pages sirve esa carpeta)
 - `src/plantillas/servicios.html.j2`: la web de servicios.
 - `src/plantillas/esencial.html.j2`: la plantilla "Web esencial" (una página, móvil primero).
 - `src/negocios/*.yaml`: una ficha por negocio → `docs/ejemplo/<slug>/`. `cal-ginebro` es ficticio.
+
+Referencias de diseño elegidas: ver `REFERENCIAS.md`.
