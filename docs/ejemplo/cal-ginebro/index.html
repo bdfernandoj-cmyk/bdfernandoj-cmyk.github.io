@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cal Ginebró · Das · Cerdanya</title>
+<meta name="description" content="Casa rural de piedra entre prados, a 10 minutos de Puigcerdà.">
+<meta name="robots" content="noindex">
+<link rel="alternate" hreflang="es" href="./">
+<link rel="alternate" hreflang="ca" href="ca/">
+<link rel="alternate" hreflang="fr" href="fr/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Plantilla "Web esencial": una página, móvil primero, barra de reserva fija abajo en el móvil. */
+:root{
+  --fondo:#f7f5f0; --tinta:#22261f; --acento:#2f5d46; --acento2:#c7893e;
+  --suave:color-mix(in srgb,var(--tinta) 65%,var(--fondo)); --linea:color-mix(in srgb,var(--tinta) 14%,var(--fondo));
+  --panel:color-mix(in srgb,#fff 70%,var(--fondo));
+  --titulo:"Young Serif",Georgia,serif; --texto:"Figtree",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:17px/1.6 var(--texto);padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+@media (min-width:760px){body{padding-bottom:0}}
+.w{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+h1,h2,h3{font-family:var(--titulo);font-weight:400;margin:0;text-wrap:balance;line-height:1.1}
+h2{font-size:clamp(28px,4.5vw,40px)}
+h3{font-size:21px}
+p{margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--acento2);outline-offset:3px;border-radius:4px}
+.aviso{background:var(--tinta);color:var(--fondo);font-size:13px;text-align:center;padding:6px 12px;padding-top:calc(6px + env(safe-area-inset-top));letter-spacing:.04em}
+header.cab .w{display:flex;justify-content:space-between;align-items:center;gap:16px;height:64px}
+.logo{font-family:var(--titulo);font-size:22px;text-decoration:none}
+nav.m{display:flex;gap:20px;font-size:15px}
+nav.m a{text-decoration:none;color:var(--suave)}
+.idi{display:flex;gap:4px;font-size:13px;font-weight:600}
+.idi a{text-decoration:none;padding:3px 6px;border-radius:4px;color:var(--suave)}
+.idi a[aria-current="true"]{background:var(--tinta);color:var(--fondo)}
+@media (max-width:760px){nav.m{display:none}}
+.portada{position:relative}
+.portada svg{display:block;width:100%;height:auto;max-height:62vh}
+.portada .w{display:grid;gap:14px;padding-block:28px 8px}
+.portada h1{font-size:clamp(44px,9vw,92px)}
+.lugar{font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acento)}
+.lema{font-size:clamp(19px,2.6vw,23px);color:var(--suave);max-width:36ch}
+.acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:600;padding:13px 20px;border-radius:12px;border:2px solid var(--tinta);font-size:16px}
+.bt.p{background:var(--acento);border-color:var(--acento);color:#fff}
+.bt svg{width:18px;height:18px;flex:none}
+section.s{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--linea)}
+.casa{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:start}
+@media (max-width:760px){.casa{grid-template-columns:minmax(0,1fr)}}
+.casa p{color:var(--suave);margin-top:16px;max-width:56ch}
+.datos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dato{background:var(--panel);border:1px solid var(--linea);border-radius:14px;padding:16px}
+.dato b{display:block;font-family:var(--titulo);font-weight:400;font-size:30px;line-height:1.1;color:var(--acento)}
+.dato span{font-size:14px;color:var(--suave)}
+.esp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+@media (max-width:760px){.esp{grid-template-columns:minmax(0,1fr)}}
+.esp article{display:grid;gap:10px}
+.esp svg{width:100%;height:auto;border-radius:14px;display:block}
+.esp p{color:var(--suave);font-size:16px}
+.serv{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0;list-style:none}
+.serv li{border:1px solid var(--linea);background:var(--panel);border-radius:999px;padding:6px 14px;font-size:15px}
+.dos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+@media (max-width:760px){.dos{grid-template-columns:minmax(0,1fr)}}
+.dos p{color:var(--suave);margin-top:12px}
+.dos .bt{margin-top:16px}
+.contacto{background:var(--acento);color:#fff;border-top:0}
+.contacto p{opacity:.85;margin-top:10px}
+.contacto .acciones .bt{border-color:#fff;color:#fff}
+.contacto .acciones .bt.p{background:#fff;color:var(--acento)}
+.contacto .linea{margin-top:20px;font-size:15px;opacity:.85}
+footer{font-size:14px;color:var(--suave)}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-block:24px}
+/* barra fija de reserva (solo móvil) */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr;gap:10px;background:color-mix(in srgb,var(--fondo) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--linea);
+  padding:10px max(12px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+.barra .bt{padding:12px}
+@media (min-width:760px){.barra{display:none}}
+</style>
+</head>
+<body>
+<div class="aviso">Web de ejemplo · negocio ficticio</div>
+<header class="cab"><div class="w">
+  <a class="logo" href="#">Cal Ginebró</a>
+  <nav class="m"><a href="#casa">La casa</a><a href="#espacios">Espacios</a><a href="#llegar">Cómo llegar</a><a href="#contacto">Contacto</a></nav>
+  <div class="idi"><a href="./" lang="es" aria-current="true">ES</a><a href="ca/" lang="ca" aria-current="false">CA</a><a href="fr/" lang="fr" aria-current="false">FR</a></div>
+</div></header>
+
+
+
+
+
+
+<main>
+  <section class="portada">
+    <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Das · Cerdanya">
+      <defs><linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f5f0"/><stop offset="1" stop-color="color-mix(in srgb, #c7893e 25%, #f7f5f0)"/></linearGradient></defs>
+      <rect width="1200" height="520" fill="url(#cielo)"/>
+      <circle cx="930" cy="150" r="54" fill="#c7893e" opacity=".85"/>
+      <path d="M0 330 L170 210 L290 280 L460 120 L600 250 L720 170 L880 290 L1010 200 L1200 300 V520 H0Z" fill="color-mix(in srgb, #2f5d46 45%, #f7f5f0)"/>
+      <path d="M460 120 L505 165 L480 160 L460 178 L440 160 L418 162Z M720 170 L752 200 L732 198 L718 210 L702 198Z" fill="#f7f5f0"/>
+      <path d="M0 400 C180 350 330 380 480 360 S800 320 1000 360 S1150 380 1200 370 V520 H0Z" fill="color-mix(in srgb, #2f5d46 75%, #22261f)"/>
+      <g fill="#22261f" opacity=".9">
+        <path d="M560 392 h120 v-46 l-60 -38 l-60 38Z"/><rect x="600" y="362" width="18" height="30" fill="#c7893e"/>
+        <rect x="640" y="356" width="14" height="12" fill="#c7893e"/><rect x="572" y="356" width="14" height="12" fill="#c7893e"/>
+      </g>
+      <path d="M0 450 C200 420 420 440 600 430 S1000 410 1200 440 V520 H0Z" fill="color-mix(in srgb, #2f5d46 55%, #22261f)"/>
+    </svg>
+    <div class="w">
+      <div class="lugar">Das · Cerdanya</div>
+      <h1>Cal Ginebró</h1>
+      <p class="lema">Casa rural de piedra entre prados, a 10 minutos de Puigcerdà.</p>
+      <div class="acciones">
+        <a class="bt p" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Reservar por WhatsApp</a>
+        <a class="bt" href="tel:+34600000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>Llamar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="casa"><div class="w casa">
+    <div><h2>Una masía de 1880, restaurada con calma</h2><p>Seis habitaciones, chimenea, jardín con vistas al Cadí y desayuno con queso y embutido de la Cerdanya. Ideal para familias y grupos pequeños, en invierno y en verano.</p></div>
+    <div class="datos"><div class="dato"><b>6</b><span>habitaciones</span></div><div class="dato"><b>14</b><span>plazas</span></div><div class="dato"><b>10 min</b><span>de Puigcerdà</span></div><div class="dato"><b>25 min</b><span>de La Molina</span></div></div>
+  </div></section>
+
+  <section class="s" id="espacios"><div class="w">
+    <h2>Espacios</h2>
+    <div class="esp">
+      
+      <article>
+        <svg viewBox="0 0 400 260" role="img" aria-label="Habitación Puigmal">
+          <rect width="400" height="260" fill="color-mix(in srgb, #c7893e 18%, #f7f5f0)"/>
+          <rect x="40" y="40" width="130" height="100" rx="6" fill="color-mix(in srgb, #2f5d46 40%, #f7f5f0)"/>
+          <path d="M40 140 L80 95 L110 120 L140 85 L170 140Z" fill="color-mix(in srgb, #2f5d46 75%, #22261f)"/>
+          <rect x="40" y="40" width="130" height="100" rx="6" fill="none" stroke="#22261f" stroke-opacity=".5" stroke-width="6"/>
+          <rect x="190" y="150" width="190" height="60" rx="10" fill="#f7f5f0"/><rect x="190" y="130" width="60" height="30" rx="8" fill="#fff"/><rect x="190" y="205" width="190" height="16" fill="#22261f" opacity=".7"/>
+          
+        </svg>
+        <h3>Habitación Puigmal</h3><p>Doble con vistas, baño propio y bañera.</p>
+      </article>
+      
+      <article>
+        <svg viewBox="0 0 400 260" role="img" aria-label="Habitación Cadí">
+          <rect width="400" height="260" fill="color-mix(in srgb, #c7893e 28%, #f7f5f0)"/>
+          <rect x="40" y="40" width="130" height="100" rx="6" fill="color-mix(in srgb, #2f5d46 40%, #f7f5f0)"/>
+          <path d="M40 140 L80 95 L110 120 L140 85 L170 140Z" fill="color-mix(in srgb, #2f5d46 75%, #22261f)"/>
+          <rect x="40" y="40" width="130" height="100" rx="6" fill="none" stroke="#22261f" stroke-opacity=".5" stroke-width="6"/>
+          <rect x="190" y="150" width="190" height="60" rx="10" fill="#f7f5f0"/><rect x="190" y="130" width="60" height="30" rx="8" fill="#fff"/><rect x="190" y="205" width="190" height="16" fill="#22261f" opacity=".7"/>
+          
+        </svg>
+        <h3>Habitación Cadí</h3><p>Familiar para cuatro, con altillo de madera.</p>
+      </article>
+      
+      <article>
+        <svg viewBox="0 0 400 260" role="img" aria-label="Sala de la chimenea">
+          <rect width="400" height="260" fill="color-mix(in srgb, #c7893e 38%, #f7f5f0)"/>
+          <rect x="40" y="40" width="130" height="100" rx="6" fill="color-mix(in srgb, #2f5d46 40%, #f7f5f0)"/>
+          <path d="M40 140 L80 95 L110 120 L140 85 L170 140Z" fill="color-mix(in srgb, #2f5d46 75%, #22261f)"/>
+          <rect x="40" y="40" width="130" height="100" rx="6" fill="none" stroke="#22261f" stroke-opacity=".5" stroke-width="6"/>
+          <rect x="230" y="90" width="120" height="130" fill="#22261f" opacity=".75"/><path d="M262 220 q28 -60 56 0Z" fill="#c7893e"/><rect x="30" y="200" width="160" height="20" fill="#22261f" opacity=".6"/>
+        </svg>
+        <h3>Sala de la chimenea</h3><p>Para cenar en grupo o leer después de esquiar.</p>
+      </article>
+      
+    </div>
+    <h3 style="margin-top:40px">Incluido</h3>
+    <ul class="serv"><li>Desayuno casero</li><li>Wifi</li><li>Aparcamiento</li><li>Calefacción</li><li>Se admiten perros</li><li>Guardaesquís</li></ul>
+  </div></section>
+
+  <section class="s" id="llegar"><div class="w dos">
+    <div><h2>Temporada y horarios</h2><p>Abierto todo el año. Llegadas de 16 a 21 h, salidas hasta las 11 h. Estancia mínima de 2 noches en fin de semana.</p></div>
+    <div><h2>Cómo llegar</h2><p>Desde Barcelona, 2 horas por el túnel del Cadí. Desde Puigcerdà, carretera de Das y desvío señalizado.</p><a class="bt" href="https://www.openstreetmap.org/#map=14/42.383/1.861">Abrir en el mapa →</a></div>
+  </div></section>
+
+  <section class="s contacto" id="contacto"><div class="w">
+    <h2>Reserva o pregúntanos</h2><p>Respondemos el mismo día por WhatsApp o teléfono.</p>
+    <div class="acciones" style="margin-top:20px">
+      <a class="bt p" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Reservar por WhatsApp</a>
+      <a class="bt" href="tel:+34600000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>+34 600 000 000</a>
+    </div>
+    <p class="linea">hola@ejemplo.com</p>
+  </div></section>
+</main>
+<footer><div class="w"><span>© 2026 Cal Ginebró</span><span>Casa rural · Das, Cerdanya</span></div></footer>
+
+<div class="barra">
+  <a class="bt p" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>WhatsApp</a>
+  <a class="bt" href="tel:+34600000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>Llamar</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+# Ficha de negocio para la plantilla "Web esencial". NEGOCIO FICTICIO (demostración).
+# El generador con IA rellenará fichas como esta a partir de los datos del lead.
+slug: cal-ginebro
+ficticio: true
+tipo: alojamiento
+nombre: "Cal Ginebró"
+lugar: "Das · Cerdanya"
+telefono: "+34 600 000 000"
+whatsapp: "+34 600 000 000"
+email: "hola@ejemplo.com"
+mapa_url: "https://www.openstreetmap.org/#map=14/42.383/1.861"
+coords: "42.383, 1.861"
+colores: {fondo: "#f7f5f0", tinta: "#22261f", acento: "#2f5d46", acento2: "#c7893e"}
+textos:
+  es:
+    lang: es
+    aviso: "Web de ejemplo · negocio ficticio"
+    lema: "Casa rural de piedra entre prados, a 10 minutos de Puigcerdà."
+    reservar: "Reservar por WhatsApp"
+    llamar: "Llamar"
+    nav: {casa: "La casa", espacios: "Espacios", llegar: "Cómo llegar", contacto: "Contacto"}
+    casa_h: "Una masía de 1880, restaurada con calma"
+    casa_p: "Seis habitaciones, chimenea, jardín con vistas al Cadí y desayuno con queso y embutido de la Cerdanya. Ideal para familias y grupos pequeños, en invierno y en verano."
+    datos: [{n: "6", t: "habitaciones"}, {n: "14", t: "plazas"}, {n: "10 min", t: "de Puigcerdà"}, {n: "25 min", t: "de La Molina"}]
+    espacios_h: "Espacios"
+    espacios:
+      - {t: "Habitación Puigmal", d: "Doble con vistas, baño propio y bañera."}
+      - {t: "Habitación Cadí", d: "Familiar para cuatro, con altillo de madera."}
+      - {t: "Sala de la chimenea", d: "Para cenar en grupo o leer después de esquiar."}
+    servicios_h: "Incluido"
+    servicios: ["Desayuno casero", "Wifi", "Aparcamiento", "Calefacción", "Se admiten perros", "Guardaesquís"]
+    temporada_h: "Temporada y horarios"
+    temporada: "Abierto todo el año. Llegadas de 16 a 21 h, salidas hasta las 11 h. Estancia mínima de 2 noches en fin de semana."
+    llegar_h: "Cómo llegar"
+    llegar_p: "Desde Barcelona, 2 horas por el túnel del Cadí. Desde Puigcerdà, carretera de Das y desvío señalizado."
+    mapa: "Abrir en el mapa"
+    contacto_h: "Reserva o pregúntanos"
+    contacto_p: "Respondemos el mismo día por WhatsApp o teléfono."
+    pie: "Casa rural · Das, Cerdanya"
+  ca:
+    lang: ca
+    aviso: "Web d'exemple · negoci fictici"
+    lema: "Casa rural de pedra entre prats, a 10 minuts de Puigcerdà."
+    reservar: "Reservar per WhatsApp"
+    llamar: "Trucar"
+    nav: {casa: "La casa", espacios: "Espais", llegar: "Com arribar", contacto: "Contacte"}
+    casa_h: "Una masia de 1880, restaurada amb calma"
+    casa_p: "Sis habitacions, llar de foc, jardí amb vistes al Cadí i esmorzar amb formatge i embotit de la Cerdanya. Ideal per a famílies i grups petits, a l'hivern i a l'estiu."
+    datos: [{n: "6", t: "habitacions"}, {n: "14", t: "places"}, {n: "10 min", t: "de Puigcerdà"}, {n: "25 min", t: "de La Molina"}]
+    espacios_h: "Espais"
+    espacios:
+      - {t: "Habitació Puigmal", d: "Doble amb vistes, bany propi i banyera."}
+      - {t: "Habitació Cadí", d: "Familiar per a quatre, amb altell de fusta."}
+      - {t: "Sala de la llar de foc", d: "Per sopar en grup o llegir després d'esquiar."}
+    servicios_h: "Inclòs"
+    servicios: ["Esmorzar casolà", "Wifi", "Aparcament", "Calefacció", "S'admeten gossos", "Guarda-esquís"]
+    temporada_h: "Temporada i horaris"
+    temporada: "Obert tot l'any. Arribades de 16 a 21 h, sortides fins a les 11 h. Estada mínima de 2 nits el cap de setmana."
+    llegar_h: "Com arribar"
+    llegar_p: "Des de Barcelona, 2 hores pel túnel del Cadí. Des de Puigcerdà, carretera de Das i trencall senyalitzat."
+    mapa: "Obrir al mapa"
+    contacto_h: "Reserva o pregunta'ns"
+    contacto_p: "Responem el mateix dia per WhatsApp o telèfon."
+    pie: "Casa rural · Das, Cerdanya"
+  fr:
+    lang: fr
+    aviso: "Site d'exemple · établissement fictif"
+    lema: "Gîte en pierre au milieu des prés, à 10 minutes de Puigcerdà."
+    reservar: "Réserver par WhatsApp"
+    llamar: "Appeler"
+    nav: {casa: "La maison", espacios: "Chambres", llegar: "Accès", contacto: "Contact"}
+    casa_h: "Une ferme de 1880, restaurée avec soin"
+    casa_p: "Six chambres, cheminée, jardin avec vue sur le Cadí et petit-déjeuner au fromage et à la charcuterie de Cerdagne. Idéal pour les familles et les petits groupes, été comme hiver."
+    datos: [{n: "6", t: "chambres"}, {n: "14", t: "couchages"}, {n: "10 min", t: "de Puigcerdà"}, {n: "25 min", t: "de La Molina"}]
+    espacios_h: "Chambres et espaces"
+    espacios:
+      - {t: "Chambre Puigmal", d: "Double avec vue, salle de bain privée et baignoire."}
+      - {t: "Chambre Cadí", d: "Familiale pour quatre, avec mezzanine en bois."}
+      - {t: "Salon de la cheminée", d: "Pour dîner en groupe ou lire après le ski."}
+    servicios_h: "Inclus"
+    servicios: ["Petit-déjeuner maison", "Wifi", "Parking", "Chauffage", "Chiens acceptés", "Local à skis"]
+    temporada_h: "Saison et horaires"
+    temporada: "Ouvert toute l'année. Arrivées de 16 h à 21 h, départs jusqu'à 11 h. Séjour minimum de 2 nuits le week-end."
+    llegar_h: "Accès"
+    llegar_p: "Depuis Bourg-Madame, 15 minutes par Puigcerdà. Prendre la route de Das, sortie indiquée."
+    mapa: "Ouvrir la carte"
+    contacto_h: "Réservez ou posez-nous vos questions"
+    contacto_p: "Nous répondons dans la journée par WhatsApp ou par téléphone."
+    pie: "Gîte · Das, Cerdagne"

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="{{ t.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ n.nombre }} · {{ n.lugar }}</title>
+<meta name="description" content="{{ t.lema }}">
+{% if n.ficticio %}<meta name="robots" content="noindex">{% endif %}
+{% for l in idiomas %}<link rel="alternate" hreflang="{{ l }}" href="{{ rutas[l] }}">
+{% endfor %}<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Plantilla "Web esencial": una página, móvil primero, barra de reserva fija abajo en el móvil. */
+:root{
+  --fondo:{{ n.colores.fondo }}; --tinta:{{ n.colores.tinta }}; --acento:{{ n.colores.acento }}; --acento2:{{ n.colores.acento2 }};
+  --suave:color-mix(in srgb,var(--tinta) 65%,var(--fondo)); --linea:color-mix(in srgb,var(--tinta) 14%,var(--fondo));
+  --panel:color-mix(in srgb,#fff 70%,var(--fondo));
+  --titulo:"Young Serif",Georgia,serif; --texto:"Figtree",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:17px/1.6 var(--texto);padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+@media (min-width:760px){body{padding-bottom:0}}
+.w{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+h1,h2,h3{font-family:var(--titulo);font-weight:400;margin:0;text-wrap:balance;line-height:1.1}
+h2{font-size:clamp(28px,4.5vw,40px)}
+h3{font-size:21px}
+p{margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--acento2);outline-offset:3px;border-radius:4px}
+.aviso{background:var(--tinta);color:var(--fondo);font-size:13px;text-align:center;padding:6px 12px;padding-top:calc(6px + env(safe-area-inset-top));letter-spacing:.04em}
+header.cab .w{display:flex;justify-content:space-between;align-items:center;gap:16px;height:64px}
+.logo{font-family:var(--titulo);font-size:22px;text-decoration:none}
+nav.m{display:flex;gap:20px;font-size:15px}
+nav.m a{text-decoration:none;color:var(--suave)}
+.idi{display:flex;gap:4px;font-size:13px;font-weight:600}
+.idi a{text-decoration:none;padding:3px 6px;border-radius:4px;color:var(--suave)}
+.idi a[aria-current="true"]{background:var(--tinta);color:var(--fondo)}
+@media (max-width:760px){nav.m{display:none}}
+.portada{position:relative}
+.portada svg{display:block;width:100%;height:auto;max-height:62vh}
+.portada .w{display:grid;gap:14px;padding-block:28px 8px}
+.portada h1{font-size:clamp(44px,9vw,92px)}
+.lugar{font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acento)}
+.lema{font-size:clamp(19px,2.6vw,23px);color:var(--suave);max-width:36ch}
+.acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:600;padding:13px 20px;border-radius:12px;border:2px solid var(--tinta);font-size:16px}
+.bt.p{background:var(--acento);border-color:var(--acento);color:#fff}
+.bt svg{width:18px;height:18px;flex:none}
+section.s{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--linea)}
+.casa{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:start}
+@media (max-width:760px){.casa{grid-template-columns:minmax(0,1fr)}}
+.casa p{color:var(--suave);margin-top:16px;max-width:56ch}
+.datos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dato{background:var(--panel);border:1px solid var(--linea);border-radius:14px;padding:16px}
+.dato b{display:block;font-family:var(--titulo);font-weight:400;font-size:30px;line-height:1.1;color:var(--acento)}
+.dato span{font-size:14px;color:var(--suave)}
+.esp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+@media (max-width:760px){.esp{grid-template-columns:minmax(0,1fr)}}
+.esp article{display:grid;gap:10px}
+.esp svg{width:100%;height:auto;border-radius:14px;display:block}
+.esp p{color:var(--suave);font-size:16px}
+.serv{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0;list-style:none}
+.serv li{border:1px solid var(--linea);background:var(--panel);border-radius:999px;padding:6px 14px;font-size:15px}
+.dos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+@media (max-width:760px){.dos{grid-template-columns:minmax(0,1fr)}}
+.dos p{color:var(--suave);margin-top:12px}
+.dos .bt{margin-top:16px}
+.contacto{background:var(--acento);color:#fff;border-top:0}
+.contacto p{opacity:.85;margin-top:10px}
+.contacto .acciones .bt{border-color:#fff;color:#fff}
+.contacto .acciones .bt.p{background:#fff;color:var(--acento)}
+.contacto .linea{margin-top:20px;font-size:15px;opacity:.85}
+footer{font-size:14px;color:var(--suave)}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-block:24px}
+/* barra fija de reserva (solo móvil) */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr;gap:10px;background:color-mix(in srgb,var(--fondo) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--linea);
+  padding:10px max(12px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+.barra .bt{padding:12px}
+@media (min-width:760px){.barra{display:none}}
+</style>
+</head>
+<body>
+{% if n.ficticio %}<div class="aviso">{{ t.aviso }}</div>{% endif %}
+<header class="cab"><div class="w">
+  <a class="logo" href="#">{{ n.nombre }}</a>
+  <nav class="m"><a href="#casa">{{ t.nav.casa }}</a><a href="#espacios">{{ t.nav.espacios }}</a><a href="#llegar">{{ t.nav.llegar }}</a><a href="#contacto">{{ t.nav.contacto }}</a></nav>
+  <div class="idi">{% for l in idiomas %}<a href="{{ rutas[l] }}" lang="{{ l }}" aria-current="{{ 'true' if l == t.lang else 'false' }}">{{ l|upper }}</a>{% endfor %}</div>
+</div></header>
+
+{% set wa = n.whatsapp|replace('+','')|replace(' ','') %}
+{% set tel = n.telefono|replace(' ','') %}
+{% set ico_wa %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>{% endset %}
+{% set ico_tel %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>{% endset %}
+
+<main>
+  <section class="portada">
+    <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMax slice" role="img" aria-label="{{ n.lugar }}">
+      <defs><linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{{ n.colores.fondo }}"/><stop offset="1" stop-color="color-mix(in srgb, {{ n.colores.acento2 }} 25%, {{ n.colores.fondo }})"/></linearGradient></defs>
+      <rect width="1200" height="520" fill="url(#cielo)"/>
+      <circle cx="930" cy="150" r="54" fill="{{ n.colores.acento2 }}" opacity=".85"/>
+      <path d="M0 330 L170 210 L290 280 L460 120 L600 250 L720 170 L880 290 L1010 200 L1200 300 V520 H0Z" fill="color-mix(in srgb, {{ n.colores.acento }} 45%, {{ n.colores.fondo }})"/>
+      <path d="M460 120 L505 165 L480 160 L460 178 L440 160 L418 162Z M720 170 L752 200 L732 198 L718 210 L702 198Z" fill="{{ n.colores.fondo }}"/>
+      <path d="M0 400 C180 350 330 380 480 360 S800 320 1000 360 S1150 380 1200 370 V520 H0Z" fill="color-mix(in srgb, {{ n.colores.acento }} 75%, {{ n.colores.tinta }})"/>
+      <g fill="{{ n.colores.tinta }}" opacity=".9">
+        <path d="M560 392 h120 v-46 l-60 -38 l-60 38Z"/><rect x="600" y="362" width="18" height="30" fill="{{ n.colores.acento2 }}"/>
+        <rect x="640" y="356" width="14" height="12" fill="{{ n.colores.acento2 }}"/><rect x="572" y="356" width="14" height="12" fill="{{ n.colores.acento2 }}"/>
+      </g>
+      <path d="M0 450 C200 420 420 440 600 430 S1000 410 1200 440 V520 H0Z" fill="color-mix(in srgb, {{ n.colores.acento }} 55%, {{ n.colores.tinta }})"/>
+    </svg>
+    <div class="w">
+      <div class="lugar">{{ n.lugar }}</div>
+      <h1>{{ n.nombre }}</h1>
+      <p class="lema">{{ t.lema }}</p>
+      <div class="acciones">
+        <a class="bt p" href="https://wa.me/{{ wa }}">{{ ico_wa }}{{ t.reservar }}</a>
+        <a class="bt" href="tel:{{ tel }}">{{ ico_tel }}{{ t.llamar }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="casa"><div class="w casa">
+    <div><h2>{{ t.casa_h }}</h2><p>{{ t.casa_p }}</p></div>
+    <div class="datos">{% for d in t.datos %}<div class="dato"><b>{{ d.n }}</b><span>{{ d.t }}</span></div>{% endfor %}</div>
+  </div></section>
+
+  <section class="s" id="espacios"><div class="w">
+    <h2>{{ t.espacios_h }}</h2>
+    <div class="esp">
+      {% for e in t.espacios %}
+      <article>
+        <svg viewBox="0 0 400 260" role="img" aria-label="{{ e.t }}">
+          <rect width="400" height="260" fill="color-mix(in srgb, {{ n.colores.acento2 }} {{ 18 + loop.index0*10 }}%, {{ n.colores.fondo }})"/>
+          <rect x="40" y="40" width="130" height="100" rx="6" fill="color-mix(in srgb, {{ n.colores.acento }} 40%, {{ n.colores.fondo }})"/>
+          <path d="M40 140 L80 95 L110 120 L140 85 L170 140Z" fill="color-mix(in srgb, {{ n.colores.acento }} 75%, {{ n.colores.tinta }})"/>
+          <rect x="40" y="40" width="130" height="100" rx="6" fill="none" stroke="{{ n.colores.tinta }}" stroke-opacity=".5" stroke-width="6"/>
+          {% if loop.index0 < 2 %}<rect x="190" y="150" width="190" height="60" rx="10" fill="{{ n.colores.fondo }}"/><rect x="190" y="130" width="60" height="30" rx="8" fill="#fff"/><rect x="190" y="205" width="190" height="16" fill="{{ n.colores.tinta }}" opacity=".7"/>
+          {% else %}<rect x="230" y="90" width="120" height="130" fill="{{ n.colores.tinta }}" opacity=".75"/><path d="M262 220 q28 -60 56 0Z" fill="{{ n.colores.acento2 }}"/><rect x="30" y="200" width="160" height="20" fill="{{ n.colores.tinta }}" opacity=".6"/>{% endif %}
+        </svg>
+        <h3>{{ e.t }}</h3><p>{{ e.d }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <h3 style="margin-top:40px">{{ t.servicios_h }}</h3>
+    <ul class="serv">{% for s in t.servicios %}<li>{{ s }}</li>{% endfor %}</ul>
+  </div></section>
+
+  <section class="s" id="llegar"><div class="w dos">
+    <div><h2>{{ t.temporada_h }}</h2><p>{{ t.temporada }}</p></div>
+    <div><h2>{{ t.llegar_h }}</h2><p>{{ t.llegar_p }}</p><a class="bt" href="{{ n.mapa_url }}">{{ t.mapa }} →</a></div>
+  </div></section>
+
+  <section class="s contacto" id="contacto"><div class="w">
+    <h2>{{ t.contacto_h }}</h2><p>{{ t.contacto_p }}</p>
+    <div class="acciones" style="margin-top:20px">
+      <a class="bt p" href="https://wa.me/{{ wa }}">{{ ico_wa }}{{ t.reservar }}</a>
+      <a class="bt" href="tel:{{ tel }}">{{ ico_tel }}{{ n.telefono }}</a>
+    </div>
+    <p class="linea">{{ n.email }}</p>
+  </div></section>
+</main>
+<footer><div class="w"><span>© {{ anyo }} {{ n.nombre }}</span><span>{{ t.pie }}</span></div></footer>
+
+<div class="barra">
+  <a class="bt p" href="https://wa.me/{{ wa }}">{{ ico_wa }}WhatsApp</a>
+  <a class="bt" href="tel:{{ tel }}">{{ ico_tel }}{{ t.llamar }}</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+# Textos de la web de servicios. Un bloque por idioma; las claves son las mismas.
+# Datos compartidos (precios, contacto) en `datos`.
+datos:
+  nombre: "Fernando"            # <-- apellido pendiente
+  email: "hola@TU-DOMINIO.com"  # <-- pendiente: email público
+  whatsapp: "+34 600 000 000"   # <-- pendiente: teléfono público
+  precio_esencial: 650
+  precio_completa: 1400
+  precio_mantenimiento: 25
+  precio_fotos: 250
+
+es:
+  lang: es
+  title: "Fernando · Webs para negocios del Pirineo"
+  description: "Webs a precio cerrado para casas rurales, restaurantes y productores del Pirineo. Adaptadas al móvil, en varios idiomas y listas en unas dos semanas."
+  nav: {servicios: "Servicios", proceso: "Cómo trabajo", ejemplo: "Ejemplo", contacto: "Contacto"}
+  hero:
+    eyebrow: "Diseño web · Pirineo catalán y francés"
+    h1: "Webs para negocios de montaña que se leen bien en el móvil."
+    sub: "Casas rurales, restaurantes, productores y guías. Precio cerrado, en unas dos semanas y todo en remoto, para que tú sigas a lo tuyo."
+    cta1: "Ver una web de ejemplo"
+    cta2: "Hablemos 10 minutos"
+  problemas:
+    h2: "Lo que más me encuentro"
+    items:
+      - {t: "En el móvil no se lee", d: "Hay que hacer zoom, el menú no se abre o el teléfono no se puede pulsar. Y casi todos tus clientes te buscan desde el móvil."}
+      - {t: "Tarda en cargar", d: "Fotos enormes y plantillas viejas. Si la web tarda más de tres segundos, mucha gente se va antes de verla."}
+      - {t: "Solo en un idioma", d: "Estás a pocos kilómetros de la frontera y la mitad de tus visitantes hablan francés o catalán."}
+      - {t: "Cuesta reservar", d: "No queda claro cómo pedir mesa o habitación. Un botón de WhatsApp o reserva bien visible cambia mucho."}
+  packs:
+    h2: "Servicios a precio cerrado"
+    sub: "Sabes lo que pagas desde el principio. 50 % al empezar y 50 % al publicar."
+    desde: "desde"
+    mes: "/mes"
+    items:
+      - id: esencial
+        t: "Web esencial"
+        precio: precio_esencial
+        d: "Una página con todo lo importante."
+        lista: ["Quiénes sois, fotos, horarios y mapa", "Botón de WhatsApp o contacto", "Adaptada al móvil y rápida", "SEO básico y ficha de Google revisada"]
+      - id: completa
+        t: "Web completa"
+        precio: precio_completa
+        d: "Para alojamientos y negocios con más que contar."
+        destacado: "La más pedida"
+        lista: ["De 3 a 5 páginas", "En castellano, catalán, francés e inglés", "Galería de fotos", "Enlace a tu sistema de reservas"]
+      - id: mantenimiento
+        t: "Mantenimiento"
+        precio: precio_mantenimiento
+        mensual: true
+        d: "Para olvidarte de la parte técnica."
+        lista: ["Hosting y dominio incluidos", "Cambios pequeños (precios, horarios, fotos)", "Copias de seguridad", "Un correo y está hecho"]
+      - id: fotos
+        t: "Sesión de fotos"
+        precio: precio_fotos
+        d: "Opcional. Subo yo a hacer las fotos."
+        lista: ["Fotos del local, habitaciones o producto", "Editadas y optimizadas para la web", "Para usar también en redes y Google"]
+  proceso:
+    h2: "Cómo trabajo"
+    pasos:
+      - {t: "Llamada de 10 minutos", d: "Me cuentas tu negocio y te enseño cómo podría quedar tu web."}
+      - {t: "Propuesta con precio cerrado", d: "Te mando por escrito qué incluye, el precio y la fecha de entrega."}
+      - {t: "Dos semanas de trabajo", d: "Diseño y monto la web. Tú solo me pasas textos y fotos, o te ayudo con ellos."}
+      - {t: "Publicación", d: "Revisamos juntos, pides los cambios que quieras y la publicamos con tu dominio."}
+  ejemplo:
+    h2: "Así podría quedar la tuya"
+    d: "Una casa rural inventada de la Cerdanya, hecha con la Web esencial. Ábrela en el móvil: es donde más se nota."
+    cta: "Abrir el ejemplo"
+    nota: "Ejemplo ficticio con fines de demostración."
+  sobre:
+    h2: "Sobre mí"
+    p1: "Soy Fernando, diseñador gráfico y desarrollador web en Barcelona. Diseño cada web en Figma, la programo yo y la dejo optimizada para que cargue rápido."
+    p2: "Paso a menudo por el Pirineo, así que conozco bien a quién os dirigís. También hago fotografía: si lo necesitas, subo a hacer las fotos de tu casa o tu local."
+  faq:
+    h2: "Preguntas frecuentes"
+    items:
+      - {q: "¿Necesito saber de tecnología?", a: "No. Yo me encargo del dominio, el hosting y la puesta en marcha. Tú solo revisas y das el visto bueno."}
+      - {q: "Ya tengo web. ¿Hay que empezar de cero?", a: "No siempre. Si el contenido vale, lo aprovechamos y mantenemos tu dominio para no perder lo que ya tienes en Google."}
+      - {q: "¿Puedo hacer cambios después?", a: "Sí. Con el mantenimiento me escribes y los hago yo. Sin mantenimiento, te presupuesto cada cambio."}
+      - {q: "¿Trabajas en remoto?", a: "Sí, todo se hace por videollamada, correo o WhatsApp. Solo me desplazo si contratas la sesión de fotos."}
+  contacto:
+    h2: "Hablemos"
+    d: "Escríbeme y te respondo en un día. Sin compromiso."
+    email: "Email"
+    whatsapp: "WhatsApp"
+    copiar: "Copiar"
+    copiado: "Copiado"
+  footer: "Barcelona · Webs para negocios del Pirineo"
+
+ca:
+  lang: ca
+  title: "Fernando · Webs per a negocis del Pirineu"
+  description: "Webs a preu tancat per a cases rurals, restaurants i productors del Pirineu. Adaptades al mòbil, en diversos idiomes i llestes en unes dues setmanes."
+  nav: {servicios: "Serveis", proceso: "Com treballo", ejemplo: "Exemple", contacto: "Contacte"}
+  hero:
+    eyebrow: "Disseny web · Pirineu català i francès"
+    h1: "Webs per a negocis de muntanya que es llegeixen bé al mòbil."
+    sub: "Cases rurals, restaurants, productors i guies. Preu tancat, en unes dues setmanes i tot en remot, perquè tu segueixis amb el teu."
+    cta1: "Veure una web d'exemple"
+    cta2: "Parlem 10 minuts"
+  problemas:
+    h2: "El que més em trobo"
+    items:
+      - {t: "Al mòbil no es llegeix", d: "Cal fer zoom, el menú no s'obre o el telèfon no es pot prémer. I gairebé tots els teus clients et busquen des del mòbil."}
+      - {t: "Triga a carregar", d: "Fotos enormes i plantilles velles. Si la web triga més de tres segons, molta gent marxa abans de veure-la."}
+      - {t: "Només en un idioma", d: "Ets a pocs quilòmetres de la frontera i la meitat dels teus visitants parlen francès o castellà."}
+      - {t: "Costa reservar", d: "No queda clar com demanar taula o habitació. Un botó de WhatsApp o de reserva ben visible canvia molt."}
+  packs:
+    h2: "Serveis a preu tancat"
+    sub: "Saps què pagues des del principi. 50 % en començar i 50 % en publicar."
+    desde: "des de"
+    mes: "/mes"
+    items:
+      - id: esencial
+        t: "Web essencial"
+        precio: precio_esencial
+        d: "Una pàgina amb tot el que és important."
+        lista: ["Qui sou, fotos, horaris i mapa", "Botó de WhatsApp o contacte", "Adaptada al mòbil i ràpida", "SEO bàsic i fitxa de Google revisada"]
+      - id: completa
+        t: "Web completa"
+        precio: precio_completa
+        d: "Per a allotjaments i negocis amb més coses a explicar."
+        destacado: "La més demanada"
+        lista: ["De 3 a 5 pàgines", "En català, castellà, francès i anglès", "Galeria de fotos", "Enllaç al teu sistema de reserves"]
+      - id: mantenimiento
+        t: "Manteniment"
+        precio: precio_mantenimiento
+        mensual: true
+        d: "Per oblidar-te de la part tècnica."
+        lista: ["Hosting i domini inclosos", "Canvis petits (preus, horaris, fotos)", "Còpies de seguretat", "Un correu i fet"]
+      - id: fotos
+        t: "Sessió de fotos"
+        precio: precio_fotos
+        d: "Opcional. Pujo jo a fer les fotos."
+        lista: ["Fotos del local, habitacions o producte", "Editades i optimitzades per a la web", "Per fer-les servir també a xarxes i Google"]
+  proceso:
+    h2: "Com treballo"
+    pasos:
+      - {t: "Trucada de 10 minuts", d: "M'expliques el teu negoci i t'ensenyo com podria quedar la teva web."}
+      - {t: "Proposta amb preu tancat", d: "T'envio per escrit què inclou, el preu i la data d'entrega."}
+      - {t: "Dues setmanes de feina", d: "Dissenyo i munto la web. Tu només em passes textos i fotos, o t'hi ajudo."}
+      - {t: "Publicació", d: "Ho revisem junts, demanes els canvis que vulguis i la publiquem amb el teu domini."}
+  ejemplo:
+    h2: "Així podria quedar la teva"
+    d: "Una casa rural inventada de la Cerdanya, feta amb la Web essencial. Obre-la al mòbil: és on més es nota."
+    cta: "Obrir l'exemple"
+    nota: "Exemple fictici amb finalitat de demostració."
+  sobre:
+    h2: "Qui soc"
+    p1: "Soc en Fernando, dissenyador gràfic i desenvolupador web a Barcelona. Dissenyo cada web a Figma, la programo jo i la deixo optimitzada perquè carregui ràpid."
+    p2: "Passo sovint pel Pirineu i conec bé el vostre públic. També faig fotografia: si cal, pujo a fer les fotos de la teva casa o el teu local."
+  faq:
+    h2: "Preguntes freqüents"
+    items:
+      - {q: "Cal que sàpiga de tecnologia?", a: "No. M'encarrego del domini, el hosting i la posada en marxa. Tu només revises i dones el vistiplau."}
+      - {q: "Ja tinc web. Cal començar de zero?", a: "No sempre. Si el contingut serveix, l'aprofitem i mantenim el teu domini per no perdre el que ja tens a Google."}
+      - {q: "Puc fer canvis després?", a: "Sí. Amb el manteniment m'escrius i els faig jo. Sense manteniment, et pressuposto cada canvi."}
+      - {q: "Treballes en remot?", a: "Sí, tot es fa per videotrucada, correu o WhatsApp. Només em desplaço si contractes la sessió de fotos."}
+  contacto:
+    h2: "Parlem"
+    d: "Escriu-me i et responc en un dia. Sense compromís."
+    email: "Correu"
+    whatsapp: "WhatsApp"
+    copiar: "Copiar"
+    copiado: "Copiat"
+  footer: "Barcelona · Webs per a negocis del Pirineu"
+
+fr:
+  lang: fr
+  title: "Fernando · Sites web pour les établissements des Pyrénées"
+  description: "Des sites à prix fixe pour gîtes, restaurants et producteurs des Pyrénées. Adaptés au mobile, en plusieurs langues et prêts en deux semaines environ."
+  nav: {servicios: "Offres", proceso: "Méthode", ejemplo: "Exemple", contacto: "Contact"}
+  hero:
+    eyebrow: "Webdesign · Pyrénées catalanes et françaises"
+    h1: "Des sites pour les établissements de montagne, lisibles sur mobile."
+    sub: "Gîtes, restaurants, producteurs et guides. Prix fixe, environ deux semaines, entièrement à distance : vous continuez votre activité, je m'occupe du reste."
+    cta1: "Voir un site d'exemple"
+    cta2: "Parlons 10 minutes"
+  problemas:
+    h2: "Ce que je rencontre le plus souvent"
+    items:
+      - {t: "Illisible sur mobile", d: "Il faut zoomer, le menu ne s'ouvre pas ou le numéro n'est pas cliquable. Or presque tous vos clients vous cherchent depuis leur téléphone."}
+      - {t: "Trop lent", d: "Photos trop lourdes et thèmes anciens. Au-delà de trois secondes de chargement, beaucoup de visiteurs repartent."}
+      - {t: "Une seule langue", d: "Vous êtes à quelques kilomètres de la frontière et une bonne partie de vos visiteurs parlent espagnol ou catalan."}
+      - {t: "Difficile de réserver", d: "On ne voit pas comment réserver une table ou une chambre. Un bouton WhatsApp ou de réservation bien visible change tout."}
+  packs:
+    h2: "Offres à prix fixe"
+    sub: "Vous savez dès le départ ce que vous payez. 50 % au lancement, 50 % à la mise en ligne."
+    desde: "à partir de"
+    mes: "/mois"
+    items:
+      - id: esencial
+        t: "Site essentiel"
+        precio: precio_esencial
+        d: "Une page avec tout l'essentiel."
+        lista: ["Présentation, photos, horaires et carte", "Bouton WhatsApp ou contact", "Adapté au mobile et rapide", "Référencement de base et fiche Google revue"]
+      - id: completa
+        t: "Site complet"
+        precio: precio_completa
+        d: "Pour les hébergements et établissements qui ont plus à raconter."
+        destacado: "Le plus demandé"
+        lista: ["De 3 à 5 pages", "En français, espagnol, catalan et anglais", "Galerie photos", "Lien vers votre système de réservation"]
+      - id: mantenimiento
+        t: "Maintenance"
+        precio: precio_mantenimiento
+        mensual: true
+        d: "Pour ne plus penser à la technique."
+        lista: ["Hébergement et nom de domaine inclus", "Petites modifications (tarifs, horaires, photos)", "Sauvegardes", "Un e-mail et c'est fait"]
+      - id: fotos
+        t: "Séance photo"
+        precio: precio_fotos
+        d: "En option. Je viens faire les photos."
+        lista: ["Photos du lieu, des chambres ou des produits", "Retouchées et optimisées pour le web", "Utilisables aussi sur les réseaux et Google"]
+  proceso:
+    h2: "Ma méthode"
+    pasos:
+      - {t: "Appel de 10 minutes", d: "Vous me présentez votre activité et je vous montre à quoi pourrait ressembler votre site."}
+      - {t: "Proposition à prix fixe", d: "Je vous envoie par écrit le contenu, le prix et la date de livraison."}
+      - {t: "Deux semaines de travail", d: "Je conçois et je construis le site. Vous m'envoyez textes et photos, ou je vous aide à les préparer."}
+      - {t: "Mise en ligne", d: "Nous relisons ensemble, vous demandez les modifications souhaitées et le site est publié sur votre domaine."}
+  ejemplo:
+    h2: "Voici à quoi pourrait ressembler le vôtre"
+    d: "Un gîte imaginaire en Cerdagne, réalisé avec le Site essentiel. Ouvrez-le sur votre téléphone : c'est là que la différence se voit."
+    cta: "Ouvrir l'exemple"
+    nota: "Exemple fictif à des fins de démonstration."
+  sobre:
+    h2: "Qui suis-je"
+    p1: "Je suis Fernando, graphiste et développeur web à Barcelone. Je conçois chaque site sur Figma, je le développe moi-même et je l'optimise pour qu'il se charge vite."
+    p2: "Je passe souvent dans les Pyrénées et je connais bien votre clientèle. Je fais aussi de la photo : si besoin, je viens photographier votre gîte ou votre établissement."
+  faq:
+    h2: "Questions fréquentes"
+    items:
+      - {q: "Faut-il s'y connaître en informatique ?", a: "Non. Je m'occupe du nom de domaine, de l'hébergement et de la mise en ligne. Vous relisez et vous validez."}
+      - {q: "J'ai déjà un site. Faut-il tout refaire ?", a: "Pas toujours. Si le contenu est bon, on le reprend et on garde votre domaine pour ne pas perdre votre place sur Google."}
+      - {q: "Puis-je faire des modifications ensuite ?", a: "Oui. Avec la maintenance, vous m'écrivez et je m'en charge. Sans maintenance, je vous fais un devis pour chaque modification."}
+      - {q: "Vous travaillez à distance ?", a: "Oui, tout se fait par visio, e-mail ou WhatsApp. Je ne me déplace que pour la séance photo."}
+  contacto:
+    h2: "Parlons-en"
+    d: "Écrivez-moi, je vous réponds sous 24 heures. Sans engagement."
+    email: "E-mail"
+    whatsapp: "WhatsApp"
+    copiar: "Copier"
+    copiado: "Copié"
+  footer: "Barcelone · Sites web pour les établissements des Pyrénées"

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="{{ t.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ t.title }}</title>
+<meta name="description" content="{{ t.description }}">
+<meta property="og:title" content="{{ t.title }}">
+<meta property="og:description" content="{{ t.description }}">
+<meta property="og:type" content="website">
+{% for l in idiomas %}<link rel="alternate" hreflang="{{ l }}" href="{{ base_url }}{{ rutas[l] }}">
+{% endfor %}<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=Source+Sans+3:wght@400;600&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2315201c'/%3E%3Crect x='6' y='10' width='20' height='5' fill='%23fff'/%3E%3Crect x='6' y='17' width='20' height='5' fill='%23d6332b'/%3E%3C/svg%3E">
+<style>
+/* Concepto: mapa topográfico + señal GR (franja blanca/roja). Columna de lectura, secciones a sangre. */
+:root{
+  --paper:#f4f6f3; --panel:#ffffff; --ink:#15201c; --ink2:#46524c; --mut:#77827c; --line:#d9dfdb;
+  --gr:#d6332b; --pine:#1f4d3f; --contour:#c9d3cc;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#101614; --panel:#17201c; --ink:#edf1ee; --ink2:#b6c1bb; --mut:#8a958f; --line:#27322d;
+  --gr:#ec5047; --pine:#7fc2a6; --contour:#223029; color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(36px,6.4vw,72px);line-height:.98;font-weight:800;font-stretch:112%}
+h2{font-size:clamp(28px,4vw,44px);line-height:1.05;font-weight:800;font-stretch:110%}
+h3{font-size:20px;font-weight:700;font-stretch:105%}
+p{margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gr);outline-offset:3px;border-radius:4px}
+.eyebrow{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);display:flex;align-items:center;gap:10px}
+/* señal GR: franja blanca sobre roja */
+.gr{display:inline-grid;grid-template-rows:5px 5px;width:28px;flex:none;border-radius:1px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.gr::before{content:"";background:#fff}.gr::after{content:"";background:var(--gr)}
+/* cabecera */
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.marca{font-family:var(--display);font-weight:800;font-stretch:115%;font-size:18px;text-decoration:none;display:flex;gap:10px;align-items:center}
+nav.menu{display:flex;gap:22px;font-size:16px}
+nav.menu a{text-decoration:none;color:var(--ink2)} nav.menu a:hover{color:var(--ink)}
+.langs{display:flex;gap:2px;font-family:var(--display);font-size:13px;font-weight:700}
+.langs a{text-decoration:none;padding:4px 7px;border-radius:5px;color:var(--mut)}
+.langs a[aria-current="true"]{background:var(--ink);color:var(--paper)}
+@media (max-width:780px){nav.menu{display:none}}
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;padding-block:clamp(64px,11vw,140px) clamp(56px,9vw,110px);display:grid;gap:26px}
+.hero h1{max-width:15ch}
+.hero .sub{font-size:clamp(19px,2.2vw,22px);color:var(--ink2);max-width:52ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:17px;text-decoration:none;padding:14px 22px;border-radius:999px;border:2px solid var(--ink)}
+.btn.prim{background:var(--ink);color:var(--paper)}
+.btn.prim:hover{background:var(--pine);border-color:var(--pine)}
+.btn.sec:hover{background:var(--panel)}
+section.blk{padding-block:clamp(64px,9vw,112px);border-bottom:1px solid var(--line)}
+.head{display:grid;gap:12px;margin-bottom:40px;max-width:720px}
+.head p{color:var(--ink2);font-size:19px}
+/* problemas */
+.probs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+@media (max-width:900px){.probs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.probs{grid-template-columns:minmax(0,1fr)}}
+.prob{display:grid;gap:8px;align-content:start;border-top:3px solid var(--ink);padding-top:16px}
+.prob p{color:var(--ink2);font-size:17px}
+/* packs */
+.packs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1000px){.packs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.packs{grid-template-columns:minmax(0,1fr)}}
+.pack{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;gap:14px;align-content:start;position:relative}
+.pack.dest{border:2px solid var(--ink)}
+.badge{position:absolute;top:-12px;left:20px;background:var(--gr);color:#fff;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.precio{font-family:var(--display);font-weight:800;font-stretch:108%;font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.precio small{font-size:15px;font-weight:600;color:var(--mut);font-stretch:100%;margin-right:4px}
+.precio span{font-size:16px;font-weight:600;color:var(--mut)}
+.pack > p{color:var(--ink2);font-size:16px}
+.pack ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:16px}
+.pack li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px}
+.pack li::before{content:"";width:10px;height:10px;margin-top:8px;border-radius:2px;background:var(--pine)}
+/* proceso */
+ol.pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:p}
+@media (max-width:900px){ol.pasos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){ol.pasos{grid-template-columns:minmax(0,1fr)}}
+ol.pasos li{counter-increment:p;display:grid;gap:8px;align-content:start}
+ol.pasos li::before{content:counter(p,decimal-leading-zero);font-family:var(--display);font-weight:800;font-stretch:120%;font-size:44px;line-height:1;color:var(--gr)}
+ol.pasos p{color:var(--ink2);font-size:17px}
+/* ejemplo */
+.ej{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:820px){.ej{grid-template-columns:minmax(0,1fr)}}
+.ej .txt{display:grid;gap:16px;align-content:start}
+.ej .txt p{color:var(--ink2);font-size:19px}
+.ej .nota{font-size:14px;color:var(--mut)}
+.phone{justify-self:center;width:min(300px,80vw);aspect-ratio:9/18.5;border-radius:38px;border:10px solid var(--ink);background:var(--ink);overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.45);max-width:100%}
+.phone iframe{width:375px;height:770px;border:0;transform-origin:0 0;display:block;background:#fff}
+/* sobre + faq */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:56px}
+@media (max-width:820px){.duo{grid-template-columns:minmax(0,1fr)}}
+.sobre{display:grid;gap:16px;align-content:start}
+.sobre p{color:var(--ink2);max-width:52ch}
+.faq{display:grid;gap:0}
+details{border-bottom:1px solid var(--line);padding-block:16px}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-family:var(--display);font-weight:700;font-size:19px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:400;color:var(--gr);font-size:24px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--ink2);margin-top:8px;font-size:17px}
+/* contacto */
+.contacto{background:var(--ink);color:var(--paper);border-bottom:0}
+.contacto .head p{color:color-mix(in srgb,var(--paper) 75%,transparent)}
+.canales{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:760px}
+@media (max-width:600px){.canales{grid-template-columns:minmax(0,1fr)}}
+.canal{border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:14px;padding:20px;display:grid;gap:10px}
+.canal .lbl{font-family:var(--display);font-size:13px;letter-spacing:.1em;text-transform:uppercase;opacity:.7;font-weight:700}
+.canal a{font-family:var(--display);font-weight:700;font-size:clamp(18px,2.4vw,22px);word-break:break-all;text-decoration-thickness:1px;text-underline-offset:4px}
+.copy{justify-self:start;font:inherit;font-size:14px;background:transparent;color:inherit;border:1px solid color-mix(in srgb,var(--paper) 35%,transparent);border-radius:999px;padding:4px 12px;cursor:pointer}
+footer{background:var(--ink);color:color-mix(in srgb,var(--paper) 60%,transparent);font-size:15px;padding-bottom:env(safe-area-inset-bottom)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:28px;border-top:1px solid color-mix(in srgb,var(--paper) 15%,transparent)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="{{ rel }}{{ rutas[t.lang] }}"><span class="gr" aria-hidden="true"></span>{{ d.nombre }}</a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#servicios">{{ t.nav.servicios }}</a><a href="#proceso">{{ t.nav.proceso }}</a>
+      <a href="#ejemplo">{{ t.nav.ejemplo }}</a><a href="#contacto">{{ t.nav.contacto }}</a>
+    </nav>
+    <div class="langs">{% for l in idiomas %}<a href="{{ rel }}{{ rutas[l] }}" hreflang="{{ l }}" lang="{{ l }}" aria-current="{{ 'true' if l == t.lang else 'false' }}">{{ l|upper }}</a>{% endfor %}</div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <canvas id="topo" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="eyebrow"><span class="gr" aria-hidden="true"></span>{{ t.hero.eyebrow }}</div>
+      <h1>{{ t.hero.h1 }}</h1>
+      <p class="sub">{{ t.hero.sub }}</p>
+      <div class="ctas">
+        <a class="btn prim" href="#ejemplo">{{ t.hero.cta1 }} →</a>
+        <a class="btn sec" href="#contacto">{{ t.hero.cta2 }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="head"><h2>{{ t.problemas.h2 }}</h2></div>
+      <div class="probs">
+        {% for p in t.problemas["items"] %}<div class="prob"><h3>{{ p.t }}</h3><p>{{ p.d }}</p></div>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="servicios">
+    <div class="wrap">
+      <div class="head"><h2>{{ t.packs.h2 }}</h2><p>{{ t.packs.sub }}</p></div>
+      <div class="packs">
+        {% for p in t.packs["items"] %}
+        <article class="pack{{ ' dest' if p.destacado }}">
+          {% if p.destacado %}<span class="badge">{{ p.destacado }}</span>{% endif %}
+          <h3>{{ p.t }}</h3>
+          <div class="precio">{% if not p.mensual %}<small>{{ t.packs.desde }}</small>{% endif %}{{ "{:,}".format(d[p.precio]).replace(",", ".") }} €{% if p.mensual %}<span>{{ t.packs.mes }}</span>{% endif %}</div>
+          <p>{{ p.d }}</p>
+          <ul>{% for li in p.lista %}<li>{{ li }}</li>{% endfor %}</ul>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="proceso">
+    <div class="wrap">
+      <div class="head"><h2>{{ t.proceso.h2 }}</h2></div>
+      <ol class="pasos">{% for p in t.proceso.pasos %}<li><h3>{{ p.t }}</h3><p>{{ p.d }}</p></li>{% endfor %}</ol>
+    </div>
+  </section>
+
+  <section class="blk" id="ejemplo">
+    <div class="wrap ej">
+      <div class="txt">
+        <h2>{{ t.ejemplo.h2 }}</h2>
+        <p>{{ t.ejemplo.d }}</p>
+        <div class="ctas"><a class="btn prim" href="{{ rel }}{{ demo_ruta }}">{{ t.ejemplo.cta }} →</a></div>
+        <p class="nota">{{ t.ejemplo.nota }}</p>
+      </div>
+      <div class="phone"><iframe src="{{ rel }}{{ demo_ruta }}" title="{{ t.ejemplo.h2 }}" loading="lazy" tabindex="-1"></iframe></div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap duo">
+      <div class="sobre"><h2>{{ t.sobre.h2 }}</h2><p>{{ t.sobre.p1 }}</p><p>{{ t.sobre.p2 }}</p></div>
+      <div class="faq"><h2 style="margin-bottom:20px">{{ t.faq.h2 }}</h2>
+        {% for f in t.faq["items"] %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="blk contacto" id="contacto">
+    <div class="wrap">
+      <div class="head"><h2>{{ t.contacto.h2 }}</h2><p>{{ t.contacto.d }}</p></div>
+      <div class="canales">
+        <div class="canal"><span class="lbl">{{ t.contacto.email }}</span><a href="mailto:{{ d.email }}">{{ d.email }}</a>
+          <button class="copy" type="button" data-copy="{{ d.email }}" data-ok="{{ t.contacto.copiado }}">{{ t.contacto.copiar }}</button></div>
+        <div class="canal"><span class="lbl">{{ t.contacto.whatsapp }}</span><a href="https://wa.me/{{ d.whatsapp|replace('+','')|replace(' ','') }}">{{ d.whatsapp }}</a>
+          <button class="copy" type="button" data-copy="{{ d.whatsapp }}" data-ok="{{ t.contacto.copiado }}">{{ t.contacto.copiar }}</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© {{ anyo }} {{ d.nombre }}</span><span>{{ t.footer }}</span></div></footer>
+
+<script>
+// Curvas de nivel generativas (montañas de fondo), redibujadas al cambiar tamaño
+(function(){
+  const c = document.getElementById("topo"), ctx = c.getContext("2d");
+  const peaks = [[.78,.32,1],[.92,.75,.7],[.6,.95,.55],[.3,1.1,.4]];
+  function h(x,y){ let v=0; for(const [px,py,a] of peaks){ const dx=x-px, dy=(y-py)*1.4; v += a*Math.exp(-(dx*dx+dy*dy)*5.5); }
+    return v + .04*Math.sin(x*17+y*9) + .03*Math.cos(x*23-y*13); }
+  function draw(){
+    const r = c.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio||1);
+    c.width = r.width*dpr; c.height = r.height*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    const col = getComputedStyle(document.documentElement).getPropertyValue("--contour").trim();
+    const W=r.width, H=r.height, s=8, nx=Math.ceil(W/s)+1, ny=Math.ceil(H/s)+1, ar=W/H;
+    const g = new Float32Array(nx*ny);
+    for(let j=0;j<ny;j++) for(let i=0;i<nx;i++) g[j*nx+i]=h(i*s/W, (j*s/H)/ar*1.0);
+    ctx.lineWidth=1; ctx.strokeStyle=col;
+    for(let lv=.08; lv<1.4; lv+=.075){
+      ctx.beginPath();
+      for(let j=0;j<ny-1;j++) for(let i=0;i<nx-1;i++){
+        const a=g[j*nx+i]-lv,b=g[j*nx+i+1]-lv,cc=g[(j+1)*nx+i+1]-lv,d=g[(j+1)*nx+i]-lv;
+        const x=i*s,y=j*s,pts=[];
+        if((a>0)!==(b>0)) pts.push([x+s*a/(a-b),y]);
+        if((b>0)!==(cc>0)) pts.push([x+s,y+s*b/(b-cc)]);
+        if((d>0)!==(cc>0)) pts.push([x+s*d/(d-cc),y+s]);
+        if((a>0)!==(d>0)) pts.push([x,y+s*a/(a-d)]);
+        if(pts.length>=2){ ctx.moveTo(pts[0][0],pts[0][1]); ctx.lineTo(pts[1][0],pts[1][1]); }
+        if(pts.length===4){ ctx.moveTo(pts[2][0],pts[2][1]); ctx.lineTo(pts[3][0],pts[3][1]); }
+      }
+      ctx.stroke();
+    }
+  }
+  draw(); let t; addEventListener("resize",()=>{clearTimeout(t);t=setTimeout(draw,150)});
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change",draw);
+})();
+// Teléfono con el ejemplo: escalar el iframe al marco
+(function(){
+  const ph=document.querySelector(".phone"), fr=ph&&ph.querySelector("iframe");
+  if(!fr) return; const fit=()=>{ fr.style.transform="scale("+(ph.clientWidth/375)+")"; fr.style.height=(ph.clientHeight/(ph.clientWidth/375))+"px"; };
+  fit(); addEventListener("resize",fit);
+})();
+// Copiar email / teléfono
+document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",async()=>{
+  try{ await navigator.clipboard.writeText(b.dataset.copy); const o=b.textContent; b.textContent=b.dataset.ok; setTimeout(()=>b.textContent=o,1500);}catch(e){}
+}));
+</script>
+</body>
+</html>
