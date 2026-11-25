@@ -88,6 +88,7 @@ estilos_demo:
       ancho: 100%
       esquema: light
       textura: false
+video: {nombre: valle-nieve, estacion: invierno}
 img:
   portada: paisaje
   invierno: invierno
