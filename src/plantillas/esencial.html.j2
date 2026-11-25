@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{{ e.fuentes }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Plantilla "Web esencial" v2 · referencias: Waldhaus Sils (barra de temporada, logo centrado, foto enmarcada, serifa grande),
    Casa Albets (reserva directa bajo la portada, WhatsApp siempre visible), La Donaira (aire, paisaje protagonista). */
@@ -23,7 +24,7 @@
   --serif:{{ e.titulos|safe }}; --sans:{{ e.texto|safe }};
   --panel:{{ e.panel }}; --tw:{{ e.peso }}; --tt:{{ e.mayus }}; --ts:{{ e.tracking }}; --tl:{{ e.interlineado }}; --tx:{{ e.ancho }};
   color-scheme:{{ e.esquema }};
-  --marco:clamp(10px,2vw,24px);
+  --marco:clamp(10px,2vw,24px); --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
@@ -134,6 +135,31 @@ section{padding-block:clamp(64px,9vw,128px)}
 .datos span{font-size:13px;color:var(--gris)}
 @media (max-width:899px){.titular{grid-template-columns:minmax(0,1fr)}.datos{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px}}
 
+/* etiquetas mecanografiadas (ref. KOBU) */
+.meta{font-family:var(--mono);font-size:12.5px;letter-spacing:.01em;color:var(--gris);display:flex;gap:6px 14px;flex-wrap:wrap}
+.meta b{font-weight:500;color:var(--tinta)}
+.tag{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.75);border-radius:3px;padding:4px 8px;background:rgba(0,0,0,.25);backdrop-filter:blur(4px);display:flex;gap:6px;align-items:center}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.flecha{font-family:var(--sans);font-weight:400;font-size:.6em;vertical-align:.35em;margin-left:.2em;color:var(--rojo)}
+/* la casa: carril horizontal de alturas distintas (ref. KOBU) */
+.casa-cab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-top:clamp(56px,8vw,112px)}
+.casa-cab h2{font-size:clamp(40px,6vw,80px)}
+.casa-cab p{color:var(--gris);max-width:52ch}
+@media (max-width:899px){.casa-cab{grid-template-columns:minmax(0,1fr)}}
+.tira{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:32px;padding-bottom:14px;align-items:flex-start;scrollbar-width:thin}
+.tira figure{margin:0;flex:none;scroll-snap-align:start;display:grid;gap:10px}
+.tira .f-alta{width:clamp(220px,26vw,360px)}.tira .f-alta img{aspect-ratio:3/4}
+.tira .f-ancha{width:clamp(280px,38vw,560px);margin-top:clamp(40px,6vw,90px)}.tira .f-ancha img{aspect-ratio:4/3}
+.tira .f-baja{width:clamp(200px,22vw,300px);margin-top:clamp(80px,10vw,160px)}.tira .f-baja img{aspect-ratio:3/4}
+.tira img{width:100%;object-fit:cover;border-radius:3px}
+.tira figcaption{font-family:var(--mono);font-size:12px;color:var(--gris)}
+/* reseñas (ref. Mews) */
+.resenas{text-align:center}
+.resenas .estrellas{color:var(--rojo);letter-spacing:.2em;font-size:18px}
+.resenas blockquote{margin:22px auto 0;max-width:22ch;font-family:var(--serif);font-size:clamp(32px,4.6vw,64px);line-height:1.08}
+.resenas blockquote::before{content:"“";color:var(--rojo)}.resenas blockquote::after{content:"”";color:var(--rojo)}
+.resenas .firma{margin-top:22px}
+.resenas .nota{margin:18px auto 0;justify-content:center;opacity:.75}
 /* galería de la casa (mosaico) */
 .galeria{display:grid;grid-template-columns:1.6fr 1fr .62fr;grid-template-rows:auto;gap:14px;margin-top:clamp(48px,7vw,96px);align-items:end}
 .galeria figure{margin:0;display:grid;gap:8px;overflow:hidden}
@@ -281,10 +307,10 @@ footer a:hover{text-decoration:underline}
   <section id="casa"><div class="w">
     <div class="titular rv"><h1 class="mayus">{{ t.titular }}</h1><p>{{ t.intro }}</p></div>
     <div class="datos rv">{% for d in t.datos %}<div><b>{{ d.n }}</b><span>{{ d.t }}</span></div>{% endfor %}</div>
-    <div class="galeria" aria-label="{{ t.galeria_titulo }}">
-      <figure class="g1 rv rv-img">{{ foto(n.img.fachada, t.galeria[0], "(min-width: 900px) 60vw, 100vw") }}<figcaption>{{ t.galeria[0] }}</figcaption></figure>
-      <figure class="g2 rv rv-img">{{ foto(n.img.chimenea, t.galeria[1], "(min-width: 900px) 40vw, 100vw") }}<figcaption>{{ t.galeria[1] }}</figcaption></figure>
-      <figure class="g3 rv rv-img">{{ foto(n.img.ventana, t.galeria[2], "(min-width: 900px) 20vw, 50vw") }}<figcaption>{{ t.galeria[2] }}</figcaption></figure>
+    <div class="casa-cab rv"><h2 class="mayus">{{ t.galeria_titulo }}</h2><p>{{ t.casa_txt }}</p></div>
+    <div class="tira" aria-label="{{ t.galeria_titulo }}">
+      {% set g = [(n.img.fachada,'f-alta'),(n.img.chimenea,'f-ancha'),(n.img.patio,'f-baja'),(n.img.salon,'f-ancha'),(n.img.ventana,'f-alta')] %}
+      {% for im, cls in g %}<figure class="{{ cls }} rv rv-img">{{ foto(im, t.galeria[loop.index0], "(min-width: 900px) 38vw, 80vw") }}<figcaption>{{ '%02d'|format(loop.index) }} — {{ t.galeria[loop.index0] }}</figcaption></figure>{% endfor %}
     </div>
   </div></section>
 
@@ -293,13 +319,12 @@ footer a:hover{text-decoration:underline}
     <div class="habs">
       {% for h in n.habitaciones %}{% set ht = t.hab[h.id] %}
       <article class="hab rv">
-        <div class="foto rv-img">{{ foto(h.img, ht.nombre, "(min-width: 900px) 60vw, 100vw") }}</div>
+        <div class="foto rv-img" style="position:relative">{% if ht.etiqueta %}<span class="tag">{{ ht.etiqueta }}</span>{% endif %}{{ foto(h.img, ht.nombre, "(min-width: 900px) 60vw, 100vw") }}</div>
         <div class="txt">
-          <span class="eti" style="color:var(--rojo)">{{ h.personas }} {{ t.personas_txt }}</span>
-          <h3>{{ ht.nombre }}</h3>
+          <h3>{{ ht.nombre }}<span class="flecha" aria-hidden="true">↗</span></h3>
+          <p class="meta"><span>{{ t.desde }} <b>{{ h.precio }} €</b>/{{ t.noche }}</span><span>{{ h.personas }} {{ t.personas_txt }}</span>{% if h.m2 %}<span>{{ h.m2 }} m²</span>{% endif %}</p>
           <p>{{ ht.desc }}</p>
           <ul class="chips">{% for e in ht.extras %}<li>{{ e }}</li>{% endfor %}</ul>
-          <p class="precio">{{ t.desde }}<b>{{ h.precio }} €</b>/ {{ t.noche }}</p>
           <div><a class="pildora clara" href="#reserva">{{ t.reserva.boton }}</a></div>
         </div>
       </article>
@@ -324,12 +349,20 @@ footer a:hover{text-decoration:underline}
       {% for e in t.entorno %}
       <article{% if e.estacion != 'todo' %} data-solo="{{ e.estacion }}"{% endif %}>
         <div class="foto">{{ foto(n.img[e.img], e.t, "(min-width: 900px) 30vw, 78vw") }}</div>
-        <span class="eti" style="color:var(--rojo)">{{ e.etiqueta }}</span>
-        <h3>{{ e.t }}</h3><p>{{ e.d }}</p>
+        <p class="meta"><span style="color:var(--rojo)">{{ e.etiqueta }}</span>{% if e.dist %}<span>{{ e.dist }}</span>{% endif %}</p>
+        <h3>{{ e.t }}<span class="flecha" aria-hidden="true">↗</span></h3><p>{{ e.d }}</p>
       </article>
       {% endfor %}
     </div>
   </div></section>
+
+  {% if t.resenas %}<section class="resenas"><div class="w rv">
+    <span class="eti">{{ t.resenas.titulo }}</span>
+    <div class="estrellas" aria-label="5/5">★★★★★</div>
+    <blockquote>{{ t.resenas.cita }}</blockquote>
+    <p class="meta firma" style="justify-content:center"><b>{{ t.resenas.firma }}</b><span>{{ t.resenas.fuente }}</span></p>
+    <p class="meta nota">{{ t.resenas.nota }}</p>
+  </div></section>{% endif %}
 
   <section id="llegar"><div class="w dos rv">
     <div><h2 class="mayus">{{ t.llegar_titulo }}</h2>

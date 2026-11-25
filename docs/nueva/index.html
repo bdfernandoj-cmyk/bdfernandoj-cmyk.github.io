@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fernando · Webs para negocios de montaña</title>
+<meta name="description" content="Webs a precio cerrado para casas rurales, restaurantes y productores del Pirineo. Adaptadas al móvil, en varios idiomas y listas en unas dos semanas.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Fernando · Webs para negocios de montaña">
+<meta property="og:description" content="Webs a precio cerrado para casas rurales, restaurantes y productores del Pirineo. Adaptadas al móvil, en varios idiomas y listas en unas dos semanas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111513'/%3E%3Crect x='6' y='10' width='20' height='5' fill='%23fff'/%3E%3Crect x='6' y='17' width='20' height='5' fill='%23d6332b'/%3E%3C/svg%3E">
+<style>
+/* Web de servicios v2 · pizarra + señal GR. Referencias Mobbin: Vucko (portada partida), Instrument (caso destacado),
+   Trawelt (proceso con números gigantes), Parker AI (precios con "qué incluye" + tarjetas de borde grueso). */
+:root{
+  --bg:#111513; --panel:#191e1b; --panel2:#1f2521; --tinta:#ece6da; --gris:#a7ada6; --mut:#7c837d; --linea:#2b322e;
+  --gr:#d6332b; --blanco:#ffffff;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif; --body:"Source Sans 3",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--tinta);font:18px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.w{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;font-stretch:115%;letter-spacing:-.015em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gr);outline-offset:3px;border-radius:3px}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--gris)}
+.gr{display:inline-grid;grid-template-rows:5px 5px;width:26px;flex:none;border-radius:1px;overflow:hidden}
+.gr::before{content:"";background:#fff}.gr::after{content:"";background:var(--gr)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-stretch:110%;font-size:16px;text-decoration:none;padding:14px 22px;border-radius:999px;border:2px solid var(--tinta);color:var(--tinta);cursor:pointer;background:transparent}
+.btn.prim{background:var(--tinta);color:var(--bg)}
+.btn.prim:hover{background:var(--gr);border-color:var(--gr);color:#fff}
+.btn:not(.prim):hover{background:var(--panel2)}
+section{padding-block:clamp(72px,10vw,140px);border-top:1px solid var(--linea)}
+/* cabecera */
+header.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--linea);padding-top:env(safe-area-inset-top)}
+.top .w{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.marca{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-stretch:120%;font-size:18px;text-decoration:none}
+nav.menu{display:flex;gap:26px}
+nav.menu a{text-decoration:none;color:var(--gris);font-size:16px}
+nav.menu a:hover{color:var(--tinta)}
+.der{display:flex;gap:12px;align-items:center}
+.langs{display:flex;gap:2px;font-family:var(--mono);font-size:12px}
+.langs a{text-decoration:none;color:var(--mut);padding:4px 6px;border-radius:4px}
+.langs a[aria-current="true"]{color:var(--tinta);background:var(--panel2)}
+.der .btn{padding:9px 16px;font-size:14px}
+@media (max-width:860px){nav.menu{display:none}}
+@media (max-width:420px){.der .btn{display:none}}
+/* portada partida */
+.hero{border-top:0;padding-block:clamp(28px,5vw,64px) clamp(64px,8vw,110px)}
+.hero .w{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(28px,5vw,80px);align-items:center}
+.escena{position:relative;border-radius:20px;overflow:hidden;min-height:clamp(460px,62vh,680px);display:grid;place-items:center;background:
+  radial-gradient(120% 80% at 50% 110%,#26302a 0%,transparent 60%),linear-gradient(160deg,#1b221e,#121614)}
+.escena::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 70% 120%,transparent 0 22px,rgba(255,255,255,.035) 23px 24px)}
+.movil{position:relative;width:min(280px,64%);aspect-ratio:9/19.3;border-radius:42px;background:#000;padding:10px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 2px #2c332f}
+.movil .pantalla{width:100%;height:100%;border-radius:33px;overflow:hidden;position:relative;background:#222}
+.movil video,.movil img{width:100%;height:100%;object-fit:cover;display:block}
+.movil .isla{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:34%;height:22px;border-radius:20px;background:#000;z-index:2}
+.movil .barra-res{position:absolute;left:10px;right:10px;bottom:12px;display:grid;grid-template-columns:1.3fr 1fr;gap:6px;z-index:2}
+.movil .barra-res span{font:600 9.5px var(--body);letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:9px 4px;border-radius:999px;background:#2f4a3c;color:#fff}
+.movil .barra-res span+span{background:#25d366}
+.chip-flot{position:absolute;z-index:3;background:var(--tinta);color:var(--bg);font-family:var(--mono);font-size:12px;padding:8px 12px;border-radius:8px;box-shadow:0 12px 30px -12px rgba(0,0,0,.7);display:flex;gap:8px;align-items:center}
+.chip-flot b{color:var(--gr)}
+.chip-a{left:6%;bottom:18%}.chip-b{right:6%;top:14%}
+.hero .txt{display:grid;gap:24px;align-content:center}
+.eyebrow{display:flex;gap:12px;align-items:center}
+.hero h1{font-size:clamp(46px,7.4vw,108px);line-height:.92;font-weight:900;font-stretch:125%}
+.hero .sub{font-size:clamp(18px,1.7vw,21px);color:var(--gris);max-width:44ch}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.sellos{display:flex;gap:8px 18px;flex-wrap:wrap}
+.sellos span::before{content:"— ";color:var(--gr)}
+@media (max-width:900px){.hero .w{grid-template-columns:minmax(0,1fr)}.escena{order:2;min-height:540px}}
+/* problemas */
+.cab{display:grid;gap:14px;margin-bottom:clamp(32px,5vw,56px);max-width:760px}
+.cab h2{font-size:clamp(34px,4.6vw,60px);line-height:1;font-weight:800}
+.cab p{color:var(--gris)}
+.probs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+@media (max-width:900px){.probs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.probs{grid-template-columns:minmax(0,1fr)}}
+.prob{display:grid;gap:10px;align-content:start;border-top:2px solid var(--tinta);padding-top:16px}
+.prob h3{font-size:21px;font-weight:700;font-stretch:105%}
+.prob p{color:var(--gris);font-size:16.5px}
+/* caso destacado */
+.frase{font-family:var(--display);font-size:clamp(30px,4.2vw,58px);line-height:1.04;font-weight:700;max-width:22ch;margin-bottom:clamp(32px,5vw,56px)}
+.frase em{font-style:normal;color:var(--gr)}
+.caso{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:20px}
+@media (max-width:900px){.caso{grid-template-columns:minmax(0,1fr)}}
+.navegador{border-radius:16px;overflow:hidden;background:var(--panel);border:1px solid var(--linea);display:flex;flex-direction:column}
+.navegador .chrome{display:flex;gap:7px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--linea)}
+.navegador .chrome i{width:10px;height:10px;border-radius:50%;background:#3a423d}
+.navegador .chrome span{margin-left:10px}
+.navegador video,.navegador img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;flex:1}
+.ficha{background:var(--panel);border:1px solid var(--linea);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.ficha img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.ficha .cuerpo{padding:22px;display:grid;gap:14px}
+.ficha h3{font-size:30px;font-weight:800}
+.ficha ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ficha li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;font-size:16px}
+.ficha li::before{content:"↗";color:var(--gr);font-family:var(--mono);font-size:13px;line-height:1.7}
+/* proceso tipo expedición */
+.proc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px)}
+@media (max-width:900px){.proc{grid-template-columns:minmax(0,1fr)}}
+.proc .fijo{position:sticky;top:110px;align-self:start;display:grid;gap:18px}
+.proc .fijo h2{font-size:clamp(40px,5.6vw,76px);line-height:.95;font-weight:900}
+.proc .fijo p{color:var(--gris);max-width:40ch}
+@media (max-width:900px){.proc .fijo{position:static}}
+ol.etapas{list-style:none;margin:0;padding:0;counter-reset:e}
+ol.etapas li{counter-increment:e;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 28px;align-items:end;padding:28px 0;border-top:1px solid var(--linea)}
+ol.etapas li:last-child{border-bottom:1px solid var(--linea)}
+ol.etapas li::before{content:counter(e,decimal-leading-zero);grid-row:span 3;font-family:var(--display);font-weight:900;font-stretch:125%;font-size:clamp(84px,11vw,168px);line-height:.78;color:transparent;-webkit-text-stroke:1.5px var(--tinta);letter-spacing:-.04em}
+ol.etapas li:hover::before{color:var(--gr);-webkit-text-stroke-color:var(--gr)}
+ol.etapas h3{font-size:clamp(26px,2.6vw,34px);font-weight:800}
+ol.etapas p{color:var(--gris);font-size:17px}
+@media (prefers-reduced-motion:no-preference){ol.etapas li::before{transition:color .3s,-webkit-text-stroke-color .3s}}
+/* precios */
+.precios{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:1000px){.precios{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.incl{grid-column:1/-1}}
+@media (max-width:620px){.precios{grid-template-columns:minmax(0,1fr)}}
+.incl{background:var(--panel);border:1px solid var(--linea);border-radius:14px;padding:26px;display:grid;gap:16px}
+.incl h3{font-size:26px;font-weight:800}
+.incl ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.incl li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;font-size:16.5px}
+.incl li::before{content:"✓";color:var(--gr);font-weight:700}
+.plan{background:var(--tinta);color:#141816;border:2px solid #141816;border-radius:14px;padding:26px;display:grid;gap:16px;box-shadow:8px 8px 0 var(--gr);position:relative}
+.plan.alt{box-shadow:8px 8px 0 #3b4a42}
+.plan h3{font-size:30px;font-weight:900}
+.plan .lanz{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;background:#141816;color:var(--tinta);padding:5px 9px;border-radius:4px;justify-self:start}
+.plan .precio{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.plan .precio b{font-family:var(--display);font-weight:900;font-stretch:115%;font-size:58px;line-height:1;letter-spacing:-.03em}
+.plan .precio s{font-family:var(--mono);font-size:14px;color:#6b706b}
+.plan .iva{font-family:var(--mono);font-size:12px;color:#5d625d}
+.plan hr{border:0;border-top:1.5px dashed #9aa09a;margin:2px 0}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:16px}
+.plan li::before{content:"→ ";color:var(--gr);font-weight:700}
+.plan .btn{justify-content:center;border-color:#141816;color:#141816}
+.plan .btn.prim{background:#141816;color:var(--tinta)}
+.plan .btn.prim:hover{background:var(--gr);border-color:var(--gr);color:#fff}
+.extras{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:20px}
+@media (max-width:620px){.extras{grid-template-columns:minmax(0,1fr)}}
+.extra{border:1px solid var(--linea);border-radius:14px;padding:20px 24px;display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+.extra h3{font-size:22px;font-weight:800}
+.extra p{color:var(--gris);font-size:15.5px}
+.extra .p{font-family:var(--display);font-weight:900;font-size:30px;white-space:nowrap}
+.extra .p small{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--gris)}
+.lanz-nota{margin-top:22px}
+/* sobre + faq */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(36px,6vw,96px)}
+@media (max-width:900px){.duo{grid-template-columns:minmax(0,1fr)}}
+.duo h2{font-size:clamp(32px,4vw,52px);font-weight:800;margin-bottom:20px}
+.duo .sobre p{color:var(--gris);margin-bottom:14px;max-width:52ch}
+details{border-top:1px solid var(--linea);padding-block:18px}
+details:last-of-type{border-bottom:1px solid var(--linea)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-family:var(--display);font-weight:700;font-size:19px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gr);font-size:24px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--gris);margin-top:8px;font-size:17px}
+/* contacto */
+.contacto{background:var(--tinta);color:#141816;border-top:0}
+.contacto h2{font-size:clamp(56px,10vw,150px);line-height:.88;font-weight:900;font-stretch:125%}
+.contacto .sub{color:#4a4f4b;margin:20px 0 32px;max-width:46ch;font-size:19px}
+.canales{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;max-width:820px}
+@media (max-width:620px){.canales{grid-template-columns:minmax(0,1fr)}}
+.canal{border:2px solid #141816;border-radius:14px;padding:20px;display:grid;gap:8px;box-shadow:6px 6px 0 var(--gr)}
+.canal .mono{color:#5d625d}
+.canal a{font-family:var(--display);font-weight:800;font-size:clamp(18px,2.4vw,24px);word-break:break-all;text-underline-offset:4px}
+footer{color:var(--mut);font-size:14px;padding-bottom:env(safe-area-inset-bottom)}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:28px}
+/* animaciones */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="w">
+  <a class="marca" href="#"><span class="gr" aria-hidden="true"></span>Fernando</a>
+  <nav class="menu" aria-label="Menú"><a href="#trabajo">Trabajo</a><a href="#proceso">Proceso</a><a href="#precios">Precios</a><a href="#contacto">Contacto</a></nav>
+  <div class="der"><div class="langs"><a href="../nueva/" lang="es" aria-current="true">ES</a><a href="../nueva/ca/" lang="ca" aria-current="false">CA</a><a href="../nueva/fr/" lang="fr" aria-current="false">FR</a></div><a class="btn prim" href="#contacto">Hablemos</a></div>
+</div></header>
+
+<main>
+  <section class="hero"><div class="w">
+    <div class="escena rv" aria-hidden="true">
+      <div class="movil"><div class="pantalla"><span class="isla"></span>
+        <video muted loop playsinline autoplay preload="metadata" poster="../ejemplo/cal-ginebro/img/valle-nieve-poster-movil.webp" src="../ejemplo/cal-ginebro/img/valle-nieve-movil.mp4"></video>
+        <div class="barra-res"><span>Disponibilidad</span><span>WhatsApp</span></div>
+      </div></div>
+      <div class="chip-flot chip-a"><b>↗</b>Reserva por WhatsApp en dos toques</div>
+      <div class="chip-flot chip-b"><b>❄</b>ES · CA · FR</div>
+    </div>
+    <div class="txt rv">
+      <div class="eyebrow"><span class="gr" aria-hidden="true"></span><span class="mono">Diseño web · Pirineo catalán y francés</span></div>
+      <h1>Webs para negocios de montaña.</h1>
+      <p class="sub">Casas rurales, restaurantes, productores y guías. Precio cerrado, lista en dos semanas y todo en remoto, para que tú sigas a lo tuyo.</p>
+      <div class="ctas"><a class="btn prim" href="#trabajo">Ver un trabajo →</a><a class="btn" href="#contacto">Hablemos 10 minutos</a></div>
+      <div class="sellos mono"><span>Precio cerrado</span><span>Lista en 2 semanas</span><span>ES · CA · FR</span></div>
+    </div>
+  </div></section>
+
+  <section><div class="w">
+    <div class="cab rv"><h2>Lo que más me encuentro</h2></div>
+    <div class="probs"><div class="prob rv"><span class="mono">01</span><h3>En el móvil no se lee</h3><p>Hay que hacer zoom, el menú no se abre o el teléfono no se puede pulsar. Y casi todos tus clientes te buscan desde el móvil.</p></div><div class="prob rv"><span class="mono">02</span><h3>Tarda en cargar</h3><p>Fotos enormes y plantillas viejas. Si la web tarda más de tres segundos, mucha gente se va antes de verla.</p></div><div class="prob rv"><span class="mono">03</span><h3>Solo en un idioma</h3><p>Estás a pocos kilómetros de la frontera y la mitad de tus visitantes hablan francés o catalán.</p></div><div class="prob rv"><span class="mono">04</span><h3>Cuesta reservar</h3><p>No queda claro cómo pedir mesa o habitación. Un botón de WhatsApp o reserva bien visible cambia mucho.</p></div></div>
+  </div></section>
+
+  <section id="trabajo"><div class="w">
+    <p class="frase rv">Una web que se ve bien en el móvil, carga rápido y convierte visitas en reservas.</p>
+    <div class="caso">
+      <div class="navegador rv"><div class="chrome"><i></i><i></i><i></i><span class="mono">calginebro.cat</span></div>
+        <video class="lazy-v" muted loop playsinline preload="none" poster="../ejemplo/cal-ginebro/img/valle-nieve-poster-1600.webp" data-src="../ejemplo/cal-ginebro/img/valle-nieve-escritorio.mp4"></video></div>
+      <div class="ficha rv">
+        <img src="../ejemplo/cal-ginebro/img/fachada-800.webp" alt="Cal Ginebró" loading="lazy">
+        <div class="cuerpo">
+          <span class="mono">Caso destacado · demo</span>
+          <h3>Cal Ginebró</h3>
+          <span class="mono">Casa rural · Cerdanya</span>
+          <ul><li>Reserva por WhatsApp con las fechas ya escritas</li><li>Portada distinta en invierno y en verano</li><li>Castellano, catalán y francés</li><li>Fotos y vídeo optimizados: carga en segundos</li></ul>
+          <div><a class="btn prim" href="../ejemplo/cal-ginebro/">Abrir la web ↗</a></div>
+          <span class="mono" style="font-size:11px">Proyecto de demostración con un negocio ficticio.</span>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <section id="proceso"><div class="w proc">
+    <div class="fijo rv"><span class="mono">Proceso</span><h2>Tu web, en cuatro etapas</h2><p>Como una salida a la montaña: con mapa, ruta clara y sin sorpresas. Tú sigues con tu negocio; yo me ocupo de llegar arriba.</p></div>
+    <ol class="etapas"><li class="rv"><span class="mono">Día 1</span><h3>El mapa</h3><p>Llamada de 10 minutos. Me cuentas tu negocio y te enseño cómo podría quedar tu web.</p></li><li class="rv"><span class="mono">Día 2</span><h3>La ruta</h3><p>Propuesta por escrito con precio cerrado, qué incluye y fecha de entrega.</p></li><li class="rv"><span class="mono">Días 3–14</span><h3>La subida</h3><p>Diseño y monto la web. Tú solo me pasas textos y fotos, o te ayudo con ellos.</p></li><li class="rv"><span class="mono">Día 15</span><h3>La cumbre</h3><p>Revisamos juntos, pides los cambios que quieras y la publicamos con tu dominio.</p></li></ol>
+  </div></section>
+
+  <section id="precios"><div class="w">
+    <div class="cab rv"><h2>Precio cerrado, sin sorpresas</h2><p>50 % al empezar y 50 % al publicar.</p></div>
+    
+    <div class="precios">
+      <div class="incl rv"><h3>Incluido siempre</h3><ul><li>Diseño a medida, no una plantilla genérica</li><li>Adaptada al móvil</li><li>Carga rápida, medida con Google</li><li>Botón de WhatsApp y llamada</li><li>Mapa y cómo llegar</li><li>SEO básico y ficha de Google revisada</li><li>Textos legales: aviso legal, privacidad y cookies</li><li>30 minutos de formación</li></ul></div>
+      
+      <article class="plan rv alt">
+        <span class="lanz">Precio de lanzamiento para los 5 primeros negocios</span>
+        <h3>Web esencial</h3>
+        <p>Una página con todo lo importante.</p>
+        <div class="precio"><b>590 €</b><s>antes 790 €</s></div>
+        <span class="iva">+ IVA</span>
+        <hr>
+        <ul><li>Quiénes sois, fotos, horarios y mapa</li><li>Botón de WhatsApp o contacto</li><li>Adaptada al móvil y rápida</li><li>SEO básico y ficha de Google revisada</li></ul>
+        <a class="btn" href="#contacto">Lo quiero</a>
+      </article>
+      
+      <article class="plan rv">
+        <span class="lanz">Precio de lanzamiento para los 5 primeros negocios</span>
+        <h3>Web completa</h3>
+        <p>Para alojamientos y negocios con más que contar.</p>
+        <div class="precio"><b>1.390 €</b><s>antes 1.690 €</s></div>
+        <span class="iva">+ IVA</span>
+        <hr>
+        <ul><li>De 3 a 5 páginas</li><li>En castellano, catalán, francés e inglés</li><li>Galería de fotos</li><li>Enlace a tu sistema de reservas</li></ul>
+        <a class="btn prim" href="#contacto">Lo quiero</a>
+      </article>
+      
+    </div>
+    <div class="extras">
+      <div class="extra rv"><div><h3>Mantenimiento</h3><p>Para olvidarte de la parte técnica.</p></div><div class="p">35 €<small> /mes + IVA</small></div></div>
+      <div class="extra rv"><div><h3>Sesión de fotos</h3><p>Opcional. Subo yo a hacer las fotos.</p></div><div class="p">190 €<small> <s>290 €</s> + IVA</small></div></div>
+    </div>
+  </div></section>
+
+  <section><div class="w duo">
+    <div class="sobre rv"><h2>Sobre mí</h2><p>Soy Fernando, diseñador gráfico y desarrollador web en Barcelona. Diseño cada web en Figma, la programo yo y la dejo optimizada para que cargue rápido.</p><p>Paso a menudo por el Pirineo, así que conozco bien a quién os dirigís. También hago fotografía: si lo necesitas, subo a hacer las fotos de tu casa o tu local.</p></div>
+    <div class="rv"><h2>Preguntas frecuentes</h2><details><summary>¿Necesito saber de tecnología?</summary><p>No. Yo me encargo del dominio, el hosting y la puesta en marcha. Tú solo revisas y das el visto bueno.</p></details><details><summary>Ya tengo web. ¿Hay que empezar de cero?</summary><p>No siempre. Si el contenido vale, lo aprovechamos y mantenemos tu dominio para no perder lo que ya tienes en Google.</p></details><details><summary>¿Puedo hacer cambios después?</summary><p>Sí. Con el mantenimiento me escribes y los hago yo. Sin mantenimiento, te presupuesto cada cambio.</p></details><details><summary>¿Trabajas en remoto?</summary><p>Sí, todo se hace por videollamada, correo o WhatsApp. Solo me desplazo si contratas la sesión de fotos.</p></details></div>
+  </div></section>
+
+  <section class="contacto" id="contacto"><div class="w">
+    <h2 class="rv">Hablemos</h2>
+    <p class="sub rv">Escríbeme y te respondo en un día. Sin compromiso.</p>
+    <div class="canales rv">
+      <div class="canal"><span class="mono">Email</span><a href="mailto:hola@TU-DOMINIO.com">hola@TU-DOMINIO.com</a></div>
+      <div class="canal"><span class="mono">WhatsApp</span><a href="https://wa.me/34600000000">+34 600 000 000</a></div>
+    </div>
+  </div></section>
+</main>
+<footer><div class="w"><span>© 2026 Fernando</span><span class="mono">Barcelona · Webs para negocios del Pirineo</span></div></footer>
+
+<script>
+document.documentElement.classList.add("js");
+(function(){
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const els=document.querySelectorAll(".rv");
+  if(reduce||!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("in"));}
+  else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{rootMargin:"0px 0px -8% 0px",threshold:.08});els.forEach(e=>io.observe(e));}
+  // vídeo del caso: se carga solo al acercarse
+  document.querySelectorAll("video.lazy-v").forEach(v=>{ if(reduce) return;
+    const io=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ v.src=v.dataset.src; v.play().catch(()=>{}); io.disconnect(); } },{rootMargin:"200px"}); io.observe(v); });
+  if(reduce) document.querySelectorAll("video[autoplay]").forEach(v=>{v.removeAttribute("autoplay");v.pause();});
+})();
+</script>
+</body>
+</html>

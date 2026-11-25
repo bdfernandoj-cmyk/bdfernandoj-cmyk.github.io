@@ -104,10 +104,10 @@ img:
   detalle: detalle-manta
   ventana: ventana
 habitaciones:
-  - {id: puigmal, img: hab-puigmal, precio: 115, personas: 2}
-  - {id: cadi, img: hab-cadi, precio: 135, personas: 3}
-  - {id: carlit, img: suite, precio: 165, personas: 2}
-  - {id: estudi, img: estudi, precio: 150, personas: 4}
+  - {id: puigmal, img: hab-puigmal, precio: 115, personas: 2, m2: 24}
+  - {id: cadi, img: hab-cadi, precio: 135, personas: 3, m2: 32}
+  - {id: carlit, img: suite, precio: 165, personas: 2, m2: 40}
+  - {id: estudi, img: estudi, precio: 150, personas: 4, m2: 45}
 textos:
   es:
     lang: es
@@ -121,7 +121,9 @@ textos:
     portada_alt: "Valle de la Cerdanya con la casa de piedra entre prados y bosque"
     portada_alt_invierno: "El valle nevado con la masía y humo en la chimenea"
     galeria_titulo: "La casa"
-    galeria: ["La entrada de la masía al atardecer", "El salón de la chimenea", "Ventana de la habitación Puigmal"]
+    galeria: ["La entrada al atardecer", "El salón de la chimenea", "El patio de piedra", "El salón del Estudi", "Ventana de la Puigmal"]
+    casa_txt: "Muros de piedra de 1880, vigas de roble y contraventanas rojas. La hemos restaurado sin prisa, conservando lo que la hace de la Cerdanya."
+    resenas: {titulo: "Lo que dicen los huéspedes", cita: "Aquí aparecerá una reseña real de Google de tus huéspedes.", firma: "Nombre del huésped", fuente: "Reseña de Google", nota: "Bloque de ejemplo · en tu web se conecta a tus reseñas reales de Google"}
     reserva:
       titulo: "Reserva directa"
       ventaja: "Mejor precio garantizado"
@@ -140,9 +142,9 @@ textos:
     desde: "desde"
     personas_txt: "personas"
     hab:
-      puigmal: {nombre: "Habitación Puigmal", desc: "Muro de piedra original, cabecero de roble y balcón al valle.", extras: ["Cama de 180", "Balcón", "Butaca de lectura"]}
+      puigmal: {nombre: "Habitación Puigmal", desc: "Muro de piedra original, cabecero de roble y balcón al valle.", extras: ["Cama de 180", "Balcón", "Butaca de lectura"], etiqueta: "Últimas noches en Navidad"}
       cadi: {nombre: "Habitación Cadí", desc: "Bajo cubierta, con vigas a la vista, sofá y dos balcones.", extras: ["Cama de 160 + sofá cama", "Dos balcones", "Escritorio"]}
-      carlit: {nombre: "Suite Carlit", desc: "La más grande de la casa: cerchas de madera de 1880, rincón de lectura y balcón francés.", extras: ["Cama de 180", "Zona de estar", "Escritorio con vistas"]}
+      carlit: {nombre: "Suite Carlit", desc: "La más grande de la casa: cerchas de madera de 1880, rincón de lectura y balcón francés.", extras: ["Cama de 180", "Zona de estar", "Escritorio con vistas"], etiqueta: "Nueva"}
       estudi: {nombre: "Estudi del Pati", desc: "Apartamento con altillo, cocina, estufa de leña y terraza propia al patio.", extras: ["Altillo con cama de 160", "Cocina equipada", "Terraza", "Estufa de leña"]}
     desayuno_titulo: "El desayuno"
     desayuno_txt: "Producto de la Cerdanya en la mesa, cada mañana, junto a la ventana que da al prado."
@@ -152,10 +154,10 @@ textos:
     incluido: ["Desayuno casero", "Wifi", "Aparcamiento", "Guardaesquís", "Se admiten perros", "Toallas y lino"]
     entorno_titulo: "Qué hacer en la Cerdanya"
     entorno:
-      - {img: invierno, etiqueta: "Invierno", estacion: invierno, t: "Esquí en La Molina y Masella", d: "Pistas para todos los niveles a 25 minutos. Te guardamos los esquís y te dejamos la chimenea encendida."}
-      - {img: patio, etiqueta: "Todo el año", estacion: todo, t: "El pueblo de Das", d: "Iglesia románica, callejuelas de piedra y el mirador del valle a cinco minutos a pie."}
-      - {img: ruta, etiqueta: "Verano", estacion: verano, t: "Rutas por el Cadí-Moixeró", d: "Del paseo en familia a la cima del Puigmal. Te prestamos mapas y te preparamos picnic."}
-      - {img: producto, etiqueta: "Todo el año", estacion: todo, t: "Mercado de Puigcerdà", d: "Cada domingo: queso de la Cerdanya, embutido, miel y pan de pueblo."}
+      - {img: invierno, etiqueta: "Invierno", estacion: invierno, t: "Esquí en La Molina y Masella", d: "Pistas para todos los niveles a 25 minutos. Te guardamos los esquís y te dejamos la chimenea encendida.", dist: "25 min en coche"}
+      - {img: patio, etiqueta: "Todo el año", estacion: todo, t: "El pueblo de Das", d: "Iglesia románica, callejuelas de piedra y el mirador del valle a cinco minutos a pie.", dist: "5 min a pie"}
+      - {img: ruta, etiqueta: "Verano", estacion: verano, t: "Rutas por el Cadí-Moixeró", d: "Del paseo en familia a la cima del Puigmal. Te prestamos mapas y te preparamos picnic.", dist: "Desde la puerta"}
+      - {img: producto, etiqueta: "Todo el año", estacion: todo, t: "Mercado de Puigcerdà", d: "Cada domingo: queso de la Cerdanya, embutido, miel y pan de pueblo.", dist: "10 min en coche"}
     llegar_titulo: "Cómo llegar"
     llegar: [{t: "Barcelona", d: "2 h por el túnel del Cadí"}, {t: "Puigcerdà", d: "10 min por la carretera de Das"}, {t: "Toulouse", d: "2 h 30 por Bourg-Madame"}, {t: "Aeropuerto de la Cerdanya", d: "5 min"}]
     mapa: "Ver en el mapa"
@@ -183,7 +185,9 @@ textos:
     portada_alt: "Vall de la Cerdanya amb la casa de pedra entre prats i bosc"
     portada_alt_invierno: "La vall nevada amb la masia i fum a la xemeneia"
     galeria_titulo: "La casa"
-    galeria: ["L'entrada de la masia al capvespre", "La sala de la llar de foc", "Finestra de l'habitació Puigmal"]
+    galeria: ["L'entrada al capvespre", "La sala de la llar de foc", "El pati de pedra", "La sala de l'Estudi", "Finestra de la Puigmal"]
+    casa_txt: "Murs de pedra de 1880, bigues de roure i finestrons vermells. L'hem restaurada sense presses, conservant el que la fa de la Cerdanya."
+    resenas: {titulo: "El que diuen els hostes", cita: "Aquí apareixerà una ressenya real de Google dels teus hostes.", firma: "Nom de l'hoste", fuente: "Ressenya de Google", nota: "Bloc d'exemple · a la teva web es connecta a les teves ressenyes reals de Google"}
     reserva:
       titulo: "Reserva directa"
       ventaja: "Millor preu garantit"
@@ -202,9 +206,9 @@ textos:
     desde: "des de"
     personas_txt: "persones"
     hab:
-      puigmal: {nombre: "Habitació Puigmal", desc: "Mur de pedra original, capçal de roure i balcó a la vall.", extras: ["Llit de 180", "Balcó", "Butaca de lectura"]}
+      puigmal: {nombre: "Habitació Puigmal", desc: "Mur de pedra original, capçal de roure i balcó a la vall.", extras: ["Llit de 180", "Balcó", "Butaca de lectura"], etiqueta: "Últimes nits per Nadal"}
       cadi: {nombre: "Habitació Cadí", desc: "Sota coberta, amb bigues a la vista, sofà i dos balcons.", extras: ["Llit de 160 + sofà llit", "Dos balcons", "Escriptori"]}
-      carlit: {nombre: "Suite Carlit", desc: "La més gran de la casa: encavallades de fusta de 1880, racó de lectura i balcó francès.", extras: ["Llit de 180", "Zona d'estar", "Escriptori amb vistes"]}
+      carlit: {nombre: "Suite Carlit", desc: "La més gran de la casa: encavallades de fusta de 1880, racó de lectura i balcó francès.", extras: ["Llit de 180", "Zona d'estar", "Escriptori amb vistes"], etiqueta: "Nova"}
       estudi: {nombre: "Estudi del Pati", desc: "Apartament amb altell, cuina, estufa de llenya i terrassa pròpia al pati.", extras: ["Altell amb llit de 160", "Cuina equipada", "Terrassa", "Estufa de llenya"]}
     desayuno_titulo: "L'esmorzar"
     desayuno_txt: "Producte de la Cerdanya a taula, cada matí, al costat de la finestra que dona al prat."
@@ -214,10 +218,10 @@ textos:
     incluido: ["Esmorzar casolà", "Wifi", "Aparcament", "Guarda-esquís", "S'admeten gossos", "Tovalloles i lli"]
     entorno_titulo: "Què fer a la Cerdanya"
     entorno:
-      - {img: invierno, etiqueta: "Hivern", estacion: invierno, t: "Esquí a La Molina i Masella", d: "Pistes per a tots els nivells a 25 minuts. Et guardem els esquís i et deixem la llar de foc encesa."}
-      - {img: patio, etiqueta: "Tot l'any", estacion: todo, t: "El poble de Das", d: "Església romànica, carrerons de pedra i el mirador de la vall a cinc minuts a peu."}
-      - {img: ruta, etiqueta: "Estiu", estacion: verano, t: "Rutes pel Cadí-Moixeró", d: "De la passejada en família al cim del Puigmal. Et deixem mapes i et preparem pícnic."}
-      - {img: producto, etiqueta: "Tot l'any", estacion: todo, t: "Mercat de Puigcerdà", d: "Cada diumenge: formatge de la Cerdanya, embotit, mel i pa de pagès."}
+      - {img: invierno, etiqueta: "Hivern", estacion: invierno, t: "Esquí a La Molina i Masella", d: "Pistes per a tots els nivells a 25 minuts. Et guardem els esquís i et deixem la llar de foc encesa.", dist: "25 min en cotxe"}
+      - {img: patio, etiqueta: "Tot l'any", estacion: todo, t: "El poble de Das", d: "Església romànica, carrerons de pedra i el mirador de la vall a cinc minuts a peu.", dist: "5 min a peu"}
+      - {img: ruta, etiqueta: "Estiu", estacion: verano, t: "Rutes pel Cadí-Moixeró", d: "De la passejada en família al cim del Puigmal. Et deixem mapes i et preparem pícnic.", dist: "Des de la porta"}
+      - {img: producto, etiqueta: "Tot l'any", estacion: todo, t: "Mercat de Puigcerdà", d: "Cada diumenge: formatge de la Cerdanya, embotit, mel i pa de pagès.", dist: "10 min en cotxe"}
     llegar_titulo: "Com arribar"
     llegar: [{t: "Barcelona", d: "2 h pel túnel del Cadí"}, {t: "Puigcerdà", d: "10 min per la carretera de Das"}, {t: "Tolosa", d: "2 h 30 per Bourg-Madame"}, {t: "Aeroport de la Cerdanya", d: "5 min"}]
     mapa: "Veure al mapa"
@@ -245,7 +249,9 @@ textos:
     portada_alt: "Vallée de Cerdagne avec la maison en pierre entre prés et forêt"
     portada_alt_invierno: "La vallée enneigée avec la ferme et la cheminée qui fume"
     galeria_titulo: "La maison"
-    galeria: ["L'entrée de la ferme au coucher du soleil", "Le salon avec la cheminée", "Fenêtre de la chambre Puigmal"]
+    galeria: ["L'entrée au coucher du soleil", "Le salon avec la cheminée", "Le patio en pierre", "Le séjour du Studio", "Fenêtre de la Puigmal"]
+    casa_txt: "Murs en pierre de 1880, poutres en chêne et volets rouges. Nous l'avons restaurée sans hâte, en gardant ce qui la rend cerdane."
+    resenas: {titulo: "Ce qu'en disent nos hôtes", cita: "Ici s'affichera un vrai avis Google de vos hôtes.", firma: "Nom de l'hôte", fuente: "Avis Google", nota: "Bloc d'exemple · sur votre site, il se connecte à vos vrais avis Google"}
     reserva:
       titulo: "Réservation directe"
       ventaja: "Meilleur prix garanti"
@@ -264,9 +270,9 @@ textos:
     desde: "à partir de"
     personas_txt: "personnes"
     hab:
-      puigmal: {nombre: "Chambre Puigmal", desc: "Mur en pierre d'origine, tête de lit en chêne et balcon sur la vallée.", extras: ["Lit de 180", "Balcon", "Fauteuil de lecture"]}
+      puigmal: {nombre: "Chambre Puigmal", desc: "Mur en pierre d'origine, tête de lit en chêne et balcon sur la vallée.", extras: ["Lit de 180", "Balcon", "Fauteuil de lecture"], etiqueta: "Dernières nuits à Noël"}
       cadi: {nombre: "Chambre Cadí", desc: "Sous les toits, poutres apparentes, canapé et deux balcons.", extras: ["Lit de 160 + canapé-lit", "Deux balcons", "Bureau"]}
-      carlit: {nombre: "Suite Carlit", desc: "La plus grande de la maison : charpente de 1880, coin lecture et balcon à la française.", extras: ["Lit de 180", "Coin salon", "Bureau avec vue"]}
+      carlit: {nombre: "Suite Carlit", desc: "La plus grande de la maison : charpente de 1880, coin lecture et balcon à la française.", extras: ["Lit de 180", "Coin salon", "Bureau avec vue"], etiqueta: "Nouveau"}
       estudi: {nombre: "Studio du Patio", desc: "Appartement avec mezzanine, cuisine, poêle à bois et terrasse privative sur le patio.", extras: ["Mezzanine avec lit de 160", "Cuisine équipée", "Terrasse", "Poêle à bois"]}
     desayuno_titulo: "Le petit-déjeuner"
     desayuno_txt: "Des produits de Cerdagne chaque matin, près de la fenêtre qui donne sur le pré."
@@ -276,10 +282,10 @@ textos:
     incluido: ["Petit-déjeuner maison", "Wifi", "Parking", "Local à skis", "Chiens acceptés", "Serviettes et linge"]
     entorno_titulo: "Que faire en Cerdagne"
     entorno:
-      - {img: invierno, etiqueta: "Hiver", estacion: invierno, t: "Ski à La Molina et Masella", d: "Des pistes pour tous les niveaux à 25 minutes. Nous gardons vos skis et la cheminée vous attend."}
-      - {img: patio, etiqueta: "Toute l'année", estacion: todo, t: "Le village de Das", d: "Église romane, ruelles en pierre et belvédère sur la vallée à cinq minutes à pied."}
-      - {img: ruta, etiqueta: "Été", estacion: verano, t: "Randonnées dans le Cadí-Moixeró", d: "De la balade en famille au sommet du Puigmal. Cartes prêtées et pique-nique préparé."}
-      - {img: producto, etiqueta: "Toute l'année", estacion: todo, t: "Marché de Puigcerdà", d: "Chaque dimanche : fromage de Cerdagne, charcuterie, miel et pain de campagne."}
+      - {img: invierno, etiqueta: "Hiver", estacion: invierno, t: "Ski à La Molina et Masella", d: "Des pistes pour tous les niveaux à 25 minutes. Nous gardons vos skis et la cheminée vous attend.", dist: "25 min en voiture"}
+      - {img: patio, etiqueta: "Toute l'année", estacion: todo, t: "Le village de Das", d: "Église romane, ruelles en pierre et belvédère sur la vallée à cinq minutes à pied.", dist: "5 min à pied"}
+      - {img: ruta, etiqueta: "Été", estacion: verano, t: "Randonnées dans le Cadí-Moixeró", d: "De la balade en famille au sommet du Puigmal. Cartes prêtées et pique-nique préparé.", dist: "Depuis la porte"}
+      - {img: producto, etiqueta: "Toute l'année", estacion: todo, t: "Marché de Puigcerdà", d: "Chaque dimanche : fromage de Cerdagne, charcuterie, miel et pain de campagne.", dist: "10 min en voiture"}
     llegar_titulo: "Accès"
     llegar: [{t: "Perpignan", d: "1 h 45 par la N116"}, {t: "Bourg-Madame", d: "15 min par Puigcerdà"}, {t: "Toulouse", d: "2 h 30 par l'A61 et la N20"}, {t: "Barcelone", d: "2 h par le tunnel du Cadí"}]
     mapa: "Voir sur la carte"

@@ -8,9 +8,45 @@ datos:
   precio_completa: 1400
   precio_mantenimiento: 25
   precio_fotos: 250
+  # v2 (propuesta "Rentable con lanzamiento", pendiente de confirmar por Fernando)
+  v2: {esencial: 790, esencial_lanz: 590, completa: 1690, completa_lanz: 1390, mantenimiento: 35, fotos: 290, fotos_lanz: 190}
 
 es:
   lang: es
+  v2:
+    title: "Fernando · Webs para negocios de montaña"
+    nav: {trabajo: "Trabajo", proceso: "Proceso", precios: "Precios", contacto: "Contacto"}
+    cta_nav: "Hablemos"
+    eyebrow: "Diseño web · Pirineo catalán y francés"
+    h1: "Webs para negocios de montaña."
+    sub: "Casas rurales, restaurantes, productores y guías. Precio cerrado, lista en dos semanas y todo en remoto, para que tú sigas a lo tuyo."
+    cta1: "Ver un trabajo"
+    cta2: "Hablemos 10 minutos"
+    sellos: ["Precio cerrado", "Lista en 2 semanas", "ES · CA · FR"]
+    movil_nota: "Reserva por WhatsApp en dos toques"
+    problemas_t: "Lo que más me encuentro"
+    caso_frase: "Una web que se ve bien en el móvil, carga rápido y convierte visitas en reservas."
+    caso_eti: "Caso destacado · demo"
+    caso_nombre: "Cal Ginebró"
+    caso_tipo: "Casa rural · Cerdanya"
+    caso_puntos: ["Reserva por WhatsApp con las fechas ya escritas", "Portada distinta en invierno y en verano", "Castellano, catalán y francés", "Fotos y vídeo optimizados: carga en segundos"]
+    caso_cta: "Abrir la web"
+    caso_nota: "Proyecto de demostración con un negocio ficticio."
+    proc_t: "Tu web, en cuatro etapas"
+    proc_intro: "Como una salida a la montaña: con mapa, ruta clara y sin sorpresas. Tú sigues con tu negocio; yo me ocupo de llegar arriba."
+    pasos:
+      - {t: "El mapa", d: "Llamada de 10 minutos. Me cuentas tu negocio y te enseño cómo podría quedar tu web.", cuando: "Día 1"}
+      - {t: "La ruta", d: "Propuesta por escrito con precio cerrado, qué incluye y fecha de entrega.", cuando: "Día 2"}
+      - {t: "La subida", d: "Diseño y monto la web. Tú solo me pasas textos y fotos, o te ayudo con ellos.", cuando: "Días 3–14"}
+      - {t: "La cumbre", d: "Revisamos juntos, pides los cambios que quieras y la publicamos con tu dominio.", cuando: "Día 15"}
+    precios_t: "Precio cerrado, sin sorpresas"
+    precios_sub: "50 % al empezar y 50 % al publicar."
+    lanz_nota: "Precio de lanzamiento para los 5 primeros negocios"
+    incluido_t: "Incluido siempre"
+    incluido: ["Diseño a medida, no una plantilla genérica", "Adaptada al móvil", "Carga rápida, medida con Google", "Botón de WhatsApp y llamada", "Mapa y cómo llegar", "SEO básico y ficha de Google revisada", "Textos legales: aviso legal, privacidad y cookies", "30 minutos de formación"]
+    antes: "antes"
+    elegir: "Lo quiero"
+    extras_t: "Además"
   title: "Fernando · Webs para negocios del Pirineo"
   description: "Webs a precio cerrado para casas rurales, restaurantes y productores del Pirineo. Adaptadas al móvil, en varios idiomas y listas en unas dos semanas."
   nav: {servicios: "Servicios", proceso: "Cómo trabajo", ejemplo: "Ejemplo", contacto: "Contacto"}
@@ -89,6 +125,40 @@ es:
 
 ca:
   lang: ca
+  v2:
+    title: "Fernando · Webs per a negocis de muntanya"
+    nav: {trabajo: "Feina", proceso: "Procés", precios: "Preus", contacto: "Contacte"}
+    cta_nav: "Parlem"
+    eyebrow: "Disseny web · Pirineu català i francès"
+    h1: "Webs per a negocis de muntanya."
+    sub: "Cases rurals, restaurants, productors i guies. Preu tancat, llesta en dues setmanes i tot en remot, perquè tu segueixis amb el teu."
+    cta1: "Veure una feina"
+    cta2: "Parlem 10 minuts"
+    sellos: ["Preu tancat", "Llesta en 2 setmanes", "CA · ES · FR"]
+    movil_nota: "Reserva per WhatsApp en dos tocs"
+    problemas_t: "El que més em trobo"
+    caso_frase: "Una web que es veu bé al mòbil, carrega ràpid i converteix visites en reserves."
+    caso_eti: "Cas destacat · demo"
+    caso_nombre: "Cal Ginebró"
+    caso_tipo: "Casa rural · Cerdanya"
+    caso_puntos: ["Reserva per WhatsApp amb les dates ja escrites", "Portada diferent a l'hivern i a l'estiu", "Català, castellà i francès", "Fotos i vídeo optimitzats: carrega en segons"]
+    caso_cta: "Obrir la web"
+    caso_nota: "Projecte de demostració amb un negoci fictici."
+    proc_t: "La teva web, en quatre etapes"
+    proc_intro: "Com una sortida a la muntanya: amb mapa, ruta clara i sense sorpreses. Tu segueixes amb el teu negoci; jo m'encarrego d'arribar a dalt."
+    pasos:
+      - {t: "El mapa", d: "Trucada de 10 minuts. M'expliques el teu negoci i t'ensenyo com podria quedar la teva web.", cuando: "Dia 1"}
+      - {t: "La ruta", d: "Proposta per escrit amb preu tancat, què inclou i data d'entrega.", cuando: "Dia 2"}
+      - {t: "La pujada", d: "Dissenyo i munto la web. Tu només em passes textos i fotos, o t'hi ajudo.", cuando: "Dies 3–14"}
+      - {t: "El cim", d: "Ho revisem junts, demanes els canvis que vulguis i la publiquem amb el teu domini.", cuando: "Dia 15"}
+    precios_t: "Preu tancat, sense sorpreses"
+    precios_sub: "50 % en començar i 50 % en publicar."
+    lanz_nota: "Preu de llançament per als 5 primers negocis"
+    incluido_t: "Inclòs sempre"
+    incluido: ["Disseny a mida, no una plantilla genèrica", "Adaptada al mòbil", "Càrrega ràpida, mesurada amb Google", "Botó de WhatsApp i trucada", "Mapa i com arribar", "SEO bàsic i fitxa de Google revisada", "Textos legals: avís legal, privacitat i galetes", "30 minuts de formació"]
+    antes: "abans"
+    elegir: "La vull"
+    extras_t: "A més"
   title: "Fernando · Webs per a negocis del Pirineu"
   description: "Webs a preu tancat per a cases rurals, restaurants i productors del Pirineu. Adaptades al mòbil, en diversos idiomes i llestes en unes dues setmanes."
   nav: {servicios: "Serveis", proceso: "Com treballo", ejemplo: "Exemple", contacto: "Contacte"}
@@ -167,6 +237,40 @@ ca:
 
 fr:
   lang: fr
+  v2:
+    title: "Fernando · Sites web pour les établissements de montagne"
+    nav: {trabajo: "Réalisation", proceso: "Méthode", precios: "Tarifs", contacto: "Contact"}
+    cta_nav: "Parlons-en"
+    eyebrow: "Webdesign · Pyrénées catalanes et françaises"
+    h1: "Des sites pour les établissements de montagne."
+    sub: "Gîtes, restaurants, producteurs et guides. Prix fixe, prêt en deux semaines, entièrement à distance : vous continuez votre activité."
+    cta1: "Voir une réalisation"
+    cta2: "Parlons 10 minutes"
+    sellos: ["Prix fixe", "Prêt en 2 semaines", "FR · ES · CA"]
+    movil_nota: "Réservation par WhatsApp en deux gestes"
+    problemas_t: "Ce que je rencontre le plus souvent"
+    caso_frase: "Un site lisible sur mobile, rapide, qui transforme les visites en réservations."
+    caso_eti: "Réalisation · démo"
+    caso_nombre: "Cal Ginebró"
+    caso_tipo: "Gîte · Cerdagne"
+    caso_puntos: ["Réservation par WhatsApp avec les dates déjà saisies", "Page d'accueil différente en hiver et en été", "Français, espagnol et catalan", "Photos et vidéo optimisées : chargement en quelques secondes"]
+    caso_cta: "Ouvrir le site"
+    caso_nota: "Projet de démonstration avec un établissement fictif."
+    proc_t: "Votre site, en quatre étapes"
+    proc_intro: "Comme une sortie en montagne : une carte, un itinéraire clair et pas de surprises. Vous continuez votre activité ; je m'occupe d'arriver au sommet."
+    pasos:
+      - {t: "La carte", d: "Appel de 10 minutes. Vous me présentez votre activité et je vous montre à quoi pourrait ressembler votre site.", cuando: "Jour 1"}
+      - {t: "L'itinéraire", d: "Proposition écrite à prix fixe, avec le contenu et la date de livraison.", cuando: "Jour 2"}
+      - {t: "La montée", d: "Je conçois et je construis le site. Vous m'envoyez textes et photos, ou je vous aide à les préparer.", cuando: "Jours 3–14"}
+      - {t: "Le sommet", d: "Nous relisons ensemble, vous demandez les modifications voulues et le site est publié sur votre domaine.", cuando: "Jour 15"}
+    precios_t: "Prix fixe, sans surprise"
+    precios_sub: "50 % au lancement, 50 % à la mise en ligne."
+    lanz_nota: "Prix de lancement pour les 5 premiers établissements"
+    incluido_t: "Toujours inclus"
+    incluido: ["Design sur mesure, pas un thème générique", "Adapté au mobile", "Chargement rapide, mesuré avec Google", "Bouton WhatsApp et appel", "Carte et accès", "Référencement de base et fiche Google revue", "Mentions légales, confidentialité et cookies", "30 minutes de formation"]
+    antes: "au lieu de"
+    elegir: "Je le veux"
+    extras_t: "En plus"
   title: "Fernando · Sites web pour les établissements des Pyrénées"
   description: "Des sites à prix fixe pour gîtes, restaurants et producteurs des Pyrénées. Adaptés au mobile, en plusieurs langues et prêts en deux semaines environ."
   nav: {servicios: "Offres", proceso: "Méthode", ejemplo: "Exemple", contacto: "Contact"}
