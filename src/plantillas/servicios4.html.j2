@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="{{ t.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ v.marca }} · {{ v.marca_sub|lower }}</title>
+<meta name="description" content="{{ v.description }}">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="{{ v.marca }}">
+<meta property="og:description" content="{{ v.description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%2320250e'/%3E%3Cpath d='M7 36 L20 17 L27 27 L33 19 L42 36' fill='none' stroke='%23f2eddd' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3Ccircle cx='36' cy='12' r='3.6' fill='%23e05c33'/%3E%3C/svg%3E">
+<style>
+/* bau webs · rama de Project Bau. Mismo sistema: Hanken Grotesk en minúsculas, DM Mono para datos,
+   crema / oliva / musgo y el naranja de señal de sendero solo para lo que importa. */
+:root{
+  --cream:#f2eddd; --cream-deep:#e6dfc9; --olive:#343a1e; --olive-deep:#20250e; --olive-soft:#5f6642;
+  --ink:#1d2011; --rule:#cdc6ab; --moss:#b4bd72; --signal:#e05c33; --signal-text:#bf4720;
+  --display:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif; --data:"DM Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1); --g:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--cream);color:var(--ink);font:18px/1.55 var(--display);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
+h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.045em;line-height:.95;text-transform:lowercase;text-wrap:balance}
+p{margin:0;max-width:62ch}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(var(--g),env(safe-area-inset-left));padding-right:max(var(--g),env(safe-area-inset-right))}
+.data{font-family:var(--data);font-size:.74rem;letter-spacing:.02em;text-transform:uppercase;color:var(--olive-soft)}
+.big{font-size:clamp(2.5rem,7vw,5rem)}
+section.block{padding:clamp(72px,10vw,120px) 0}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border-radius:999px;font:700 1rem var(--display);letter-spacing:-.02em;text-transform:lowercase;text-decoration:none;border:1.5px solid var(--ink);background:var(--ink);color:var(--cream);cursor:pointer;transition:scale .15s,background .25s,color .25s,border-color .25s}
+.btn .arr{transition:translate .3s var(--ease)}
+.btn:hover .arr{translate:5px 0}
+.btn:active{scale:.96}
+.btn.hot{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+.btn.hot:hover{background:var(--cream);border-color:var(--cream)}
+.btn.line{background:transparent;color:var(--cream);border-color:var(--cream)}
+.btn.line:hover{background:var(--cream);color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--cream)}
+.btn svg{width:18px;height:18px}
+
+/* cabecera sobre la portada oscura */
+header.top{position:absolute;top:0;left:0;right:0;z-index:10;color:var(--cream)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:calc(22px + env(safe-area-inset-top));padding-bottom:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.35rem;letter-spacing:-.05em}
+.logo svg{width:38px;height:28px}
+nav.menu{display:flex;gap:6px;background:rgba(32,37,14,.6);backdrop-filter:blur(12px);border:1px solid rgba(242,237,221,.14);border-radius:999px;padding:5px}
+nav.menu a{text-decoration:none;padding:9px 14px;border-radius:999px;font-weight:700;letter-spacing:-.02em;text-transform:lowercase;font-size:.95rem;opacity:.8}
+nav.menu a:hover{background:rgba(242,237,221,.12);opacity:1}
+header .btn{padding:10px 16px;font-size:.95rem}
+@media (max-width:900px){nav.menu{display:none}}
+
+/* portada */
+.hero{background:var(--olive-deep);color:var(--cream);padding:clamp(120px,14vw,150px) 0 clamp(56px,7vw,84px);position:relative;overflow:clip}
+.hero .data{color:var(--moss)}
+.mega{font-size:clamp(3rem,13.5vw,9.6rem);line-height:.86;letter-spacing:-.06em}
+.mega em{font-style:normal;color:var(--signal)}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:.12em .04em .08em 0;margin:-.12em 0 -.08em 0}
+.wi{display:inline-block;animation:wordUp 1s var(--ease) both;animation-delay:calc(var(--d)*70ms + 80ms)}
+@keyframes wordUp{from{translate:0 115%;rotate:6deg}to{translate:0 0;rotate:0deg}}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);align-items:center;margin-top:20px}
+@media (max-width:960px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.lead{font-size:clamp(1.1rem,1.6vw,1.3rem);opacity:.9;max-width:44ch}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.deck{position:relative;height:clamp(320px,36vw,500px)}
+.cw{position:absolute;border-radius:18px;overflow:hidden;box-shadow:0 28px 60px rgba(0,0,0,.5);background:#000;animation:fan 1.2s var(--ease) both}
+.cw img{width:100%;height:100%;object-fit:cover;object-position:top}
+.c-desk{left:0;top:8%;width:84%;aspect-ratio:16/10;rotate:-3deg;--r:-3deg;animation-delay:.2s}
+.c-mov{right:0;top:0;width:clamp(130px,16vw,200px);aspect-ratio:9/19.5;rotate:5deg;--r:5deg;border:6px solid #000;border-radius:28px;animation-delay:.38s}
+.c-msg{left:10%;bottom:0;width:min(330px,72%);background:var(--cream);color:var(--ink);border-radius:16px;padding:14px 16px;rotate:-1.5deg;--r:-1.5deg;animation-delay:.6s;box-shadow:0 22px 50px rgba(0,0,0,.45)}
+.c-msg .q{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.c-msg .q svg{width:16px;height:16px;color:#1fa855}
+.c-msg .b{background:#dcf5d6;border-radius:12px 12px 12px 3px;padding:9px 11px;font-size:.95rem;line-height:1.4;font-weight:500}
+.c-msg .h{display:block;text-align:right;font-family:var(--data);font-size:.68rem;color:var(--olive-soft);margin-top:4px}
+@keyframes fan{from{opacity:0;scale:.85;rotate:0deg;translate:0 24px}to{opacity:1;scale:1;rotate:var(--r);translate:0 0}}
+.badge{position:absolute;left:-54px;top:52%;width:clamp(104px,11vw,132px);aspect-ratio:1;border-radius:50%;background:var(--signal);color:var(--ink);display:grid;place-items:center;text-decoration:none;z-index:3;animation:pop .8s .9s var(--ease) both}
+.badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 18s linear infinite}
+.badge text{font-family:var(--data);font-size:9.6px;letter-spacing:.08em;text-transform:uppercase;fill:currentColor}
+.badge .arr{font-size:1.8rem;font-weight:800;animation:nudge 1.6s ease-in-out infinite}
+@keyframes spin{to{rotate:360deg}}
+@keyframes pop{from{opacity:0;scale:.6}to{opacity:1;scale:1}}
+@keyframes nudge{0%,100%{translate:0 -3px}50%{translate:0 4px}}
+@media (max-width:960px){.deck{height:clamp(300px,90vw,440px)}.c-desk{width:88%}.c-desk{width:88%}.c-mov{width:30%}.badge{top:auto;bottom:-10px;left:66%}}
+
+/* cinta doble */
+.cinta{background:var(--signal);color:var(--ink);padding:12px 0 16px;overflow:hidden}
+.cinta .track{display:flex;width:max-content;animation:slide 32s linear infinite}
+.cinta .r2 .track{animation-direction:reverse;animation-duration:38s}
+.cinta span{font-weight:800;font-size:clamp(2rem,6.4vw,4.2rem);letter-spacing:-.05em;text-transform:lowercase;white-space:nowrap;line-height:1.05}
+.cinta span::after{content:"✳";margin:0 .35em;font-size:.55em;vertical-align:middle}
+.cinta .r2 span{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.cinta .r2 span::after{color:var(--ink);-webkit-text-stroke:0}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ventajas: tarjetas que se apilan */
+.cab{display:grid;gap:16px;margin-bottom:clamp(32px,5vw,56px)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.cards{grid-template-columns:minmax(0,1fr)}.card{position:sticky;top:calc(20px + var(--i)*18px)}}
+.card{border-radius:28px;padding:26px 24px 28px;min-height:460px;display:flex;flex-direction:column;gap:12px;overflow:hidden;box-shadow:0 -10px 30px rgba(29,32,17,.1);transition:translate .4s var(--ease),rotate .4s var(--ease)}
+@media (min-width:901px){.card:hover{translate:0 -10px;rotate:-1.2deg}}
+.card .num{font-weight:800;font-size:clamp(3.4rem,6vw,5rem);line-height:.8;letter-spacing:-.06em}
+.card h3{font-size:clamp(1.9rem,3vw,2.5rem)}
+.card p{font-size:1.02rem}
+.card .shot{margin-top:auto;align-self:center;width:58%;border-radius:20px 20px 0 0;border:5px solid var(--ink);border-bottom:0;overflow:hidden;margin-bottom:-28px;aspect-ratio:9/12}
+.card .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.k1{background:var(--cream-deep)}.k2{background:var(--moss)}.k3{background:var(--olive-deep);color:var(--cream)}.k3 .num{color:var(--signal)}
+.k3 .shot{border-color:#000}
+
+/* antes / después */
+.dark{background:var(--olive-deep);color:var(--cream)}
+.dark .data{color:var(--moss)}
+.comp{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:16/10;user-select:none;touch-action:pan-y;background:#000}
+.comp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.comp .despues{clip-path:inset(0 0 0 var(--x,50%))}
+.comp .linea{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;background:var(--signal);translate:-1.5px 0}
+.comp .tirador{position:absolute;top:50%;left:var(--x,50%);translate:-50% -50%;width:64px;height:64px;border-radius:50%;background:var(--signal);color:var(--ink);display:grid;place-items:center;font-weight:800;font-size:1.3rem}
+.comp .et{position:absolute;top:16px;font-weight:800;text-transform:lowercase;letter-spacing:-.03em;background:var(--cream);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:.95rem}
+.comp .et.a{left:16px}.comp .et.d{right:16px;background:var(--signal)}
+.comp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.comp-pie{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px}
+.comp-pie a{font-weight:700;text-transform:lowercase;color:var(--cream)}
+
+/* precios */
+.planes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.planes{grid-template-columns:minmax(0,1fr)}}
+.plan{border:2px solid var(--ink);border-radius:26px;padding:30px;display:flex;flex-direction:column;gap:16px;background:var(--cream);transition:translate .35s var(--ease),box-shadow .35s var(--ease)}
+.plan:hover{translate:-4px -4px;box-shadow:8px 8px 0 var(--signal)}
+.plan.dest{background:var(--ink);color:var(--cream)}
+.plan.dest .data{color:var(--moss)}
+.plan h3{font-size:clamp(2rem,3.4vw,2.8rem)}
+.precio{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.precio b{font-size:clamp(3.4rem,6vw,4.6rem);font-weight:800;letter-spacing:-.06em;line-height:1}
+.precio s{font-family:var(--data);font-size:.85rem;opacity:.7}
+.plan ul{list-style:none;margin:0;padding:16px 0 0;border-top:2px solid currentColor;display:grid;gap:9px;flex:1}
+.plan li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px;font-size:1.02rem}
+.plan li::before{content:"→";color:var(--signal);font-weight:800}
+.plan.dest .btn.hot:hover{background:var(--cream)}
+.extras{margin-top:20px;border-top:2px solid var(--ink)}
+.extras .fila{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:18px 0;border-bottom:2px solid var(--ink)}
+.extras h3{font-size:clamp(1.5rem,2.6vw,2rem)}
+.extras p{color:var(--olive-soft);font-size:1rem;margin-top:6px}
+.extras .p{font-weight:800;font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.04em;white-space:nowrap}
+.extras .p small{font-family:var(--data);font-size:.7rem;font-weight:400;letter-spacing:.02em;color:var(--olive-soft)}
+
+/* cómo funciona: lista grande */
+.crit{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.crit li{display:grid;grid-template-columns:70px minmax(0,1.1fr) minmax(0,1fr);gap:6px 16px;align-items:baseline;padding:22px 0 24px;border-bottom:2px solid var(--ink);transition:padding-left .5s var(--ease)}
+.crit strong{font-weight:800;font-size:clamp(2rem,5vw,3.8rem);letter-spacing:-.05em;line-height:.95;text-transform:lowercase;transition:color .3s}
+.crit .d{color:var(--olive-soft)}
+.crit li:hover{padding-left:14px}.crit li:hover strong{color:var(--signal-text)}
+@media (max-width:760px){.crit li{grid-template-columns:52px minmax(0,1fr)}.crit .d{grid-column:2}}
+
+/* quién + faq */
+.duo{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,90px)}
+@media (max-width:900px){.duo{grid-template-columns:minmax(0,1fr)}}
+.sobre{display:grid;gap:16px;align-content:start}
+.sobre p{color:var(--olive-soft)}
+details{border-bottom:2px solid var(--ink);padding:18px 0}
+details:first-of-type{border-top:2px solid var(--ink)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--signal);font-weight:800;font-size:1.5rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--olive-soft);margin-top:10px}
+
+/* llamada final */
+.cta{background:var(--signal);color:var(--ink);padding:clamp(80px,11vw,130px) 0}
+.cta .data{color:var(--ink)}
+.cta p{font-size:1.15rem}
+.cta .btn{background:var(--ink);color:var(--cream)}
+.cta .btn:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.cta .alt{font-size:1rem}
+footer{background:var(--olive-deep);color:var(--cream);padding:44px 0 0;overflow:hidden}
+footer .data{color:var(--moss)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.giant{font-weight:800;font-size:19vw;line-height:.78;letter-spacing:-.065em;text-transform:lowercase;white-space:nowrap;text-align:center;margin-top:26px;translate:0 8%}
+
+/* aparición al hacer scroll: se mueve, nunca se oculta */
+.js .reveal{translate:0 40px;transition:translate .9s var(--ease)}
+.js .reveal.in{translate:0 0}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wi,.cw,.badge,.badge svg,.badge .arr,.cinta .track{animation:none!important}.js .reveal{translate:0 0;transition:none}}
+</style>
+</head>
+<body>
+{% set d2 = d.v2 %}
+{% set wa_num = d.whatsapp|replace('+','')|replace(' ','') %}
+{% set ico_wa %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>{% endset %}
+{% set logo_svg %}<svg viewBox="0 0 62 44" aria-hidden="true"><path d="M3 40 L22 12 L32 26 L41 15 L59 40" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="48" cy="8" r="5" fill="#e05c33"/></svg>{% endset %}
+{% macro eur(n) %}{{ "{:,}".format(n).replace(",", ".") }} €{% endmacro %}
+{% macro palabras(txt, desde=0, acento=false) %}{% for w in txt.split(' ') %}<span class="w"><span class="wi" style="--d:{{ desde + loop.index0 }}">{% if acento %}<em>{{ w }}</em>{% else %}{{ w }}{% endif %}</span></span> {% endfor %}{% endmacro %}
+
+<header class="top"><div class="wrap">
+  <a class="logo" href="#">{{ logo_svg }}{{ v.marca }}</a>
+  <nav class="menu" aria-label="Menú"><a href="#ventajas">{{ v.nav.ventajas }}</a><a href="#ejemplo">{{ v.nav.ejemplo }}</a><a href="#precios">{{ v.nav.precios }}</a><a href="#como">{{ v.nav.como }}</a></nav>
+  <a class="btn hot" href="https://wa.me/{{ wa_num }}">{{ ico_wa }}{{ v.cta_wa|lower }}</a>
+</div></header>
+
+<main>
+  <section class="hero"><div class="wrap">
+    <p class="data">{{ v.para }}</p>
+    {% set n1 = v.h1_a.split(' ')|length %}{% set n2 = v.h1_b.split(' ')|length %}
+    <h1 class="mega" aria-label="{{ v.h1 }}">{{ palabras(v.h1_a) }}{{ palabras(v.h1_b, n1, true) }}{{ palabras(v.h1_c, n1 + n2) }}</h1>
+    <div class="hero-grid">
+      <div>
+        <p class="lead">{{ v.sub }}</p>
+        <div class="actions"><a class="btn hot" href="#ejemplo">{{ v.cta1|lower }} <span class="arr">→</span></a><a class="btn line" href="https://wa.me/{{ wa_num }}">{{ v.cta2|lower }} <span class="arr">→</span></a></div>
+      </div>
+      <div class="deck" aria-label="Capturas de una web de ejemplo">
+        <div class="cw c-desk"><img src="img/demo-escritorio.webp" alt="La web de ejemplo en el ordenador" width="1600" height="1000" fetchpriority="high"></div>
+        <div class="cw c-mov"><img src="img/demo-movil.webp" alt="La web de ejemplo en el móvil" width="780" height="1688"></div>
+        <div class="cw c-msg"><div class="q data">{{ ico_wa }}{{ v.burbuja_quien }}</div><div class="b">{{ v.burbuja }}<span class="h">{{ v.burbuja_hora }}</span></div></div>
+        <a class="badge" href="#precios" aria-label="{{ v.nav.precios }}"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#ring">{{ v.badge }}{{ v.badge }}</textPath></text></svg><span class="arr">↓</span></a>
+      </div>
+    </div>
+  </div></section>
+
+  <div class="cinta" aria-hidden="true">
+    <div class="r1"><div class="track">{% for i in range(2) %}{% for w in v.cinta1 %}<span>{{ w }}</span>{% endfor %}{% endfor %}</div></div>
+    <div class="r2"><div class="track">{% for i in range(2) %}{% for w in v.cinta2 %}<span>{{ w }}</span>{% endfor %}{% endfor %}</div></div>
+  </div>
+
+  <section class="block" id="ventajas"><div class="wrap">
+    <div class="cab"><p class="data">{{ v.nav.ventajas }}</p><h2 class="big reveal">{{ v.ventajas_t }}</h2></div>
+    <div class="cards">{% for x in v.ventajas %}
+      <article class="card k{{ loop.index }}" style="--i:{{ loop.index0 }}"><span class="num">0{{ loop.index }}</span><h3>{{ x.t }}</h3><p>{{ x.d }}</p><div class="shot"><img src="img/{{ x.img }}.webp" alt="" loading="lazy" width="780" height="1688"></div></article>
+    {% endfor %}</div>
+  </div></section>
+
+  <section class="block dark" id="ejemplo"><div class="wrap">
+    <div class="cab"><p class="data">{{ v.nav.ejemplo }}</p><h2 class="big reveal">{{ v.antes_t }}</h2><p>{{ v.antes_d }}</p></div>
+    <div class="comp reveal" style="--x:50%">
+      <img src="img/antes.webp" alt="{{ v.antes_l }}" loading="lazy">
+      <img class="despues" src="img/demo-escritorio.webp" alt="{{ v.despues_l }}" loading="lazy">
+      <span class="et a">{{ v.antes_l|lower }}</span><span class="et d">{{ v.despues_l|lower }}</span>
+      <span class="linea"></span><span class="tirador" aria-hidden="true">↔</span>
+      <input type="range" min="0" max="100" value="50" aria-label="{{ v.antes_l }} / {{ v.despues_l }}">
+    </div>
+    <div class="comp-pie"><span class="data">{{ v.antes_nota }}</span><a href="{{ rel }}{{ demo_ruta }}">{{ v.ejemplo_cta }} →</a></div>
+  </div></section>
+
+  <section class="block" id="precios"><div class="wrap">
+    <div class="cab"><p class="data">{{ v.lanz }}</p><h2 class="big reveal">{{ v.precios_t }}</h2><p>{{ v.precios_d }}</p></div>
+    <div class="planes">
+      {% for p, normal, lanz in [(v.planes[0], d2.esencial, d2.esencial_lanz), (v.planes[1], d2.completa, d2.completa_lanz)] %}
+      <article class="plan reveal{{ ' dest' if p.destacado }}">
+        <span class="data">{{ p.destacado or p.para }}</span>
+        <h3>{{ p.t }}</h3>
+        <div class="precio"><b>{{ eur(lanz) }}</b><s>{{ eur(normal) }}</s><span class="data">{{ v.iva }}</span></div>
+        <ul>{% for li in p.lista %}<li>{{ li }}</li>{% endfor %}</ul>
+        <div><a class="btn {{ 'hot' if p.destacado else 'ghost' }}" href="https://wa.me/{{ wa_num }}">{{ v.elegir|lower }} <span class="arr">→</span></a></div>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="extras">
+      <div class="fila"><div><h3>{{ v.mant_t }}</h3><p>{{ v.mant_d }}</p></div><div class="p">{{ d2.mantenimiento }} €<small> {{ v.mes }} {{ v.iva }}</small></div></div>
+      <div class="fila"><div><h3>{{ v.fotos_t }}</h3><p>{{ v.fotos_d }}</p></div><div class="p">{{ eur(d2.fotos_lanz) }}<small> {{ v.iva }}</small></div></div>
+    </div>
+  </div></section>
+
+  <section class="block" id="como" style="padding-top:0"><div class="wrap">
+    <div class="cab"><p class="data">3 pasos · 2 semanas</p><h2 class="big reveal">{{ v.como_t }}</h2></div>
+    <ol class="crit">{% for p in v.pasos %}<li><span class="data">{{ p.cuando }}</span><strong>{{ p.t }}</strong><span class="d">{{ p.d }}</span></li>{% endfor %}</ol>
+  </div></section>
+
+  <section class="block" style="padding-top:0"><div class="wrap duo">
+    <div class="sobre"><p class="data">{{ v.sobre_t }}</p><h2 class="big reveal">{{ d.nombre }}</h2>{% for p in v.sobre_p %}<p>{{ p }}</p>{% endfor %}</div>
+    <div><p class="data" style="margin-bottom:18px">{{ v.faq_t }}</p>
+      <details><summary>{{ v.faq_extra.q }}</summary><p>{{ v.faq_extra.a }}</p></details>
+      {% for f in t.faq["items"] %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}
+    </div>
+  </div></section>
+
+  <section class="cta"><div class="wrap" style="display:grid;gap:22px;justify-items:start">
+    <p class="data">{{ v.nav.contacto if v.nav.contacto else 'contacto' }}</p>
+    <h2 class="mega" style="font-size:clamp(2.8rem,9vw,7.2rem)">{{ v.final_t }}</h2>
+    <p>{{ v.final_d }}</p>
+    <a class="btn" href="https://wa.me/{{ wa_num }}">{{ ico_wa }}{{ v.final_wa|lower }} <span class="arr">→</span></a>
+    <p class="alt">{{ v.final_email }} <a href="mailto:{{ d.email }}">{{ d.email }}</a></p>
+  </div></section>
+</main>
+<footer>
+  <div class="wrap"><span class="data">© {{ anyo }} · Barcelona · una rama de project bau</span><span class="data">{{ v.marca_sub }}</span></div>
+  <div class="giant" aria-hidden="true">{{ v.marca }}</div>
+</footer>
+
+<script>
+document.documentElement.classList.add("js");
+(function(){
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches, els=document.querySelectorAll(".reveal");
+  if(reduce||!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("in"));}
+  else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{rootMargin:"0px 0px -6% 0px"});els.forEach(e=>io.observe(e));}
+  document.querySelectorAll(".comp").forEach(c=>{const r=c.querySelector("input");const f=()=>c.style.setProperty("--x",r.value+"%");r.addEventListener("input",f);f();});
+})();
+</script>
+</body>
+</html>

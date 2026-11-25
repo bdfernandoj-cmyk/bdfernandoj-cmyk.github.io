@@ -45,7 +45,7 @@ def main():
             base_url=BASE_URL, demo_ruta=demo_ruta, anyo=date.today().year)
         hechos.append(escribir(ruta_idioma(l), html))
     # Web de servicios v3 (propuesta, solo castellano por ahora) en docs/nueva/
-    html = env.get_template("servicios3.html.j2").render(
+    html = env.get_template("servicios4.html.j2").render(
         t=textos["es"], v=textos["es"]["v3"], d=textos["datos"], rel="../",
         demo_ruta=f"ejemplo/{demo}/", anyo=date.today().year)
     hechos.append(escribir("nueva/", html))

@@ -21,6 +21,13 @@ es:
     cta_wa: "Escríbeme"
     para: "Para casas rurales, restaurantes y productores del Pirineo"
     h1: "Que te reserven a ti, no a Booking."
+    h1_a: "que te reserven"
+    h1_b: "a ti,"
+    h1_c: "no a booking."
+    marca: "bau webs"
+    badge: "precio cerrado · en 2 semanas · desde 590 € · "
+    cinta1: ["reserva directa", "móvil primero", "precio cerrado", "en dos semanas", "sin comisiones"]
+    cinta2: ["casas rurales", "restaurantes", "queserías", "guías de montaña", "català · français"]
     sub: "Hago webs que se ven bien en el móvil y reciben reservas directas por WhatsApp. Precio cerrado desde 590 €, lista en dos semanas."
     cta1: "Ver un ejemplo"
     cta2: "Hablemos 10 minutos"
