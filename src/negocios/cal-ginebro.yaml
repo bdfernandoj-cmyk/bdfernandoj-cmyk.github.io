@@ -9,63 +9,83 @@ telefono: "+34 600 000 000"
 whatsapp: "+34 600 000 000"
 email: "hola@ejemplo.com"
 mapa_url: "https://www.openstreetmap.org/?mlat=42.383&mlon=1.861#map=13/42.383/1.861"
-colores: {fondo: "#f5f2ec", tinta: "#1d211c", acento: "#24402f", acento2: "#a3402f", suave: "#e9e3d8"}
-estilo:   # actual (Cormorant + Inter, crema)
-  fuentes: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"
-  titulos: '"Cormorant Garamond","Iowan Old Style",Georgia,serif'
-  texto: '"Inter",system-ui,-apple-system,"Segoe UI",sans-serif'
-  panel: "#ffffff"
-  peso: 500
-  mayus: uppercase
-  tracking: "-.005em"
-  interlineado: ".93"
-  ancho: "100%"
-  esquema: light
+colores:
+  fondo: '#1b201f'
+  tinta: '#ece5d8'
+  acento: '#2f4a3c'
+  acento2: '#c9583c'
+  suave: '#232a28'
+estilo:   # Pizarra (elegido por Fernando el 2026-11-25)
+  fuentes: https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600&display=swap
+  titulos: '"Gloock",Georgia,serif'
+  texto: '"Hanken Grotesk",system-ui,sans-serif'
+  panel: '#262d2b'
+  peso: 400
+  mayus: none
+  tracking: -.02em
+  interlineado: '1'
+  ancho: 100%
+  esquema: dark
   textura: false
 estilos_demo:
-  pizarra:
-    nombre: "Pizarra"
-    colores: {fondo: "#1b201f", tinta: "#ece5d8", acento: "#2f4a3c", acento2: "#c9583c", suave: "#232a28"}
+  crema:
+    nombre: Crema
+    colores:
+      fondo: '#f5f2ec'
+      tinta: '#1d211c'
+      acento: '#24402f'
+      acento2: '#a3402f'
+      suave: '#e9e3d8'
     estilo:
-      fuentes: "https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600&display=swap"
-      titulos: '"Gloock",Georgia,serif'
-      texto: '"Hanken Grotesk",system-ui,sans-serif'
-      panel: "#262d2b"
-      peso: 400
-      mayus: none
-      tracking: "-.02em"
-      interlineado: "1"
-      ancho: "100%"
-      esquema: dark
+      fuentes: https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap
+      titulos: '"Cormorant Garamond","Iowan Old Style",Georgia,serif'
+      texto: '"Inter",system-ui,-apple-system,"Segoe UI",sans-serif'
+      panel: '#ffffff'
+      peso: 500
+      mayus: uppercase
+      tracking: -.005em
+      interlineado: '.93'
+      ancho: 100%
+      esquema: light
       textura: false
   lino:
-    nombre: "Lino"
-    colores: {fondo: "#e8dfcf", tinta: "#2b241e", acento: "#3b4a33", acento2: "#a63d2a", suave: "#ddd2bf"}
+    nombre: Lino
+    colores:
+      fondo: '#e8dfcf'
+      tinta: '#2b241e'
+      acento: '#3b4a33'
+      acento2: '#a63d2a'
+      suave: '#ddd2bf'
     estilo:
-      fuentes: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
+      fuentes: https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap
       titulos: '"Bricolage Grotesque","Arial Narrow",sans-serif'
       texto: '"Newsreader",Georgia,serif'
-      panel: "#f3ece0"
+      panel: '#f3ece0'
       peso: 700
       mayus: uppercase
-      tracking: "-.01em"
-      interlineado: ".9"
-      ancho: "78%"
+      tracking: -.01em
+      interlineado: '.9'
+      ancho: 78%
       esquema: light
       textura: true
   nieve:
-    nombre: "Nieve"
-    colores: {fondo: "#fbfbf9", tinta: "#121517", acento: "#121517", acento2: "#b2412c", suave: "#f0f1ee"}
+    nombre: Nieve
+    colores:
+      fondo: '#fbfbf9'
+      tinta: '#121517'
+      acento: '#121517'
+      acento2: '#b2412c'
+      suave: '#f0f1ee'
     estilo:
-      fuentes: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap"
+      fuentes: https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap
       titulos: '"Instrument Serif",Georgia,serif'
       texto: '"Inter Tight",system-ui,sans-serif'
-      panel: "#ffffff"
+      panel: '#ffffff'
       peso: 400
       mayus: none
-      tracking: "-.015em"
-      interlineado: ".95"
-      ancho: "100%"
+      tracking: -.015em
+      interlineado: '.95'
+      ancho: 100%
       esquema: light
       textura: false
 img:
@@ -90,7 +110,7 @@ habitaciones:
 textos:
   es:
     lang: es
-    aviso: "Web de ejemplo · negocio ficticio · imágenes ilustrativas"
+    aviso: "Web de demostración de Fernando · negocio e imágenes ficticios"
     temporada:
       invierno: "Temporada de invierno · del 5 de diciembre al 6 de abril · quedan pocas noches libres en Navidad"
       verano: "Temporada de verano · del 15 de junio al 15 de septiembre · ideal para rutas por el Cadí"
@@ -152,7 +172,7 @@ textos:
     pie: "Casa rural · Das, Cerdanya · HUTG-000000 (ejemplo)"
   ca:
     lang: ca
-    aviso: "Web d'exemple · negoci fictici · imatges il·lustratives"
+    aviso: "Web de demostració d'en Fernando · negoci i imatges ficticis"
     temporada:
       invierno: "Temporada d'hivern · del 5 de desembre al 6 d'abril · queden poques nits lliures per Nadal"
       verano: "Temporada d'estiu · del 15 de juny al 15 de setembre · ideal per a rutes pel Cadí"
@@ -214,7 +234,7 @@ textos:
     pie: "Casa rural · Das, Cerdanya · HUTG-000000 (exemple)"
   fr:
     lang: fr
-    aviso: "Site d'exemple · établissement fictif · images d'illustration"
+    aviso: "Site de démonstration de Fernando · établissement et images fictifs"
     temporada:
       invierno: "Saison d'hiver · du 5 décembre au 6 avril · il reste peu de nuits à Noël"
       verano: "Saison d'été · du 15 juin au 15 septembre · idéal pour randonner dans le Cadí"

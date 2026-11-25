@@ -15,16 +15,16 @@
 <link rel="preload" as="image" href="../img/paisaje-1600.webp" imagesrcset="../img/paisaje-800.webp 800w, ../img/paisaje-1600.webp 1600w" imagesizes="100vw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap">
 <style>
 /* Plantilla "Web esencial" v2 · referencias: Waldhaus Sils (barra de temporada, logo centrado, foto enmarcada, serifa grande),
    Casa Albets (reserva directa bajo la portada, WhatsApp siempre visible), La Donaira (aire, paisaje protagonista). */
 :root{
-  --fondo:#f5f2ec; --tinta:#1d211c; --acento:#24402f; --rojo:#a3402f; --crema:#e9e3d8;
+  --fondo:#1b201f; --tinta:#ece5d8; --acento:#2f4a3c; --rojo:#c9583c; --crema:#232a28;
   --gris:color-mix(in srgb,var(--tinta) 62%,var(--fondo)); --linea:color-mix(in srgb,var(--tinta) 13%,var(--fondo));
-  --serif:"Cormorant Garamond","Iowan Old Style",Georgia,serif; --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --panel:#ffffff; --tw:500; --tt:uppercase; --ts:-.005em; --tl:.93; --tx:100%;
-  color-scheme:light;
+  --serif:"Gloock",Georgia,serif; --sans:"Hanken Grotesk",system-ui,sans-serif;
+  --panel:#262d2b; --tw:400; --tt:none; --ts:-.02em; --tl:1; --tx:100%;
+  color-scheme:dark;
   --marco:clamp(10px,2vw,24px);
 }
 *{box-sizing:border-box}
@@ -204,6 +204,7 @@ footer{font-size:13px;color:var(--gris)}
 footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:28px}
 footer nav{display:flex;gap:16px;flex-wrap:wrap}
 footer a{text-decoration:none}
+.aviso-pie{font-size:11px;opacity:.6}
 footer a:hover{text-decoration:underline}
 
 /* WhatsApp flotante (escritorio) + barra fija (móvil) */
@@ -227,7 +228,6 @@ footer a:hover{text-decoration:underline}
 
 
 
-<div class="demo">Web d&#39;exemple · negoci fictici · imatges il·lustratives</div>
 <div class="temporada"><div class="w">
   <span data-solo="invierno"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2v20M4 6l16 12M20 6 4 18M9 3l3 3 3-3M9 21l3-3 3 3"/></svg></span><span data-solo="verano"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span>
   <span data-solo="invierno">Temporada d&#39;hivern · del 5 de desembre al 6 d&#39;abril · queden poques nits lliures per Nadal</span><span data-solo="verano">Temporada d&#39;estiu · del 15 de juny al 15 de setembre · ideal per a rutes pel Cadí</span>
@@ -384,7 +384,7 @@ footer a:hover{text-decoration:underline}
 </main>
 
 <footer><div class="w">
-  <span>© 2026 Cal Ginebró · Casa rural · Das, Cerdanya · HUTG-000000 (exemple)</span>
+  <span>© 2026 Cal Ginebró · Casa rural · Das, Cerdanya · HUTG-000000 (exemple)<br><small class="aviso-pie">Web de demostració d&#39;en Fernando · negoci i imatges ficticis</small></span>
   <nav><a href="#">Avís legal</a><a href="#">Privacitat</a><a href="#">Galetes</a><a href="../../../ca/">Web: Fernando</a></nav>
 </div></footer>
 
