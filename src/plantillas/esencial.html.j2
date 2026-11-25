@@ -1,169 +1,330 @@
 <!doctype html>
-<html lang="{{ t.lang }}">
+<html lang="{{ t.lang }}" data-season="invierno">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{ n.nombre }} · {{ n.lugar }}</title>
-<meta name="description" content="{{ t.lema }}">
+<meta name="description" content="{{ t.intro }}">
 {% if n.ficticio %}<meta name="robots" content="noindex">{% endif %}
+<meta property="og:title" content="{{ n.nombre }} · {{ n.lugar }}">
+<meta property="og:description" content="{{ t.intro }}">
+<meta property="og:image" content="{{ img }}{{ n.img.portada }}-1600.webp">
 {% for l in idiomas %}<link rel="alternate" hreflang="{{ l }}" href="{{ rutas[l] }}">
-{% endfor %}<link rel="preconnect" href="https://fonts.googleapis.com">
+{% endfor %}<link rel="preload" as="image" href="{{ img }}{{ n.img.portada }}-1600.webp" imagesrcset="{{ img }}{{ n.img.portada }}-800.webp 800w, {{ img }}{{ n.img.portada }}-1600.webp 1600w" imagesizes="100vw">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap">
 <style>
-/* Plantilla "Web esencial": una página, móvil primero, barra de reserva fija abajo en el móvil. */
+/* Plantilla "Web esencial" v2 · referencias: Waldhaus Sils (barra de temporada, logo centrado, foto enmarcada, serifa grande),
+   Casa Albets (reserva directa bajo la portada, WhatsApp siempre visible), La Donaira (aire, paisaje protagonista). */
 :root{
-  --fondo:{{ n.colores.fondo }}; --tinta:{{ n.colores.tinta }}; --acento:{{ n.colores.acento }}; --acento2:{{ n.colores.acento2 }};
-  --suave:color-mix(in srgb,var(--tinta) 65%,var(--fondo)); --linea:color-mix(in srgb,var(--tinta) 14%,var(--fondo));
-  --panel:color-mix(in srgb,#fff 70%,var(--fondo));
-  --titulo:"Young Serif",Georgia,serif; --texto:"Figtree",system-ui,sans-serif;
+  --fondo:{{ n.colores.fondo }}; --tinta:{{ n.colores.tinta }}; --acento:{{ n.colores.acento }}; --rojo:{{ n.colores.acento2 }}; --crema:{{ n.colores.suave }};
+  --gris:color-mix(in srgb,var(--tinta) 62%,var(--fondo)); --linea:color-mix(in srgb,var(--tinta) 13%,var(--fondo));
+  --serif:"Cormorant Garamond","Iowan Old Style",Georgia,serif; --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --marco:clamp(10px,2vw,24px);
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--fondo);color:var(--tinta);font:17px/1.6 var(--texto);padding-bottom:calc(76px + env(safe-area-inset-bottom))}
-@media (min-width:760px){body{padding-bottom:0}}
-.w{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
-h1,h2,h3{font-family:var(--titulo);font-weight:400;margin:0;text-wrap:balance;line-height:1.1}
-h2{font-size:clamp(28px,4.5vw,40px)}
-h3{font-size:21px}
-p{margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+@media (min-width:900px){body{padding-bottom:0}}
+img{max-width:100%;display:block}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--acento2);outline-offset:3px;border-radius:4px}
-.aviso{background:var(--tinta);color:var(--fondo);font-size:13px;text-align:center;padding:6px 12px;padding-top:calc(6px + env(safe-area-inset-top));letter-spacing:.04em}
-header.cab .w{display:flex;justify-content:space-between;align-items:center;gap:16px;height:64px}
-.logo{font-family:var(--titulo);font-size:22px;text-decoration:none}
-nav.m{display:flex;gap:20px;font-size:15px}
-nav.m a{text-decoration:none;color:var(--suave)}
-.idi{display:flex;gap:4px;font-size:13px;font-weight:600}
-.idi a{text-decoration:none;padding:3px 6px;border-radius:4px;color:var(--suave)}
-.idi a[aria-current="true"]{background:var(--tinta);color:var(--fondo)}
-@media (max-width:760px){nav.m{display:none}}
-.portada{position:relative}
-.portada svg{display:block;width:100%;height:auto;max-height:62vh}
-.portada .w{display:grid;gap:14px;padding-block:28px 8px}
-.portada h1{font-size:clamp(44px,9vw,92px)}
-.lugar{font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acento)}
-.lema{font-size:clamp(19px,2.6vw,23px);color:var(--suave);max-width:36ch}
-.acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-.bt{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:600;padding:13px 20px;border-radius:12px;border:2px solid var(--tinta);font-size:16px}
-.bt.p{background:var(--acento);border-color:var(--acento);color:#fff}
-.bt svg{width:18px;height:18px;flex:none}
-section.s{padding-block:clamp(48px,8vw,88px);border-top:1px solid var(--linea)}
-.casa{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:start}
-@media (max-width:760px){.casa{grid-template-columns:minmax(0,1fr)}}
-.casa p{color:var(--suave);margin-top:16px;max-width:56ch}
-.datos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.dato{background:var(--panel);border:1px solid var(--linea);border-radius:14px;padding:16px}
-.dato b{display:block;font-family:var(--titulo);font-weight:400;font-size:30px;line-height:1.1;color:var(--acento)}
-.dato span{font-size:14px;color:var(--suave)}
-.esp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
-@media (max-width:760px){.esp{grid-template-columns:minmax(0,1fr)}}
-.esp article{display:grid;gap:10px}
-.esp svg{width:100%;height:auto;border-radius:14px;display:block}
-.esp p{color:var(--suave);font-size:16px}
-.serv{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0;list-style:none}
-.serv li{border:1px solid var(--linea);background:var(--panel);border-radius:999px;padding:6px 14px;font-size:15px}
-.dos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
-@media (max-width:760px){.dos{grid-template-columns:minmax(0,1fr)}}
-.dos p{color:var(--suave);margin-top:12px}
-.dos .bt{margin-top:16px}
-.contacto{background:var(--acento);color:#fff;border-top:0}
-.contacto p{opacity:.85;margin-top:10px}
-.contacto .acciones .bt{border-color:#fff;color:#fff}
-.contacto .acciones .bt.p{background:#fff;color:var(--acento)}
-.contacto .linea{margin-top:20px;font-size:15px;opacity:.85}
-footer{font-size:14px;color:var(--suave)}
-footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-block:24px}
-/* barra fija de reserva (solo móvil) */
-.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr;gap:10px;background:color-mix(in srgb,var(--fondo) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--linea);
+:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1;text-wrap:balance}
+p{margin:0}
+.w{max-width:1280px;margin:0 auto;padding-left:max(var(--marco),env(safe-area-inset-left));padding-right:max(var(--marco),env(safe-area-inset-right))}
+.eti{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+html:not([data-season="verano"]) [data-solo="verano"],html[data-season="verano"] [data-solo="invierno"]{display:none!important}
+
+/* aviso de demo + barra de temporada */
+.demo{background:var(--tinta);color:var(--fondo);text-align:center;font-size:12px;letter-spacing:.04em;padding:6px 12px;padding-top:calc(6px + env(safe-area-inset-top))}
+.temporada{background:var(--acento);color:#fff}
+.temporada .w{display:flex;align-items:center;justify-content:center;gap:12px;min-height:44px;font-size:14px;text-align:center;padding-block:8px}
+.temporada svg{width:16px;height:16px;flex:none;opacity:.85}
+
+/* cabecera */
+header.cab{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--fondo) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+header.cab.scrolled{border-bottom-color:var(--linea)}
+.cab .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:76px;gap:16px}
+nav.izq{display:flex;gap:26px}
+nav.izq a{text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+nav.izq a:hover{color:var(--tinta)}
+.marca{text-align:center;text-decoration:none;font-family:var(--serif);font-size:26px;letter-spacing:.16em;text-transform:uppercase;line-height:1.05}
+.marca small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.3em;color:var(--gris)}
+.der{display:flex;justify-content:flex-end;align-items:center;gap:10px}
+.estacion{display:inline-flex;border:1px solid var(--linea);border-radius:999px;padding:3px;background:var(--fondo)}
+.estacion button{font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;border:0;background:transparent;color:var(--gris);padding:7px 12px;border-radius:999px;cursor:pointer;display:flex;gap:6px;align-items:center}
+.estacion button svg{width:14px;height:14px}
+.estacion button[aria-pressed="true"]{background:var(--tinta);color:var(--fondo)}
+.idi{display:flex;gap:2px}
+.idi a{text-decoration:none;font-size:11px;font-weight:600;padding:6px;color:var(--gris);border-radius:4px}
+.idi a[aria-current="true"]{color:var(--tinta);text-decoration:underline;text-underline-offset:4px}
+.pildora{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--acento);color:#fff;border:0;border-radius:999px;padding:13px 22px;cursor:pointer;white-space:nowrap}
+.pildora:hover{background:color-mix(in srgb,var(--acento) 85%,#000)}
+.pildora.clara{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1px var(--tinta)}
+.pildora.clara:hover{background:var(--tinta);color:var(--fondo)}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--tinta)}
+.burger svg{width:26px;height:26px}
+@media (max-width:899px){
+  nav.izq,.der .estacion,.der .idi{display:none}
+  .burger{display:block}
+  .cab .w{height:64px}
+  .marca{font-size:21px}
+  .der .pildora{padding:10px 14px;font-size:11px}
+}
+.menu-movil{position:fixed;inset:0;z-index:60;background:var(--fondo);display:none;flex-direction:column;gap:28px;padding:calc(24px + env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) 24px max(24px,env(safe-area-inset-left))}
+.menu-movil.abierto{display:flex}
+.menu-movil .cerrar{align-self:flex-end;background:none;border:0;font-size:32px;line-height:1;cursor:pointer;color:var(--tinta)}
+.menu-movil nav{display:grid;gap:18px}
+.menu-movil nav a{font-family:var(--serif);font-size:38px;text-decoration:none;line-height:1.1}
+.menu-movil .fila{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.menu-movil .estacion,.menu-movil .idi{display:inline-flex}
+
+/* portada enmarcada + reserva */
+.portada{padding-inline:var(--marco);padding-top:4px}
+.portada figure{margin:0;position:relative;border-radius:3px;overflow:hidden;max-width:1600px;margin-inline:auto}
+.portada img{width:100%;height:clamp(380px,72vh,760px);object-fit:cover}
+.portada figcaption{position:absolute;left:20px;top:18px;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.reserva{position:relative;z-index:2;max-width:1080px;margin:-46px auto 0;background:#fff;border-radius:4px;box-shadow:0 18px 50px -24px rgba(20,30,20,.45);display:grid;grid-template-columns:auto 1fr 1fr 130px auto;align-items:stretch}
+.reserva .tit{display:flex;flex-direction:column;justify-content:center;padding:16px 22px;background:var(--acento);color:#fff;border-radius:4px 0 0 4px}
+.reserva .tit b{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.1}
+.reserva .tit span{font-size:12px;opacity:.85}
+.reserva label{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:12px 18px;border-left:1px solid var(--linea);min-width:0}
+.reserva label span{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+.reserva input,.reserva select{font:500 16px var(--sans);color:var(--tinta);border:0;background:transparent;padding:4px 0;width:100%;min-width:0}
+.reserva .btn{display:flex;align-items:center;padding:12px}
+.reserva .btn .pildora{height:100%;border-radius:3px;background:var(--rojo)}
+.reserva .btn .pildora:hover{background:color-mix(in srgb,var(--rojo) 85%,#000)}
+.reserva-nota{text-align:center;font-size:13px;color:var(--gris);margin-top:12px}
+@media (max-width:899px){
+  .portada img{height:clamp(300px,58vh,520px)}
+  .reserva{grid-template-columns:1fr 1fr;margin:-30px var(--marco) 0}
+  .reserva .tit{grid-column:1/-1;border-radius:4px 4px 0 0;flex-direction:row;justify-content:space-between;align-items:center;gap:12px}
+  .reserva label{border-left:0;border-top:1px solid var(--linea)}
+  .reserva label:nth-of-type(2){border-left:1px solid var(--linea)}
+  .reserva label.per{grid-column:1/-1}
+  .reserva .btn{grid-column:1/-1;padding:0 12px 12px}
+  .reserva .btn .pildora{width:100%;padding:16px}
+}
+
+/* titular */
+section{padding-block:clamp(64px,9vw,128px)}
+.titular{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:end}
+.titular h1{font-size:clamp(46px,8.2vw,124px);text-transform:uppercase;letter-spacing:-.005em;line-height:.92}
+.titular p{font-size:clamp(17px,1.6vw,20px);color:var(--gris);max-width:44ch}
+.datos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--linea);margin-top:clamp(40px,6vw,72px)}
+.datos div{padding:22px 0 0;display:grid;gap:4px}
+.datos b{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.6vw,46px);line-height:1}
+.datos span{font-size:13px;color:var(--gris)}
+@media (max-width:899px){.titular{grid-template-columns:minmax(0,1fr)}.datos{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px}}
+
+/* encabezado de sección */
+.sec-cab{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
+.sec-cab h2{font-size:clamp(40px,6vw,80px);text-transform:uppercase;line-height:.95}
+.sec-cab p{max-width:42ch;color:var(--gris)}
+
+/* habitaciones */
+.habs{display:grid;gap:clamp(48px,7vw,96px)}
+.hab{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.hab:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
+.hab:nth-child(even) .foto{order:2}
+.hab .foto{border-radius:3px;overflow:hidden;aspect-ratio:4/3}
+.hab .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.hab:hover .foto img{transform:scale(1.03)}
+.hab .txt{display:grid;gap:16px;align-content:center}
+.hab h3{font-size:clamp(34px,4vw,52px)}
+.hab .precio{font-size:14px;color:var(--gris)}
+.hab .precio b{font-family:var(--serif);font-size:30px;color:var(--tinta);font-weight:600;margin:0 4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{border:1px solid var(--linea);border-radius:999px;padding:6px 14px;font-size:13px}
+@media (max-width:899px){.hab,.hab:nth-child(even){grid-template-columns:minmax(0,1fr)}.hab:nth-child(even) .foto{order:0}}
+.incluido{margin-top:clamp(48px,7vw,96px);border-top:1px solid var(--linea);padding-top:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px}
+.incluido ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px}
+.incluido li{display:flex;gap:10px;align-items:center}
+.incluido li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--rojo);flex:none}
+@media (max-width:899px){.incluido{grid-template-columns:minmax(0,1fr)}.incluido ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* entorno: carrusel */
+.entorno{background:var(--crema)}
+.carril{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin}
+.carril article{scroll-snap-align:start;display:grid;gap:12px;align-content:start}
+.carril .foto{aspect-ratio:3/4;border-radius:3px;overflow:hidden}
+.carril img{width:100%;height:100%;object-fit:cover}
+.carril h3{font-size:30px;line-height:1.02}
+.carril p{font-size:15px;color:var(--gris)}
+@media (max-width:899px){.carril{grid-auto-columns:78%}}
+
+/* llegar + faq */
+.dos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px)}
+@media (max-width:899px){.dos{grid-template-columns:minmax(0,1fr)}}
+.dos h2{font-size:clamp(36px,4.6vw,60px);text-transform:uppercase;margin-bottom:24px}
+.dist{list-style:none;margin:0 0 24px;padding:0}
+.dist li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--linea)}
+.dist li span{color:var(--gris);text-align:right}
+details{border-bottom:1px solid var(--linea);padding:16px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--serif);font-size:26px;line-height:.8;color:var(--rojo)}
+details[open] summary::after{content:"–"}
+details p{color:var(--gris);margin-top:8px}
+
+/* contacto + pie */
+.contacto{background:var(--acento);color:#fff;text-align:center}
+.contacto h2{font-size:clamp(48px,8vw,110px);text-transform:uppercase}
+.contacto p{opacity:.85;margin:18px auto 28px;max-width:46ch}
+.contacto .acciones{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.contacto .pildora{background:#fff;color:var(--acento)}
+.contacto .pildora.clara{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px #fff}
+.contacto .linea{margin-top:22px;font-size:14px;opacity:.8}
+footer{font-size:13px;color:var(--gris)}
+footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:28px}
+footer nav{display:flex;gap:16px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+/* WhatsApp flotante (escritorio) + barra fija (móvil) */
+.wa-flot{position:fixed;right:max(22px,env(safe-area-inset-right));bottom:22px;z-index:50;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.4)}
+.wa-flot svg{width:30px;height:30px}
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:1.3fr 1fr;gap:8px;background:color-mix(in srgb,var(--fondo) 94%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--linea);
   padding:10px max(12px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
-.barra .bt{padding:12px}
-@media (min-width:760px){.barra{display:none}}
+.barra .pildora{padding:14px 10px}
+.barra .wa{background:#25d366}
+@media (max-width:899px){.wa-flot{display:none}}
+@media (min-width:900px){.barra{display:none}}
 </style>
 </head>
 <body>
-{% if n.ficticio %}<div class="aviso">{{ t.aviso }}</div>{% endif %}
-<header class="cab"><div class="w">
-  <a class="logo" href="#">{{ n.nombre }}</a>
-  <nav class="m"><a href="#casa">{{ t.nav.casa }}</a><a href="#espacios">{{ t.nav.espacios }}</a><a href="#llegar">{{ t.nav.llegar }}</a><a href="#contacto">{{ t.nav.contacto }}</a></nav>
-  <div class="idi">{% for l in idiomas %}<a href="{{ rutas[l] }}" lang="{{ l }}" aria-current="{{ 'true' if l == t.lang else 'false' }}">{{ l|upper }}</a>{% endfor %}</div>
-</div></header>
-
 {% set wa = n.whatsapp|replace('+','')|replace(' ','') %}
 {% set tel = n.telefono|replace(' ','') %}
 {% set ico_wa %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>{% endset %}
-{% set ico_tel %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>{% endset %}
+{% set ico_nieve %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2v20M4 6l16 12M20 6 4 18M9 3l3 3 3-3M9 21l3-3 3 3"/></svg>{% endset %}
+{% set ico_sol %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>{% endset %}
+{% macro estacion() %}<div class="estacion" role="group" aria-label="{{ t.estaciones.invierno }} / {{ t.estaciones.verano }}"><button type="button" data-set="invierno" aria-pressed="true">{{ ico_nieve }}{{ t.estaciones.invierno }}</button><button type="button" data-set="verano" aria-pressed="false">{{ ico_sol }}{{ t.estaciones.verano }}</button></div>{% endmacro %}
+{% macro idiomas_m() %}<div class="idi">{% for l in idiomas %}<a href="{{ rutas[l] }}" lang="{{ l }}" aria-current="{{ 'true' if l == t.lang else 'false' }}">{{ l|upper }}</a>{% endfor %}</div>{% endmacro %}
+{% macro foto(nombre, alt, sizes="100vw", eager=false) %}<img src="{{ img }}{{ nombre }}-800.webp"{% if nombre in grandes %} srcset="{{ img }}{{ nombre }}-800.webp 800w, {{ img }}{{ nombre }}-1600.webp 1600w" sizes="{{ sizes }}"{% endif %} alt="{{ alt }}" {% if eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">{% endmacro %}
 
-<main>
-  <section class="portada">
-    <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMax slice" role="img" aria-label="{{ n.lugar }}">
-      <defs><linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{{ n.colores.fondo }}"/><stop offset="1" stop-color="color-mix(in srgb, {{ n.colores.acento2 }} 25%, {{ n.colores.fondo }})"/></linearGradient></defs>
-      <rect width="1200" height="520" fill="url(#cielo)"/>
-      <circle cx="930" cy="150" r="54" fill="{{ n.colores.acento2 }}" opacity=".85"/>
-      <path d="M0 330 L170 210 L290 280 L460 120 L600 250 L720 170 L880 290 L1010 200 L1200 300 V520 H0Z" fill="color-mix(in srgb, {{ n.colores.acento }} 45%, {{ n.colores.fondo }})"/>
-      <path d="M460 120 L505 165 L480 160 L460 178 L440 160 L418 162Z M720 170 L752 200 L732 198 L718 210 L702 198Z" fill="{{ n.colores.fondo }}"/>
-      <path d="M0 400 C180 350 330 380 480 360 S800 320 1000 360 S1150 380 1200 370 V520 H0Z" fill="color-mix(in srgb, {{ n.colores.acento }} 75%, {{ n.colores.tinta }})"/>
-      <g fill="{{ n.colores.tinta }}" opacity=".9">
-        <path d="M560 392 h120 v-46 l-60 -38 l-60 38Z"/><rect x="600" y="362" width="18" height="30" fill="{{ n.colores.acento2 }}"/>
-        <rect x="640" y="356" width="14" height="12" fill="{{ n.colores.acento2 }}"/><rect x="572" y="356" width="14" height="12" fill="{{ n.colores.acento2 }}"/>
-      </g>
-      <path d="M0 450 C200 420 420 440 600 430 S1000 410 1200 440 V520 H0Z" fill="color-mix(in srgb, {{ n.colores.acento }} 55%, {{ n.colores.tinta }})"/>
-    </svg>
-    <div class="w">
-      <div class="lugar">{{ n.lugar }}</div>
-      <h1>{{ n.nombre }}</h1>
-      <p class="lema">{{ t.lema }}</p>
-      <div class="acciones">
-        <a class="bt p" href="https://wa.me/{{ wa }}">{{ ico_wa }}{{ t.reservar }}</a>
-        <a class="bt" href="tel:{{ tel }}">{{ ico_tel }}{{ t.llamar }}</a>
-      </div>
-    </div>
-  </section>
+{% if n.ficticio %}<div class="demo">{{ t.aviso }}</div>{% endif %}
+<div class="temporada"><div class="w">
+  <span data-solo="invierno">{{ ico_nieve }}</span><span data-solo="verano">{{ ico_sol }}</span>
+  <span data-solo="invierno">{{ t.temporada.invierno }}</span><span data-solo="verano">{{ t.temporada.verano }}</span>
+</div></div>
 
-  <section class="s" id="casa"><div class="w casa">
-    <div><h2>{{ t.casa_h }}</h2><p>{{ t.casa_p }}</p></div>
-    <div class="datos">{% for d in t.datos %}<div class="dato"><b>{{ d.n }}</b><span>{{ d.t }}</span></div>{% endfor %}</div>
+<header class="cab" id="cab"><div class="w">
+  <nav class="izq" aria-label="Menú"><a href="#casa">{{ t.nav.casa }}</a><a href="#habitaciones">{{ t.nav.habitaciones }}</a><a href="#entorno">{{ t.nav.entorno }}</a><a href="#llegar">{{ t.nav.llegar }}</a></nav>
+  <button class="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h18M3 16h18"/></svg></button>
+  <a class="marca" href="#top">{{ n.nombre }}<small>{{ n.lugar }}</small></a>
+  <div class="der">{{ estacion() }}{{ idiomas_m() }}<a class="pildora" href="#reserva">{{ t.reservar }}</a></div>
+</div></header>
+<div class="menu-movil" id="menu" role="dialog" aria-modal="true" aria-label="Menú">
+  <button class="cerrar" type="button" aria-label="×">×</button>
+  <nav><a href="#casa">{{ t.nav.casa }}</a><a href="#habitaciones">{{ t.nav.habitaciones }}</a><a href="#entorno">{{ t.nav.entorno }}</a><a href="#llegar">{{ t.nav.llegar }}</a></nav>
+  <div class="fila">{{ estacion() }}{{ idiomas_m() }}</div>
+</div>
+
+<main id="top">
+  <div class="portada">
+    <figure>
+      {{ foto(n.img.portada, t.portada_alt, "100vw", true) }}
+      <figcaption class="eti">{{ n.lugar }} · {{ t.datos[1].n }}</figcaption>
+    </figure>
+    <form class="reserva" id="reserva" novalidate>
+      <div class="tit"><b>{{ t.reserva.titulo }}</b><span>{{ t.reserva.ventaja }}</span></div>
+      <label><span>{{ t.reserva.llegada }}</span><input type="date" id="f-llegada" required></label>
+      <label><span>{{ t.reserva.salida }}</span><input type="date" id="f-salida" required></label>
+      <label class="per"><span>{{ t.reserva.personas }}</span><select id="f-personas">{% for i in range(1,7) %}<option{% if i == 2 %} selected{% endif %}>{{ i }}</option>{% endfor %}</select></label>
+      <div class="btn"><button class="pildora" type="submit">{{ t.reserva.boton }}</button></div>
+    </form>
+    <p class="reserva-nota">{{ t.reserva.nota }}</p>
+  </div>
+
+  <section id="casa"><div class="w">
+    <div class="titular"><h1>{{ t.titular }}</h1><p>{{ t.intro }}</p></div>
+    <div class="datos">{% for d in t.datos %}<div><b>{{ d.n }}</b><span>{{ d.t }}</span></div>{% endfor %}</div>
   </div></section>
 
-  <section class="s" id="espacios"><div class="w">
-    <h2>{{ t.espacios_h }}</h2>
-    <div class="esp">
-      {% for e in t.espacios %}
-      <article>
-        <svg viewBox="0 0 400 260" role="img" aria-label="{{ e.t }}">
-          <rect width="400" height="260" fill="color-mix(in srgb, {{ n.colores.acento2 }} {{ 18 + loop.index0*10 }}%, {{ n.colores.fondo }})"/>
-          <rect x="40" y="40" width="130" height="100" rx="6" fill="color-mix(in srgb, {{ n.colores.acento }} 40%, {{ n.colores.fondo }})"/>
-          <path d="M40 140 L80 95 L110 120 L140 85 L170 140Z" fill="color-mix(in srgb, {{ n.colores.acento }} 75%, {{ n.colores.tinta }})"/>
-          <rect x="40" y="40" width="130" height="100" rx="6" fill="none" stroke="{{ n.colores.tinta }}" stroke-opacity=".5" stroke-width="6"/>
-          {% if loop.index0 < 2 %}<rect x="190" y="150" width="190" height="60" rx="10" fill="{{ n.colores.fondo }}"/><rect x="190" y="130" width="60" height="30" rx="8" fill="#fff"/><rect x="190" y="205" width="190" height="16" fill="{{ n.colores.tinta }}" opacity=".7"/>
-          {% else %}<rect x="230" y="90" width="120" height="130" fill="{{ n.colores.tinta }}" opacity=".75"/><path d="M262 220 q28 -60 56 0Z" fill="{{ n.colores.acento2 }}"/><rect x="30" y="200" width="160" height="20" fill="{{ n.colores.tinta }}" opacity=".6"/>{% endif %}
-        </svg>
+  <section id="habitaciones" style="padding-top:0"><div class="w">
+    <div class="sec-cab"><h2>{{ t.hab_titulo }}</h2><p>{{ t.hab_intro }}</p></div>
+    <div class="habs">
+      {% for h in n.habitaciones %}{% set ht = t.hab[h.id] %}
+      <article class="hab">
+        <div class="foto">{{ foto(h.img, ht.nombre, "(min-width: 900px) 60vw, 100vw") }}</div>
+        <div class="txt">
+          <span class="eti" style="color:var(--rojo)">{{ h.personas }} {{ t.personas_txt }}</span>
+          <h3>{{ ht.nombre }}</h3>
+          <p>{{ ht.desc }}</p>
+          <ul class="chips">{% for e in ht.extras %}<li>{{ e }}</li>{% endfor %}</ul>
+          <p class="precio">{{ t.desde }}<b>{{ h.precio }} €</b>/ {{ t.noche }}</p>
+          <div><a class="pildora clara" href="#reserva">{{ t.reserva.boton }}</a></div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="incluido"><h3 style="font-size:30px">{{ t.incluido_titulo }}</h3><ul>{% for i in t.incluido %}<li>{{ i }}</li>{% endfor %}</ul></div>
+  </div></section>
+
+  <section class="entorno" id="entorno"><div class="w">
+    <div class="sec-cab"><h2>{{ t.entorno_titulo }}</h2></div>
+    <div class="carril">
+      {% for e in t.entorno %}
+      <article{% if e.estacion != 'todo' %} data-solo="{{ e.estacion }}"{% endif %}>
+        <div class="foto">{{ foto(n.img[e.img], e.t, "(min-width: 900px) 30vw, 78vw") }}</div>
+        <span class="eti" style="color:var(--rojo)">{{ e.etiqueta }}</span>
         <h3>{{ e.t }}</h3><p>{{ e.d }}</p>
       </article>
       {% endfor %}
     </div>
-    <h3 style="margin-top:40px">{{ t.servicios_h }}</h3>
-    <ul class="serv">{% for s in t.servicios %}<li>{{ s }}</li>{% endfor %}</ul>
   </div></section>
 
-  <section class="s" id="llegar"><div class="w dos">
-    <div><h2>{{ t.temporada_h }}</h2><p>{{ t.temporada }}</p></div>
-    <div><h2>{{ t.llegar_h }}</h2><p>{{ t.llegar_p }}</p><a class="bt" href="{{ n.mapa_url }}">{{ t.mapa }} →</a></div>
+  <section id="llegar"><div class="w dos">
+    <div><h2>{{ t.llegar_titulo }}</h2>
+      <ul class="dist">{% for l in t.llegar %}<li><b>{{ l.t }}</b><span>{{ l.d }}</span></li>{% endfor %}</ul>
+      <a class="pildora clara" href="{{ n.mapa_url }}">{{ t.mapa }} →</a></div>
+    <div><h2>{{ t.faq_titulo }}</h2>{% for f in t.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}</div>
   </div></section>
 
-  <section class="s contacto" id="contacto"><div class="w">
-    <h2>{{ t.contacto_h }}</h2><p>{{ t.contacto_p }}</p>
-    <div class="acciones" style="margin-top:20px">
-      <a class="bt p" href="https://wa.me/{{ wa }}">{{ ico_wa }}{{ t.reservar }}</a>
-      <a class="bt" href="tel:{{ tel }}">{{ ico_tel }}{{ n.telefono }}</a>
-    </div>
+  <section class="contacto"><div class="w">
+    <h2>{{ t.contacto_titulo }}</h2><p>{{ t.contacto_txt }}</p>
+    <div class="acciones"><a class="pildora" href="https://wa.me/{{ wa }}">{{ ico_wa }}{{ t.whatsapp }}</a><a class="pildora clara" href="tel:{{ tel }}">{{ t.llamar }} · {{ n.telefono }}</a></div>
     <p class="linea">{{ n.email }}</p>
   </div></section>
 </main>
-<footer><div class="w"><span>© {{ anyo }} {{ n.nombre }}</span><span>{{ t.pie }}</span></div></footer>
 
-<div class="barra">
-  <a class="bt p" href="https://wa.me/{{ wa }}">{{ ico_wa }}WhatsApp</a>
-  <a class="bt" href="tel:{{ tel }}">{{ ico_tel }}{{ t.llamar }}</a>
-</div>
+<footer><div class="w">
+  <span>© {{ anyo }} {{ n.nombre }} · {{ t.pie }}</span>
+  <nav>{% for l in t.legal %}<a href="#">{{ l }}</a>{% endfor %}<a href="{{ credito_url }}">Web: Fernando</a></nav>
+</div></footer>
+
+<a class="wa-flot" href="https://wa.me/{{ wa }}" aria-label="WhatsApp">{{ ico_wa }}</a>
+<div class="barra"><a class="pildora" href="#reserva">{{ t.reserva.boton }}</a><a class="pildora wa" href="https://wa.me/{{ wa }}">{{ ico_wa }}WhatsApp</a></div>
+
+<script>
+(function(){
+  const root=document.documentElement, KEY="estacion-{{ n.slug }}";
+  function setSeason(s){ root.dataset.season=s;
+    document.querySelectorAll(".estacion button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.set===s));
+    try{localStorage.setItem(KEY,s)}catch(e){} }
+  let s=null; try{s=localStorage.getItem(KEY)}catch(e){}
+  if(!s){ const m=new Date().getMonth(); s=(m>=10||m<=3)?"invierno":"verano"; }
+  setSeason(s);
+  document.querySelectorAll(".estacion button").forEach(b=>b.addEventListener("click",()=>setSeason(b.dataset.set)));
+  // cabecera con línea al hacer scroll
+  const cab=document.getElementById("cab"); const onS=()=>cab.classList.toggle("scrolled",scrollY>10); onS(); addEventListener("scroll",onS,{passive:true});
+  // menú móvil
+  const menu=document.getElementById("menu"), burger=document.querySelector(".burger");
+  const abrir=v=>{menu.classList.toggle("abierto",v);burger.setAttribute("aria-expanded",v);document.body.style.overflow=v?"hidden":""};
+  burger.addEventListener("click",()=>abrir(true)); menu.querySelector(".cerrar").addEventListener("click",()=>abrir(false));
+  menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>abrir(false)));
+  // reserva directa -> WhatsApp con el mensaje preparado
+  const f=document.getElementById("reserva"), ll=document.getElementById("f-llegada"), sa=document.getElementById("f-salida"), pe=document.getElementById("f-personas");
+  const iso=d=>d.toISOString().slice(0,10), hoy=new Date(); ll.min=iso(hoy);
+  ll.addEventListener("change",()=>{ if(!ll.value) return; const d=new Date(ll.value); d.setDate(d.getDate()+1); sa.min=iso(d); if(!sa.value||sa.value<=ll.value) sa.value=iso(new Date(d.getTime()+86400000)); });
+  const fmt=v=>v?new Date(v+"T12:00").toLocaleDateString("{{ t.lang }}",{day:"numeric",month:"long"}):"…";
+  f.addEventListener("submit",e=>{ e.preventDefault();
+    if(!ll.value){ ll.focus(); return; } if(!sa.value){ sa.focus(); return; }
+    const msg={{ t.reserva.mensaje|tojson }}.replace("{llegada}",fmt(ll.value)).replace("{salida}",fmt(sa.value)).replace("{personas}",pe.value);
+    location.href="https://wa.me/{{ wa }}?text="+encodeURIComponent(msg); });
+})();
+</script>
 </body>
 </html>
