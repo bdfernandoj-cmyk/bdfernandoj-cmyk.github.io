@@ -179,7 +179,17 @@ details[open] summary::after{content:"–"}
 details p{color:var(--gris);margin-top:8px}
 
 /* contacto + pie */
-.contacto{background:var(--acento);color:#fff;text-align:center}
+.contacto{background:linear-gradient(color-mix(in srgb,var(--acento) 78%,transparent),color-mix(in srgb,var(--acento) 88%,transparent)),var(--bg) center/cover;color:#fff;text-align:center}
+/* desayuno */
+.des{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.des figure{margin:0;border-radius:3px;overflow:hidden;aspect-ratio:3/2}
+.des img{width:100%;height:100%;object-fit:cover}
+.des .txt{display:grid;gap:16px}
+.des h2{font-size:clamp(40px,5vw,72px);text-transform:uppercase;line-height:.95}
+.des p{color:var(--gris)}
+.des ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--linea)}
+.des li{padding:10px 0;border-bottom:1px solid var(--linea);font-family:var(--serif);font-size:21px}
+@media (max-width:899px){.des{grid-template-columns:minmax(0,1fr)}}
 .contacto h2{font-size:clamp(48px,8vw,110px);text-transform:uppercase}
 .contacto p{opacity:.85;margin:18px auto 28px;max-width:46ch}
 .contacto .acciones{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -252,8 +262,8 @@ footer a:hover{text-decoration:underline}
     <div class="titular"><h1>Una masía de 1880 entre prados y cumbres</h1><p>Tres habitaciones y un estudio de piedra y madera en Das, a diez minutos de Puigcerdà. Chimenea, desayuno con producto de la Cerdanya y el Cadí delante de la ventana.</p></div>
     <div class="datos"><div><b>4</b><span>habitaciones y estudio</span></div><div><b>1.220 m</b><span>de altitud</span></div><div><b>10 min</b><span>a Puigcerdà</span></div><div><b>25 min</b><span>a La Molina</span></div></div>
     <div class="galeria" aria-label="La casa">
-      <figure class="g1"><img src="img/patio-800.webp" srcset="img/patio-800.webp 800w, img/patio-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="El patio de piedra con las contraventanas rojas" loading="lazy" decoding="async"><figcaption>El patio de piedra con las contraventanas rojas</figcaption></figure>
-      <figure class="g2"><img src="img/estudi-salon-800.webp" srcset="img/estudi-salon-800.webp 800w, img/estudi-salon-1600.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" alt="El salón del Estudi, con cocina y vistas" loading="lazy" decoding="async"><figcaption>El salón del Estudi, con cocina y vistas</figcaption></figure>
+      <figure class="g1"><img src="img/fachada-800.webp" srcset="img/fachada-800.webp 800w, img/fachada-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="La entrada de la masía al atardecer" loading="lazy" decoding="async"><figcaption>La entrada de la masía al atardecer</figcaption></figure>
+      <figure class="g2"><img src="img/chimenea-800.webp" srcset="img/chimenea-800.webp 800w, img/chimenea-1600.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" alt="El salón de la chimenea" loading="lazy" decoding="async"><figcaption>El salón de la chimenea</figcaption></figure>
       <figure class="g3"><img src="img/ventana-800.webp" alt="Ventana de la habitación Puigmal" loading="lazy" decoding="async"><figcaption>Ventana de la habitación Puigmal</figcaption></figure>
     </div>
   </div></section>
@@ -314,6 +324,16 @@ footer a:hover{text-decoration:underline}
     <div class="incluido"><h3 style="font-size:30px">Incluido en la estancia</h3><ul><li>Desayuno casero</li><li>Wifi</li><li>Aparcamiento</li><li>Guardaesquís</li><li>Se admiten perros</li><li>Toallas y lino</li></ul></div>
   </div></section>
 
+  <section class="desayuno" style="padding-top:0"><div class="w des">
+    <figure><img src="img/desayuno-800.webp" srcset="img/desayuno-800.webp 800w, img/desayuno-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="El desayuno" loading="lazy" decoding="async"></figure>
+    <div class="txt">
+      <span class="eti" style="color:var(--rojo)">De 8.30 a 10.30 h · incluido en la estancia</span>
+      <h2>El desayuno</h2>
+      <p>Producto de la Cerdanya en la mesa, cada mañana, junto a la ventana que da al prado.</p>
+      <ul><li>Queso de vaca de Bellver</li><li>Embutido de Das y Alp</li><li>Miel de montaña</li><li>Pan de pueblo y mermelada casera</li><li>Café, zumo natural e infusiones</li></ul>
+    </div>
+  </div></section>
+
   <section class="entorno" id="entorno"><div class="w">
     <div class="sec-cab"><h2>Qué hacer en la Cerdanya</h2></div>
     <div class="carril">
@@ -331,13 +351,13 @@ footer a:hover{text-decoration:underline}
       </article>
       
       <article data-solo="verano">
-        <div class="foto"><img src="img/paisaje-800.webp" srcset="img/paisaje-800.webp 800w, img/paisaje-1600.webp 1600w" sizes="(min-width: 900px) 30vw, 78vw" alt="Rutas por el Cadí-Moixeró" loading="lazy" decoding="async"></div>
+        <div class="foto"><img src="img/ruta-800.webp" srcset="img/ruta-800.webp 800w, img/ruta-1600.webp 1600w" sizes="(min-width: 900px) 30vw, 78vw" alt="Rutas por el Cadí-Moixeró" loading="lazy" decoding="async"></div>
         <span class="eti" style="color:var(--rojo)">Verano</span>
         <h3>Rutas por el Cadí-Moixeró</h3><p>Del paseo en familia a la cima del Puigmal. Te prestamos mapas y te preparamos picnic.</p>
       </article>
       
       <article>
-        <div class="foto"><img src="img/detalle-manta-800.webp" alt="Mercado de Puigcerdà" loading="lazy" decoding="async"></div>
+        <div class="foto"><img src="img/producto-800.webp" alt="Mercado de Puigcerdà" loading="lazy" decoding="async"></div>
         <span class="eti" style="color:var(--rojo)">Todo el año</span>
         <h3>Mercado de Puigcerdà</h3><p>Cada domingo: queso de la Cerdanya, embutido, miel y pan de pueblo.</p>
       </article>
@@ -352,7 +372,7 @@ footer a:hover{text-decoration:underline}
     <div><h2>Preguntas frecuentes</h2><details><summary>¿A qué hora se puede llegar?</summary><p>De 16 a 21 h. Si llegas más tarde, avísanos por WhatsApp y te dejamos la llave preparada.</p></details><details><summary>¿Se admiten perros?</summary><p>Sí, en las habitaciones de planta baja y con un suplemento de 10 € por noche.</p></details><details><summary>¿Cuál es la política de cancelación?</summary><p>Cancelación gratuita hasta 7 días antes de la llegada. Después, se cobra la primera noche.</p></details><details><summary>¿Hay estancia mínima?</summary><p>Dos noches en fin de semana y cuatro en Navidad y Semana Santa.</p></details></div>
   </div></section>
 
-  <section class="contacto"><div class="w">
+  <section class="contacto" style="--bg:url('img/sendero-1600.webp')"><div class="w">
     <h2>¿Hablamos?</h2><p>Escríbenos por WhatsApp o llámanos. Respondemos el mismo día.</p>
     <div class="acciones"><a class="pildora" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>WhatsApp</a><a class="pildora clara" href="tel:+34600000000">Llamar · +34 600 000 000</a></div>
     <p class="linea">hola@ejemplo.com</p>

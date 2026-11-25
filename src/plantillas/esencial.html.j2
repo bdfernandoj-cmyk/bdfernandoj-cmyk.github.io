@@ -177,7 +177,17 @@ details[open] summary::after{content:"–"}
 details p{color:var(--gris);margin-top:8px}
 
 /* contacto + pie */
-.contacto{background:var(--acento);color:#fff;text-align:center}
+.contacto{background:linear-gradient(color-mix(in srgb,var(--acento) 78%,transparent),color-mix(in srgb,var(--acento) 88%,transparent)),var(--bg) center/cover;color:#fff;text-align:center}
+/* desayuno */
+.des{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.des figure{margin:0;border-radius:3px;overflow:hidden;aspect-ratio:3/2}
+.des img{width:100%;height:100%;object-fit:cover}
+.des .txt{display:grid;gap:16px}
+.des h2{font-size:clamp(40px,5vw,72px);text-transform:uppercase;line-height:.95}
+.des p{color:var(--gris)}
+.des ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--linea)}
+.des li{padding:10px 0;border-bottom:1px solid var(--linea);font-family:var(--serif);font-size:21px}
+@media (max-width:899px){.des{grid-template-columns:minmax(0,1fr)}}
 .contacto h2{font-size:clamp(48px,8vw,110px);text-transform:uppercase}
 .contacto p{opacity:.85;margin:18px auto 28px;max-width:46ch}
 .contacto .acciones{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -250,8 +260,8 @@ footer a:hover{text-decoration:underline}
     <div class="titular"><h1>{{ t.titular }}</h1><p>{{ t.intro }}</p></div>
     <div class="datos">{% for d in t.datos %}<div><b>{{ d.n }}</b><span>{{ d.t }}</span></div>{% endfor %}</div>
     <div class="galeria" aria-label="{{ t.galeria_titulo }}">
-      <figure class="g1">{{ foto(n.img.patio, t.galeria[0], "(min-width: 900px) 60vw, 100vw") }}<figcaption>{{ t.galeria[0] }}</figcaption></figure>
-      <figure class="g2">{{ foto(n.img.salon, t.galeria[1], "(min-width: 900px) 40vw, 100vw") }}<figcaption>{{ t.galeria[1] }}</figcaption></figure>
+      <figure class="g1">{{ foto(n.img.fachada, t.galeria[0], "(min-width: 900px) 60vw, 100vw") }}<figcaption>{{ t.galeria[0] }}</figcaption></figure>
+      <figure class="g2">{{ foto(n.img.chimenea, t.galeria[1], "(min-width: 900px) 40vw, 100vw") }}<figcaption>{{ t.galeria[1] }}</figcaption></figure>
       <figure class="g3">{{ foto(n.img.ventana, t.galeria[2], "(min-width: 900px) 20vw, 50vw") }}<figcaption>{{ t.galeria[2] }}</figcaption></figure>
     </div>
   </div></section>
@@ -276,6 +286,16 @@ footer a:hover{text-decoration:underline}
     <div class="incluido"><h3 style="font-size:30px">{{ t.incluido_titulo }}</h3><ul>{% for i in t.incluido %}<li>{{ i }}</li>{% endfor %}</ul></div>
   </div></section>
 
+  <section class="desayuno" style="padding-top:0"><div class="w des">
+    <figure>{{ foto(n.img.desayuno, t.desayuno_titulo, "(min-width: 900px) 60vw, 100vw") }}</figure>
+    <div class="txt">
+      <span class="eti" style="color:var(--rojo)">{{ t.desayuno_hora }}</span>
+      <h2>{{ t.desayuno_titulo }}</h2>
+      <p>{{ t.desayuno_txt }}</p>
+      <ul>{% for i in t.desayuno_lista %}<li>{{ i }}</li>{% endfor %}</ul>
+    </div>
+  </div></section>
+
   <section class="entorno" id="entorno"><div class="w">
     <div class="sec-cab"><h2>{{ t.entorno_titulo }}</h2></div>
     <div class="carril">
@@ -296,7 +316,7 @@ footer a:hover{text-decoration:underline}
     <div><h2>{{ t.faq_titulo }}</h2>{% for f in t.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}</div>
   </div></section>
 
-  <section class="contacto"><div class="w">
+  <section class="contacto" style="--bg:url('{{ img }}{{ n.img.sendero }}-1600.webp')"><div class="w">
     <h2>{{ t.contacto_titulo }}</h2><p>{{ t.contacto_txt }}</p>
     <div class="acciones"><a class="pildora" href="https://wa.me/{{ wa }}">{{ ico_wa }}{{ t.whatsapp }}</a><a class="pildora clara" href="tel:{{ tel }}">{{ t.llamar }} · {{ n.telefono }}</a></div>
     <p class="linea">{{ n.email }}</p>
