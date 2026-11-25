@@ -56,10 +56,17 @@ def main():
             img_dir = OUT / base / "img"
             grandes = {p.name[:-len("-1600.webp")] for p in img_dir.glob("*-1600.webp")}
             html = env.get_template("esencial.html.j2").render(
-                n=n, t=n["textos"][l], idiomas=[k for k in IDIOMAS if k in n["textos"]],
+                e=n["estilo"], n=n, t=n["textos"][l], idiomas=[k for k in IDIOMAS if k in n["textos"]],
                 rutas=rutas_n, anyo=date.today().year, img=prof + "img/", grandes=grandes,
                 credito_url=("../../../" if l != "es" else "../../") + ruta_idioma(l))
             hechos.append(escribir(base + ruta_idioma(l), html))
+        # Variantes de estilo para elegir (solo castellano): ejemplo/<slug>/estilos/<clave>/
+        for k, v in (n.get("estilos_demo") or {}).items():
+            nv = {**n, "colores": v["colores"]}
+            html = env.get_template("esencial.html.j2").render(
+                e=v["estilo"], n=nv, t=n["textos"]["es"], idiomas=["es"], rutas={"es": "../../"},
+                anyo=date.today().year, img="../../img/", grandes=grandes, credito_url="../../../../")
+            hechos.append(escribir(f"ejemplo/{n['slug']}/estilos/{k}/", html))
     (OUT / ".nojekyll").write_text("")
     for h in hechos:
         print("ok", h.relative_to(RAIZ))

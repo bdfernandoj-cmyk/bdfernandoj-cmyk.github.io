@@ -13,14 +13,16 @@
 {% endfor %}<link rel="preload" as="image" href="{{ img }}{{ n.img.portada }}-1600.webp" imagesrcset="{{ img }}{{ n.img.portada }}-800.webp 800w, {{ img }}{{ n.img.portada }}-1600.webp 1600w" imagesizes="100vw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="{{ e.fuentes }}">
 <style>
 /* Plantilla "Web esencial" v2 · referencias: Waldhaus Sils (barra de temporada, logo centrado, foto enmarcada, serifa grande),
    Casa Albets (reserva directa bajo la portada, WhatsApp siempre visible), La Donaira (aire, paisaje protagonista). */
 :root{
   --fondo:{{ n.colores.fondo }}; --tinta:{{ n.colores.tinta }}; --acento:{{ n.colores.acento }}; --rojo:{{ n.colores.acento2 }}; --crema:{{ n.colores.suave }};
   --gris:color-mix(in srgb,var(--tinta) 62%,var(--fondo)); --linea:color-mix(in srgb,var(--tinta) 13%,var(--fondo));
-  --serif:"Cormorant Garamond","Iowan Old Style",Georgia,serif; --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:{{ e.titulos|safe }}; --sans:{{ e.texto|safe }};
+  --panel:{{ e.panel }}; --tw:{{ e.peso }}; --tt:{{ e.mayus }}; --ts:{{ e.tracking }}; --tl:{{ e.interlineado }}; --tx:{{ e.ancho }};
+  color-scheme:{{ e.esquema }};
   --marco:clamp(10px,2vw,24px);
 }
 *{box-sizing:border-box}
@@ -31,7 +33,9 @@ body{margin:0;background:var(--fondo);color:var(--tinta);font:16px/1.65 var(--sa
 img{max-width:100%;display:block}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
-h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1;text-wrap:balance}
+h1,h2,h3{font-family:var(--serif);font-weight:var(--tw);font-stretch:var(--tx);margin:0;line-height:1;text-wrap:balance}
+.mayus{text-transform:var(--tt);letter-spacing:var(--ts);line-height:var(--tl)}
+{% if e.textura %}body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 0 0.15 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}{% endif %}
 p{margin:0}
 .w{max-width:1280px;margin:0 auto;padding-left:max(var(--marco),env(safe-area-inset-left));padding-right:max(var(--marco),env(safe-area-inset-right))}
 .eti{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
@@ -50,7 +54,7 @@ header.cab.scrolled{border-bottom-color:var(--linea)}
 nav.izq{display:flex;gap:26px}
 nav.izq a{text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
 nav.izq a:hover{color:var(--tinta)}
-.marca{text-align:center;text-decoration:none;font-family:var(--serif);font-size:26px;letter-spacing:.16em;text-transform:uppercase;line-height:1.05}
+.marca{text-align:center;text-decoration:none;font-family:var(--serif);font-weight:var(--tw);font-stretch:var(--tx);font-size:26px;letter-spacing:.16em;text-transform:uppercase;line-height:1.05}
 .marca small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.3em;color:var(--gris)}
 .der{display:flex;justify-content:flex-end;align-items:center;gap:10px}
 .estacion{display:inline-flex;border:1px solid var(--linea);border-radius:999px;padding:3px;background:var(--fondo)}
@@ -86,7 +90,7 @@ nav.izq a:hover{color:var(--tinta)}
 .portada figure{margin:0;position:relative;border-radius:3px;overflow:hidden;max-width:1600px;margin-inline:auto}
 .portada img{width:100%;height:clamp(380px,72vh,760px);object-fit:cover}
 .portada figcaption{position:absolute;left:20px;top:18px;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.5)}
-.reserva{position:relative;z-index:2;max-width:1080px;margin:-46px auto 0;background:#fff;border-radius:4px;box-shadow:0 18px 50px -24px rgba(20,30,20,.45);display:grid;grid-template-columns:auto 1fr 1fr 130px auto;align-items:stretch}
+.reserva{position:relative;z-index:2;max-width:1080px;margin:-46px auto 0;background:var(--panel);border-radius:4px;box-shadow:0 18px 50px -24px rgba(20,30,20,.45);display:grid;grid-template-columns:auto 1fr 1fr 130px auto;align-items:stretch}
 .reserva .tit{display:flex;flex-direction:column;justify-content:center;padding:16px 22px;background:var(--acento);color:#fff;border-radius:4px 0 0 4px}
 .reserva .tit b{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.1}
 .reserva .tit span{font-size:12px;opacity:.85}
@@ -111,7 +115,7 @@ nav.izq a:hover{color:var(--tinta)}
 /* titular */
 section{padding-block:clamp(64px,9vw,128px)}
 .titular{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:end}
-.titular h1{font-size:clamp(46px,8.2vw,124px);text-transform:uppercase;letter-spacing:-.005em;line-height:.92}
+.titular h1{font-size:clamp(46px,8.2vw,124px);}
 .titular p{font-size:clamp(17px,1.6vw,20px);color:var(--gris);max-width:44ch}
 .datos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--linea);margin-top:clamp(40px,6vw,72px)}
 .datos div{padding:22px 0 0;display:grid;gap:4px}
@@ -128,7 +132,7 @@ section{padding-block:clamp(64px,9vw,128px)}
 @media (max-width:899px){.galeria{grid-template-columns:1fr 1fr}.galeria .g1{grid-column:1/-1}}
 /* encabezado de sección */
 .sec-cab{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
-.sec-cab h2{font-size:clamp(40px,6vw,80px);text-transform:uppercase;line-height:.95}
+.sec-cab h2{font-size:clamp(40px,6vw,80px);}
 .sec-cab p{max-width:42ch;color:var(--gris)}
 
 /* habitaciones */
@@ -165,7 +169,7 @@ section{padding-block:clamp(64px,9vw,128px)}
 /* llegar + faq */
 .dos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px)}
 @media (max-width:899px){.dos{grid-template-columns:minmax(0,1fr)}}
-.dos h2{font-size:clamp(36px,4.6vw,60px);text-transform:uppercase;margin-bottom:24px}
+.dos h2{font-size:clamp(36px,4.6vw,60px);margin-bottom:24px}
 .dist{list-style:none;margin:0 0 24px;padding:0}
 .dist li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--linea)}
 .dist li span{color:var(--gris);text-align:right}
@@ -183,7 +187,7 @@ details p{color:var(--gris);margin-top:8px}
 .des figure{margin:0;border-radius:3px;overflow:hidden;aspect-ratio:3/2}
 .des img{width:100%;height:100%;object-fit:cover}
 .des .txt{display:grid;gap:16px}
-.des h2{font-size:clamp(40px,5vw,72px);text-transform:uppercase;line-height:.95}
+.des h2{font-size:clamp(40px,5vw,72px);}
 .des p{color:var(--gris)}
 .des ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--linea)}
 .des li{padding:10px 0;border-bottom:1px solid var(--linea);font-family:var(--serif);font-size:21px}
@@ -191,7 +195,7 @@ details p{color:var(--gris);margin-top:8px}
 .contacto h2{font-size:clamp(48px,8vw,110px);text-transform:uppercase}
 .contacto p{opacity:.85;margin:18px auto 28px;max-width:46ch}
 .contacto .acciones{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.contacto .pildora{background:#fff;color:var(--acento)}
+.contacto .pildora{background:#fff;color:#1d211c}
 .contacto .pildora.clara{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px #fff}
 .contacto .linea{margin-top:22px;font-size:14px;opacity:.8}
 footer{font-size:13px;color:var(--gris)}
@@ -257,7 +261,7 @@ footer a:hover{text-decoration:underline}
   </div>
 
   <section id="casa"><div class="w">
-    <div class="titular"><h1>{{ t.titular }}</h1><p>{{ t.intro }}</p></div>
+    <div class="titular"><h1 class="mayus">{{ t.titular }}</h1><p>{{ t.intro }}</p></div>
     <div class="datos">{% for d in t.datos %}<div><b>{{ d.n }}</b><span>{{ d.t }}</span></div>{% endfor %}</div>
     <div class="galeria" aria-label="{{ t.galeria_titulo }}">
       <figure class="g1">{{ foto(n.img.fachada, t.galeria[0], "(min-width: 900px) 60vw, 100vw") }}<figcaption>{{ t.galeria[0] }}</figcaption></figure>
@@ -267,7 +271,7 @@ footer a:hover{text-decoration:underline}
   </div></section>
 
   <section id="habitaciones" style="padding-top:0"><div class="w">
-    <div class="sec-cab"><h2>{{ t.hab_titulo }}</h2><p>{{ t.hab_intro }}</p></div>
+    <div class="sec-cab"><h2 class="mayus">{{ t.hab_titulo }}</h2><p>{{ t.hab_intro }}</p></div>
     <div class="habs">
       {% for h in n.habitaciones %}{% set ht = t.hab[h.id] %}
       <article class="hab">
@@ -290,14 +294,14 @@ footer a:hover{text-decoration:underline}
     <figure>{{ foto(n.img.desayuno, t.desayuno_titulo, "(min-width: 900px) 60vw, 100vw") }}</figure>
     <div class="txt">
       <span class="eti" style="color:var(--rojo)">{{ t.desayuno_hora }}</span>
-      <h2>{{ t.desayuno_titulo }}</h2>
+      <h2 class="mayus">{{ t.desayuno_titulo }}</h2>
       <p>{{ t.desayuno_txt }}</p>
       <ul>{% for i in t.desayuno_lista %}<li>{{ i }}</li>{% endfor %}</ul>
     </div>
   </div></section>
 
   <section class="entorno" id="entorno"><div class="w">
-    <div class="sec-cab"><h2>{{ t.entorno_titulo }}</h2></div>
+    <div class="sec-cab"><h2 class="mayus">{{ t.entorno_titulo }}</h2></div>
     <div class="carril">
       {% for e in t.entorno %}
       <article{% if e.estacion != 'todo' %} data-solo="{{ e.estacion }}"{% endif %}>
@@ -310,14 +314,14 @@ footer a:hover{text-decoration:underline}
   </div></section>
 
   <section id="llegar"><div class="w dos">
-    <div><h2>{{ t.llegar_titulo }}</h2>
+    <div><h2 class="mayus">{{ t.llegar_titulo }}</h2>
       <ul class="dist">{% for l in t.llegar %}<li><b>{{ l.t }}</b><span>{{ l.d }}</span></li>{% endfor %}</ul>
       <a class="pildora clara" href="{{ n.mapa_url }}">{{ t.mapa }} →</a></div>
-    <div><h2>{{ t.faq_titulo }}</h2>{% for f in t.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}</div>
+    <div><h2 class="mayus">{{ t.faq_titulo }}</h2>{% for f in t.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}</div>
   </div></section>
 
   <section class="contacto" style="--bg:url('{{ img }}{{ n.img.sendero }}-1600.webp')"><div class="w">
-    <h2>{{ t.contacto_titulo }}</h2><p>{{ t.contacto_txt }}</p>
+    <h2 class="mayus">{{ t.contacto_titulo }}</h2><p>{{ t.contacto_txt }}</p>
     <div class="acciones"><a class="pildora" href="https://wa.me/{{ wa }}">{{ ico_wa }}{{ t.whatsapp }}</a><a class="pildora clara" href="tel:{{ tel }}">{{ t.llamar }} · {{ n.telefono }}</a></div>
     <p class="linea">{{ n.email }}</p>
   </div></section>
