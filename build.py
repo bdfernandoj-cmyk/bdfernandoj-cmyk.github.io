@@ -44,13 +44,11 @@ def main():
             t=textos[l], d=textos["datos"], idiomas=IDIOMAS, rutas=rutas, rel=rel,
             base_url=BASE_URL, demo_ruta=demo_ruta, anyo=date.today().year)
         hechos.append(escribir(ruta_idioma(l), html))
-    # Web de servicios v2 (propuesta) en docs/nueva/
-    for l in IDIOMAS:
-        rel = "../../" if l != "es" else "../"
-        html = env.get_template("servicios2.html.j2").render(
-            t=textos[l], v=textos[l]["v2"], d=textos["datos"], idiomas=IDIOMAS, rutas={k: "nueva/" + ruta_idioma(k) for k in IDIOMAS},
-            rel=rel, demo=rel + f"ejemplo/{demo}/", demo_ruta=f"ejemplo/{demo}/{ruta_idioma(l)}", anyo=date.today().year)
-        hechos.append(escribir("nueva/" + ruta_idioma(l), html))
+    # Web de servicios v3 (propuesta, solo castellano por ahora) en docs/nueva/
+    html = env.get_template("servicios3.html.j2").render(
+        t=textos["es"], v=textos["es"]["v3"], d=textos["datos"], rel="../",
+        demo_ruta=f"ejemplo/{demo}/", anyo=date.today().year)
+    hechos.append(escribir("nueva/", html))
     # Webs esencial de cada negocio
     for n in negocios:
         for l in IDIOMAS:
