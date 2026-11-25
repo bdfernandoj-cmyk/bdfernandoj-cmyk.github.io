@@ -119,6 +119,13 @@ section{padding-block:clamp(64px,9vw,128px)}
 .datos span{font-size:13px;color:var(--gris)}
 @media (max-width:899px){.titular{grid-template-columns:minmax(0,1fr)}.datos{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px}}
 
+/* galería de la casa (mosaico) */
+.galeria{display:grid;grid-template-columns:1.6fr 1fr .62fr;grid-template-rows:auto;gap:14px;margin-top:clamp(48px,7vw,96px);align-items:end}
+.galeria figure{margin:0;display:grid;gap:8px}
+.galeria img{width:100%;object-fit:cover;border-radius:3px}
+.galeria .g1 img{aspect-ratio:4/3}.galeria .g2 img{aspect-ratio:4/5}.galeria .g3 img{aspect-ratio:3/4}
+.galeria figcaption{font-size:12px;color:var(--gris)}
+@media (max-width:899px){.galeria{grid-template-columns:1fr 1fr}.galeria .g1{grid-column:1/-1}}
 /* encabezado de sección */
 .sec-cab{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
 .sec-cab h2{font-size:clamp(40px,6vw,80px);text-transform:uppercase;line-height:.95}
@@ -225,7 +232,8 @@ footer a:hover{text-decoration:underline}
 <main id="top">
   <div class="portada">
     <figure>
-      {{ foto(n.img.portada, t.portada_alt, "100vw", true) }}
+      <div data-solo="verano">{{ foto(n.img.portada, t.portada_alt, "100vw", true) }}</div>
+      <div data-solo="invierno">{{ foto(n.img.invierno, t.portada_alt_invierno, "100vw", true) }}</div>
       <figcaption class="eti">{{ n.lugar }} · {{ t.datos[1].n }}</figcaption>
     </figure>
     <form class="reserva" id="reserva" novalidate>
@@ -241,6 +249,11 @@ footer a:hover{text-decoration:underline}
   <section id="casa"><div class="w">
     <div class="titular"><h1>{{ t.titular }}</h1><p>{{ t.intro }}</p></div>
     <div class="datos">{% for d in t.datos %}<div><b>{{ d.n }}</b><span>{{ d.t }}</span></div>{% endfor %}</div>
+    <div class="galeria" aria-label="{{ t.galeria_titulo }}">
+      <figure class="g1">{{ foto(n.img.patio, t.galeria[0], "(min-width: 900px) 60vw, 100vw") }}<figcaption>{{ t.galeria[0] }}</figcaption></figure>
+      <figure class="g2">{{ foto(n.img.salon, t.galeria[1], "(min-width: 900px) 40vw, 100vw") }}<figcaption>{{ t.galeria[1] }}</figcaption></figure>
+      <figure class="g3">{{ foto(n.img.ventana, t.galeria[2], "(min-width: 900px) 20vw, 50vw") }}<figcaption>{{ t.galeria[2] }}</figcaption></figure>
+    </div>
   </div></section>
 
   <section id="habitaciones" style="padding-top:0"><div class="w">

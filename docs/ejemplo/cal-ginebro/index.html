@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cal Ginebró · Das · Cerdanya</title>
-<meta name="description" content="Seis habitaciones de piedra y madera en Das, a diez minutos de Puigcerdà. Chimenea, desayuno con producto de la Cerdanya y el Cadí delante de la ventana.">
+<meta name="description" content="Tres habitaciones y un estudio de piedra y madera en Das, a diez minutos de Puigcerdà. Chimenea, desayuno con producto de la Cerdanya y el Cadí delante de la ventana.">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="Cal Ginebró · Das · Cerdanya">
-<meta property="og:description" content="Seis habitaciones de piedra y madera en Das, a diez minutos de Puigcerdà. Chimenea, desayuno con producto de la Cerdanya y el Cadí delante de la ventana.">
+<meta property="og:description" content="Tres habitaciones y un estudio de piedra y madera en Das, a diez minutos de Puigcerdà. Chimenea, desayuno con producto de la Cerdanya y el Cadí delante de la ventana.">
 <meta property="og:image" content="img/paisaje-1600.webp">
 <link rel="alternate" hreflang="es" href="./">
 <link rel="alternate" hreflang="ca" href="ca/">
@@ -121,6 +121,13 @@ section{padding-block:clamp(64px,9vw,128px)}
 .datos span{font-size:13px;color:var(--gris)}
 @media (max-width:899px){.titular{grid-template-columns:minmax(0,1fr)}.datos{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px}}
 
+/* galería de la casa (mosaico) */
+.galeria{display:grid;grid-template-columns:1.6fr 1fr .62fr;grid-template-rows:auto;gap:14px;margin-top:clamp(48px,7vw,96px);align-items:end}
+.galeria figure{margin:0;display:grid;gap:8px}
+.galeria img{width:100%;object-fit:cover;border-radius:3px}
+.galeria .g1 img{aspect-ratio:4/3}.galeria .g2 img{aspect-ratio:4/5}.galeria .g3 img{aspect-ratio:3/4}
+.galeria figcaption{font-size:12px;color:var(--gris)}
+@media (max-width:899px){.galeria{grid-template-columns:1fr 1fr}.galeria .g1{grid-column:1/-1}}
 /* encabezado de sección */
 .sec-cab{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
 .sec-cab h2{font-size:clamp(40px,6vw,80px);text-transform:uppercase;line-height:.95}
@@ -227,7 +234,8 @@ footer a:hover{text-decoration:underline}
 <main id="top">
   <div class="portada">
     <figure>
-      <img src="img/paisaje-800.webp" srcset="img/paisaje-800.webp 800w, img/paisaje-1600.webp 1600w" sizes="100vw" alt="Valle de la Cerdanya con la casa de piedra entre prados y bosque" fetchpriority="high" decoding="async">
+      <div data-solo="verano"><img src="img/paisaje-800.webp" srcset="img/paisaje-800.webp 800w, img/paisaje-1600.webp 1600w" sizes="100vw" alt="Valle de la Cerdanya con la casa de piedra entre prados y bosque" fetchpriority="high" decoding="async"></div>
+      <div data-solo="invierno"><img src="img/invierno-800.webp" srcset="img/invierno-800.webp 800w, img/invierno-1600.webp 1600w" sizes="100vw" alt="El valle nevado con la masía y humo en la chimenea" fetchpriority="high" decoding="async"></div>
       <figcaption class="eti">Das · Cerdanya · 1.220 m</figcaption>
     </figure>
     <form class="reserva" id="reserva" novalidate>
@@ -241,8 +249,13 @@ footer a:hover{text-decoration:underline}
   </div>
 
   <section id="casa"><div class="w">
-    <div class="titular"><h1>Una masía de 1880 entre prados y cumbres</h1><p>Seis habitaciones de piedra y madera en Das, a diez minutos de Puigcerdà. Chimenea, desayuno con producto de la Cerdanya y el Cadí delante de la ventana.</p></div>
-    <div class="datos"><div><b>6</b><span>habitaciones</span></div><div><b>1.220 m</b><span>de altitud</span></div><div><b>10 min</b><span>a Puigcerdà</span></div><div><b>25 min</b><span>a La Molina</span></div></div>
+    <div class="titular"><h1>Una masía de 1880 entre prados y cumbres</h1><p>Tres habitaciones y un estudio de piedra y madera en Das, a diez minutos de Puigcerdà. Chimenea, desayuno con producto de la Cerdanya y el Cadí delante de la ventana.</p></div>
+    <div class="datos"><div><b>4</b><span>habitaciones y estudio</span></div><div><b>1.220 m</b><span>de altitud</span></div><div><b>10 min</b><span>a Puigcerdà</span></div><div><b>25 min</b><span>a La Molina</span></div></div>
+    <div class="galeria" aria-label="La casa">
+      <figure class="g1"><img src="img/patio-800.webp" srcset="img/patio-800.webp 800w, img/patio-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="El patio de piedra con las contraventanas rojas" loading="lazy" decoding="async"><figcaption>El patio de piedra con las contraventanas rojas</figcaption></figure>
+      <figure class="g2"><img src="img/estudi-salon-800.webp" srcset="img/estudi-salon-800.webp 800w, img/estudi-salon-1600.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" alt="El salón del Estudi, con cocina y vistas" loading="lazy" decoding="async"><figcaption>El salón del Estudi, con cocina y vistas</figcaption></figure>
+      <figure class="g3"><img src="img/ventana-800.webp" alt="Ventana de la habitación Puigmal" loading="lazy" decoding="async"><figcaption>Ventana de la habitación Puigmal</figcaption></figure>
+    </div>
   </div></section>
 
   <section id="habitaciones" style="padding-top:0"><div class="w">
@@ -273,6 +286,30 @@ footer a:hover{text-decoration:underline}
         </div>
       </article>
       
+      <article class="hab">
+        <div class="foto"><img src="img/suite-800.webp" srcset="img/suite-800.webp 800w, img/suite-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Suite Carlit" loading="lazy" decoding="async"></div>
+        <div class="txt">
+          <span class="eti" style="color:var(--rojo)">2 personas</span>
+          <h3>Suite Carlit</h3>
+          <p>La más grande de la casa: cerchas de madera de 1880, rincón de lectura y balcón francés.</p>
+          <ul class="chips"><li>Cama de 180</li><li>Zona de estar</li><li>Escritorio con vistas</li></ul>
+          <p class="precio">desde<b>165 €</b>/ noche</p>
+          <div><a class="pildora clara" href="#reserva">Consultar disponibilidad</a></div>
+        </div>
+      </article>
+      
+      <article class="hab">
+        <div class="foto"><img src="img/estudi-800.webp" srcset="img/estudi-800.webp 800w, img/estudi-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Estudi del Pati" loading="lazy" decoding="async"></div>
+        <div class="txt">
+          <span class="eti" style="color:var(--rojo)">4 personas</span>
+          <h3>Estudi del Pati</h3>
+          <p>Apartamento con altillo, cocina, estufa de leña y terraza propia al patio.</p>
+          <ul class="chips"><li>Altillo con cama de 160</li><li>Cocina equipada</li><li>Terraza</li><li>Estufa de leña</li></ul>
+          <p class="precio">desde<b>150 €</b>/ noche</p>
+          <div><a class="pildora clara" href="#reserva">Consultar disponibilidad</a></div>
+        </div>
+      </article>
+      
     </div>
     <div class="incluido"><h3 style="font-size:30px">Incluido en la estancia</h3><ul><li>Desayuno casero</li><li>Wifi</li><li>Aparcamiento</li><li>Guardaesquís</li><li>Se admiten perros</li><li>Toallas y lino</li></ul></div>
   </div></section>
@@ -282,13 +319,13 @@ footer a:hover{text-decoration:underline}
     <div class="carril">
       
       <article data-solo="invierno">
-        <div class="foto"><img src="img/paisaje-800.webp" srcset="img/paisaje-800.webp 800w, img/paisaje-1600.webp 1600w" sizes="(min-width: 900px) 30vw, 78vw" alt="Esquí en La Molina y Masella" loading="lazy" decoding="async"></div>
+        <div class="foto"><img src="img/invierno-800.webp" srcset="img/invierno-800.webp 800w, img/invierno-1600.webp 1600w" sizes="(min-width: 900px) 30vw, 78vw" alt="Esquí en La Molina y Masella" loading="lazy" decoding="async"></div>
         <span class="eti" style="color:var(--rojo)">Invierno</span>
         <h3>Esquí en La Molina y Masella</h3><p>Pistas para todos los niveles a 25 minutos. Te guardamos los esquís y te dejamos la chimenea encendida.</p>
       </article>
       
       <article>
-        <div class="foto"><img src="img/pueblo-800.webp" alt="El pueblo de Das" loading="lazy" decoding="async"></div>
+        <div class="foto"><img src="img/patio-800.webp" srcset="img/patio-800.webp 800w, img/patio-1600.webp 1600w" sizes="(min-width: 900px) 30vw, 78vw" alt="El pueblo de Das" loading="lazy" decoding="async"></div>
         <span class="eti" style="color:var(--rojo)">Todo el año</span>
         <h3>El pueblo de Das</h3><p>Iglesia románica, callejuelas de piedra y el mirador del valle a cinco minutos a pie.</p>
       </article>
