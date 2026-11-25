@@ -57,36 +57,27 @@ header .btn{padding:10px 16px;font-size:.95rem}
 @media (max-width:900px){nav.menu{display:none}}
 
 /* portada */
-.hero{background:var(--olive-deep);color:var(--cream);padding:clamp(120px,14vw,150px) 0 clamp(56px,7vw,84px);position:relative;overflow:clip}
-.hero .data{color:var(--moss)}
-.mega{font-size:clamp(3rem,13.5vw,9.6rem);line-height:.86;letter-spacing:-.06em}
-.mega em{font-style:normal;color:#5b93f5}
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);background:var(--olive-deep);overflow:clip}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;animation:zoom 14s var(--ease) both}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,32,43,.55) 0%,rgba(21,32,43,0) 60%),linear-gradient(180deg,rgba(21,32,43,.5) 0%,rgba(21,32,43,0) 30%,rgba(21,32,43,.3) 55%,rgba(21,32,43,.85) 100%)}
+@keyframes zoom{from{scale:1.08}to{scale:1}}
+.hero-in{position:relative;z-index:1;width:100%;padding-top:140px;padding-bottom:clamp(40px,7vw,80px)}
+.mega{font-size:clamp(3rem,10.5vw,8.6rem);line-height:.88;letter-spacing:-.06em;text-shadow:0 2px 30px rgba(21,32,43,.35)}
+.mega em{font-style:normal;color:#8db4ff}
 .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.12em .04em .08em 0;margin:-.12em 0 -.08em 0}
 .wi{display:inline-block;animation:wordUp 1s var(--ease) both;animation-delay:calc(var(--d)*70ms + 80ms)}
 @keyframes wordUp{from{translate:0 115%;rotate:6deg}to{translate:0 0;rotate:0deg}}
-.hero-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);align-items:center;margin-top:20px}
-@media (max-width:960px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
-.lead{font-size:clamp(1.1rem,1.6vw,1.3rem);opacity:.9;max-width:44ch}
+.lead{font-size:clamp(1.1rem,1.6vw,1.3rem);max-width:46ch;margin-top:22px}
 .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.deck{position:relative;height:clamp(320px,36vw,500px)}
-.cw{position:absolute;border-radius:18px;overflow:hidden;box-shadow:0 28px 60px rgba(0,0,0,.5);background:#000;animation:fan 1.2s var(--ease) both}
-.cw img{width:100%;height:100%;object-fit:cover;object-position:top}
-.c-desk{left:0;top:8%;width:84%;aspect-ratio:16/10;rotate:-3deg;--r:-3deg;animation-delay:.2s}
-.c-mov{right:0;top:0;width:clamp(130px,16vw,200px);aspect-ratio:9/19.5;rotate:5deg;--r:5deg;border:6px solid #000;border-radius:28px;animation-delay:.38s}
-.c-msg{left:10%;bottom:0;width:min(330px,72%);background:var(--cream);color:var(--ink);border-radius:16px;padding:14px 16px;rotate:-1.5deg;--r:-1.5deg;animation-delay:.6s;box-shadow:0 22px 50px rgba(0,0,0,.45)}
-.c-msg .q{display:flex;gap:8px;align-items:center;margin-bottom:8px}
-.c-msg .q svg{width:16px;height:16px;color:#1fa855}
-.c-msg .b{background:#dcf5d6;border-radius:12px 12px 12px 3px;padding:9px 11px;font-size:.95rem;line-height:1.4;font-weight:500}
-.c-msg .h{display:block;text-align:right;font-family:var(--data);font-size:.68rem;color:var(--olive-soft);margin-top:4px}
-@keyframes fan{from{opacity:0;scale:.85;rotate:0deg;translate:0 24px}to{opacity:1;scale:1;rotate:var(--r);translate:0 0}}
-.badge{position:absolute;left:-54px;top:52%;width:clamp(104px,11vw,132px);aspect-ratio:1;border-radius:50%;background:var(--signal);color:var(--on-signal);display:grid;place-items:center;text-decoration:none;z-index:3;animation:pop .8s .9s var(--ease) both}
+.btn.line{backdrop-filter:blur(8px);background:rgba(21,32,43,.25)}
+.badge{position:absolute;right:max(var(--g),env(safe-area-inset-right));bottom:clamp(40px,7vw,80px);width:clamp(96px,10vw,128px);aspect-ratio:1;border-radius:50%;background:var(--signal);color:var(--on-signal);display:grid;place-items:center;text-decoration:none;animation:pop .8s .9s var(--ease) both}
 .badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 18s linear infinite}
 .badge text{font-family:var(--data);font-size:9.6px;letter-spacing:.08em;text-transform:uppercase;fill:currentColor}
 .badge .arr{font-size:1.8rem;font-weight:800;animation:nudge 1.6s ease-in-out infinite}
+@media (max-width:760px){.badge{display:none}}
 @keyframes spin{to{rotate:360deg}}
 @keyframes pop{from{opacity:0;scale:.6}to{opacity:1;scale:1}}
 @keyframes nudge{0%,100%{translate:0 -3px}50%{translate:0 4px}}
-@media (max-width:960px){.deck{height:clamp(300px,90vw,440px)}.c-desk{width:88%}.c-desk{width:88%}.c-mov{width:30%}.badge{top:auto;bottom:-10px;left:66%}}
 
 /* cinta doble */
 .cinta{background:var(--signal);color:var(--on-signal);padding:12px 0 16px;overflow:hidden}
@@ -184,7 +175,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 /* aparición al hacer scroll: se mueve, nunca se oculta */
 .js .reveal{translate:0 40px;transition:translate .9s var(--ease)}
 .js .reveal.in{translate:0 0}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wi,.cw,.badge,.badge svg,.badge .arr,.cinta .track{animation:none!important}.js .reveal{translate:0 0;transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wi,.hero-bg,.badge,.badge svg,.badge .arr,.cinta .track{animation:none!important}.js .reveal{translate:0 0;transition:none}}
 </style>
 </head>
 <body>
@@ -202,22 +193,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </div></header>
 
 <main>
-  <section class="hero"><div class="wrap">
-    {% set n1 = v.h1_a.split(' ')|length %}{% set n2 = v.h1_b.split(' ')|length %}
-    <h1 class="mega" aria-label="{{ v.h1 }}">{{ palabras(v.h1_a) }}{{ palabras(v.h1_b, n1, true) }}{{ palabras(v.h1_c, n1 + n2) }}</h1>
-    <div class="hero-grid">
-      <div>
-        <p class="lead">{{ v.sub }}</p>
-        <div class="actions"><a class="btn hot" href="#ejemplo">{{ v.cta1|lower }} <span class="arr">→</span></a><a class="btn line" href="https://wa.me/{{ wa_num }}">{{ v.cta2|lower }} <span class="arr">→</span></a></div>
-      </div>
-      <div class="deck" aria-label="Capturas de una web de ejemplo">
-        <div class="cw c-desk"><img src="img/demo-escritorio.webp" alt="La web de ejemplo en el ordenador" width="1600" height="1000" fetchpriority="high"></div>
-        <div class="cw c-mov"><img src="img/demo-movil.webp" alt="La web de ejemplo en el móvil" width="780" height="1688"></div>
-        <div class="cw c-msg"><div class="q data">{{ ico_wa }}{{ v.burbuja_quien }}</div><div class="b">{{ v.burbuja }}<span class="h">{{ v.burbuja_hora }}</span></div></div>
-        <a class="badge" href="#precios" aria-label="{{ v.nav.precios }}"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#ring">{{ v.badge }}{{ v.badge }}</textPath></text></svg><span class="arr">↓</span></a>
-      </div>
+  <section class="hero">
+    <img class="hero-bg" src="img/hero-1600.webp" srcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w" sizes="100vw" alt="" fetchpriority="high">
+    <div class="wrap hero-in">
+      {% set n1 = v.h1_a.split(' ')|length %}
+      <h1 class="mega" aria-label="{{ v.h1 }}">{{ palabras(v.h1_a) }}{{ palabras(v.h1_b, n1, true) }}</h1>
+      <p class="lead">{{ v.sub }}</p>
+      <div class="actions"><a class="btn hot" href="#ejemplo">{{ v.cta1|lower }} <span class="arr">→</span></a><a class="btn line" href="https://wa.me/{{ wa_num }}">{{ v.cta2|lower }} <span class="arr">→</span></a></div>
+      <a class="badge" href="#precios" aria-label="{{ v.nav.precios }}"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#ring">{{ v.badge }}{{ v.badge }}</textPath></text></svg><span class="arr">↓</span></a>
     </div>
-  </div></section>
+  </section>
 
   <div class="cinta" aria-hidden="true">
     <div class="r1"><div class="track">{% for i in range(2) %}{% for w in v.cinta1 %}<span>{{ w }}</span>{% endfor %}{% endfor %}</div></div>
