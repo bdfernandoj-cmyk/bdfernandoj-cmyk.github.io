@@ -87,10 +87,18 @@ nav.izq a:hover{color:var(--tinta)}
 .menu-movil .fila{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .menu-movil .estacion,.menu-movil .idi{display:inline-flex}
 
+/* animaciones al hacer scroll (suaves; desactivadas si el usuario reduce el movimiento) */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv-img img{transform:scale(1.06);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.js .rv-img.in img{transform:scale(1)}
+@media (prefers-reduced-motion:reduce){.js .rv,.js .rv-img img{opacity:1!important;transform:none!important}}
 /* portada enmarcada + reserva */
 .portada{padding-inline:var(--marco);padding-top:4px}
 .portada figure{margin:0;position:relative;border-radius:3px;overflow:hidden;max-width:1600px;margin-inline:auto}
-.portada img{width:100%;height:clamp(380px,72vh,760px);object-fit:cover}
+.portada img,.portada video{width:100%;height:clamp(380px,72vh,760px);object-fit:cover;display:block}
+.portada .media{transform:scale(var(--zoom,1));transform-origin:50% 60%;will-change:transform}
+.portada video{background:var(--suave)}
 .portada figcaption{position:absolute;left:20px;top:18px;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.5)}
 .reserva{position:relative;z-index:2;max-width:1080px;margin:-46px auto 0;background:var(--panel);border-radius:4px;box-shadow:0 18px 50px -24px rgba(20,30,20,.45);display:grid;grid-template-columns:auto 1fr 1fr 130px auto;align-items:stretch}
 .reserva .tit{display:flex;flex-direction:column;justify-content:center;padding:16px 22px;background:var(--acento);color:#fff;border-radius:4px 0 0 4px}
@@ -104,7 +112,10 @@ nav.izq a:hover{color:var(--tinta)}
 .reserva .btn .pildora:hover{background:color-mix(in srgb,var(--rojo) 85%,#000)}
 .reserva-nota{text-align:center;font-size:13px;color:var(--gris);margin-top:12px}
 @media (max-width:899px){
-  .portada img{height:clamp(300px,58vh,520px)}
+  /* móvil: portada a pantalla completa, de borde a borde */
+  .portada{padding-inline:0;padding-top:0}
+  .portada figure{border-radius:0}
+  .portada img,.portada video{height:calc(100svh - 64px - 44px)}
   .reserva{grid-template-columns:1fr 1fr;margin:-30px var(--marco) 0}
   .reserva .tit{grid-column:1/-1;border-radius:4px 4px 0 0;flex-direction:row;justify-content:space-between;align-items:center;gap:12px}
   .reserva label{border-left:0;border-top:1px solid var(--linea)}
@@ -127,7 +138,7 @@ section{padding-block:clamp(64px,9vw,128px)}
 
 /* galería de la casa (mosaico) */
 .galeria{display:grid;grid-template-columns:1.6fr 1fr .62fr;grid-template-rows:auto;gap:14px;margin-top:clamp(48px,7vw,96px);align-items:end}
-.galeria figure{margin:0;display:grid;gap:8px}
+.galeria figure{margin:0;display:grid;gap:8px;overflow:hidden}
 .galeria img{width:100%;object-fit:cover;border-radius:3px}
 .galeria .g1 img{aspect-ratio:4/3}.galeria .g2 img{aspect-ratio:4/5}.galeria .g3 img{aspect-ratio:3/4}
 .galeria figcaption{font-size:12px;color:var(--gris)}
@@ -248,8 +259,10 @@ footer a:hover{text-decoration:underline}
 <main id="top">
   <div class="portada">
     <figure>
-      <div data-solo="verano"><img src="img/paisaje-800.webp" srcset="img/paisaje-800.webp 800w, img/paisaje-1600.webp 1600w" sizes="100vw" alt="Valle de la Cerdanya con la casa de piedra entre prados y bosque" fetchpriority="high" decoding="async"></div>
-      <div data-solo="invierno"><img src="img/invierno-800.webp" srcset="img/invierno-800.webp 800w, img/invierno-1600.webp 1600w" sizes="100vw" alt="El valle nevado con la masía y humo en la chimenea" fetchpriority="high" decoding="async"></div>
+      
+      <div class="media" data-solo="verano"><img src="img/paisaje-800.webp" srcset="img/paisaje-800.webp 800w, img/paisaje-1600.webp 1600w" sizes="100vw" alt="Valle de la Cerdanya con la casa de piedra entre prados y bosque" fetchpriority="high" decoding="async"></div>
+      <div class="media" data-solo="invierno"><img src="img/invierno-800.webp" srcset="img/invierno-800.webp 800w, img/invierno-1600.webp 1600w" sizes="100vw" alt="El valle nevado con la masía y humo en la chimenea" fetchpriority="high" decoding="async"></div>
+      
       <figcaption class="eti">Das · Cerdanya · 1.220 m</figcaption>
     </figure>
     <form class="reserva" id="reserva" novalidate>
@@ -263,21 +276,21 @@ footer a:hover{text-decoration:underline}
   </div>
 
   <section id="casa"><div class="w">
-    <div class="titular"><h1 class="mayus">Una masía de 1880 entre prados y cumbres</h1><p>Tres habitaciones y un estudio de piedra y madera en Das, a diez minutos de Puigcerdà. Chimenea, desayuno con producto de la Cerdanya y el Cadí delante de la ventana.</p></div>
-    <div class="datos"><div><b>4</b><span>habitaciones y estudio</span></div><div><b>1.220 m</b><span>de altitud</span></div><div><b>10 min</b><span>a Puigcerdà</span></div><div><b>25 min</b><span>a La Molina</span></div></div>
+    <div class="titular rv"><h1 class="mayus">Una masía de 1880 entre prados y cumbres</h1><p>Tres habitaciones y un estudio de piedra y madera en Das, a diez minutos de Puigcerdà. Chimenea, desayuno con producto de la Cerdanya y el Cadí delante de la ventana.</p></div>
+    <div class="datos rv"><div><b>4</b><span>habitaciones y estudio</span></div><div><b>1.220 m</b><span>de altitud</span></div><div><b>10 min</b><span>a Puigcerdà</span></div><div><b>25 min</b><span>a La Molina</span></div></div>
     <div class="galeria" aria-label="La casa">
-      <figure class="g1"><img src="img/fachada-800.webp" srcset="img/fachada-800.webp 800w, img/fachada-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="La entrada de la masía al atardecer" loading="lazy" decoding="async"><figcaption>La entrada de la masía al atardecer</figcaption></figure>
-      <figure class="g2"><img src="img/chimenea-800.webp" srcset="img/chimenea-800.webp 800w, img/chimenea-1600.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" alt="El salón de la chimenea" loading="lazy" decoding="async"><figcaption>El salón de la chimenea</figcaption></figure>
-      <figure class="g3"><img src="img/ventana-800.webp" alt="Ventana de la habitación Puigmal" loading="lazy" decoding="async"><figcaption>Ventana de la habitación Puigmal</figcaption></figure>
+      <figure class="g1 rv rv-img"><img src="img/fachada-800.webp" srcset="img/fachada-800.webp 800w, img/fachada-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="La entrada de la masía al atardecer" loading="lazy" decoding="async"><figcaption>La entrada de la masía al atardecer</figcaption></figure>
+      <figure class="g2 rv rv-img"><img src="img/chimenea-800.webp" srcset="img/chimenea-800.webp 800w, img/chimenea-1600.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" alt="El salón de la chimenea" loading="lazy" decoding="async"><figcaption>El salón de la chimenea</figcaption></figure>
+      <figure class="g3 rv rv-img"><img src="img/ventana-800.webp" alt="Ventana de la habitación Puigmal" loading="lazy" decoding="async"><figcaption>Ventana de la habitación Puigmal</figcaption></figure>
     </div>
   </div></section>
 
   <section id="habitaciones" style="padding-top:0"><div class="w">
-    <div class="sec-cab"><h2 class="mayus">Habitaciones</h2><p>Todas con baño propio, calefacción, ropa de cama de lino y desayuno incluido.</p></div>
+    <div class="sec-cab rv"><h2 class="mayus">Habitaciones</h2><p>Todas con baño propio, calefacción, ropa de cama de lino y desayuno incluido.</p></div>
     <div class="habs">
       
-      <article class="hab">
-        <div class="foto"><img src="img/hab-puigmal-800.webp" srcset="img/hab-puigmal-800.webp 800w, img/hab-puigmal-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Habitación Puigmal" loading="lazy" decoding="async"></div>
+      <article class="hab rv">
+        <div class="foto rv-img"><img src="img/hab-puigmal-800.webp" srcset="img/hab-puigmal-800.webp 800w, img/hab-puigmal-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Habitación Puigmal" loading="lazy" decoding="async"></div>
         <div class="txt">
           <span class="eti" style="color:var(--rojo)">2 personas</span>
           <h3>Habitación Puigmal</h3>
@@ -288,8 +301,8 @@ footer a:hover{text-decoration:underline}
         </div>
       </article>
       
-      <article class="hab">
-        <div class="foto"><img src="img/hab-cadi-800.webp" srcset="img/hab-cadi-800.webp 800w, img/hab-cadi-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Habitación Cadí" loading="lazy" decoding="async"></div>
+      <article class="hab rv">
+        <div class="foto rv-img"><img src="img/hab-cadi-800.webp" srcset="img/hab-cadi-800.webp 800w, img/hab-cadi-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Habitación Cadí" loading="lazy" decoding="async"></div>
         <div class="txt">
           <span class="eti" style="color:var(--rojo)">3 personas</span>
           <h3>Habitación Cadí</h3>
@@ -300,8 +313,8 @@ footer a:hover{text-decoration:underline}
         </div>
       </article>
       
-      <article class="hab">
-        <div class="foto"><img src="img/suite-800.webp" srcset="img/suite-800.webp 800w, img/suite-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Suite Carlit" loading="lazy" decoding="async"></div>
+      <article class="hab rv">
+        <div class="foto rv-img"><img src="img/suite-800.webp" srcset="img/suite-800.webp 800w, img/suite-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Suite Carlit" loading="lazy" decoding="async"></div>
         <div class="txt">
           <span class="eti" style="color:var(--rojo)">2 personas</span>
           <h3>Suite Carlit</h3>
@@ -312,8 +325,8 @@ footer a:hover{text-decoration:underline}
         </div>
       </article>
       
-      <article class="hab">
-        <div class="foto"><img src="img/estudi-800.webp" srcset="img/estudi-800.webp 800w, img/estudi-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Estudi del Pati" loading="lazy" decoding="async"></div>
+      <article class="hab rv">
+        <div class="foto rv-img"><img src="img/estudi-800.webp" srcset="img/estudi-800.webp 800w, img/estudi-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Estudi del Pati" loading="lazy" decoding="async"></div>
         <div class="txt">
           <span class="eti" style="color:var(--rojo)">4 personas</span>
           <h3>Estudi del Pati</h3>
@@ -325,10 +338,10 @@ footer a:hover{text-decoration:underline}
       </article>
       
     </div>
-    <div class="incluido"><h3 style="font-size:30px">Incluido en la estancia</h3><ul><li>Desayuno casero</li><li>Wifi</li><li>Aparcamiento</li><li>Guardaesquís</li><li>Se admiten perros</li><li>Toallas y lino</li></ul></div>
+    <div class="incluido rv"><h3 style="font-size:30px">Incluido en la estancia</h3><ul><li>Desayuno casero</li><li>Wifi</li><li>Aparcamiento</li><li>Guardaesquís</li><li>Se admiten perros</li><li>Toallas y lino</li></ul></div>
   </div></section>
 
-  <section class="desayuno" style="padding-top:0"><div class="w des">
+  <section class="desayuno" style="padding-top:0"><div class="w des rv">
     <figure><img src="img/desayuno-800.webp" srcset="img/desayuno-800.webp 800w, img/desayuno-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="El desayuno" loading="lazy" decoding="async"></figure>
     <div class="txt">
       <span class="eti" style="color:var(--rojo)">De 8.30 a 10.30 h · incluido en la estancia</span>
@@ -339,7 +352,7 @@ footer a:hover{text-decoration:underline}
   </div></section>
 
   <section class="entorno" id="entorno"><div class="w">
-    <div class="sec-cab"><h2 class="mayus">Qué hacer en la Cerdanya</h2></div>
+    <div class="sec-cab rv"><h2 class="mayus">Qué hacer en la Cerdanya</h2></div>
     <div class="carril">
       
       <article data-solo="invierno">
@@ -369,7 +382,7 @@ footer a:hover{text-decoration:underline}
     </div>
   </div></section>
 
-  <section id="llegar"><div class="w dos">
+  <section id="llegar"><div class="w dos rv">
     <div><h2 class="mayus">Cómo llegar</h2>
       <ul class="dist"><li><b>Barcelona</b><span>2 h por el túnel del Cadí</span></li><li><b>Puigcerdà</b><span>10 min por la carretera de Das</span></li><li><b>Toulouse</b><span>2 h 30 por Bourg-Madame</span></li><li><b>Aeropuerto de la Cerdanya</b><span>5 min</span></li></ul>
       <a class="pildora clara" href="https://www.openstreetmap.org/?mlat=42.383&amp;mlon=1.861#map=13/42.383/1.861">Ver en el mapa →</a></div>
@@ -392,6 +405,23 @@ footer a:hover{text-decoration:underline}
 <div class="barra"><a class="pildora" href="#reserva">Consultar disponibilidad</a><a class="pildora wa" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>WhatsApp</a></div>
 
 <script>
+document.documentElement.classList.add("js");
+(function(){
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // vídeo de portada: versión ligera en móvil; sin vídeo si el usuario ahorra datos o reduce el movimiento
+  const v=document.getElementById("hero-video");
+  if(v){ const ahorro=navigator.connection&&navigator.connection.saveData;
+    if(reduce||ahorro){ v.removeAttribute("autoplay"); }
+    else { v.src=matchMedia("(max-width: 899px)").matches?v.dataset.movil:v.dataset.escritorio; v.play&&v.play().catch(()=>{}); } }
+  // aparición suave al hacer scroll
+  const els=document.querySelectorAll(".rv,.rv-img");
+  if(!("IntersectionObserver" in window)||reduce){ els.forEach(e=>e.classList.add("in")); }
+  else { const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }),{rootMargin:"0px 0px -8% 0px",threshold:.08});
+    els.forEach(e=>io.observe(e)); }
+  // zoom muy leve de la portada al bajar
+  const media=document.querySelector(".portada .media");
+  if(media&&!reduce){ let tk=false; addEventListener("scroll",()=>{ if(tk) return; tk=true; requestAnimationFrame(()=>{ const y=Math.min(scrollY,800); document.querySelectorAll(".portada .media").forEach(m=>m.style.setProperty("--zoom",1+y/8000)); tk=false; }); },{passive:true}); }
+})();
 (function(){
   const root=document.documentElement, KEY="estacion-cal-ginebro";
   function setSeason(s){ root.dataset.season=s;
