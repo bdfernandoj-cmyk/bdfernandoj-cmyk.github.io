@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>bau webs · webs para negocios del pirineo</title>
-<meta name="description" content="Webs para casas rurales, restaurantes y productores del Pirineo que reciben reservas directas. Precio cerrado, lista en dos semanas.">
+<meta name="description" content="Webs rápidas, claras en el móvil y fáciles de usar para negocios del Pirineo. Precio cerrado, publicada en dos semanas.">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="bau webs">
-<meta property="og:description" content="Webs para casas rurales, restaurantes y productores del Pirineo que reciben reservas directas. Precio cerrado, lista en dos semanas.">
+<meta property="og:description" content="Webs rápidas, claras en el móvil y fáciles de usar para negocios del Pirineo. Precio cerrado, publicada en dos semanas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%2320250e'/%3E%3Cpath d='M7 36 L20 17 L27 27 L33 19 L42 36' fill='none' stroke='%23f2eddd' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3Ccircle cx='36' cy='12' r='3.6' fill='%23e05c33'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230b1b3a'/%3E%3Cpath d='M7 36 L20 17 L27 27 L33 19 L42 36' fill='none' stroke='%23f7f4ee' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3Ccircle cx='36' cy='12' r='3.6' fill='%236ec3ff'/%3E%3C/svg%3E">
 <style>
 /* bau webs · rama de Project Bau. Mismo sistema: Hanken Grotesk en minúsculas, DM Mono para datos,
    crema / oliva / musgo y el naranja de señal de sendero solo para lo que importa. */
 :root{
-  --cream:#f2eddd; --cream-deep:#e6dfc9; --olive:#343a1e; --olive-deep:#20250e; --olive-soft:#5f6642;
-  --ink:#1d2011; --rule:#cdc6ab; --moss:#b4bd72; --signal:#e05c33; --signal-text:#bf4720;
+  --cream:#f7f4ee; --cream-deep:#e4e8f1; --olive:#13284f; --olive-deep:#0b1b3a; --olive-soft:#4f5b76;
+  --ink:#0b1b3a; --rule:#d7dcea; --moss:#9fd6ff; --signal:#6ec3ff; --signal-text:#1f6fb2;
   --display:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif; --data:"DM Mono",ui-monospace,Menlo,monospace;
   --ease:cubic-bezier(.2,.8,.2,1); --g:20px;
 }
@@ -50,9 +50,9 @@ header.top{position:absolute;top:0;left:0;right:0;z-index:10;color:var(--cream)}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:calc(22px + env(safe-area-inset-top));padding-bottom:14px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.35rem;letter-spacing:-.05em}
 .logo svg{width:38px;height:28px}
-nav.menu{display:flex;gap:6px;background:rgba(32,37,14,.6);backdrop-filter:blur(12px);border:1px solid rgba(242,237,221,.14);border-radius:999px;padding:5px}
+nav.menu{display:flex;gap:6px;background:rgba(11,27,58,.6);backdrop-filter:blur(12px);border:1px solid rgba(247,244,238,.14);border-radius:999px;padding:5px}
 nav.menu a{text-decoration:none;padding:9px 14px;border-radius:999px;font-weight:700;letter-spacing:-.02em;text-transform:lowercase;font-size:.95rem;opacity:.8}
-nav.menu a:hover{background:rgba(242,237,221,.12);opacity:1}
+nav.menu a:hover{background:rgba(247,244,238,.12);opacity:1}
 header .btn{padding:10px 16px;font-size:.95rem}
 @media (max-width:900px){nav.menu{display:none}}
 
@@ -102,7 +102,7 @@ header .btn{padding:10px 16px;font-size:.95rem}
 .cab{display:grid;gap:16px;margin-bottom:clamp(32px,5vw,56px)}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 @media (max-width:900px){.cards{grid-template-columns:minmax(0,1fr)}.card{position:sticky;top:calc(20px + var(--i)*18px)}}
-.card{border-radius:28px;padding:26px 24px 28px;min-height:460px;display:flex;flex-direction:column;gap:12px;overflow:hidden;box-shadow:0 -10px 30px rgba(29,32,17,.1);transition:translate .4s var(--ease),rotate .4s var(--ease)}
+.card{border-radius:28px;padding:26px 24px 28px;min-height:460px;display:flex;flex-direction:column;gap:12px;overflow:hidden;box-shadow:0 -10px 30px rgba(11,27,58,.1);transition:translate .4s var(--ease),rotate .4s var(--ease)}
 @media (min-width:901px){.card:hover{translate:0 -10px;rotate:-1.2deg}}
 .card .num{font-weight:800;font-size:clamp(3.4rem,6vw,5rem);line-height:.8;letter-spacing:-.06em}
 .card h3{font-size:clamp(1.9rem,3vw,2.5rem)}
@@ -132,14 +132,14 @@ header .btn{padding:10px 16px;font-size:.95rem}
 .plan{border:2px solid var(--ink);border-radius:26px;padding:30px;display:flex;flex-direction:column;gap:16px;background:var(--cream);transition:translate .35s var(--ease),box-shadow .35s var(--ease)}
 .plan:hover{translate:-4px -4px;box-shadow:8px 8px 0 var(--signal)}
 .plan.dest{background:var(--ink);color:var(--cream)}
-.plan.dest .data{color:var(--moss)}
+.plan.dest .data{color:var(--moss)}.plan.dest li::before{color:var(--signal)}
 .plan h3{font-size:clamp(2rem,3.4vw,2.8rem)}
 .precio{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .precio b{font-size:clamp(3.4rem,6vw,4.6rem);font-weight:800;letter-spacing:-.06em;line-height:1}
 .precio s{font-family:var(--data);font-size:.85rem;opacity:.7}
 .plan ul{list-style:none;margin:0;padding:16px 0 0;border-top:2px solid currentColor;display:grid;gap:9px;flex:1}
 .plan li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px;font-size:1.02rem}
-.plan li::before{content:"→";color:var(--signal);font-weight:800}
+.plan li::before{content:"→";color:var(--signal-text);font-weight:800}
 .plan.dest .btn.hot:hover{background:var(--cream)}
 .extras{margin-top:20px;border-top:2px solid var(--ink)}
 .extras .fila{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:18px 0;border-bottom:2px solid var(--ink)}
@@ -165,7 +165,7 @@ details{border-bottom:2px solid var(--ink);padding:18px 0}
 details:first-of-type{border-top:2px solid var(--ink)}
 summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--signal);font-weight:800;font-size:1.5rem;line-height:1}
+summary::after{content:"+";color:var(--signal-text);font-weight:800;font-size:1.5rem;line-height:1}
 details[open] summary::after{content:"–"}
 details p{color:var(--olive-soft);margin-top:10px}
 
@@ -196,19 +196,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 
 <header class="top"><div class="wrap">
-  <a class="logo" href="#"><svg viewBox="0 0 62 44" aria-hidden="true"><path d="M3 40 L22 12 L32 26 L41 15 L59 40" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="48" cy="8" r="5" fill="#e05c33"/></svg>bau webs</a>
+  <a class="logo" href="#"><svg viewBox="0 0 62 44" aria-hidden="true"><path d="M3 40 L22 12 L32 26 L41 15 L59 40" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="48" cy="8" r="5" fill="#6ec3ff"/></svg>bau webs</a>
   <nav class="menu" aria-label="Menú"><a href="#ventajas">Qué cambia</a><a href="#ejemplo">Ejemplo</a><a href="#precios">Precios</a><a href="#como">Cómo funciona</a></nav>
   <a class="btn hot" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>escríbeme</a>
 </div></header>
 
 <main>
   <section class="hero"><div class="wrap">
-    <p class="data">Para casas rurales, restaurantes y productores del Pirineo</p>
     
-    <h1 class="mega" aria-label="Que te reserven a ti, no a Booking."><span class="w"><span class="wi" style="--d:0">que</span></span> <span class="w"><span class="wi" style="--d:1">te</span></span> <span class="w"><span class="wi" style="--d:2">reserven</span></span> <span class="w"><span class="wi" style="--d:3"><em>a</em></span></span> <span class="w"><span class="wi" style="--d:4"><em>ti,</em></span></span> <span class="w"><span class="wi" style="--d:5">no</span></span> <span class="w"><span class="wi" style="--d:6">a</span></span> <span class="w"><span class="wi" style="--d:7">booking.</span></span> </h1>
+    <h1 class="mega" aria-label="Una web que sí funciona. Rápida y sin líos."><span class="w"><span class="wi" style="--d:0">una</span></span> <span class="w"><span class="wi" style="--d:1">web</span></span> <span class="w"><span class="wi" style="--d:2">que</span></span> <span class="w"><span class="wi" style="--d:3"><em>sí</em></span></span> <span class="w"><span class="wi" style="--d:4"><em>funciona,</em></span></span> <span class="w"><span class="wi" style="--d:5">rápida</span></span> <span class="w"><span class="wi" style="--d:6">y</span></span> <span class="w"><span class="wi" style="--d:7">sin</span></span> <span class="w"><span class="wi" style="--d:8">líos.</span></span> </h1>
     <div class="hero-grid">
       <div>
-        <p class="lead">Hago webs que se ven bien en el móvil y reciben reservas directas por WhatsApp. Precio cerrado desde 590 €, lista en dos semanas.</p>
+        <p class="lead">Diseño y monto la web de tu negocio: carga al momento, se entiende en el móvil y tus clientes te contactan con un toque. Tú no tocas nada técnico. Precio cerrado desde 590 €, publicada en dos semanas.</p>
         <div class="actions"><a class="btn hot" href="#ejemplo">ver un ejemplo <span class="arr">→</span></a><a class="btn line" href="https://wa.me/34600000000">hablemos 10 minutos <span class="arr">→</span></a></div>
       </div>
       <div class="deck" aria-label="Capturas de una web de ejemplo">
@@ -221,23 +220,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div></section>
 
   <div class="cinta" aria-hidden="true">
-    <div class="r1"><div class="track"><span>reserva directa</span><span>móvil primero</span><span>precio cerrado</span><span>en dos semanas</span><span>sin comisiones</span><span>reserva directa</span><span>móvil primero</span><span>precio cerrado</span><span>en dos semanas</span><span>sin comisiones</span></div></div>
+    <div class="r1"><div class="track"><span>carga rápido</span><span>clara en el móvil</span><span>precio cerrado</span><span>en dos semanas</span><span>sin líos técnicos</span><span>carga rápido</span><span>clara en el móvil</span><span>precio cerrado</span><span>en dos semanas</span><span>sin líos técnicos</span></div></div>
     <div class="r2"><div class="track"><span>casas rurales</span><span>restaurantes</span><span>queserías</span><span>guías de montaña</span><span>català · français</span><span>casas rurales</span><span>restaurantes</span><span>queserías</span><span>guías de montaña</span><span>català · français</span></div></div>
   </div>
 
   <section class="block" id="ventajas"><div class="wrap">
-    <div class="cab"><p class="data">Qué cambia</p><h2 class="big reveal">Qué cambia con una web nueva</h2></div>
+    <div class="cab"><h2 class="big reveal">qué tiene una web que funciona</h2></div>
     <div class="cards">
-      <article class="card k1" style="--i:0"><span class="num">01</span><h3>Te encuentran en el móvil</h3><p>Casi todos tus clientes te buscan desde el teléfono. Tu web se lee sin hacer zoom y carga rápido, incluso con poca cobertura.</p><div class="shot"><img src="img/demo-habitacion.webp" alt="" loading="lazy" width="780" height="1688"></div></article>
+      <article class="card k1" style="--i:0"><span class="num">01</span><h3>Se ve bien en el móvil</h3><p>Casi todos tus clientes te buscan desde el teléfono. Se lee sin hacer zoom y carga rápido, incluso con poca cobertura.</p><div class="shot"><img src="img/demo-movil.webp" alt="" loading="lazy" width="780" height="1688"></div></article>
     
-      <article class="card k2" style="--i:1"><span class="num">02</span><h3>Te reservan sin comisiones</h3><p>Booking y similares se quedan una parte de cada reserva. Con un botón de reserva directa, el cliente te escribe a ti y el dinero es tuyo.</p><div class="shot"><img src="img/demo-movil.webp" alt="" loading="lazy" width="780" height="1688"></div></article>
+      <article class="card k2" style="--i:1"><span class="num">02</span><h3>Se entiende a la primera</h3><p>Qué ofreces, precios, horarios y cómo llegar, a la vista. Sin menús liosos ni PDFs que nadie abre.</p><div class="shot"><img src="img/demo-habitacion.webp" alt="" loading="lazy" width="780" height="1688"></div></article>
     
-      <article class="card k3" style="--i:2"><span class="num">03</span><h3>Te entienden los de fuera</h3><p>Tu web en castellano, catalán y francés. Estando tan cerca de la frontera, cada idioma son clientes nuevos.</p><div class="shot"><img src="img/demo-frances.webp" alt="" loading="lazy" width="780" height="1688"></div></article>
+      <article class="card k3" style="--i:2"><span class="num">03</span><h3>Te contactan con un toque</h3><p>Un botón para escribirte por WhatsApp o pedir disponibilidad. Sin formularios largos ni correos que se pierden.</p><div class="shot"><img src="img/demo-frances.webp" alt="" loading="lazy" width="780" height="1688"></div></article>
     </div>
   </div></section>
 
   <section class="block dark" id="ejemplo"><div class="wrap">
-    <div class="cab"><p class="data">Ejemplo</p><h2 class="big reveal">De esto a esto</h2><p>Desliza para comparar una web antigua con una hecha para el móvil y la reserva directa.</p></div>
+    <div class="cab"><h2 class="big reveal">De esto a esto</h2><p>Desliza para comparar una web antigua con una que funciona: rápida, clara y fácil de usar en el móvil.</p></div>
     <div class="comp reveal" style="--x:50%">
       <img src="img/antes.webp" alt="Antes" loading="lazy">
       <img class="despues" src="img/demo-escritorio.webp" alt="Después" loading="lazy">
@@ -249,7 +248,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div></section>
 
   <section class="block" id="precios"><div class="wrap">
-    <div class="cab"><p class="data">Precio de lanzamiento · 5 primeros negocios</p><h2 class="big reveal">Precios claros, antes de empezar</h2><p>Sabes lo que pagas desde el primer día. 50 % al empezar y 50 % cuando la web está publicada.</p></div>
+    <div class="cab"><h2 class="big reveal">Precios claros, antes de empezar</h2><p>Sabes lo que pagas desde el primer día. 50 % al empezar y 50 % cuando la web está publicada. Precio de lanzamiento para los 5 primeros negocios.</p></div>
     <div class="planes">
       
       <article class="plan reveal">
@@ -276,20 +275,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div></section>
 
   <section class="block" id="como" style="padding-top:0"><div class="wrap">
-    <div class="cab"><p class="data">3 pasos · 2 semanas</p><h2 class="big reveal">Cómo funciona</h2></div>
+    <div class="cab"><h2 class="big reveal">Cómo funciona</h2></div>
     <ol class="crit"><li><span class="data">Día 1</span><strong>Hablamos 10 minutos</strong><span class="d">Por teléfono o videollamada. Me cuentas tu negocio y te enseño ideas para tu web.</span></li><li><span class="data">Día 2</span><strong>Te mando la propuesta</strong><span class="d">Por escrito, con el precio cerrado, lo que incluye y la fecha de entrega.</span></li><li><span class="data">En 2 semanas</span><strong>Tu web, publicada</strong><span class="d">Yo la diseño y la monto. Tú revisas, pides cambios y la publicamos con tu dominio.</span></li></ol>
   </div></section>
 
   <section class="block" style="padding-top:0"><div class="wrap duo">
-    <div class="sobre"><p class="data">Quién está detrás</p><h2 class="big reveal">Fernando</h2><p>Soy Fernando, diseñador web en Barcelona. Diseño cada web, la programo yo y me aseguro de que cargue rápido.</p><p>Paso a menudo por el Pirineo y conozco a quién os dirigís. También hago fotografía: si lo necesitas, subo a hacer las fotos.</p></div>
-    <div><p class="data" style="margin-bottom:18px">Preguntas frecuentes</p>
-      <details><summary>Ya estoy en Booking. ¿Me sirve igual?</summary><p>Sí. La web no sustituye a Booking: te da un canal propio para que quien ya te conoce, o te encuentra en Google, te reserve directamente y sin comisión.</p></details>
+    <div class="sobre"><h2 class="big reveal">Fernando</h2><p>Soy Fernando, diseñador web en Barcelona. Diseño cada web, la programo yo y me aseguro de que cargue rápido.</p><p>Paso a menudo por el Pirineo y conozco a quién os dirigís. También hago fotografía: si lo necesitas, subo a hacer las fotos.</p></div>
+    <div><h2 class="big reveal" style="margin-bottom:28px">preguntas frecuentes</h2>
+      <details><summary>¿Cuánto tarda en estar lista?</summary><p>Dos semanas desde que me pasas fotos y textos. Si no los tienes, te ayudo a prepararlos.</p></details>
       <details><summary>¿Necesito saber de tecnología?</summary><p>No. Yo me encargo del dominio, el hosting y la puesta en marcha. Tú solo revisas y das el visto bueno.</p></details><details><summary>Ya tengo web. ¿Hay que empezar de cero?</summary><p>No siempre. Si el contenido vale, lo aprovechamos y mantenemos tu dominio para no perder lo que ya tienes en Google.</p></details><details><summary>¿Puedo hacer cambios después?</summary><p>Sí. Con el mantenimiento me escribes y los hago yo. Sin mantenimiento, te presupuesto cada cambio.</p></details><details><summary>¿Trabajas en remoto?</summary><p>Sí, todo se hace por videollamada, correo o WhatsApp. Solo me desplazo si contratas la sesión de fotos.</p></details>
     </div>
   </div></section>
 
   <section class="cta"><div class="wrap" style="display:grid;gap:22px;justify-items:start">
-    <p class="data">contacto</p>
     <h2 class="mega" style="font-size:clamp(2.8rem,9vw,7.2rem)">¿Hablamos 10 minutos?</h2>
     <p>Sin compromiso. Te enseño cómo podría quedar tu web y te digo el precio exacto.</p>
     <a class="btn" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>escribir por whatsapp <span class="arr">→</span></a>

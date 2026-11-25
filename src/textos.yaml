@@ -14,79 +14,122 @@ datos:
 es:
   lang: es
   v3:
-    title: "Fernando · Webs para negocios del Pirineo"
-    description: "Webs para casas rurales, restaurantes y productores del Pirineo que reciben reservas directas. Precio cerrado, lista en dos semanas."
-    marca_sub: "Webs para negocios del Pirineo"
-    nav: {ejemplo: "Ejemplo", ventajas: "Qué cambia", precios: "Precios", como: "Cómo funciona", faq: "Preguntas"}
-    cta_wa: "Escríbeme"
-    para: "Para casas rurales, restaurantes y productores del Pirineo"
-    h1: "Que te reserven a ti, no a Booking."
-    h1_a: "que te reserven"
-    h1_b: "a ti,"
-    h1_c: "no a booking."
-    marca: "bau webs"
-    badge: "precio cerrado · en 2 semanas · desde 590 € · "
-    cinta1: ["reserva directa", "móvil primero", "precio cerrado", "en dos semanas", "sin comisiones"]
-    cinta2: ["casas rurales", "restaurantes", "queserías", "guías de montaña", "català · français"]
-    sub: "Hago webs que se ven bien en el móvil y reciben reservas directas por WhatsApp. Precio cerrado desde 590 €, lista en dos semanas."
-    cta1: "Ver un ejemplo"
-    cta2: "Hablemos 10 minutos"
-    puntos_hero: ["Precio cerrado", "En castellano, catalán y francés", "Todo en remoto"]
-    burbuja_quien: "Mensaje que recibes"
-    burbuja: "Hola, querría consultar disponibilidad del 12 al 14 de diciembre para 2 personas."
-    burbuja_hora: "10:24"
-    pensado_t: "Pensado para"
-    pensado: ["Casas rurales", "Hoteles pequeños", "Restaurantes y bares", "Queserías y productores", "Guías y actividades"]
-    ventajas_t: "Qué cambia con una web nueva"
+    title: bau webs · webs que funcionan para negocios del Pirineo
+    description: Webs rápidas, claras en el móvil y fáciles de usar para negocios del Pirineo. Precio cerrado, publicada en dos semanas.
+    marca_sub: Webs para negocios del Pirineo
+    nav:
+      ejemplo: Ejemplo
+      ventajas: Qué cambia
+      precios: Precios
+      como: Cómo funciona
+      faq: Preguntas
+    cta_wa: Escríbeme
+    para: Para casas rurales, restaurantes y productores del Pirineo
+    h1: Una web que sí funciona. Rápida y sin líos.
+    h1_a: una web que
+    h1_b: sí funciona,
+    h1_c: rápida y sin líos.
+    marca: bau webs
+    badge: 'precio cerrado · en 2 semanas · desde 590 € · '
+    cinta1:
+    - carga rápido
+    - clara en el móvil
+    - precio cerrado
+    - en dos semanas
+    - sin líos técnicos
+    cinta2:
+    - casas rurales
+    - restaurantes
+    - queserías
+    - guías de montaña
+    - català · français
+    sub: 'Diseño y monto la web de tu negocio: carga al momento, se entiende en el móvil y tus clientes te contactan con un toque. Tú no tocas nada técnico. Precio cerrado desde 590 €, publicada en dos semanas.'
+    cta1: Ver un ejemplo
+    cta2: Hablemos 10 minutos
+    puntos_hero:
+    - Precio cerrado
+    - En castellano, catalán y francés
+    - Todo en remoto
+    burbuja_quien: Mensaje que recibes
+    burbuja: Hola, querría consultar disponibilidad del 12 al 14 de diciembre para 2 personas.
+    burbuja_hora: '10:24'
+    pensado_t: Pensado para
+    pensado:
+    - Casas rurales
+    - Hoteles pequeños
+    - Restaurantes y bares
+    - Queserías y productores
+    - Guías y actividades
+    ventajas_t: qué tiene una web que funciona
     ventajas:
-      - t: "Te encuentran en el móvil"
-        d: "Casi todos tus clientes te buscan desde el teléfono. Tu web se lee sin hacer zoom y carga rápido, incluso con poca cobertura."
-        img: demo-habitacion
-      - t: "Te reservan sin comisiones"
-        d: "Booking y similares se quedan una parte de cada reserva. Con un botón de reserva directa, el cliente te escribe a ti y el dinero es tuyo."
-        img: demo-movil
-      - t: "Te entienden los de fuera"
-        d: "Tu web en castellano, catalán y francés. Estando tan cerca de la frontera, cada idioma son clientes nuevos."
-        img: demo-frances
-    antes_t: "De esto a esto"
-    antes_d: "Desliza para comparar una web antigua con una hecha para el móvil y la reserva directa."
-    antes_l: "Antes"
-    despues_l: "Después"
-    antes_nota: "Ejemplo ilustrativo con un negocio ficticio."
-    ejemplo_cta: "Ver la web de ejemplo completa"
-    precios_t: "Precios claros, antes de empezar"
-    precios_d: "Sabes lo que pagas desde el primer día. 50 % al empezar y 50 % cuando la web está publicada."
-    lanz: "Precio de lanzamiento · 5 primeros negocios"
-    antes_precio: "Después"
-    iva: "+ IVA"
+    - t: Se ve bien en el móvil
+      d: Casi todos tus clientes te buscan desde el teléfono. Se lee sin hacer zoom y carga rápido, incluso con poca cobertura.
+      img: demo-movil
+    - t: Se entiende a la primera
+      d: Qué ofreces, precios, horarios y cómo llegar, a la vista. Sin menús liosos ni PDFs que nadie abre.
+      img: demo-habitacion
+    - t: Te contactan con un toque
+      d: Un botón para escribirte por WhatsApp o pedir disponibilidad. Sin formularios largos ni correos que se pierden.
+      img: demo-frances
+    antes_t: De esto a esto
+    antes_d: 'Desliza para comparar una web antigua con una que funciona: rápida, clara y fácil de usar en el móvil.'
+    antes_l: Antes
+    despues_l: Después
+    antes_nota: Ejemplo ilustrativo con un negocio ficticio.
+    ejemplo_cta: Ver la web de ejemplo completa
+    precios_t: Precios claros, antes de empezar
+    precios_d: Sabes lo que pagas desde el primer día. 50 % al empezar y 50 % cuando la web está publicada. Precio de lanzamiento para los 5 primeros negocios.
+    lanz: Precio de lanzamiento · 5 primeros negocios
+    antes_precio: Después
+    iva: + IVA
     planes:
-      - t: "Web esencial"
-        para: "Para empezar con buen pie"
-        lista: ["Una página con todo lo importante", "Fotos, horarios, mapa y cómo llegar", "Botón de reserva por WhatsApp", "Adaptada al móvil y rápida", "Ficha de Google revisada"]
-      - t: "Web completa"
-        para: "Para alojamientos con más que contar"
-        destacado: "La más elegida"
-        lista: ["Todo lo de la esencial", "De 3 a 5 páginas: habitaciones, entorno, preguntas", "Castellano, catalán, francés e inglés", "Galería de fotos", "Enlace a tu sistema de reservas, si tienes"]
-    elegir: "Pedir propuesta"
-    extras_t: "Opcional"
-    mant_t: "Mantenimiento"
-    mant_d: "Hosting, dominio, copias de seguridad y cambios pequeños. Me escribes y está hecho."
-    mes: "/mes"
-    fotos_t: "Sesión de fotos"
-    fotos_d: "Subo a hacer las fotos de tu casa, tu local o tu producto."
-    como_t: "Cómo funciona"
+    - t: Web esencial
+      para: Para empezar con buen pie
+      lista:
+      - Una página con todo lo importante
+      - Fotos, horarios, mapa y cómo llegar
+      - Botón de reserva por WhatsApp
+      - Adaptada al móvil y rápida
+      - Ficha de Google revisada
+    - t: Web completa
+      para: Para alojamientos con más que contar
+      destacado: La más elegida
+      lista:
+      - Todo lo de la esencial
+      - 'De 3 a 5 páginas: habitaciones, entorno, preguntas'
+      - Castellano, catalán, francés e inglés
+      - Galería de fotos
+      - Enlace a tu sistema de reservas, si tienes
+    elegir: Pedir propuesta
+    extras_t: Opcional
+    mant_t: Mantenimiento
+    mant_d: Hosting, dominio, copias de seguridad y cambios pequeños. Me escribes y está hecho.
+    mes: /mes
+    fotos_t: Sesión de fotos
+    fotos_d: Subo a hacer las fotos de tu casa, tu local o tu producto.
+    como_t: Cómo funciona
     pasos:
-      - {t: "Hablamos 10 minutos", d: "Por teléfono o videollamada. Me cuentas tu negocio y te enseño ideas para tu web.", cuando: "Día 1"}
-      - {t: "Te mando la propuesta", d: "Por escrito, con el precio cerrado, lo que incluye y la fecha de entrega.", cuando: "Día 2"}
-      - {t: "Tu web, publicada", d: "Yo la diseño y la monto. Tú revisas, pides cambios y la publicamos con tu dominio.", cuando: "En 2 semanas"}
-    sobre_t: "Quién está detrás"
-    sobre_p: ["Soy Fernando, diseñador web en Barcelona. Diseño cada web, la programo yo y me aseguro de que cargue rápido.", "Paso a menudo por el Pirineo y conozco a quién os dirigís. También hago fotografía: si lo necesitas, subo a hacer las fotos."]
-    faq_t: "Preguntas frecuentes"
-    faq_extra: {q: "Ya estoy en Booking. ¿Me sirve igual?", a: "Sí. La web no sustituye a Booking: te da un canal propio para que quien ya te conoce, o te encuentra en Google, te reserve directamente y sin comisión."}
-    final_t: "¿Hablamos 10 minutos?"
-    final_d: "Sin compromiso. Te enseño cómo podría quedar tu web y te digo el precio exacto."
-    final_wa: "Escribir por WhatsApp"
-    final_email: "o por email:"
+    - t: Hablamos 10 minutos
+      d: Por teléfono o videollamada. Me cuentas tu negocio y te enseño ideas para tu web.
+      cuando: Día 1
+    - t: Te mando la propuesta
+      d: Por escrito, con el precio cerrado, lo que incluye y la fecha de entrega.
+      cuando: Día 2
+    - t: Tu web, publicada
+      d: Yo la diseño y la monto. Tú revisas, pides cambios y la publicamos con tu dominio.
+      cuando: En 2 semanas
+    sobre_t: Quién está detrás
+    sobre_p:
+    - Soy Fernando, diseñador web en Barcelona. Diseño cada web, la programo yo y me aseguro de que cargue rápido.
+    - 'Paso a menudo por el Pirineo y conozco a quién os dirigís. También hago fotografía: si lo necesitas, subo a hacer las fotos.'
+    faq_t: Preguntas frecuentes
+    faq_extra:
+      q: ¿Cuánto tarda en estar lista?
+      a: Dos semanas desde que me pasas fotos y textos. Si no los tienes, te ayudo a prepararlos.
+    final_t: ¿Hablamos 10 minutos?
+    final_d: Sin compromiso. Te enseño cómo podría quedar tu web y te digo el precio exacto.
+    final_wa: Escribir por WhatsApp
+    final_email: 'o por email:'
   v2:
     title: "Fernando · Webs para negocios de montaña"
     nav: {trabajo: "Trabajo", proceso: "Proceso", precios: "Precios", contacto: "Contacto"}
