@@ -3,6 +3,7 @@
 slug: cal-ginebro
 ficticio: true
 tipo: alojamiento
+plantilla: casa   # v3: solo invierno, paleta miel y nieve (elegida 2026-11-26)
 nombre: "Cal Ginebró"
 lugar: "Das · Cerdanya"
 telefono: "+34 600 000 000"

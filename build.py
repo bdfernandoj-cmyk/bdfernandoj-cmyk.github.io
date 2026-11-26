@@ -60,7 +60,7 @@ def main():
             rutas_n = {k: prof + ruta_idioma(k) if k != "es" else (prof or "./") for k in IDIOMAS}
             img_dir = OUT / base / "img"
             grandes = {p.name[:-len("-1600.webp")] for p in img_dir.glob("*-1600.webp")}
-            html = env.get_template("esencial.html.j2").render(
+            html = env.get_template(n.get("plantilla", "esencial") + ".html.j2").render(
                 e=n["estilo"], n=n, t=n["textos"][l], idiomas=[k for k in IDIOMAS if k in n["textos"]],
                 rutas=rutas_n, anyo=date.today().year, img=prof + "img/", grandes=grandes,
                 credito_url=("../../../" if l != "es" else "../../") + ruta_idioma(l))

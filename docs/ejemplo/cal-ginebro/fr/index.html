@@ -1,487 +1,310 @@
 <!doctype html>
-<html lang="fr" data-season="invierno">
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cal Ginebró · Das · Cerdanya</title>
+<title>Cal Ginebró · Une ferme de 1880 entre prés et sommets</title>
 <meta name="description" content="Trois chambres et un studio en pierre et en bois à Das, à dix minutes de Puigcerdà. Cheminée, petit-déjeuner aux produits de Cerdagne et le Cadí devant la fenêtre.">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Cal Ginebró · Das · Cerdanya">
-<meta property="og:description" content="Trois chambres et un studio en pierre et en bois à Das, à dix minutes de Puigcerdà. Cheminée, petit-déjeuner aux produits de Cerdagne et le Cadí devant la fenêtre.">
-<meta property="og:image" content="../img/paisaje-1600.webp">
-<link rel="alternate" hreflang="es" href="../">
-<link rel="alternate" hreflang="ca" href="../ca/">
-<link rel="alternate" hreflang="fr" href="../fr/">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+<meta name="theme-color" content="#faf6ee">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <style>
-/* Plantilla "Web esencial" v2 · referencias: Waldhaus Sils (barra de temporada, logo centrado, foto enmarcada, serifa grande),
-   Casa Albets (reserva directa bajo la portada, WhatsApp siempre visible), La Donaira (aire, paisaje protagonista). */
-:root{
-  --fondo:#1b201f; --tinta:#ece5d8; --acento:#2f4a3c; --rojo:#c9583c; --crema:#232a28;
-  --gris:color-mix(in srgb,var(--tinta) 62%,var(--fondo)); --linea:color-mix(in srgb,var(--tinta) 13%,var(--fondo));
-  --serif:"Gloock",Georgia,serif; --sans:"Hanken Grotesk",system-ui,sans-serif;
-  --panel:#262d2b; --tw:400; --tt:none; --ts:-.02em; --tl:1; --tx:100%;
-  color-scheme:dark;
-  --marco:clamp(10px,2vw,24px); --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-}
+/* Paleta "miel y nieve" */
+:root{--fondo:#faf6ee;--tinta:#2b2620;--suave:#f0e5d0;--miel:#e3b96f;--miel-osc:#9a6b1f;--gris:#6f665b;--blanco:#fff;
+  --tit:"Gloock",Georgia,serif;--txt:"Hanken Grotesk",system-ui,sans-serif;--r:22px;--g:20px;--ease:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{margin:0;background:var(--fondo);color:var(--tinta);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:calc(72px + env(safe-area-inset-bottom))}
-@media (min-width:900px){body{padding-bottom:0}}
-img{max-width:100%;display:block}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:17px/1.6 var(--txt);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,video{max-width:100%;height:auto;display:block}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
-h1,h2,h3{font-family:var(--serif);font-weight:var(--tw);font-stretch:var(--tx);margin:0;line-height:1;text-wrap:balance}
-.mayus{text-transform:var(--tt);letter-spacing:var(--ts);line-height:var(--tl)}
-
+h1,h2,h3{font-family:var(--tit);font-weight:400;letter-spacing:-.02em;line-height:1.02;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,6vw,3.2rem)}
 p{margin:0}
-.w{max-width:1280px;margin:0 auto;padding-left:max(var(--marco),env(safe-area-inset-left));padding-right:max(var(--marco),env(safe-area-inset-right))}
-.eti{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
-html:not([data-season="verano"]) [data-solo="verano"],html[data-season="verano"] [data-solo="invierno"]{display:none!important}
-
-/* aviso de demo + barra de temporada */
-.demo{background:var(--tinta);color:var(--fondo);text-align:center;font-size:12px;letter-spacing:.04em;padding:6px 12px;padding-top:calc(6px + env(safe-area-inset-top))}
-.temporada{background:var(--acento);color:#fff}
-.temporada .w{display:flex;align-items:center;justify-content:center;gap:12px;min-height:44px;font-size:14px;text-align:center;padding-block:8px}
-.temporada svg{width:16px;height:16px;flex:none;opacity:.85}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(var(--g),env(safe-area-inset-left))}
+section{padding:clamp(64px,10vw,110px) 0}
+.sub{color:var(--gris);max-width:52ch;margin-top:12px}
+:focus-visible{outline:2px solid var(--miel-osc);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:15px 24px;font:600 1rem var(--txt);cursor:pointer;text-decoration:none;background:var(--miel);color:var(--tinta);transition:transform .15s,background .2s}
+.btn:hover{background:#ecc883}.btn:active{transform:scale(.97)}
+.btn.claro{background:var(--blanco);box-shadow:inset 0 0 0 1px #2b262022}
+.btn.claro:hover{background:var(--suave)}
+.btn svg{width:20px;height:20px}
 
 /* cabecera */
-header.cab{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--fondo) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
-header.cab.scrolled{border-bottom-color:var(--linea)}
-.cab .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:76px;gap:16px}
-nav.izq{display:flex;gap:26px}
-nav.izq a{text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
-nav.izq a:hover{color:var(--tinta)}
-.marca{text-align:center;text-decoration:none;font-family:var(--serif);font-weight:var(--tw);font-stretch:var(--tx);font-size:26px;letter-spacing:.16em;text-transform:uppercase;line-height:1.05}
-.marca small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.3em;color:var(--gris)}
-.der{display:flex;justify-content:flex-end;align-items:center;gap:10px}
-.estacion{display:inline-flex;border:1px solid var(--linea);border-radius:999px;padding:3px;background:var(--fondo)}
-.estacion button{font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;border:0;background:transparent;color:var(--gris);padding:7px 12px;border-radius:999px;cursor:pointer;display:flex;gap:6px;align-items:center}
-.estacion button svg{width:14px;height:14px}
-.estacion button[aria-pressed="true"]{background:var(--tinta);color:var(--fondo)}
-.idi{display:flex;gap:2px}
-.idi a{text-decoration:none;font-size:11px;font-weight:600;padding:6px;color:var(--gris);border-radius:4px}
-.idi a[aria-current="true"]{color:var(--tinta);text-decoration:underline;text-underline-offset:4px}
-.pildora{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--acento);color:#fff;border:0;border-radius:999px;padding:13px 22px;cursor:pointer;white-space:nowrap}
-.pildora:hover{background:color-mix(in srgb,var(--acento) 85%,#000)}
-.pildora.clara{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1px var(--tinta)}
-.pildora.clara:hover{background:var(--tinta);color:var(--fondo)}
-.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--tinta)}
-.burger svg{width:26px;height:26px}
-@media (max-width:899px){
-  nav.izq,.der .estacion,.der .idi{display:none}
-  .burger{display:block}
-  .cab .w{height:64px}
-  .marca{font-size:21px}
-  .der .pildora{padding:10px 14px;font-size:11px}
-}
-.menu-movil{position:fixed;inset:0;z-index:60;background:var(--fondo);display:none;flex-direction:column;gap:28px;padding:calc(24px + env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) 24px max(24px,env(safe-area-inset-left))}
-.menu-movil.abierto{display:flex}
-.menu-movil .cerrar{align-self:flex-end;background:none;border:0;font-size:32px;line-height:1;cursor:pointer;color:var(--tinta)}
-.menu-movil nav{display:grid;gap:18px}
-.menu-movil nav a{font-family:var(--serif);font-size:38px;text-decoration:none;line-height:1.1}
-.menu-movil .fila{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.menu-movil .estacion,.menu-movil .idi{display:inline-flex}
+.cab{position:absolute;top:0;left:0;right:0;z-index:5;color:#fff}
+.cab .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:calc(16px + env(safe-area-inset-top))}
+.marca{font:1.45rem var(--tit);text-decoration:none;letter-spacing:-.01em}
+.cab-d{display:flex;align-items:center;gap:14px}
+.idi{display:flex;gap:2px;font-size:.85rem}
+.idi a{text-decoration:none;padding:6px 7px;border-radius:8px;opacity:.75}
+.idi a[aria-current]{opacity:1;font-weight:600}
+.cab .btn{padding:10px 18px;font-size:.95rem}
+@media (max-width:640px){.cab .btn{display:none}}
 
-/* animaciones al hacer scroll (suaves; desactivadas si el usuario reduce el movimiento) */
-.js .rv{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.js .rv.in{opacity:1;transform:none}
-.js .rv-img img{transform:scale(1.06);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
-.js .rv-img.in img{transform:scale(1)}
-@media (prefers-reduced-motion:reduce){.js .rv,.js .rv-img img{opacity:1!important;transform:none!important}}
-/* portada enmarcada + reserva */
-.portada{padding-inline:var(--marco);padding-top:4px}
-.portada figure{margin:0;position:relative;border-radius:3px;overflow:hidden;max-width:1600px;margin-inline:auto}
-.portada img,.portada video{width:100%;height:clamp(380px,72vh,760px);object-fit:cover;display:block}
-.portada .media{transform:scale(var(--zoom,1));transform-origin:50% 60%;will-change:transform}
-.portada video{background:var(--suave);object-position:50% 55%}
-.portada figcaption{position:absolute;left:20px;top:18px;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.5)}
-.reserva{position:relative;z-index:2;max-width:1080px;margin:-46px auto 0;background:var(--panel);border-radius:4px;box-shadow:0 18px 50px -24px rgba(20,30,20,.45);display:grid;grid-template-columns:auto 1fr 1fr 130px auto;align-items:stretch}
-.reserva .tit{display:flex;flex-direction:column;justify-content:center;padding:16px 22px;background:var(--acento);color:#fff;border-radius:4px 0 0 4px}
-.reserva .tit b{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.1}
-.reserva .tit span{font-size:12px;opacity:.85}
-.reserva label{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:12px 18px;border-left:1px solid var(--linea);min-width:0}
-.reserva label span{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
-.reserva input,.reserva select{font:500 16px var(--sans);color:var(--tinta);border:0;background:transparent;padding:4px 0;width:100%;min-width:0}
-.reserva .btn{display:flex;align-items:center;padding:12px}
-.reserva .btn .pildora{height:100%;border-radius:3px;background:var(--rojo)}
-.reserva .btn .pildora:hover{background:color-mix(in srgb,var(--rojo) 85%,#000)}
-.reserva-nota{text-align:center;font-size:13px;color:var(--gris);margin-top:12px}
-@media (max-width:899px){
-  /* móvil: portada a pantalla completa, de borde a borde */
-  .portada{padding-inline:0;padding-top:0}
-  .portada figure{border-radius:0}
-  .portada img,.portada video{height:calc(100svh - 64px - 44px)}
-  .reserva{grid-template-columns:1fr 1fr;margin:-30px var(--marco) 0}
-  .reserva .tit{grid-column:1/-1;border-radius:4px 4px 0 0;flex-direction:row;justify-content:space-between;align-items:center;gap:12px}
-  .reserva label{border-left:0;border-top:1px solid var(--linea)}
-  .reserva label:nth-of-type(2){border-left:1px solid var(--linea)}
-  .reserva label.per{grid-column:1/-1}
-  .reserva .btn{grid-column:1/-1;padding:0 12px 12px}
-  .reserva .btn .pildora{width:100%;padding:16px}
-}
+/* portada */
+.portada{position:relative;height:100svh;min-height:560px;color:#fff;display:flex;align-items:flex-end;background:#2b2620}
+.portada video,.portada>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.portada::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,14,.45),rgba(20,17,14,0) 28%,rgba(20,17,14,0) 50%,rgba(20,17,14,.7))}
+.portada .wrap{position:relative;z-index:1;width:100%;padding-bottom:calc(36px + env(safe-area-inset-bottom))}
+.lugar{font-size:.95rem;opacity:.9}
+.portada h1{font-size:clamp(2.6rem,8vw,5.4rem);margin:10px 0 22px;max-width:14ch}
+.portada .nota{font-size:.9rem;opacity:.85;margin-top:14px}
+@media (max-width:640px){.portada .btn{width:100%}}
 
-/* titular */
-section{padding-block:clamp(64px,9vw,128px)}
-.titular{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:end}
-.titular h1{font-size:clamp(46px,8.2vw,124px);}
-.titular p{font-size:clamp(17px,1.6vw,20px);color:var(--gris);max-width:44ch}
-.datos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--linea);margin-top:clamp(40px,6vw,72px)}
-.datos div{padding:22px 0 0;display:grid;gap:4px}
-.datos b{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.6vw,46px);line-height:1}
-.datos span{font-size:13px;color:var(--gris)}
-@media (max-width:899px){.titular{grid-template-columns:minmax(0,1fr)}.datos{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px}}
+/* la casa */
+.mosaico{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:10px;margin-top:36px}
+.mosaico img{width:100%;height:100%;object-fit:cover;border-radius:var(--r)}
+.mosaico img:first-child{grid-row:span 2}
 
-/* etiquetas mecanografiadas (ref. KOBU) */
-.meta{font-family:var(--mono);font-size:12.5px;letter-spacing:.01em;color:var(--gris);display:flex;gap:6px 14px;flex-wrap:wrap}
-.meta b{font-weight:500;color:var(--tinta)}
-.tag{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.75);border-radius:3px;padding:4px 8px;background:rgba(0,0,0,.25);backdrop-filter:blur(4px);display:flex;gap:6px;align-items:center}
-.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
-.flecha{font-family:var(--sans);font-weight:400;font-size:.6em;vertical-align:.35em;margin-left:.2em;color:var(--rojo)}
-/* la casa: carril horizontal de alturas distintas (ref. KOBU) */
-.casa-cab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-top:clamp(56px,8vw,112px)}
-.casa-cab h2{font-size:clamp(40px,6vw,80px)}
-.casa-cab p{color:var(--gris);max-width:52ch}
-@media (max-width:899px){.casa-cab{grid-template-columns:minmax(0,1fr)}}
-.tira{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:32px;padding-bottom:14px;align-items:flex-start;scrollbar-width:thin}
-.tira figure{margin:0;flex:none;scroll-snap-align:start;display:grid;gap:10px}
-.tira .f-alta{width:clamp(220px,26vw,360px)}.tira .f-alta img{aspect-ratio:3/4}
-.tira .f-ancha{width:clamp(280px,38vw,560px);margin-top:clamp(40px,6vw,90px)}.tira .f-ancha img{aspect-ratio:4/3}
-.tira .f-baja{width:clamp(200px,22vw,300px);margin-top:clamp(80px,10vw,160px)}.tira .f-baja img{aspect-ratio:3/4}
-.tira img{width:100%;object-fit:cover;border-radius:3px}
-.tira figcaption{font-family:var(--mono);font-size:12px;color:var(--gris)}
-/* reseñas (ref. Mews) */
-.resenas{text-align:center}
-.resenas .estrellas{color:var(--rojo);letter-spacing:.2em;font-size:18px}
-.resenas blockquote{margin:22px auto 0;max-width:22ch;font-family:var(--serif);font-size:clamp(32px,4.6vw,64px);line-height:1.08}
-.resenas blockquote::before{content:"“";color:var(--rojo)}.resenas blockquote::after{content:"”";color:var(--rojo)}
-.resenas .firma{margin-top:22px}
-.resenas .nota{margin:18px auto 0;justify-content:center;opacity:.75}
-/* galería de la casa (mosaico) */
-.galeria{display:grid;grid-template-columns:1.6fr 1fr .62fr;grid-template-rows:auto;gap:14px;margin-top:clamp(48px,7vw,96px);align-items:end}
-.galeria figure{margin:0;display:grid;gap:8px;overflow:hidden}
-.galeria img{width:100%;object-fit:cover;border-radius:3px}
-.galeria .g1 img{aspect-ratio:4/3}.galeria .g2 img{aspect-ratio:4/5}.galeria .g3 img{aspect-ratio:3/4}
-.galeria figcaption{font-size:12px;color:var(--gris)}
-@media (max-width:899px){.galeria{grid-template-columns:1fr 1fr}.galeria .g1{grid-column:1/-1}}
-/* encabezado de sección */
-.sec-cab{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
-.sec-cab h2{font-size:clamp(40px,6vw,80px);}
-.sec-cab p{max-width:42ch;color:var(--gris)}
+@media (max-width:700px){.mosaico{grid-template-columns:1fr 1fr;grid-template-rows:240px 150px 150px}.mosaico img:first-child{grid-column:span 2;grid-row:auto}}
+.puntos{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.puntos li{display:flex;gap:12px;align-items:center;background:var(--suave);border-radius:16px;padding:14px 16px;font-weight:500;line-height:1.3}
+.puntos svg{width:26px;height:26px;flex:none;color:var(--miel-osc)}
+@media (max-width:700px){.puntos{grid-template-columns:1fr}}
 
-/* habitaciones */
-.habs{display:grid;gap:clamp(48px,7vw,96px)}
-.hab{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
-.hab:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
-.hab:nth-child(even) .foto{order:2}
-.hab .foto{border-radius:3px;overflow:hidden;aspect-ratio:4/3}
-.hab .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
-.hab:hover .foto img{transform:scale(1.03)}
-.hab .txt{display:grid;gap:16px;align-content:center}
-.hab h3{font-size:clamp(34px,4vw,52px)}
-.hab .precio{font-size:14px;color:var(--gris)}
-.hab .precio b{font-family:var(--serif);font-size:30px;color:var(--tinta);font-weight:600;margin:0 4px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.chips li{border:1px solid var(--linea);border-radius:999px;padding:6px 14px;font-size:13px}
-@media (max-width:899px){.hab,.hab:nth-child(even){grid-template-columns:minmax(0,1fr)}.hab:nth-child(even) .foto{order:0}}
-.incluido{margin-top:clamp(48px,7vw,96px);border-top:1px solid var(--linea);padding-top:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px}
-.incluido ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px}
-.incluido li{display:flex;gap:10px;align-items:center}
-.incluido li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--rojo);flex:none}
-@media (max-width:899px){.incluido{grid-template-columns:minmax(0,1fr)}.incluido ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* carril deslizable */
+.carril{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,340px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px max(var(--g),calc((100vw - 1120px)/2 + var(--g))) 14px;margin-top:28px;scrollbar-width:none;overscroll-behavior-x:contain}
+.carril::-webkit-scrollbar{display:none}
+.carril>*{scroll-snap-align:center}
+.pista{display:flex;align-items:center;gap:8px;color:var(--gris);font-size:.9rem;margin-top:4px}
+.flechas{display:flex;gap:8px;margin-left:auto}
+.flechas button{width:44px;height:44px;border-radius:50%;border:0;background:var(--blanco);box-shadow:inset 0 0 0 1px #2b262022;font-size:1.1rem;cursor:pointer;color:var(--tinta)}
+.flechas button:hover{background:var(--suave)}
+@media (max-width:700px){.flechas{display:none}}
+.hab{all:unset;cursor:pointer;display:block;border-radius:var(--r);overflow:hidden;background:var(--blanco);box-shadow:0 1px 0 #2b262014,0 10px 30px -18px #2b262055;transition:transform .3s var(--ease)}
+.hab:hover{transform:translateY(-4px)}
+.hab:focus-visible{outline:2px solid var(--miel-osc);outline-offset:3px}
+.hab img{aspect-ratio:4/5;width:100%;object-fit:cover}
+.hab .i{padding:14px 16px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.hab h3{font-size:1.35rem}
+.hab .p{white-space:nowrap;font-size:.95rem;color:var(--gris)}
+.hab .p b{color:var(--tinta);font-weight:600}
+.hab .eti{position:absolute}
+.plan{border-radius:var(--r);overflow:hidden;background:var(--blanco);box-shadow:0 1px 0 #2b262014}
+.plan img{aspect-ratio:4/3;width:100%;object-fit:cover}
+.plan .i{padding:14px 16px 18px}
+.plan h3{font-size:1.25rem}
+.plan p{color:var(--gris);font-size:.95rem;margin-top:6px}
+.plan .d{font-size:.85rem;color:var(--miel-osc);font-weight:600;margin-top:10px}
 
-/* entorno: carrusel */
-.entorno{background:var(--crema)}
-.carril{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin}
-.carril article{scroll-snap-align:start;display:grid;gap:12px;align-content:start}
-.carril .foto{aspect-ratio:3/4;border-radius:3px;overflow:hidden}
-.carril img{width:100%;height:100%;object-fit:cover}
-.carril h3{font-size:30px;line-height:1.02}
-.carril p{font-size:15px;color:var(--gris)}
-@media (max-width:899px){.carril{grid-auto-columns:78%}}
-
-/* llegar + faq */
-.dos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px)}
-@media (max-width:899px){.dos{grid-template-columns:minmax(0,1fr)}}
-.dos h2{font-size:clamp(36px,4.6vw,60px);margin-bottom:24px}
-.dist{list-style:none;margin:0 0 24px;padding:0}
-.dist li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--linea)}
-.dist li span{color:var(--gris);text-align:right}
-details{border-bottom:1px solid var(--linea);padding:16px 0}
-summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:500}
+/* llegar + preguntas */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px)}
+@media (max-width:800px){.duo{grid-template-columns:1fr}}
+.rutas{list-style:none;padding:0;margin:24px 0}
+.rutas li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #2b26201a}
+.rutas span{color:var(--gris);text-align:right}
+details{background:var(--blanco);border-radius:16px;padding:16px 18px;margin-top:10px}
+details:first-of-type{margin-top:24px}
+summary{cursor:pointer;list-style:none;font-weight:600;display:flex;justify-content:space-between;gap:12px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-family:var(--serif);font-size:26px;line-height:.8;color:var(--rojo)}
+summary::after{content:"+";color:var(--miel-osc);font-size:1.3rem;line-height:1}
 details[open] summary::after{content:"–"}
 details p{color:var(--gris);margin-top:8px}
 
-/* contacto + pie */
-.contacto{background:linear-gradient(color-mix(in srgb,var(--acento) 78%,transparent),color-mix(in srgb,var(--acento) 88%,transparent)),var(--bg) center/cover;color:#fff;text-align:center}
-/* desayuno */
-.des{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
-.des figure{margin:0;border-radius:3px;overflow:hidden;aspect-ratio:3/2}
-.des img{width:100%;height:100%;object-fit:cover}
-.des .txt{display:grid;gap:16px}
-.des h2{font-size:clamp(40px,5vw,72px);}
-.des p{color:var(--gris)}
-.des ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--linea)}
-.des li{padding:10px 0;border-bottom:1px solid var(--linea);font-family:var(--serif);font-size:21px}
-@media (max-width:899px){.des{grid-template-columns:minmax(0,1fr)}}
-.contacto h2{font-size:clamp(48px,8vw,110px);text-transform:uppercase}
-.contacto p{opacity:.85;margin:18px auto 28px;max-width:46ch}
-.contacto .acciones{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.contacto .pildora{background:#fff;color:#1d211c}
-.contacto .pildora.clara{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px #fff}
-.contacto .linea{margin-top:22px;font-size:14px;opacity:.8}
-footer{font-size:13px;color:var(--gris)}
-footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:28px}
-footer nav{display:flex;gap:16px;flex-wrap:wrap}
-footer a{text-decoration:none}
-.aviso-pie{font-size:11px;opacity:.6}
-footer a:hover{text-decoration:underline}
+/* contacto y pie */
+.final{background:var(--suave);border-radius:32px;padding:clamp(36px,6vw,64px);display:grid;gap:18px;justify-items:start}
+.final .acc{display:flex;gap:10px;flex-wrap:wrap}
+footer{padding:36px 0 calc(110px + env(safe-area-inset-bottom));color:var(--gris);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{text-decoration:none;margin-right:14px}
+@media (min-width:641px){footer{padding-bottom:40px}}
 
-/* WhatsApp flotante (escritorio) + barra fija (móvil) */
-.wa-flot{position:fixed;right:max(22px,env(safe-area-inset-right));bottom:22px;z-index:50;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.4)}
-.wa-flot svg{width:30px;height:30px}
-.barra{position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:1.3fr 1fr;gap:8px;background:color-mix(in srgb,var(--fondo) 94%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--linea);
-  padding:10px max(12px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
-.barra .pildora{padding:14px 10px}
-.barra .wa{background:#25d366}
-@media (max-width:899px){.wa-flot{display:none}}
-@media (min-width:900px){.barra{display:none}}
+/* barra inferior (móvil) */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px var(--g) calc(10px + env(safe-area-inset-bottom));background:rgba(250,246,238,.92);backdrop-filter:blur(12px);border-top:1px solid #2b262014;display:flex;align-items:center;gap:12px;transform:translateY(110%);transition:transform .35s var(--ease)}
+.barra.ver{transform:none}
+.barra .btn{flex:1}
+.barra small{color:var(--gris);line-height:1.25}
+.barra small b{color:var(--tinta);font-size:1rem}
+@media (min-width:641px){.barra{display:none}}
+
+/* panel de reserva */
+dialog{border:0;padding:0;background:var(--fondo);color:var(--tinta);width:min(460px,100%);max-width:100%;border-radius:26px;box-shadow:0 30px 80px -20px #0006}
+dialog::backdrop{background:rgba(20,17,14,.45);backdrop-filter:blur(3px)}
+@media (max-width:640px){dialog{margin:auto 0 0;border-radius:26px 26px 0 0;max-height:92svh}dialog[open]{animation:sube .35s var(--ease)}}
+@keyframes sube{from{transform:translateY(100%)}to{transform:none}}
+.pan{padding:22px 22px calc(22px + env(safe-area-inset-bottom));display:grid;gap:14px}
+.pan-c{display:flex;justify-content:space-between;align-items:center}
+.pan-c h2{font-size:1.7rem}
+.x{width:40px;height:40px;border-radius:50%;border:0;background:var(--suave);font-size:1.2rem;cursor:pointer;color:var(--tinta)}
+.agarre{width:42px;height:5px;border-radius:9px;background:#2b262026;margin:0 auto -4px}
+@media (min-width:641px){.agarre{display:none}}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:grid;gap:5px;font-size:.85rem;font-weight:600}
+label.todo{grid-column:span 2}
+input,select{font:500 1rem var(--txt);color:var(--tinta);background:var(--blanco);border:1px solid #2b262026;border-radius:14px;padding:13px 12px;width:100%;min-height:50px}
+.pan .nota{color:var(--gris);font-size:.88rem;text-align:center}
+.det img{border-radius:18px;aspect-ratio:16/10;width:100%;object-fit:cover}
+.det ul{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.det li{background:var(--suave);border-radius:999px;padding:5px 12px;font-size:.88rem}
+.det .p{color:var(--gris)}
+
+/* aparición suave */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}dialog[open]{animation:none}.hab{transition:none}}
 </style>
 </head>
 <body>
-
-
-
-
-
-
-
-
-
-<div class="temporada"><div class="w">
-  <span data-solo="invierno"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2v20M4 6l16 12M20 6 4 18M9 3l3 3 3-3M9 21l3-3 3 3"/></svg></span><span data-solo="verano"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span>
-  <span data-solo="invierno">Saison d&#39;hiver · du 5 décembre au 6 avril · il reste peu de nuits à Noël</span><span data-solo="verano">Saison d&#39;été · du 15 juin au 15 septembre · idéal pour randonner dans le Cadí</span>
-</div></div>
-
-<header class="cab" id="cab"><div class="w">
-  <nav class="izq" aria-label="Menú"><a href="#casa">La maison</a><a href="#habitaciones">Chambres</a><a href="#entorno">Alentours</a><a href="#llegar">Accès</a></nav>
-  <button class="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h18M3 16h18"/></svg></button>
-  <a class="marca" href="#top">Cal Ginebró<small>Das · Cerdanya</small></a>
-  <div class="der"><div class="estacion" role="group" aria-label="Hiver / Été"><button type="button" data-set="invierno" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2v20M4 6l16 12M20 6 4 18M9 3l3 3 3-3M9 21l3-3 3 3"/></svg>Hiver</button><button type="button" data-set="verano" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>Été</button></div><div class="idi"><a href="../" lang="es" aria-current="false">ES</a><a href="../ca/" lang="ca" aria-current="false">CA</a><a href="../fr/" lang="fr" aria-current="true">FR</a></div><a class="pildora" href="#reserva">Réserver</a></div>
-</div></header>
-<div class="menu-movil" id="menu" role="dialog" aria-modal="true" aria-label="Menú">
-  <button class="cerrar" type="button" aria-label="×">×</button>
-  <nav><a href="#casa">La maison</a><a href="#habitaciones">Chambres</a><a href="#entorno">Alentours</a><a href="#llegar">Accès</a></nav>
-  <div class="fila"><div class="estacion" role="group" aria-label="Hiver / Été"><button type="button" data-set="invierno" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2v20M4 6l16 12M20 6 4 18M9 3l3 3 3-3M9 21l3-3 3 3"/></svg>Hiver</button><button type="button" data-set="verano" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>Été</button></div><div class="idi"><a href="../" lang="es" aria-current="false">ES</a><a href="../ca/" lang="ca" aria-current="false">CA</a><a href="../fr/" lang="fr" aria-current="true">FR</a></div></div>
-</div>
-
-<main id="top">
-  <div class="portada">
-    <figure>
-      
-      <div class="media" data-solo="invierno"><video id="hero-video" muted loop playsinline preload="none" aria-label="La vallée enneigée avec la ferme et la cheminée qui fume"
-        poster="../img/valle-nieve-poster-1600.webp" data-poster-movil="../img/valle-nieve-poster-movil.webp"
-        data-movil="../img/valle-nieve-movil.mp4" data-escritorio="../img/valle-nieve-escritorio.mp4"></video></div>
-      <div class="media" data-solo="verano"><img src="../img/paisaje-800.webp" srcset="../img/paisaje-800.webp 800w, ../img/paisaje-1600.webp 1600w" sizes="100vw" alt="Vallée de Cerdagne avec la maison en pierre entre prés et forêt" fetchpriority="high" decoding="async"></div>
-      
-      <figcaption class="eti">Das · Cerdanya · 1 220 m</figcaption>
-    </figure>
-    <form class="reserva" id="reserva" novalidate>
-      <div class="tit"><b>Réservation directe</b><span>Meilleur prix garanti</span></div>
-      <label><span>Arrivée</span><input type="date" id="f-llegada" required></label>
-      <label><span>Départ</span><input type="date" id="f-salida" required></label>
-      <label class="per"><span>Personnes</span><select id="f-personas"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
-      <div class="btn"><button class="pildora" type="submit">Vérifier les disponibilités</button></div>
-    </form>
-    <p class="reserva-nota">Nous vous répondons par WhatsApp en moins de 2 heures.</p>
+<header class="cab"><div class="wrap">
+  <a class="marca" href="#">Cal Ginebró</a>
+  <div class="cab-d">
+    <nav class="idi" aria-label="Idioma"><a href="../" hreflang="es">ES</a><a href="../ca/" hreflang="ca">CA</a><a href="../fr/" hreflang="fr" aria-current="page">FR</a></nav>
+    <button class="btn" data-abrir>Réserver</button>
   </div>
+</div></header>
 
-  <section id="casa"><div class="w">
-    <div class="titular rv"><h1 class="mayus">Une ferme de 1880 entre prés et sommets</h1><p>Trois chambres et un studio en pierre et en bois à Das, à dix minutes de Puigcerdà. Cheminée, petit-déjeuner aux produits de Cerdagne et le Cadí devant la fenêtre.</p></div>
-    <div class="datos rv"><div><b>4</b><span>chambres et studio</span></div><div><b>1 220 m</b><span>d&#39;altitude</span></div><div><b>10 min</b><span>de Puigcerdà</span></div><div><b>25 min</b><span>de La Molina</span></div></div>
-    <div class="casa-cab rv"><h2 class="mayus">La maison</h2><p>Murs en pierre de 1880, poutres en chêne et volets rouges. Nous l&#39;avons restaurée sans hâte, en gardant ce qui la rend cerdane.</p></div>
-    <div class="tira" aria-label="La maison">
-      
-      <figure class="f-alta rv rv-img"><img src="../img/fachada-800.webp" srcset="../img/fachada-800.webp 800w, ../img/fachada-1600.webp 1600w" sizes="(min-width: 900px) 38vw, 80vw" alt="L&#39;entrée au coucher du soleil" loading="lazy" decoding="async"><figcaption>01 — L&#39;entrée au coucher du soleil</figcaption></figure><figure class="f-ancha rv rv-img"><img src="../img/chimenea-800.webp" srcset="../img/chimenea-800.webp 800w, ../img/chimenea-1600.webp 1600w" sizes="(min-width: 900px) 38vw, 80vw" alt="Le salon avec la cheminée" loading="lazy" decoding="async"><figcaption>02 — Le salon avec la cheminée</figcaption></figure><figure class="f-baja rv rv-img"><img src="../img/patio-800.webp" srcset="../img/patio-800.webp 800w, ../img/patio-1600.webp 1600w" sizes="(min-width: 900px) 38vw, 80vw" alt="Le patio en pierre" loading="lazy" decoding="async"><figcaption>03 — Le patio en pierre</figcaption></figure><figure class="f-ancha rv rv-img"><img src="../img/estudi-salon-800.webp" srcset="../img/estudi-salon-800.webp 800w, ../img/estudi-salon-1600.webp 1600w" sizes="(min-width: 900px) 38vw, 80vw" alt="Le séjour du Studio" loading="lazy" decoding="async"><figcaption>04 — Le séjour du Studio</figcaption></figure><figure class="f-alta rv rv-img"><img src="../img/ventana-800.webp" alt="Fenêtre de la Puigmal" loading="lazy" decoding="async"><figcaption>05 — Fenêtre de la Puigmal</figcaption></figure>
+<main>
+  <section class="portada" style="padding:0">
+    <video id="hero-video" muted loop playsinline preload="none" aria-label="La vallée enneigée avec la ferme et la cheminée qui fume"
+      poster="../img/valle-nieve-poster-1600.webp" data-poster-movil="../img/valle-nieve-poster-movil.webp"
+      data-movil="../img/valle-nieve-movil.mp4" data-escritorio="../img/valle-nieve-escritorio.mp4"></video>
+    
+    <div class="wrap">
+      <p class="lugar">Das · Cerdanya</p>
+      <h1>Une ferme de 1880 entre prés et sommets</h1>
+      <button class="btn" data-abrir>Voir les dates libres</button>
+      <p class="nota">Saison d&#39;hiver · il reste peu de nuits à Noël</p>
     </div>
+  </section>
+
+  <section id="casa"><div class="wrap">
+    <h2 class="rv">La maison</h2>
+    <p class="sub rv">Trois chambres et un studio en pierre et en bois à Das, à dix minutes de Puigcerdà. Cheminée, petit-déjeuner aux produits de Cerdagne et le Cadí devant la fenêtre.</p>
+    <div class="mosaico rv">
+      <img src="../img/fachada-800.webp" srcset="../img/fachada-800.webp 800w, ../img/fachada-1600.webp 1600w" sizes="(max-width:700px) 100vw, 560px" alt="L&#39;entrée au coucher du soleil" loading="lazy" width="800" height="600">
+      <img src="../img/chimenea-800.webp" srcset="../img/chimenea-800.webp 800w, ../img/chimenea-1600.webp 1600w" sizes="(max-width:700px) 50vw, 280px" alt="Le salon avec la cheminée" loading="lazy" width="800" height="600">
+      <img src="../img/desayuno-800.webp" srcset="../img/desayuno-800.webp 800w, ../img/desayuno-1600.webp 1600w" sizes="(max-width:700px) 50vw, 280px" alt="Le petit-déjeuner" loading="lazy" width="800" height="600">
+      <img src="../img/estudi-salon-800.webp" srcset="../img/estudi-salon-800.webp 800w, ../img/estudi-salon-1600.webp 1600w" sizes="(max-width:700px) 50vw, 560px" alt="Le séjour du Studio" loading="lazy" width="800" height="600">
+      <img src="../img/detalle-manta-800.webp" alt="Fenêtre de la Puigmal" loading="lazy" width="800" height="600">
+    </div>
+    <ul class="puntos rv"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.2 1.2-3.6 2.5-4.8.3 1.6 1 2.6 2 3 0-3 .2-5.6.5-8.2Z"/></svg>Cheminée et poêle à bois</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5c-.6.8-.6 1.7 0 2.5M12 3.5c-.6.8-.6 1.7 0 2.5"/></svg>Petit-déjeuner de Cerdagne inclus</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7M9.5 4 12 6l2.5-2M9.5 20 12 18l2.5 2"/></svg>Local à skis, à 25 min de La Molina</li></ul>
   </div></section>
 
-  <section id="habitaciones" style="padding-top:0"><div class="w">
-    <div class="sec-cab rv"><h2 class="mayus">Chambres</h2><p>Toutes avec salle de bain privée, chauffage, linge en lin et petit-déjeuner inclus.</p></div>
-    <div class="habs">
+  <section id="habitaciones" style="padding-top:0">
+    <div class="wrap"><h2 class="rv">Chambres</h2><p class="sub rv">Toutes avec salle de bain privée, chauffage, linge en lin et petit-déjeuner inclus.</p>
+      <div class="pista"><span>Faites glisser pour voir plus →</span><div class="flechas"><button type="button" data-mover="-1" aria-label="←">←</button><button type="button" data-mover="1" aria-label="→">→</button></div></div></div>
+    <div class="carril" id="carril-hab">
       
-      <article class="hab rv">
-        <div class="foto rv-img" style="position:relative"><span class="tag">Dernières nuits à Noël</span><img src="../img/hab-puigmal-800.webp" srcset="../img/hab-puigmal-800.webp 800w, ../img/hab-puigmal-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Chambre Puigmal" loading="lazy" decoding="async"></div>
-        <div class="txt">
-          <h3>Chambre Puigmal<span class="flecha" aria-hidden="true">↗</span></h3>
-          <p class="meta"><span>à partir de <b>115 €</b>/nuit</span><span>2 personnes</span><span>24 m²</span></p>
-          <p>Mur en pierre d&#39;origine, tête de lit en chêne et balcon sur la vallée.</p>
-          <ul class="chips"><li>Lit de 180</li><li>Balcon</li><li>Fauteuil de lecture</li></ul>
-          <div><a class="pildora clara" href="#reserva">Vérifier les disponibilités</a></div>
-        </div>
-      </article>
+      <button class="hab" type="button" data-hab="puigmal">
+        <img src="../img/hab-puigmal-800.webp" srcset="../img/hab-puigmal-800.webp 800w, ../img/hab-puigmal-1600.webp 1600w" sizes="(max-width:700px) 78vw, 340px" alt="Chambre Puigmal" loading="lazy" width="800" height="600">
+        <div class="i"><h3>Chambre Puigmal</h3><span class="p">à partir de <b>115 €</b></span></div>
+      </button>
       
-      <article class="hab rv">
-        <div class="foto rv-img" style="position:relative"><img src="../img/hab-cadi-800.webp" srcset="../img/hab-cadi-800.webp 800w, ../img/hab-cadi-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Chambre Cadí" loading="lazy" decoding="async"></div>
-        <div class="txt">
-          <h3>Chambre Cadí<span class="flecha" aria-hidden="true">↗</span></h3>
-          <p class="meta"><span>à partir de <b>135 €</b>/nuit</span><span>3 personnes</span><span>32 m²</span></p>
-          <p>Sous les toits, poutres apparentes, canapé et deux balcons.</p>
-          <ul class="chips"><li>Lit de 160 + canapé-lit</li><li>Deux balcons</li><li>Bureau</li></ul>
-          <div><a class="pildora clara" href="#reserva">Vérifier les disponibilités</a></div>
-        </div>
-      </article>
+      <button class="hab" type="button" data-hab="cadi">
+        <img src="../img/hab-cadi-800.webp" srcset="../img/hab-cadi-800.webp 800w, ../img/hab-cadi-1600.webp 1600w" sizes="(max-width:700px) 78vw, 340px" alt="Chambre Cadí" loading="lazy" width="800" height="600">
+        <div class="i"><h3>Chambre Cadí</h3><span class="p">à partir de <b>135 €</b></span></div>
+      </button>
       
-      <article class="hab rv">
-        <div class="foto rv-img" style="position:relative"><span class="tag">Nouveau</span><img src="../img/suite-800.webp" srcset="../img/suite-800.webp 800w, ../img/suite-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Suite Carlit" loading="lazy" decoding="async"></div>
-        <div class="txt">
-          <h3>Suite Carlit<span class="flecha" aria-hidden="true">↗</span></h3>
-          <p class="meta"><span>à partir de <b>165 €</b>/nuit</span><span>2 personnes</span><span>40 m²</span></p>
-          <p>La plus grande de la maison : charpente de 1880, coin lecture et balcon à la française.</p>
-          <ul class="chips"><li>Lit de 180</li><li>Coin salon</li><li>Bureau avec vue</li></ul>
-          <div><a class="pildora clara" href="#reserva">Vérifier les disponibilités</a></div>
-        </div>
-      </article>
+      <button class="hab" type="button" data-hab="carlit">
+        <img src="../img/suite-800.webp" srcset="../img/suite-800.webp 800w, ../img/suite-1600.webp 1600w" sizes="(max-width:700px) 78vw, 340px" alt="Suite Carlit" loading="lazy" width="800" height="600">
+        <div class="i"><h3>Suite Carlit</h3><span class="p">à partir de <b>165 €</b></span></div>
+      </button>
       
-      <article class="hab rv">
-        <div class="foto rv-img" style="position:relative"><img src="../img/estudi-800.webp" srcset="../img/estudi-800.webp 800w, ../img/estudi-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Studio du Patio" loading="lazy" decoding="async"></div>
-        <div class="txt">
-          <h3>Studio du Patio<span class="flecha" aria-hidden="true">↗</span></h3>
-          <p class="meta"><span>à partir de <b>150 €</b>/nuit</span><span>4 personnes</span><span>45 m²</span></p>
-          <p>Appartement avec mezzanine, cuisine, poêle à bois et terrasse privative sur le patio.</p>
-          <ul class="chips"><li>Mezzanine avec lit de 160</li><li>Cuisine équipée</li><li>Terrasse</li><li>Poêle à bois</li></ul>
-          <div><a class="pildora clara" href="#reserva">Vérifier les disponibilités</a></div>
-        </div>
-      </article>
+      <button class="hab" type="button" data-hab="estudi">
+        <img src="../img/estudi-800.webp" srcset="../img/estudi-800.webp 800w, ../img/estudi-1600.webp 1600w" sizes="(max-width:700px) 78vw, 340px" alt="Studio du Patio" loading="lazy" width="800" height="600">
+        <div class="i"><h3>Studio du Patio</h3><span class="p">à partir de <b>150 €</b></span></div>
+      </button>
       
     </div>
-    <div class="incluido rv"><h3 style="font-size:30px">Inclus dans le séjour</h3><ul><li>Petit-déjeuner maison</li><li>Wifi</li><li>Parking</li><li>Local à skis</li><li>Chiens acceptés</li><li>Serviettes et linge</li></ul></div>
-  </div></section>
+  </section>
 
-  <section class="desayuno" style="padding-top:0"><div class="w des rv">
-    <figure><img src="../img/desayuno-800.webp" srcset="../img/desayuno-800.webp 800w, ../img/desayuno-1600.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" alt="Le petit-déjeuner" loading="lazy" decoding="async"></figure>
-    <div class="txt">
-      <span class="eti" style="color:var(--rojo)">De 8 h 30 à 10 h 30 · inclus dans le séjour</span>
-      <h2 class="mayus">Le petit-déjeuner</h2>
-      <p>Des produits de Cerdagne chaque matin, près de la fenêtre qui donne sur le pré.</p>
-      <ul><li>Fromage de vache de Bellver</li><li>Charcuterie de Das et d&#39;Alp</li><li>Miel de montagne</li><li>Pain de campagne et confiture maison</li><li>Café, jus pressé et infusions</li></ul>
-    </div>
-  </div></section>
-
-  <section class="entorno" id="entorno"><div class="w">
-    <div class="sec-cab rv"><h2 class="mayus">Que faire en Cerdagne</h2></div>
+  <section id="entorno" style="padding-top:0">
+    <div class="wrap"><h2 class="rv">En hiver, près de la maison</h2></div>
     <div class="carril">
       
-      <article data-solo="invierno">
-        <div class="foto"><img src="../img/invierno-800.webp" srcset="../img/invierno-800.webp 800w, ../img/invierno-1600.webp 1600w" sizes="(min-width: 900px) 30vw, 78vw" alt="Ski à La Molina et Masella" loading="lazy" decoding="async"></div>
-        <p class="meta"><span style="color:var(--rojo)">Hiver</span><span>25 min en voiture</span></p>
-        <h3>Ski à La Molina et Masella<span class="flecha" aria-hidden="true">↗</span></h3><p>Des pistes pour tous les niveaux à 25 minutes. Nous gardons vos skis et la cheminée vous attend.</p>
-      </article>
+      <article class="plan"><img src="../img/invierno-800.webp" srcset="../img/invierno-800.webp 800w, ../img/invierno-1600.webp 1600w" sizes="(max-width:700px) 78vw, 340px" alt="Ski à La Molina et Masella" loading="lazy" width="800" height="600"><div class="i"><h3>Ski à La Molina et Masella</h3><p>Des pistes pour tous les niveaux à 25 minutes. Nous gardons vos skis et la cheminée vous attend.</p><p class="d">25 min en voiture</p></div></article>
       
-      <article>
-        <div class="foto"><img src="../img/patio-800.webp" srcset="../img/patio-800.webp 800w, ../img/patio-1600.webp 1600w" sizes="(min-width: 900px) 30vw, 78vw" alt="Le village de Das" loading="lazy" decoding="async"></div>
-        <p class="meta"><span style="color:var(--rojo)">Toute l&#39;année</span><span>5 min à pied</span></p>
-        <h3>Le village de Das<span class="flecha" aria-hidden="true">↗</span></h3><p>Église romane, ruelles en pierre et belvédère sur la vallée à cinq minutes à pied.</p>
-      </article>
+      <article class="plan"><img src="../img/patio-800.webp" srcset="../img/patio-800.webp 800w, ../img/patio-1600.webp 1600w" sizes="(max-width:700px) 78vw, 340px" alt="Le village de Das" loading="lazy" width="800" height="600"><div class="i"><h3>Le village de Das</h3><p>Église romane, ruelles en pierre et belvédère sur la vallée à cinq minutes à pied.</p><p class="d">5 min à pied</p></div></article>
       
-      <article data-solo="verano">
-        <div class="foto"><img src="../img/ruta-800.webp" srcset="../img/ruta-800.webp 800w, ../img/ruta-1600.webp 1600w" sizes="(min-width: 900px) 30vw, 78vw" alt="Randonnées dans le Cadí-Moixeró" loading="lazy" decoding="async"></div>
-        <p class="meta"><span style="color:var(--rojo)">Été</span><span>Depuis la porte</span></p>
-        <h3>Randonnées dans le Cadí-Moixeró<span class="flecha" aria-hidden="true">↗</span></h3><p>De la balade en famille au sommet du Puigmal. Cartes prêtées et pique-nique préparé.</p>
-      </article>
-      
-      <article>
-        <div class="foto"><img src="../img/producto-800.webp" alt="Marché de Puigcerdà" loading="lazy" decoding="async"></div>
-        <p class="meta"><span style="color:var(--rojo)">Toute l&#39;année</span><span>10 min en voiture</span></p>
-        <h3>Marché de Puigcerdà<span class="flecha" aria-hidden="true">↗</span></h3><p>Chaque dimanche : fromage de Cerdagne, charcuterie, miel et pain de campagne.</p>
-      </article>
+      <article class="plan"><img src="../img/producto-800.webp" alt="Marché de Puigcerdà" loading="lazy" width="800" height="600"><div class="i"><h3>Marché de Puigcerdà</h3><p>Chaque dimanche : fromage de Cerdagne, charcuterie, miel et pain de campagne.</p><p class="d">10 min en voiture</p></div></article>
       
     </div>
+  </section>
+
+  <section id="llegar" style="padding-top:0"><div class="wrap duo">
+    <div class="rv"><h2>Accès</h2>
+      <ul class="rutas"><li><b>Perpignan</b><span>1 h 45 par la N116</span></li><li><b>Bourg-Madame</b><span>15 min par Puigcerdà</span></li><li><b>Toulouse</b><span>2 h 30 par l&#39;A61 et la N20</span></li><li><b>Barcelone</b><span>2 h par le tunnel du Cadí</span></li></ul>
+      <a class="btn claro" href="https://www.openstreetmap.org/?mlat=42.383&amp;mlon=1.861#map=13/42.383/1.861" target="_blank" rel="noopener">Ouvrir la carte ↗</a></div>
+    <div class="rv"><h2>Questions fréquentes</h2>
+      <details><summary>À quelle heure peut-on arriver ?</summary><p>De 16 h à 21 h. Si vous arrivez plus tard, prévenez-nous par WhatsApp et nous laisserons la clé prête.</p></details><details><summary>Les chiens sont-ils acceptés ?</summary><p>Oui, dans les chambres du rez-de-chaussée, avec un supplément de 10 € par nuit.</p></details><details><summary>Quelles sont les conditions d&#39;annulation ?</summary><p>Annulation gratuite jusqu&#39;à 7 jours avant l&#39;arrivée. Ensuite, la première nuit est facturée.</p></details><details><summary>Y a-t-il un séjour minimum ?</summary><p>Deux nuits le week-end et quatre à Noël et à Pâques.</p></details></div>
   </div></section>
 
-  <section class="resenas"><div class="w rv">
-    <span class="eti">Ce qu&#39;en disent nos hôtes</span>
-    <div class="estrellas" aria-label="5/5">★★★★★</div>
-    <blockquote>Ici s&#39;affichera un vrai avis Google de vos hôtes.</blockquote>
-    <p class="meta firma" style="justify-content:center"><b>Nom de l&#39;hôte</b><span>Avis Google</span></p>
-    <p class="meta nota">Bloc d&#39;exemple · sur votre site, il se connecte à vos vrais avis Google</p>
-  </div></section>
-
-  <section id="llegar"><div class="w dos rv">
-    <div><h2 class="mayus">Accès</h2>
-      <ul class="dist"><li><b>Perpignan</b><span>1 h 45 par la N116</span></li><li><b>Bourg-Madame</b><span>15 min par Puigcerdà</span></li><li><b>Toulouse</b><span>2 h 30 par l&#39;A61 et la N20</span></li><li><b>Barcelone</b><span>2 h par le tunnel du Cadí</span></li></ul>
-      <a class="pildora clara" href="https://www.openstreetmap.org/?mlat=42.383&amp;mlon=1.861#map=13/42.383/1.861">Voir sur la carte →</a></div>
-    <div><h2 class="mayus">Questions fréquentes</h2><details><summary>À quelle heure peut-on arriver ?</summary><p>De 16 h à 21 h. Si vous arrivez plus tard, prévenez-nous par WhatsApp et nous laisserons la clé prête.</p></details><details><summary>Les chiens sont-ils acceptés ?</summary><p>Oui, dans les chambres du rez-de-chaussée, avec un supplément de 10 € par nuit.</p></details><details><summary>Quelles sont les conditions d&#39;annulation ?</summary><p>Annulation gratuite jusqu&#39;à 7 jours avant l&#39;arrivée. Ensuite, la première nuit est facturée.</p></details><details><summary>Y a-t-il un séjour minimum ?</summary><p>Deux nuits le week-end et quatre à Noël et à Pâques.</p></details></div>
-  </div></section>
-
-  <section class="contacto" style="--bg:url('../img/sendero-1600.webp')"><div class="w">
-    <h2 class="mayus">On en parle ?</h2><p>Écrivez-nous par WhatsApp ou appelez-nous. Nous répondons dans la journée.</p>
-    <div class="acciones"><a class="pildora" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>WhatsApp</a><a class="pildora clara" href="tel:+34600000000">Appeler · +34 600 000 000</a></div>
-    <p class="linea">hola@ejemplo.com</p>
+  <section style="padding-top:0"><div class="wrap">
+    <div class="final rv"><h2>On en parle ?</h2><p class="sub" style="margin:0">Écrivez-nous par WhatsApp ou appelez-nous. Nous répondons dans la journée.</p>
+      <div class="acc"><a class="btn" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>WhatsApp</a><a class="btn claro" href="tel:+34600000000">Appeler · +34 600 000 000</a></div>
+      <a href="mailto:hola@ejemplo.com" class="sub" style="margin:0">hola@ejemplo.com</a></div>
   </div></section>
 </main>
 
-<footer><div class="w">
-  <span>© 2026 Cal Ginebró · Gîte · Das, Cerdagne · HUTG-000000 (exemple)<br><small class="aviso-pie">Site de démonstration de Fernando · établissement et images fictifs</small></span>
-  <nav><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">Cookies</a><a href="../../../fr/">Web: Fernando</a></nav>
+<footer><div class="wrap">
+  <span>© 2026 Cal Ginebró · Gîte · Das, Cerdagne · HUTG-000000 (exemple)</span>
+  <span><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">Cookies</a></span>
+  <a href="../../../fr/" style="width:100%">Site de démonstration de Fernando · établissement et images fictifs</a>
 </div></footer>
 
-<a class="wa-flot" href="https://wa.me/34600000000" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg></a>
-<div class="barra"><a class="pildora" href="#reserva">Vérifier les disponibilités</a><a class="pildora wa" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>WhatsApp</a></div>
+<div class="barra" id="barra"><small>à partir de <b>115 €</b> / nuit</small><button class="btn" data-abrir>Voir les dates libres</button></div>
+
+<dialog id="reserva" aria-labelledby="reserva-t"><form class="pan" id="form-reserva" method="dialog">
+  <div class="agarre"></div>
+  <div class="pan-c"><h2 id="reserva-t">Vos dates</h2><button class="x" type="button" data-cerrar aria-label="Fermer">×</button></div>
+  <div class="det" id="det" hidden></div>
+  <div class="campos">
+    <label>Arrivée<input type="date" name="llegada" required></label>
+    <label>Départ<input type="date" name="salida" required></label>
+    <label>Personnes<select name="personas"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+    <label>Chambre<select name="hab"><option value="">Peu importe la chambre</option><option value="puigmal">Chambre Puigmal</option><option value="cadi">Chambre Cadí</option><option value="carlit">Suite Carlit</option><option value="estudi">Studio du Patio</option></select></label>
+  </div>
+  <button class="btn" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Envoyer par WhatsApp</button>
+  <p class="nota">Nous vous répondons par WhatsApp en moins de 2 heures.</p>
+</form></dialog>
+
+<template id="datos-hab">
+  <div data-id="puigmal"><img src="../img/hab-puigmal-800.webp" srcset="../img/hab-puigmal-800.webp 800w, ../img/hab-puigmal-1600.webp 1600w" sizes="460px" alt="Chambre Puigmal" loading="lazy" width="800" height="600"><h3 style="font-size:1.4rem;margin-top:12px">Chambre Puigmal</h3><p class="p">à partir de 115 € / nuit · 2 personnes · 24 m²</p><p style="margin:6px 0 8px">Mur en pierre d&#39;origine, tête de lit en chêne et balcon sur la vallée.</p><ul><li>Lit de 180</li><li>Balcon</li><li>Fauteuil de lecture</li></ul></div>
+
+  <div data-id="cadi"><img src="../img/hab-cadi-800.webp" srcset="../img/hab-cadi-800.webp 800w, ../img/hab-cadi-1600.webp 1600w" sizes="460px" alt="Chambre Cadí" loading="lazy" width="800" height="600"><h3 style="font-size:1.4rem;margin-top:12px">Chambre Cadí</h3><p class="p">à partir de 135 € / nuit · 3 personnes · 32 m²</p><p style="margin:6px 0 8px">Sous les toits, poutres apparentes, canapé et deux balcons.</p><ul><li>Lit de 160 + canapé-lit</li><li>Deux balcons</li><li>Bureau</li></ul></div>
+
+  <div data-id="carlit"><img src="../img/suite-800.webp" srcset="../img/suite-800.webp 800w, ../img/suite-1600.webp 1600w" sizes="460px" alt="Suite Carlit" loading="lazy" width="800" height="600"><h3 style="font-size:1.4rem;margin-top:12px">Suite Carlit</h3><p class="p">à partir de 165 € / nuit · 2 personnes · 40 m²</p><p style="margin:6px 0 8px">La plus grande de la maison : charpente de 1880, coin lecture et balcon à la française.</p><ul><li>Lit de 180</li><li>Coin salon</li><li>Bureau avec vue</li></ul></div>
+
+  <div data-id="estudi"><img src="../img/estudi-800.webp" srcset="../img/estudi-800.webp 800w, ../img/estudi-1600.webp 1600w" sizes="460px" alt="Studio du Patio" loading="lazy" width="800" height="600"><h3 style="font-size:1.4rem;margin-top:12px">Studio du Patio</h3><p class="p">à partir de 150 € / nuit · 4 personnes · 45 m²</p><p style="margin:6px 0 8px">Appartement avec mezzanine, cuisine, poêle à bois et terrasse privative sur le patio.</p><ul><li>Mezzanine avec lit de 160</li><li>Cuisine équipée</li><li>Terrasse</li><li>Poêle à bois</li></ul></div>
+</template>
 
 <script>
 document.documentElement.classList.add("js");
 (function(){
   const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  // vídeo de portada: versión ligera en móvil; sin vídeo si el usuario ahorra datos o reduce el movimiento
+  // vídeo de portada: se carga solo si se ve
   const v=document.getElementById("hero-video");
-  const movil=matchMedia("(max-width: 899px)").matches;
-  if(v&&movil) v.poster=v.dataset.posterMovil;
-  window.cargarVideo=function(){ if(!v||v.dataset.cargado) return;
-    const ahorro=navigator.connection&&navigator.connection.saveData; if(reduce||ahorro) return;
-    if(getComputedStyle(v.parentElement).display==="none") return;
-    v.dataset.cargado="1"; v.src=movil?v.dataset.movil:v.dataset.escritorio; v.play&&v.play().catch(()=>{}); };
-  // aparición suave al hacer scroll
-  const els=document.querySelectorAll(".rv,.rv-img");
-  if(!("IntersectionObserver" in window)||reduce){ els.forEach(e=>e.classList.add("in")); }
-  else { const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }),{rootMargin:"0px 0px -8% 0px",threshold:.08});
-    els.forEach(e=>io.observe(e)); }
-  // zoom muy leve de la portada al bajar
-  const media=document.querySelector(".portada .media");
-  if(media&&!reduce){ let tk=false; addEventListener("scroll",()=>{ if(tk) return; tk=true; requestAnimationFrame(()=>{ const y=Math.min(scrollY,800); document.querySelectorAll(".portada .media").forEach(m=>m.style.setProperty("--zoom",1+y/8000)); tk=false; }); },{passive:true}); }
-})();
-(function(){
-  const root=document.documentElement, KEY="estacion-cal-ginebro";
-  function setSeason(s){ root.dataset.season=s;
-    document.querySelectorAll(".estacion button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.set===s));
-    try{localStorage.setItem(KEY,s)}catch(e){} window.cargarVideo&&window.cargarVideo(); }
-  let s=null; try{s=localStorage.getItem(KEY)}catch(e){}
-  if(!s){ const m=new Date().getMonth(); s=(m>=10||m<=3)?"invierno":"verano"; }
-  setSeason(s);
-  document.querySelectorAll(".estacion button").forEach(b=>b.addEventListener("click",()=>setSeason(b.dataset.set)));
-  // cabecera con línea al hacer scroll
-  const cab=document.getElementById("cab"); const onS=()=>cab.classList.toggle("scrolled",scrollY>10); onS(); addEventListener("scroll",onS,{passive:true});
-  // menú móvil
-  const menu=document.getElementById("menu"), burger=document.querySelector(".burger");
-  const abrir=v=>{menu.classList.toggle("abierto",v);burger.setAttribute("aria-expanded",v);document.body.style.overflow=v?"hidden":""};
-  burger.addEventListener("click",()=>abrir(true)); menu.querySelector(".cerrar").addEventListener("click",()=>abrir(false));
-  menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>abrir(false)));
-  // reserva directa -> WhatsApp con el mensaje preparado
-  const f=document.getElementById("reserva"), ll=document.getElementById("f-llegada"), sa=document.getElementById("f-salida"), pe=document.getElementById("f-personas");
-  const iso=d=>d.toISOString().slice(0,10), hoy=new Date(); ll.min=iso(hoy);
-  ll.addEventListener("change",()=>{ if(!ll.value) return; const d=new Date(ll.value); d.setDate(d.getDate()+1); sa.min=iso(d); if(!sa.value||sa.value<=ll.value) sa.value=iso(new Date(d.getTime()+86400000)); });
-  const fmt=v=>v?new Date(v+"T12:00").toLocaleDateString("fr",{day:"numeric",month:"long"}):"…";
-  f.addEventListener("submit",e=>{ e.preventDefault();
-    if(!ll.value){ ll.focus(); return; } if(!sa.value){ sa.focus(); return; }
-    const msg="Bonjour, je voudrais conna\u00eetre vos disponibilit\u00e9s \u00e0 Cal Ginebr\u00f3 du {llegada} au {salida} pour {personas} personnes.".replace("{llegada}",fmt(ll.value)).replace("{salida}",fmt(sa.value)).replace("{personas}",pe.value);
-    location.href="https://wa.me/34600000000?text="+encodeURIComponent(msg); });
+  if(v&&!reduce){const movil=innerWidth<700;if(movil)v.poster=v.dataset.posterMovil;
+    const s=document.createElement("source");s.src=movil?v.dataset.movil:v.dataset.escritorio;s.type="video/mp4";v.appendChild(s);v.load();v.play().catch(()=>{});}
+  else if(v&&innerWidth<700){v.poster=v.dataset.posterMovil;}
+  // aparición
+  const els=document.querySelectorAll(".rv");
+  if(reduce||!("IntersectionObserver" in window))els.forEach(e=>e.classList.add("in"));
+  else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -8% 0px"});els.forEach(e=>io.observe(e));}
+  // barra inferior: aparece al pasar la portada
+  const barra=document.getElementById("barra"),portada=document.querySelector(".portada");
+  new IntersectionObserver(([e])=>barra.classList.toggle("ver",!e.isIntersecting),{threshold:.15}).observe(portada);
+  // flechas del carril
+  const carril=document.getElementById("carril-hab");
+  document.querySelectorAll("[data-mover]").forEach(b=>b.addEventListener("click",()=>carril.scrollBy({left:carril.clientWidth*.8*b.dataset.mover,behavior:reduce?"auto":"smooth"})));
+  // panel de reserva
+  const d=document.getElementById("reserva"),f=document.getElementById("form-reserva"),det=document.getElementById("det"),tpl=document.getElementById("datos-hab");
+  const hoy=new Date().toISOString().slice(0,10);f.llegada.min=hoy;f.salida.min=hoy;
+  f.llegada.addEventListener("change",()=>{f.salida.min=f.llegada.value;if(f.salida.value&&f.salida.value<=f.llegada.value)f.salida.value=""});
+  function abrir(id){det.hidden=!id;det.innerHTML="";
+    if(id){const n=tpl.content.querySelector('[data-id="'+id+'"]');if(n)det.appendChild(n.cloneNode(true));f.hab.value=id}
+    d.showModal();}
+  document.querySelectorAll("[data-abrir]").forEach(b=>b.addEventListener("click",()=>abrir("")));
+  document.querySelectorAll("[data-hab]").forEach(b=>b.addEventListener("click",()=>abrir(b.dataset.hab)));
+  d.querySelector("[data-cerrar]").addEventListener("click",()=>d.close());
+  d.addEventListener("click",e=>{if(e.target===d)d.close()});
+  const fmt=s=>s?s.split("-").reverse().join("/"):"";
+  const plantilla="Bonjour, je voudrais conna\u00eetre vos disponibilit\u00e9s \u00e0 Cal Ginebr\u00f3 du {llegada} au {salida} pour {personas} personnes.", nombres={ "puigmal":"Chambre Puigmal","cadi":"Chambre Cad\u00ed","carlit":"Suite Carlit","estudi":"Studio du Patio" };
+  f.addEventListener("submit",e=>{e.preventDefault();
+    let m=plantilla.replace("{llegada}",fmt(f.llegada.value)).replace("{salida}",fmt(f.salida.value)).replace("{personas}",f.personas.value);
+    if(f.hab.value)m+=" ("+nombres[f.hab.value]+")";
+    window.open("https://wa.me/34600000000?text="+encodeURIComponent(m),"_blank","noopener");d.close();});
 })();
 </script>
 </body>

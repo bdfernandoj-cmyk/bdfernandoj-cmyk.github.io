@@ -1,0 +1,301 @@
+{#- Plantilla "casa" (v3): alojamiento rural, solo invierno, pensada para el móvil.
+    Una sola acción (consultar fechas) que abre un panel; habitaciones deslizables; pocas secciones. -#}
+{%- set L = {
+  'es': {'hero': 'Temporada de invierno · quedan pocas noches en Navidad', 'fechas': 'Ver fechas libres', 'panel': 'Consulta tus fechas', 'hab_cualquiera': 'Cualquier habitación', 'habitacion': 'Habitación', 'enviar': 'Enviar por WhatsApp', 'cerrar': 'Cerrar', 'reservar_esta': 'Consultar esta habitación', 'mapa': 'Abrir en el mapa', 'casa_t': 'La casa', 'puntos': [['fuego','Chimenea y estufa de leña'],['taza','Desayuno de la Cerdanya incluido'],['nieve','Guardaesquís, a 25 min de La Molina']], 'hacer': 'En invierno, cerca de casa', 'desliza': 'Desliza para ver más', 'escribe': 'Escríbenos'},
+  'ca': {'hero': "Temporada d'hivern · queden poques nits per Nadal", 'fechas': 'Veure dates lliures', 'panel': 'Consulta les teves dates', 'hab_cualquiera': 'Qualsevol habitació', 'habitacion': 'Habitació', 'enviar': 'Enviar per WhatsApp', 'cerrar': 'Tancar', 'reservar_esta': 'Consultar aquesta habitació', 'mapa': 'Obrir al mapa', 'casa_t': 'La casa', 'puntos': [['fuego','Llar de foc i estufa de llenya'],['taza','Esmorzar de la Cerdanya inclòs'],['nieve','Guarda-esquís, a 25 min de La Molina']], 'hacer': 'A l’hivern, a prop de casa', 'desliza': 'Llisca per veure’n més', 'escribe': 'Escriu-nos'},
+  'fr': {'hero': "Saison d'hiver · il reste peu de nuits à Noël", 'fechas': 'Voir les dates libres', 'panel': 'Vos dates', 'hab_cualquiera': 'Peu importe la chambre', 'habitacion': 'Chambre', 'enviar': 'Envoyer par WhatsApp', 'cerrar': 'Fermer', 'reservar_esta': 'Demander cette chambre', 'mapa': 'Ouvrir la carte', 'casa_t': 'La maison', 'puntos': [['fuego','Cheminée et poêle à bois'],['taza','Petit-déjeuner de Cerdagne inclus'],['nieve','Local à skis, à 25 min de La Molina']], 'hacer': 'En hiver, près de la maison', 'desliza': 'Faites glisser pour voir plus', 'escribe': 'Écrivez-nous'},
+}[t.lang] -%}
+{%- set wa = n.whatsapp|replace('+','')|replace(' ','') -%}
+{%- macro foto(nombre, alt, sizes="100vw", eager=false, cls="") -%}<img{% if cls %} class="{{ cls }}"{% endif %} src="{{ img }}{{ nombre }}-800.webp"{% if nombre in grandes %} srcset="{{ img }}{{ nombre }}-800.webp 800w, {{ img }}{{ nombre }}-1600.webp 1600w" sizes="{{ sizes }}"{% endif %} alt="{{ alt }}"{% if not eager %} loading="lazy"{% endif %} width="800" height="600">{%- endmacro -%}
+{%- macro icono(k) -%}
+{%- if k == 'fuego' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.2 1.2-3.6 2.5-4.8.3 1.6 1 2.6 2 3 0-3 .2-5.6.5-8.2Z"/></svg>
+{%- elif k == 'taza' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5c-.6.8-.6 1.7 0 2.5M12 3.5c-.6.8-.6 1.7 0 2.5"/></svg>
+{%- elif k == 'nieve' -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7M9.5 4 12 6l2.5-2M9.5 20 12 18l2.5 2"/></svg>
+{%- elif k == 'wa' -%}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+{%- endif -%}{%- endmacro -%}
+<!doctype html>
+<html lang="{{ t.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ n.nombre }} · {{ t.titular }}</title>
+<meta name="description" content="{{ t.intro }}">
+{% if n.ficticio %}<meta name="robots" content="noindex">{% endif %}
+<meta name="theme-color" content="#faf6ee">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* Paleta "miel y nieve" */
+:root{--fondo:#faf6ee;--tinta:#2b2620;--suave:#f0e5d0;--miel:#e3b96f;--miel-osc:#9a6b1f;--gris:#6f665b;--blanco:#fff;
+  --tit:"Gloock",Georgia,serif;--txt:"Hanken Grotesk",system-ui,sans-serif;--r:22px;--g:20px;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:17px/1.6 var(--txt);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,video{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--tit);font-weight:400;letter-spacing:-.02em;line-height:1.02;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,6vw,3.2rem)}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(var(--g),env(safe-area-inset-left))}
+section{padding:clamp(64px,10vw,110px) 0}
+.sub{color:var(--gris);max-width:52ch;margin-top:12px}
+:focus-visible{outline:2px solid var(--miel-osc);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:15px 24px;font:600 1rem var(--txt);cursor:pointer;text-decoration:none;background:var(--miel);color:var(--tinta);transition:transform .15s,background .2s}
+.btn:hover{background:#ecc883}.btn:active{transform:scale(.97)}
+.btn.claro{background:var(--blanco);box-shadow:inset 0 0 0 1px #2b262022}
+.btn.claro:hover{background:var(--suave)}
+.btn svg{width:20px;height:20px}
+
+/* cabecera */
+.cab{position:absolute;top:0;left:0;right:0;z-index:5;color:#fff}
+.cab .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:calc(16px + env(safe-area-inset-top))}
+.marca{font:1.45rem var(--tit);text-decoration:none;letter-spacing:-.01em}
+.cab-d{display:flex;align-items:center;gap:14px}
+.idi{display:flex;gap:2px;font-size:.85rem}
+.idi a{text-decoration:none;padding:6px 7px;border-radius:8px;opacity:.75}
+.idi a[aria-current]{opacity:1;font-weight:600}
+.cab .btn{padding:10px 18px;font-size:.95rem}
+@media (max-width:640px){.cab .btn{display:none}}
+
+/* portada */
+.portada{position:relative;height:100svh;min-height:560px;color:#fff;display:flex;align-items:flex-end;background:#2b2620}
+.portada video,.portada>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.portada::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,14,.45),rgba(20,17,14,0) 28%,rgba(20,17,14,0) 50%,rgba(20,17,14,.7))}
+.portada .wrap{position:relative;z-index:1;width:100%;padding-bottom:calc(36px + env(safe-area-inset-bottom))}
+.lugar{font-size:.95rem;opacity:.9}
+.portada h1{font-size:clamp(2.6rem,8vw,5.4rem);margin:10px 0 22px;max-width:14ch}
+.portada .nota{font-size:.9rem;opacity:.85;margin-top:14px}
+@media (max-width:640px){.portada .btn{width:100%}}
+
+/* la casa */
+.mosaico{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:10px;margin-top:36px}
+.mosaico img{width:100%;height:100%;object-fit:cover;border-radius:var(--r)}
+.mosaico img:first-child{grid-row:span 2}
+
+@media (max-width:700px){.mosaico{grid-template-columns:1fr 1fr;grid-template-rows:240px 150px 150px}.mosaico img:first-child{grid-column:span 2;grid-row:auto}}
+.puntos{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.puntos li{display:flex;gap:12px;align-items:center;background:var(--suave);border-radius:16px;padding:14px 16px;font-weight:500;line-height:1.3}
+.puntos svg{width:26px;height:26px;flex:none;color:var(--miel-osc)}
+@media (max-width:700px){.puntos{grid-template-columns:1fr}}
+
+/* carril deslizable */
+.carril{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,340px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px max(var(--g),calc((100vw - 1120px)/2 + var(--g))) 14px;margin-top:28px;scrollbar-width:none;overscroll-behavior-x:contain}
+.carril::-webkit-scrollbar{display:none}
+.carril>*{scroll-snap-align:center}
+.pista{display:flex;align-items:center;gap:8px;color:var(--gris);font-size:.9rem;margin-top:4px}
+.flechas{display:flex;gap:8px;margin-left:auto}
+.flechas button{width:44px;height:44px;border-radius:50%;border:0;background:var(--blanco);box-shadow:inset 0 0 0 1px #2b262022;font-size:1.1rem;cursor:pointer;color:var(--tinta)}
+.flechas button:hover{background:var(--suave)}
+@media (max-width:700px){.flechas{display:none}}
+.hab{all:unset;cursor:pointer;display:block;border-radius:var(--r);overflow:hidden;background:var(--blanco);box-shadow:0 1px 0 #2b262014,0 10px 30px -18px #2b262055;transition:transform .3s var(--ease)}
+.hab:hover{transform:translateY(-4px)}
+.hab:focus-visible{outline:2px solid var(--miel-osc);outline-offset:3px}
+.hab img{aspect-ratio:4/5;width:100%;object-fit:cover}
+.hab .i{padding:14px 16px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.hab h3{font-size:1.35rem}
+.hab .p{white-space:nowrap;font-size:.95rem;color:var(--gris)}
+.hab .p b{color:var(--tinta);font-weight:600}
+.hab .eti{position:absolute}
+.plan{border-radius:var(--r);overflow:hidden;background:var(--blanco);box-shadow:0 1px 0 #2b262014}
+.plan img{aspect-ratio:4/3;width:100%;object-fit:cover}
+.plan .i{padding:14px 16px 18px}
+.plan h3{font-size:1.25rem}
+.plan p{color:var(--gris);font-size:.95rem;margin-top:6px}
+.plan .d{font-size:.85rem;color:var(--miel-osc);font-weight:600;margin-top:10px}
+
+/* llegar + preguntas */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px)}
+@media (max-width:800px){.duo{grid-template-columns:1fr}}
+.rutas{list-style:none;padding:0;margin:24px 0}
+.rutas li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #2b26201a}
+.rutas span{color:var(--gris);text-align:right}
+details{background:var(--blanco);border-radius:16px;padding:16px 18px;margin-top:10px}
+details:first-of-type{margin-top:24px}
+summary{cursor:pointer;list-style:none;font-weight:600;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--miel-osc);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--gris);margin-top:8px}
+
+/* contacto y pie */
+.final{background:var(--suave);border-radius:32px;padding:clamp(36px,6vw,64px);display:grid;gap:18px;justify-items:start}
+.final .acc{display:flex;gap:10px;flex-wrap:wrap}
+footer{padding:36px 0 calc(110px + env(safe-area-inset-bottom));color:var(--gris);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{text-decoration:none;margin-right:14px}
+@media (min-width:641px){footer{padding-bottom:40px}}
+
+/* barra inferior (móvil) */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px var(--g) calc(10px + env(safe-area-inset-bottom));background:rgba(250,246,238,.92);backdrop-filter:blur(12px);border-top:1px solid #2b262014;display:flex;align-items:center;gap:12px;transform:translateY(110%);transition:transform .35s var(--ease)}
+.barra.ver{transform:none}
+.barra .btn{flex:1}
+.barra small{color:var(--gris);line-height:1.25}
+.barra small b{color:var(--tinta);font-size:1rem}
+@media (min-width:641px){.barra{display:none}}
+
+/* panel de reserva */
+dialog{border:0;padding:0;background:var(--fondo);color:var(--tinta);width:min(460px,100%);max-width:100%;border-radius:26px;box-shadow:0 30px 80px -20px #0006}
+dialog::backdrop{background:rgba(20,17,14,.45);backdrop-filter:blur(3px)}
+@media (max-width:640px){dialog{margin:auto 0 0;border-radius:26px 26px 0 0;max-height:92svh}dialog[open]{animation:sube .35s var(--ease)}}
+@keyframes sube{from{transform:translateY(100%)}to{transform:none}}
+.pan{padding:22px 22px calc(22px + env(safe-area-inset-bottom));display:grid;gap:14px}
+.pan-c{display:flex;justify-content:space-between;align-items:center}
+.pan-c h2{font-size:1.7rem}
+.x{width:40px;height:40px;border-radius:50%;border:0;background:var(--suave);font-size:1.2rem;cursor:pointer;color:var(--tinta)}
+.agarre{width:42px;height:5px;border-radius:9px;background:#2b262026;margin:0 auto -4px}
+@media (min-width:641px){.agarre{display:none}}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:grid;gap:5px;font-size:.85rem;font-weight:600}
+label.todo{grid-column:span 2}
+input,select{font:500 1rem var(--txt);color:var(--tinta);background:var(--blanco);border:1px solid #2b262026;border-radius:14px;padding:13px 12px;width:100%;min-height:50px}
+.pan .nota{color:var(--gris);font-size:.88rem;text-align:center}
+.det img{border-radius:18px;aspect-ratio:16/10;width:100%;object-fit:cover}
+.det ul{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.det li{background:var(--suave);border-radius:999px;padding:5px 12px;font-size:.88rem}
+.det .p{color:var(--gris)}
+
+/* aparición suave */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}dialog[open]{animation:none}.hab{transition:none}}
+</style>
+</head>
+<body>
+<header class="cab"><div class="wrap">
+  <a class="marca" href="#">{{ n.nombre }}</a>
+  <div class="cab-d">
+    <nav class="idi" aria-label="Idioma">{% for k in idiomas %}<a href="{{ rutas[k] }}" hreflang="{{ k }}"{% if k == t.lang %} aria-current="page"{% endif %}>{{ k|upper }}</a>{% endfor %}</nav>
+    <button class="btn" data-abrir>{{ t.reservar }}</button>
+  </div>
+</div></header>
+
+<main>
+  <section class="portada" style="padding:0">
+    {% if n.video %}<video id="hero-video" muted loop playsinline preload="none" aria-label="{{ t.portada_alt_invierno }}"
+      poster="{{ img }}{{ n.video.nombre }}-poster-1600.webp" data-poster-movil="{{ img }}{{ n.video.nombre }}-poster-movil.webp"
+      data-movil="{{ img }}{{ n.video.nombre }}-movil.mp4" data-escritorio="{{ img }}{{ n.video.nombre }}-escritorio.mp4"></video>
+    {% else %}{{ foto(n.img.invierno, t.portada_alt_invierno, "100vw", true) }}{% endif %}
+    <div class="wrap">
+      <p class="lugar">{{ n.lugar }}</p>
+      <h1>{{ t.titular }}</h1>
+      <button class="btn" data-abrir>{{ L.fechas }}</button>
+      <p class="nota">{{ L.hero }}</p>
+    </div>
+  </section>
+
+  <section id="casa"><div class="wrap">
+    <h2 class="rv">{{ L.casa_t }}</h2>
+    <p class="sub rv">{{ t.intro }}</p>
+    <div class="mosaico rv">
+      {{ foto(n.img.fachada, t.galeria[0], "(max-width:700px) 100vw, 560px") }}
+      {{ foto(n.img.chimenea, t.galeria[1], "(max-width:700px) 50vw, 280px") }}
+      {{ foto(n.img.desayuno, t.desayuno_titulo, "(max-width:700px) 50vw, 280px") }}
+      {{ foto(n.img.salon, t.galeria[3], "(max-width:700px) 50vw, 560px") }}
+      {{ foto(n.img.detalle, t.galeria[4], "280px") }}
+    </div>
+    <ul class="puntos rv">{% for k, txt in L.puntos %}<li>{{ icono(k) }}{{ txt }}</li>{% endfor %}</ul>
+  </div></section>
+
+  <section id="habitaciones" style="padding-top:0">
+    <div class="wrap"><h2 class="rv">{{ t.hab_titulo }}</h2><p class="sub rv">{{ t.hab_intro }}</p>
+      <div class="pista"><span>{{ L.desliza }} →</span><div class="flechas"><button type="button" data-mover="-1" aria-label="←">←</button><button type="button" data-mover="1" aria-label="→">→</button></div></div></div>
+    <div class="carril" id="carril-hab">
+      {% for h in n.habitaciones %}{% set th = t.hab[h.id] %}
+      <button class="hab" type="button" data-hab="{{ h.id }}">
+        {{ foto(h.img, th.nombre, "(max-width:700px) 78vw, 340px") }}
+        <div class="i"><h3>{{ th.nombre }}</h3><span class="p">{{ t.desde }} <b>{{ h.precio }} €</b></span></div>
+      </button>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="entorno" style="padding-top:0">
+    <div class="wrap"><h2 class="rv">{{ L.hacer }}</h2></div>
+    <div class="carril">
+      {% for e in t.entorno if e.estacion != 'verano' %}
+      <article class="plan">{{ foto(e.img, e.t, "(max-width:700px) 78vw, 340px") }}<div class="i"><h3>{{ e.t }}</h3><p>{{ e.d }}</p><p class="d">{{ e.dist }}</p></div></article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="llegar" style="padding-top:0"><div class="wrap duo">
+    <div class="rv"><h2>{{ t.llegar_titulo }}</h2>
+      <ul class="rutas">{% for r in t.llegar %}<li><b>{{ r.t }}</b><span>{{ r.d }}</span></li>{% endfor %}</ul>
+      <a class="btn claro" href="{{ n.mapa_url }}" target="_blank" rel="noopener">{{ L.mapa }} ↗</a></div>
+    <div class="rv"><h2>{{ t.faq_titulo }}</h2>
+      {% for f in t.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}</div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="final rv"><h2>{{ t.contacto_titulo }}</h2><p class="sub" style="margin:0">{{ t.contacto_txt }}</p>
+      <div class="acc"><a class="btn" href="https://wa.me/{{ wa }}">{{ icono('wa') }}{{ t.whatsapp }}</a><a class="btn claro" href="tel:{{ n.telefono|replace(' ','') }}">{{ t.llamar }} · {{ n.telefono }}</a></div>
+      <a href="mailto:{{ n.email }}" class="sub" style="margin:0">{{ n.email }}</a></div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© {{ anyo }} {{ n.nombre }} · {{ t.pie }}</span>
+  <span>{% for l in t.legal %}<a href="#">{{ l }}</a>{% endfor %}</span>
+  {% if n.ficticio %}<a href="{{ credito_url }}" style="width:100%">{{ t.aviso }}</a>{% endif %}
+</div></footer>
+
+<div class="barra" id="barra"><small>{{ t.desde }} <b>{{ n.habitaciones|map(attribute='precio')|min }} €</b> / {{ t.noche }}</small><button class="btn" data-abrir>{{ L.fechas }}</button></div>
+
+<dialog id="reserva" aria-labelledby="reserva-t"><form class="pan" id="form-reserva" method="dialog">
+  <div class="agarre"></div>
+  <div class="pan-c"><h2 id="reserva-t">{{ L.panel }}</h2><button class="x" type="button" data-cerrar aria-label="{{ L.cerrar }}">×</button></div>
+  <div class="det" id="det" hidden></div>
+  <div class="campos">
+    <label>{{ t.reserva.llegada }}<input type="date" name="llegada" required></label>
+    <label>{{ t.reserva.salida }}<input type="date" name="salida" required></label>
+    <label>{{ t.reserva.personas }}<select name="personas">{% for i in range(1,7) %}<option{% if i == 2 %} selected{% endif %}>{{ i }}</option>{% endfor %}</select></label>
+    <label>{{ L.habitacion }}<select name="hab"><option value="">{{ L.hab_cualquiera }}</option>{% for h in n.habitaciones %}<option value="{{ h.id }}">{{ t.hab[h.id].nombre }}</option>{% endfor %}</select></label>
+  </div>
+  <button class="btn" type="submit">{{ icono('wa') }}{{ L.enviar }}</button>
+  <p class="nota">{{ t.reserva.nota }}</p>
+</form></dialog>
+
+<template id="datos-hab">{% for h in n.habitaciones %}{% set th = t.hab[h.id] %}
+  <div data-id="{{ h.id }}">{{ foto(h.img, th.nombre, "460px") }}<h3 style="font-size:1.4rem;margin-top:12px">{{ th.nombre }}</h3><p class="p">{{ t.desde }} {{ h.precio }} € / {{ t.noche }} · {{ h.personas }} {{ t.personas_txt }} · {{ h.m2 }} m²</p><p style="margin:6px 0 8px">{{ th.desc }}</p><ul>{% for x in th.extras %}<li>{{ x }}</li>{% endfor %}</ul></div>
+{% endfor %}</template>
+
+<script>
+document.documentElement.classList.add("js");
+(function(){
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // vídeo de portada: se carga solo si se ve
+  const v=document.getElementById("hero-video");
+  if(v&&!reduce){const movil=innerWidth<700;if(movil)v.poster=v.dataset.posterMovil;
+    const s=document.createElement("source");s.src=movil?v.dataset.movil:v.dataset.escritorio;s.type="video/mp4";v.appendChild(s);v.load();v.play().catch(()=>{});}
+  else if(v&&innerWidth<700){v.poster=v.dataset.posterMovil;}
+  // aparición
+  const els=document.querySelectorAll(".rv");
+  if(reduce||!("IntersectionObserver" in window))els.forEach(e=>e.classList.add("in"));
+  else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -8% 0px"});els.forEach(e=>io.observe(e));}
+  // barra inferior: aparece al pasar la portada
+  const barra=document.getElementById("barra"),portada=document.querySelector(".portada");
+  new IntersectionObserver(([e])=>barra.classList.toggle("ver",!e.isIntersecting),{threshold:.15}).observe(portada);
+  // flechas del carril
+  const carril=document.getElementById("carril-hab");
+  document.querySelectorAll("[data-mover]").forEach(b=>b.addEventListener("click",()=>carril.scrollBy({left:carril.clientWidth*.8*b.dataset.mover,behavior:reduce?"auto":"smooth"})));
+  // panel de reserva
+  const d=document.getElementById("reserva"),f=document.getElementById("form-reserva"),det=document.getElementById("det"),tpl=document.getElementById("datos-hab");
+  const hoy=new Date().toISOString().slice(0,10);f.llegada.min=hoy;f.salida.min=hoy;
+  f.llegada.addEventListener("change",()=>{f.salida.min=f.llegada.value;if(f.salida.value&&f.salida.value<=f.llegada.value)f.salida.value=""});
+  function abrir(id){det.hidden=!id;det.innerHTML="";
+    if(id){const n=tpl.content.querySelector('[data-id="'+id+'"]');if(n)det.appendChild(n.cloneNode(true));f.hab.value=id}
+    d.showModal();}
+  document.querySelectorAll("[data-abrir]").forEach(b=>b.addEventListener("click",()=>abrir("")));
+  document.querySelectorAll("[data-hab]").forEach(b=>b.addEventListener("click",()=>abrir(b.dataset.hab)));
+  d.querySelector("[data-cerrar]").addEventListener("click",()=>d.close());
+  d.addEventListener("click",e=>{if(e.target===d)d.close()});
+  const fmt=s=>s?s.split("-").reverse().join("/"):"";
+  const plantilla={{ t.reserva.mensaje|tojson }}, nombres={ {% for h in n.habitaciones %}{{ h.id|tojson }}:{{ t.hab[h.id].nombre|tojson }}{{ "," if not loop.last }}{% endfor %} };
+  f.addEventListener("submit",e=>{e.preventDefault();
+    let m=plantilla.replace("{llegada}",fmt(f.llegada.value)).replace("{salida}",fmt(f.salida.value)).replace("{personas}",f.personas.value);
+    if(f.hab.value)m+=" ("+nombres[f.hab.value]+")";
+    window.open("https://wa.me/{{ wa }}?text="+encodeURIComponent(m),"_blank","noopener");d.close();});
+})();
+</script>
+</body>
+</html>
