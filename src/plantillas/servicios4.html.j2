@@ -83,10 +83,9 @@ header .btn{padding:10px 16px;font-size:.95rem}
 .cinta{background:var(--signal);color:var(--on-signal);padding:12px 0 16px;overflow:hidden}
 .cinta .track{display:flex;width:max-content;animation:slide 32s linear infinite}
 .cinta .r2 .track{animation-direction:reverse;animation-duration:38s}
-.cinta span{font-weight:800;font-size:clamp(2rem,6.4vw,4.2rem);letter-spacing:-.05em;text-transform:lowercase;white-space:nowrap;line-height:1.05}
-.cinta span::after{content:"✳";margin:0 .35em;font-size:.55em;vertical-align:middle}
-.cinta .r2 span{color:transparent;-webkit-text-stroke:1.5px var(--on-signal)}
-.cinta .r2 span::after{color:var(--on-signal);-webkit-text-stroke:0}
+.cinta span{display:inline-flex;align-items:center;font-weight:800;font-size:clamp(2rem,6.4vw,4.2rem);letter-spacing:-.045em;white-space:nowrap;line-height:1.05}
+.cinta svg{width:.5em;height:.5em;margin:0 .45em;flex:none}
+.cinta .r2 span{color:var(--ink);font-weight:700;font-size:clamp(1.5rem,4.4vw,2.9rem)}
 @keyframes slide{to{transform:translateX(-50%)}}
 
 /* ventajas: tarjetas que se apilan */
@@ -102,7 +101,7 @@ header .btn{padding:10px 16px;font-size:.95rem}
 .card .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
 .card .shot{position:relative}
 .card .shot img.desl{height:auto;object-fit:initial;will-change:transform}
-.card .shot.mueve img.desl{animation:desliza var(--t,60s) ease-in-out 1s infinite alternate}
+.card .shot.mueve img.desl{animation:desliza var(--t,60s) cubic-bezier(.35,.1,.65,.9) infinite alternate}
 .card:hover .shot img.desl{animation-play-state:paused}
 @keyframes desliza{from{transform:translateY(0)}to{transform:translateY(calc(var(--d,0) * -1px))}}
 @media (prefers-reduced-motion:reduce){.card .shot.mueve img.desl{animation:none}}
@@ -121,7 +120,7 @@ header .btn{padding:10px 16px;font-size:.95rem}
 .comp .et.a{left:16px}.comp .et.d{right:16px;background:var(--signal);color:var(--on-signal)}
 .comp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
 .comp-pie{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px}
-.comp-pie a{font-weight:700;text-transform:lowercase;color:var(--cream)}
+.comp-pie{margin-top:22px}
 
 /* precios */
 .planes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
@@ -158,6 +157,9 @@ header .btn{padding:10px 16px;font-size:.95rem}
 @media (max-width:900px){.duo{grid-template-columns:minmax(0,1fr)}}
 .sobre{display:grid;gap:16px;align-content:start}
 .sobre p{color:var(--olive-soft)}
+.fotos{position:relative;aspect-ratio:4/3;border-radius:24px;overflow:hidden;margin-top:12px;background:var(--cream-deep)}
+.fotos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.fotos img.on{opacity:1}
 details{border-bottom:2px solid var(--ink);padding:18px 0}
 details:first-of-type{border-top:2px solid var(--ink)}
 summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
@@ -205,20 +207,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       {% set n1 = v.h1_a.split(' ')|length %}
       <h1 class="mega" aria-label="{{ v.h1 }}">{{ palabras(v.h1_a) }}{{ palabras(v.h1_b, n1, true) }}</h1>
       <p class="lead">{{ v.sub }}</p>
-      <div class="actions"><a class="btn hot" href="#ejemplo">{{ v.cta1|lower }} <span class="arr">→</span></a><a class="btn line" href="https://wa.me/{{ wa_num }}">{{ v.cta2|lower }} <span class="arr">→</span></a></div>
+      <div class="actions"><a class="btn hot" href="#ejemplo">{{ v.cta1|lower }}</a><a class="btn line" href="https://wa.me/{{ wa_num }}">{{ v.cta2|lower }}</a></div>
       <a class="badge" href="#precios" aria-label="{{ v.nav.precios }}"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#ring">{{ v.badge }}{{ v.badge }}</textPath></text></svg><span class="arr">↓</span></a>
     </div>
   </section>
 
   <div class="cinta" aria-hidden="true">
-    <div class="r1"><div class="track">{% for i in range(2) %}{% for w in v.cinta1 %}<span>{{ w }}</span>{% endfor %}{% endfor %}</div></div>
-    <div class="r2"><div class="track">{% for i in range(2) %}{% for w in v.cinta2 %}<span>{{ w }}</span>{% endfor %}{% endfor %}</div></div>
+    {% set ast %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg>{% endset %}
+    <div class="r1"><div class="track">{% for i in range(4) %}{% for w in v.cinta1 %}<span>{{ w }}{{ ast }}</span>{% endfor %}{% endfor %}</div></div>
+    <div class="r2"><div class="track">{% for i in range(4) %}{% for w in v.cinta2 %}<span>{{ w }}{{ ast }}</span>{% endfor %}{% endfor %}</div></div>
   </div>
 
   <section class="block" id="ventajas"><div class="wrap">
     <div class="cab"><h2 class="big reveal">{{ v.ventajas_t }}</h2></div>
     <div class="cards">{% for x in v.ventajas %}
-      <article class="card k{{ loop.index }}" style="--i:{{ loop.index0 }}"><span class="num">0{{ loop.index }}</span><h3>{{ x.t }}</h3><p>{{ x.d }}</p><div class="shot">{% if x.largo %}<img class="desl" src="img/{{ x.largo }}.webp" alt="" loading="lazy" width="600">{% else %}<img src="img/{{ x.img }}.webp" style="object-position:center {{ x.pos or 'top' }}" alt="" loading="lazy" width="780" height="1688">{% endif %}</div></article>
+      <article class="card k{{ loop.index }}" style="--i:{{ loop.index0 }}"><span class="num">0{{ loop.index }}</span><h3>{{ x.t }}</h3><p>{{ x.d }}</p><div class="shot">{% if x.largo %}<img class="desl" src="img/{{ x.largo }}.webp" alt="" width="600">{% else %}<img src="img/{{ x.img }}.webp" style="object-position:center {{ x.pos or 'top' }}" alt="" loading="lazy" width="780" height="1688">{% endif %}</div></article>
     {% endfor %}</div>
   </div></section>
 
@@ -231,7 +234,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <span class="linea"></span><span class="tirador" aria-hidden="true">↔</span>
       <input type="range" min="0" max="100" value="50" aria-label="{{ v.antes_l }} / {{ v.despues_l }}">
     </div>
-    <div class="comp-pie"><span class="data">{{ v.antes_nota }}</span><a href="{{ rel }}{{ demo_ruta }}">{{ v.ejemplo_cta }} →</a></div>
+    <div class="comp-pie"><a class="btn hot" href="{{ rel }}{{ demo_ruta }}">{{ v.ejemplo_cta }}</a></div>
   </div></section>
 
   <section class="block" id="precios"><div class="wrap">
@@ -243,7 +246,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <h3>{{ p.t }}</h3>
         <div class="precio"><b>{{ eur(lanz) }}</b><s>{{ eur(normal) }}</s><span class="data">{{ v.iva }}</span></div>
         <ul>{% for li in p.lista %}<li>{{ li }}</li>{% endfor %}</ul>
-        <div><a class="btn {{ 'hot' if p.destacado else 'ghost' }}" href="https://wa.me/{{ wa_num }}">{{ v.elegir|lower }} <span class="arr">→</span></a></div>
+        <div><a class="btn {{ 'hot' if p.destacado else 'ghost' }}" href="https://wa.me/{{ wa_num }}">{{ v.elegir|lower }}</a></div>
       </article>
       {% endfor %}
     </div>
@@ -259,7 +262,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div></section>
 
   <section class="block" style="padding-top:0"><div class="wrap duo">
-    <div class="sobre"><h2 class="big reveal">{{ d.nombre }}</h2>{% for p in v.sobre_p %}<p>{{ p }}</p>{% endfor %}</div>
+    <div class="sobre"><h2 class="big reveal">{{ d.nombre }}</h2>{% for p in v.sobre_p %}<p>{{ p }}</p>{% endfor %}
+      <div class="fotos reveal" aria-label="Fotos de {{ d.nombre }}">{% for i in range(1,4) %}<img src="img/fernando-{{ i }}.webp" alt="{{ d.nombre }}" width="1200" height="900" loading="lazy"{% if loop.first %} class="on"{% endif %}>{% endfor %}</div></div>
     <div><h2 class="big reveal" style="margin-bottom:28px">{{ v.faq_t|lower }}</h2>
       <details><summary>{{ v.faq_extra.q }}</summary><p>{{ v.faq_extra.a }}</p></details>
       {% for f in t.faq["items"] %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}
@@ -269,7 +273,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <section class="cta"><div class="wrap" style="display:grid;gap:22px;justify-items:start">
     <h2 class="mega" style="font-size:clamp(2.8rem,9vw,7.2rem)">{{ v.final_t }}</h2>
     <p>{{ v.final_d }}</p>
-    <a class="btn" href="https://wa.me/{{ wa_num }}">{{ ico_wa }}{{ v.final_wa|lower }} <span class="arr">→</span></a>
+    <a class="btn" href="https://wa.me/{{ wa_num }}">{{ ico_wa }}{{ v.final_wa|lower }}</a>
     <p class="alt">{{ v.final_email }} <a href="mailto:{{ d.email }}">{{ d.email }}</a></p>
   </div></section>
 </main>
@@ -290,6 +294,9 @@ document.documentElement.classList.add("js");
     const medir=()=>{const d=img.offsetHeight-sh.clientHeight;if(d>0){img.style.setProperty("--d",d);img.style.setProperty("--t",(d/vel).toFixed(0)+"s")}};
     img.complete?medir():img.addEventListener("load",medir);addEventListener("resize",medir);
     if("IntersectionObserver" in window)new IntersectionObserver(([e])=>sh.classList.toggle("mueve",e.isIntersecting)).observe(sh);else sh.classList.add("mueve");});
+  // fotos de Fernando: cambian cada 5 s
+  const fotos=[...document.querySelectorAll(".fotos img")];
+  if(fotos.length>1&&!reduce){let i=0;setInterval(()=>{fotos[i].classList.remove("on");i=(i+1)%fotos.length;fotos[i].classList.add("on")},5000);}
   document.querySelectorAll(".comp").forEach(c=>{const r=c.querySelector("input");const f=()=>c.style.setProperty("--x",r.value+"%");r.addEventListener("input",f);f();});
 })();
 </script>

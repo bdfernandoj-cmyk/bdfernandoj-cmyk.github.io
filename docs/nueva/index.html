@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>bau webs · webs para negocios del pirineo</title>
-<meta name="description" content="Webs rápidas, claras en el móvil y fáciles de usar para negocios del Pirineo. Precio cerrado, publicada en dos semanas.">
+<meta name="description" content="Webs rápidas, claras en el móvil y fáciles de usar para negocios del Pirineo. Precio cerrado, publicada en una semana.">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="bau webs">
-<meta property="og:description" content="Webs rápidas, claras en el móvil y fáciles de usar para negocios del Pirineo. Precio cerrado, publicada en dos semanas.">
+<meta property="og:description" content="Webs rápidas, claras en el móvil y fáciles de usar para negocios del Pirineo. Precio cerrado, publicada en una semana.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap">
@@ -83,10 +83,9 @@ header .btn{padding:10px 16px;font-size:.95rem}
 .cinta{background:var(--signal);color:var(--on-signal);padding:12px 0 16px;overflow:hidden}
 .cinta .track{display:flex;width:max-content;animation:slide 32s linear infinite}
 .cinta .r2 .track{animation-direction:reverse;animation-duration:38s}
-.cinta span{font-weight:800;font-size:clamp(2rem,6.4vw,4.2rem);letter-spacing:-.05em;text-transform:lowercase;white-space:nowrap;line-height:1.05}
-.cinta span::after{content:"✳";margin:0 .35em;font-size:.55em;vertical-align:middle}
-.cinta .r2 span{color:transparent;-webkit-text-stroke:1.5px var(--on-signal)}
-.cinta .r2 span::after{color:var(--on-signal);-webkit-text-stroke:0}
+.cinta span{display:inline-flex;align-items:center;font-weight:800;font-size:clamp(2rem,6.4vw,4.2rem);letter-spacing:-.045em;white-space:nowrap;line-height:1.05}
+.cinta svg{width:.5em;height:.5em;margin:0 .45em;flex:none}
+.cinta .r2 span{color:var(--ink);font-weight:700;font-size:clamp(1.5rem,4.4vw,2.9rem)}
 @keyframes slide{to{transform:translateX(-50%)}}
 
 /* ventajas: tarjetas que se apilan */
@@ -102,7 +101,7 @@ header .btn{padding:10px 16px;font-size:.95rem}
 .card .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
 .card .shot{position:relative}
 .card .shot img.desl{height:auto;object-fit:initial;will-change:transform}
-.card .shot.mueve img.desl{animation:desliza var(--t,60s) ease-in-out 1s infinite alternate}
+.card .shot.mueve img.desl{animation:desliza var(--t,60s) cubic-bezier(.35,.1,.65,.9) infinite alternate}
 .card:hover .shot img.desl{animation-play-state:paused}
 @keyframes desliza{from{transform:translateY(0)}to{transform:translateY(calc(var(--d,0) * -1px))}}
 @media (prefers-reduced-motion:reduce){.card .shot.mueve img.desl{animation:none}}
@@ -121,7 +120,7 @@ header .btn{padding:10px 16px;font-size:.95rem}
 .comp .et.a{left:16px}.comp .et.d{right:16px;background:var(--signal);color:var(--on-signal)}
 .comp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
 .comp-pie{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px}
-.comp-pie a{font-weight:700;text-transform:lowercase;color:var(--cream)}
+.comp-pie{margin-top:22px}
 
 /* precios */
 .planes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
@@ -158,6 +157,9 @@ header .btn{padding:10px 16px;font-size:.95rem}
 @media (max-width:900px){.duo{grid-template-columns:minmax(0,1fr)}}
 .sobre{display:grid;gap:16px;align-content:start}
 .sobre p{color:var(--olive-soft)}
+.fotos{position:relative;aspect-ratio:4/3;border-radius:24px;overflow:hidden;margin-top:12px;background:var(--cream-deep)}
+.fotos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.fotos img.on{opacity:1}
 details{border-bottom:2px solid var(--ink);padding:18px 0}
 details:first-of-type{border-top:2px solid var(--ink)}
 summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
@@ -204,30 +206,31 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="wrap hero-in">
       
       <h1 class="mega" aria-label="Tu web, hecha y funcionando."><span class="w"><span class="wi" style="--d:0">tu</span></span> <span class="w"><span class="wi" style="--d:1">web,</span></span> <span class="w"><span class="wi" style="--d:2">hecha</span></span> <span class="w"><span class="wi" style="--d:3">y</span></span> <span class="w"><span class="wi" style="--d:4"><em>funcionando.</em></span></span> </h1>
-      <p class="lead">Tú atiendes tu negocio; yo me encargo de la web. Rápida, clara en el móvil y lista en dos semanas, con precio cerrado desde 590 €.</p>
-      <div class="actions"><a class="btn hot" href="#ejemplo">ver un ejemplo <span class="arr">→</span></a><a class="btn line" href="https://wa.me/34600000000">hablemos 10 minutos <span class="arr">→</span></a></div>
-      <a class="badge" href="#precios" aria-label="Precios"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#ring">precio cerrado · en 2 semanas · desde 590 € · precio cerrado · en 2 semanas · desde 590 € · </textPath></text></svg><span class="arr">↓</span></a>
+      <p class="lead">Tú atiendes tu negocio; yo me encargo de la web. Rápida, clara y lista en una semana, con precio cerrado.</p>
+      <div class="actions"><a class="btn hot" href="#ejemplo">ver un ejemplo</a><a class="btn line" href="https://wa.me/34600000000">hablemos 10 minutos</a></div>
+      <a class="badge" href="#precios" aria-label="Precios"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#ring">precio cerrado · en 1 semana · desde 590 € · precio cerrado · en 1 semana · desde 590 € · </textPath></text></svg><span class="arr">↓</span></a>
     </div>
   </section>
 
   <div class="cinta" aria-hidden="true">
-    <div class="r1"><div class="track"><span>carga rápido</span><span>clara en el móvil</span><span>precio cerrado</span><span>en dos semanas</span><span>sin líos técnicos</span><span>carga rápido</span><span>clara en el móvil</span><span>precio cerrado</span><span>en dos semanas</span><span>sin líos técnicos</span></div></div>
-    <div class="r2"><div class="track"><span>casas rurales</span><span>restaurantes</span><span>queserías</span><span>guías de montaña</span><span>català · français</span><span>casas rurales</span><span>restaurantes</span><span>queserías</span><span>guías de montaña</span><span>català · français</span></div></div>
+    
+    <div class="r1"><div class="track"><span>Fácil de entender<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Moderna<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Actualizada<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Sin líos técnicos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Fácil de entender<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Moderna<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Actualizada<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Sin líos técnicos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Fácil de entender<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Moderna<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Actualizada<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Sin líos técnicos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Fácil de entender<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Moderna<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Actualizada<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Sin líos técnicos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span></div></div>
+    <div class="r2"><div class="track"><span>Casas rurales<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Restaurantes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Queserías<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Guías de montaña<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Català · Français<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Casas rurales<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Restaurantes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Queserías<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Guías de montaña<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Català · Français<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Casas rurales<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Restaurantes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Queserías<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Guías de montaña<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Català · Français<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Casas rurales<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Restaurantes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Queserías<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Guías de montaña<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span><span>Català · Français<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/></svg></span></div></div>
   </div>
 
   <section class="block" id="ventajas"><div class="wrap">
     <div class="cab"><h2 class="big reveal">qué tiene una web que funciona</h2></div>
     <div class="cards">
-      <article class="card k1" style="--i:0"><span class="num">01</span><h3>Se ve bien en el móvil</h3><p>Casi todos tus clientes te buscan desde el teléfono. Se lee sin hacer zoom y carga rápido, incluso con poca cobertura.</p><div class="shot"><img class="desl" src="img/demo-movil-largo.webp" alt="" loading="lazy" width="600"></div></article>
+      <article class="card k1" style="--i:0"><span class="num">01</span><h3>Funciona bien en móvil</h3><p>Casi todos tus clientes te buscan desde el teléfono. Se lee sin hacer zoom y carga rápido, incluso con poca cobertura.</p><div class="shot"><img class="desl" src="img/demo-movil-largo.webp" alt="" width="600"></div></article>
     
-      <article class="card k2" style="--i:1"><span class="num">02</span><h3>Se entiende a la primera</h3><p>Qué ofreces, precios, horarios y cómo llegar, a la vista. Sin menús liosos ni PDFs que nadie abre.</p><div class="shot"><img class="desl" src="img/demo-casa-largo.webp" alt="" loading="lazy" width="600"></div></article>
+      <article class="card k2" style="--i:1"><span class="num">02</span><h3>Se entiende a la primera</h3><p>Qué ofreces, precios, horarios y cómo llegar, a la vista. Sin menús liosos ni PDFs que nadie abre.</p><div class="shot"><img class="desl" src="img/demo-casa-largo.webp" alt="" width="600"></div></article>
     
-      <article class="card k3" style="--i:2"><span class="num">03</span><h3>Te contactan con un toque</h3><p>Un botón para escribirte por WhatsApp o pedir disponibilidad. Sin formularios largos ni correos que se pierden.</p><div class="shot"><img src="img/demo-panel.webp" style="object-position:center bottom" alt="" loading="lazy" width="780" height="1688"></div></article>
+      <article class="card k3" style="--i:2"><span class="num">03</span><h3>Te contactan fácilmente</h3><p>Un botón para escribirte por WhatsApp o pedir disponibilidad. Sin formularios largos ni correos que se pierden.</p><div class="shot"><img src="img/demo-panel.webp" style="object-position:center bottom" alt="" loading="lazy" width="780" height="1688"></div></article>
     </div>
   </div></section>
 
   <section class="block dark" id="ejemplo"><div class="wrap">
-    <div class="cab"><h2 class="big reveal">De esto a esto</h2><p>Desliza para comparar una web antigua con una que funciona: rápida, clara y fácil de usar en el móvil.</p></div>
+    <div class="cab"><h2 class="big reveal">Tu web antes y después</h2><p>Desliza para comparar una web antigua con una que funciona: rápida, clara y fácil de usar en el móvil.</p></div>
     <div class="comp reveal" style="--x:50%">
       <img src="img/antes.webp" alt="Antes" loading="lazy">
       <img class="despues" src="img/demo-escritorio.webp" alt="Después" loading="lazy">
@@ -235,11 +238,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <span class="linea"></span><span class="tirador" aria-hidden="true">↔</span>
       <input type="range" min="0" max="100" value="50" aria-label="Antes / Después">
     </div>
-    <div class="comp-pie"><span class="data">Ejemplo ilustrativo con un negocio ficticio.</span><a href="../ejemplo/cal-ginebro/">Ver la web de ejemplo completa →</a></div>
+    <div class="comp-pie"><a class="btn hot" href="../ejemplo/cal-ginebro/">Ver la web</a></div>
   </div></section>
 
   <section class="block" id="precios"><div class="wrap">
-    <div class="cab"><h2 class="big reveal">Precios claros, antes de empezar</h2><p>Sabes lo que pagas desde el primer día. 50 % al empezar y 50 % cuando la web está publicada. Precio de lanzamiento para los 5 primeros negocios.</p></div>
+    <div class="cab"><h2 class="big reveal">Precios claros y cerrados</h2><p>Sabes lo que pagas desde el primer día. Precio de lanzamiento para los 10 primeros negocios.</p></div>
     <div class="planes">
       
       <article class="plan reveal">
@@ -247,7 +250,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <h3>Web esencial</h3>
         <div class="precio"><b>590 €</b><s>790 €</s><span class="data">+ IVA</span></div>
         <ul><li>Una página con todo lo importante</li><li>Fotos, horarios, mapa y cómo llegar</li><li>Botón de reserva por WhatsApp</li><li>Adaptada al móvil y rápida</li><li>Ficha de Google revisada</li></ul>
-        <div><a class="btn ghost" href="https://wa.me/34600000000">pedir propuesta <span class="arr">→</span></a></div>
+        <div><a class="btn ghost" href="https://wa.me/34600000000">pedir propuesta</a></div>
       </article>
       
       <article class="plan reveal dest">
@@ -255,7 +258,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <h3>Web completa</h3>
         <div class="precio"><b>1.390 €</b><s>1.690 €</s><span class="data">+ IVA</span></div>
         <ul><li>Todo lo de la esencial</li><li>De 3 a 5 páginas: habitaciones, entorno, preguntas</li><li>Castellano, catalán, francés e inglés</li><li>Galería de fotos</li><li>Enlace a tu sistema de reservas, si tienes</li></ul>
-        <div><a class="btn hot" href="https://wa.me/34600000000">pedir propuesta <span class="arr">→</span></a></div>
+        <div><a class="btn hot" href="https://wa.me/34600000000">pedir propuesta</a></div>
       </article>
       
     </div>
@@ -267,13 +270,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   <section class="block" id="como" style="padding-top:0"><div class="wrap">
     <div class="cab"><h2 class="big reveal">Cómo funciona</h2></div>
-    <ol class="crit"><li><span class="data">Día 1</span><strong>Hablamos 10 minutos</strong><span class="d">Por teléfono o videollamada. Me cuentas tu negocio y te enseño ideas para tu web.</span></li><li><span class="data">Día 2</span><strong>Te mando la propuesta</strong><span class="d">Por escrito, con el precio cerrado, lo que incluye y la fecha de entrega.</span></li><li><span class="data">En 2 semanas</span><strong>Tu web, publicada</strong><span class="d">Yo la diseño y la monto. Tú revisas, pides cambios y la publicamos con tu dominio.</span></li></ol>
+    <ol class="crit"><li><span class="data">Día 1</span><strong>Hablamos 10 minutos</strong><span class="d">Por teléfono o videollamada. Me cuentas tu negocio y te enseño ideas para tu web.</span></li><li><span class="data">Día 2</span><strong>Te mando la propuesta</strong><span class="d">Por escrito, con el precio cerrado, lo que incluye y la fecha de entrega.</span></li><li><span class="data">En 1 semana</span><strong>Tu web, publicada</strong><span class="d">Yo la diseño y la monto. Tú revisas, pides cambios y la publicamos con tu dominio.</span></li></ol>
   </div></section>
 
   <section class="block" style="padding-top:0"><div class="wrap duo">
-    <div class="sobre"><h2 class="big reveal">Fernando</h2><p>Soy Fernando, diseñador web en Barcelona. Diseño cada web, la programo yo y me aseguro de que cargue rápido.</p><p>Paso a menudo por el Pirineo y conozco a quién os dirigís. También hago fotografía: si lo necesitas, subo a hacer las fotos.</p></div>
+    <div class="sobre"><h2 class="big reveal">Fernando</h2><p>Soy Fernando, diseñador web en Barcelona. Diseño cada web, la programo yo y me aseguro de que cargue rápido.</p><p>Paso a menudo por el Pirineo y conozco a quién os dirigís. También hago fotografía: si lo necesitas, subo a hacer las fotos.</p>
+      <div class="fotos reveal" aria-label="Fotos de Fernando"><img src="img/fernando-1.webp" alt="Fernando" width="1200" height="900" loading="lazy" class="on"><img src="img/fernando-2.webp" alt="Fernando" width="1200" height="900" loading="lazy"><img src="img/fernando-3.webp" alt="Fernando" width="1200" height="900" loading="lazy"></div></div>
     <div><h2 class="big reveal" style="margin-bottom:28px">preguntas frecuentes</h2>
-      <details><summary>¿Cuánto tarda en estar lista?</summary><p>Dos semanas desde que me pasas fotos y textos. Si no los tienes, te ayudo a prepararlos.</p></details>
+      <details><summary>¿Cuánto tarda en estar lista?</summary><p>Una semana desde que me pasas fotos y textos. Si no los tienes, te ayudo a prepararlos.</p></details>
       <details><summary>¿Necesito saber de tecnología?</summary><p>No. Yo me encargo del dominio, el hosting y la puesta en marcha. Tú solo revisas y das el visto bueno.</p></details><details><summary>Ya tengo web. ¿Hay que empezar de cero?</summary><p>No siempre. Si el contenido vale, lo aprovechamos y mantenemos tu dominio para no perder lo que ya tienes en Google.</p></details><details><summary>¿Puedo hacer cambios después?</summary><p>Sí. Con el mantenimiento me escribes y los hago yo. Sin mantenimiento, te presupuesto cada cambio.</p></details><details><summary>¿Trabajas en remoto?</summary><p>Sí, todo se hace por videollamada, correo o WhatsApp. Solo me desplazo si contratas la sesión de fotos.</p></details>
     </div>
   </div></section>
@@ -281,7 +285,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <section class="cta"><div class="wrap" style="display:grid;gap:22px;justify-items:start">
     <h2 class="mega" style="font-size:clamp(2.8rem,9vw,7.2rem)">¿Hablamos 10 minutos?</h2>
     <p>Sin compromiso. Te enseño cómo podría quedar tu web y te digo el precio exacto.</p>
-    <a class="btn" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>escribir por whatsapp <span class="arr">→</span></a>
+    <a class="btn" href="https://wa.me/34600000000"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>escribir por whatsapp</a>
     <p class="alt">o por email: <a href="mailto:hola@TU-DOMINIO.com">hola@TU-DOMINIO.com</a></p>
   </div></section>
 </main>
@@ -302,6 +306,9 @@ document.documentElement.classList.add("js");
     const medir=()=>{const d=img.offsetHeight-sh.clientHeight;if(d>0){img.style.setProperty("--d",d);img.style.setProperty("--t",(d/vel).toFixed(0)+"s")}};
     img.complete?medir():img.addEventListener("load",medir);addEventListener("resize",medir);
     if("IntersectionObserver" in window)new IntersectionObserver(([e])=>sh.classList.toggle("mueve",e.isIntersecting)).observe(sh);else sh.classList.add("mueve");});
+  // fotos de Fernando: cambian cada 5 s
+  const fotos=[...document.querySelectorAll(".fotos img")];
+  if(fotos.length>1&&!reduce){let i=0;setInterval(()=>{fotos[i].classList.remove("on");i=(i+1)%fotos.length;fotos[i].classList.add("on")},5000);}
   document.querySelectorAll(".comp").forEach(c=>{const r=c.querySelector("input");const f=()=>c.style.setProperty("--x",r.value+"%");r.addEventListener("input",f);f();});
 })();
 </script>

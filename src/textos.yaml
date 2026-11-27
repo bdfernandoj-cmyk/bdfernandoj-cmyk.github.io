@@ -15,7 +15,7 @@ es:
   lang: es
   v3:
     title: bau webs · webs que funcionan para negocios del Pirineo
-    description: Webs rápidas, claras en el móvil y fáciles de usar para negocios del Pirineo. Precio cerrado, publicada en dos semanas.
+    description: Webs rápidas, claras en el móvil y fáciles de usar para negocios del Pirineo. Precio cerrado, publicada en una semana.
     marca_sub: Webs para negocios del Pirineo
     nav:
       ejemplo: Ejemplo
@@ -30,20 +30,19 @@ es:
     h1_b: funcionando.
     h1_c: rápida y sin líos.
     marca: bau webs
-    badge: 'precio cerrado · en 2 semanas · desde 590 € · '
+    badge: 'precio cerrado · en 1 semana · desde 590 € · '
     cinta1:
-    - carga rápido
-    - clara en el móvil
-    - precio cerrado
-    - en dos semanas
-    - sin líos técnicos
+    - Fácil de entender
+    - Moderna
+    - Actualizada
+    - Sin líos técnicos
     cinta2:
-    - casas rurales
-    - restaurantes
-    - queserías
-    - guías de montaña
-    - català · français
-    sub: Tú atiendes tu negocio; yo me encargo de la web. Rápida, clara en el móvil y lista en dos semanas, con precio cerrado desde 590 €.
+    - Casas rurales
+    - Restaurantes
+    - Queserías
+    - Guías de montaña
+    - Català · Français
+    sub: Tú atiendes tu negocio; yo me encargo de la web. Rápida, clara y lista en una semana, con precio cerrado.
     cta1: Ver un ejemplo
     cta2: Hablemos 10 minutos
     puntos_hero:
@@ -62,7 +61,7 @@ es:
     - Guías y actividades
     ventajas_t: qué tiene una web que funciona
     ventajas:
-    - t: Se ve bien en el móvil
+    - t: Funciona bien en móvil
       d: Casi todos tus clientes te buscan desde el teléfono. Se lee sin hacer zoom y carga rápido, incluso con poca cobertura.
       img: demo-movil
       largo: demo-movil-largo
@@ -70,19 +69,19 @@ es:
       d: Qué ofreces, precios, horarios y cómo llegar, a la vista. Sin menús liosos ni PDFs que nadie abre.
       img: demo-casa
       largo: demo-casa-largo
-    - t: Te contactan con un toque
+    - t: Te contactan fácilmente
       d: Un botón para escribirte por WhatsApp o pedir disponibilidad. Sin formularios largos ni correos que se pierden.
       img: demo-panel
       pos: bottom
-    antes_t: De esto a esto
+    antes_t: Tu web antes y después
     antes_d: 'Desliza para comparar una web antigua con una que funciona: rápida, clara y fácil de usar en el móvil.'
     antes_l: Antes
     despues_l: Después
     antes_nota: Ejemplo ilustrativo con un negocio ficticio.
-    ejemplo_cta: Ver la web de ejemplo completa
-    precios_t: Precios claros, antes de empezar
-    precios_d: Sabes lo que pagas desde el primer día. 50 % al empezar y 50 % cuando la web está publicada. Precio de lanzamiento para los 5 primeros negocios.
-    lanz: Precio de lanzamiento · 5 primeros negocios
+    ejemplo_cta: Ver la web
+    precios_t: Precios claros y cerrados
+    precios_d: Sabes lo que pagas desde el primer día. Precio de lanzamiento para los 10 primeros negocios.
+    lanz: Precio de lanzamiento · 10 primeros negocios
     antes_precio: Después
     iva: + IVA
     planes:
@@ -120,7 +119,7 @@ es:
       cuando: Día 2
     - t: Tu web, publicada
       d: Yo la diseño y la monto. Tú revisas, pides cambios y la publicamos con tu dominio.
-      cuando: En 2 semanas
+      cuando: En 1 semana
     sobre_t: Quién está detrás
     sobre_p:
     - Soy Fernando, diseñador web en Barcelona. Diseño cada web, la programo yo y me aseguro de que cargue rápido.
@@ -128,7 +127,7 @@ es:
     faq_t: Preguntas frecuentes
     faq_extra:
       q: ¿Cuánto tarda en estar lista?
-      a: Dos semanas desde que me pasas fotos y textos. Si no los tienes, te ayudo a prepararlos.
+      a: Una semana desde que me pasas fotos y textos. Si no los tienes, te ayudo a prepararlos.
     final_t: ¿Hablamos 10 minutos?
     final_d: Sin compromiso. Te enseño cómo podría quedar tu web y te digo el precio exacto.
     final_wa: Escribir por WhatsApp
@@ -139,10 +138,10 @@ es:
     cta_nav: "Hablemos"
     eyebrow: "Diseño web · Pirineo catalán y francés"
     h1: "Webs para negocios de montaña."
-    sub: "Casas rurales, restaurantes, productores y guías. Precio cerrado, lista en dos semanas y todo en remoto, para que tú sigas a lo tuyo."
+    sub: "Casas rurales, restaurantes, productores y guías. Precio cerrado, lista en una semana y todo en remoto, para que tú sigas a lo tuyo."
     cta1: "Ver un trabajo"
     cta2: "Hablemos 10 minutos"
-    sellos: ["Precio cerrado", "Lista en 2 semanas", "ES · CA · FR"]
+    sellos: ["Precio cerrado", "Lista en 1 semana", "ES · CA · FR"]
     movil_nota: "Reserva por WhatsApp en dos toques"
     problemas_t: "Lo que más me encuentro"
     caso_frase: "Una web que se ve bien en el móvil, carga rápido y convierte visitas en reservas."
@@ -161,19 +160,19 @@ es:
       - {t: "La cumbre", d: "Revisamos juntos, pides los cambios que quieras y la publicamos con tu dominio.", cuando: "Día 15"}
     precios_t: "Precio cerrado, sin sorpresas"
     precios_sub: "50 % al empezar y 50 % al publicar."
-    lanz_nota: "Precio de lanzamiento para los 5 primeros negocios"
+    lanz_nota: "Precio de lanzamiento para los 10 primeros negocios"
     incluido_t: "Incluido siempre"
     incluido: ["Diseño a medida, no una plantilla genérica", "Adaptada al móvil", "Carga rápida, medida con Google", "Botón de WhatsApp y llamada", "Mapa y cómo llegar", "SEO básico y ficha de Google revisada", "Textos legales: aviso legal, privacidad y cookies", "30 minutos de formación"]
     antes: "antes"
     elegir: "Lo quiero"
     extras_t: "Además"
   title: "Fernando · Webs para negocios del Pirineo"
-  description: "Webs a precio cerrado para casas rurales, restaurantes y productores del Pirineo. Adaptadas al móvil, en varios idiomas y listas en unas dos semanas."
+  description: "Webs a precio cerrado para casas rurales, restaurantes y productores del Pirineo. Adaptadas al móvil, en varios idiomas y listas en una semana."
   nav: {servicios: "Servicios", proceso: "Cómo trabajo", ejemplo: "Ejemplo", contacto: "Contacto"}
   hero:
     eyebrow: "Diseño web · Pirineo catalán y francés"
     h1: "Webs para negocios de montaña que se leen bien en el móvil."
-    sub: "Casas rurales, restaurantes, productores y guías. Precio cerrado, en unas dos semanas y todo en remoto, para que tú sigas a lo tuyo."
+    sub: "Casas rurales, restaurantes, productores y guías. Precio cerrado, en una semana y todo en remoto, para que tú sigas a lo tuyo."
     cta1: "Ver una web de ejemplo"
     cta2: "Hablemos 10 minutos"
   problemas:
@@ -216,7 +215,7 @@ es:
     pasos:
       - {t: "Llamada de 10 minutos", d: "Me cuentas tu negocio y te enseño cómo podría quedar tu web."}
       - {t: "Propuesta con precio cerrado", d: "Te mando por escrito qué incluye, el precio y la fecha de entrega."}
-      - {t: "Dos semanas de trabajo", d: "Diseño y monto la web. Tú solo me pasas textos y fotos, o te ayudo con ellos."}
+      - {t: "Una semana de trabajo", d: "Diseño y monto la web. Tú solo me pasas textos y fotos, o te ayudo con ellos."}
       - {t: "Publicación", d: "Revisamos juntos, pides los cambios que quieras y la publicamos con tu dominio."}
   ejemplo:
     h2: "Así podría quedar la tuya"
@@ -251,10 +250,10 @@ ca:
     cta_nav: "Parlem"
     eyebrow: "Disseny web · Pirineu català i francès"
     h1: "Webs per a negocis de muntanya."
-    sub: "Cases rurals, restaurants, productors i guies. Preu tancat, llesta en dues setmanes i tot en remot, perquè tu segueixis amb el teu."
+    sub: "Cases rurals, restaurants, productors i guies. Preu tancat, llesta en una setmana i tot en remot, perquè tu segueixis amb el teu."
     cta1: "Veure una feina"
     cta2: "Parlem 10 minuts"
-    sellos: ["Preu tancat", "Llesta en 2 setmanes", "CA · ES · FR"]
+    sellos: ["Preu tancat", "Llesta en 1 setmana", "CA · ES · FR"]
     movil_nota: "Reserva per WhatsApp en dos tocs"
     problemas_t: "El que més em trobo"
     caso_frase: "Una web que es veu bé al mòbil, carrega ràpid i converteix visites en reserves."
@@ -273,19 +272,19 @@ ca:
       - {t: "El cim", d: "Ho revisem junts, demanes els canvis que vulguis i la publiquem amb el teu domini.", cuando: "Dia 15"}
     precios_t: "Preu tancat, sense sorpreses"
     precios_sub: "50 % en començar i 50 % en publicar."
-    lanz_nota: "Preu de llançament per als 5 primers negocis"
+    lanz_nota: "Preu de llançament per als 10 primers negocis"
     incluido_t: "Inclòs sempre"
     incluido: ["Disseny a mida, no una plantilla genèrica", "Adaptada al mòbil", "Càrrega ràpida, mesurada amb Google", "Botó de WhatsApp i trucada", "Mapa i com arribar", "SEO bàsic i fitxa de Google revisada", "Textos legals: avís legal, privacitat i galetes", "30 minuts de formació"]
     antes: "abans"
     elegir: "La vull"
     extras_t: "A més"
   title: "Fernando · Webs per a negocis del Pirineu"
-  description: "Webs a preu tancat per a cases rurals, restaurants i productors del Pirineu. Adaptades al mòbil, en diversos idiomes i llestes en unes dues setmanes."
+  description: "Webs a preu tancat per a cases rurals, restaurants i productors del Pirineu. Adaptades al mòbil, en diversos idiomes i llestes en una setmana."
   nav: {servicios: "Serveis", proceso: "Com treballo", ejemplo: "Exemple", contacto: "Contacte"}
   hero:
     eyebrow: "Disseny web · Pirineu català i francès"
     h1: "Webs per a negocis de muntanya que es llegeixen bé al mòbil."
-    sub: "Cases rurals, restaurants, productors i guies. Preu tancat, en unes dues setmanes i tot en remot, perquè tu segueixis amb el teu."
+    sub: "Cases rurals, restaurants, productors i guies. Preu tancat, en una setmana i tot en remot, perquè tu segueixis amb el teu."
     cta1: "Veure una web d'exemple"
     cta2: "Parlem 10 minuts"
   problemas:
@@ -328,7 +327,7 @@ ca:
     pasos:
       - {t: "Trucada de 10 minuts", d: "M'expliques el teu negoci i t'ensenyo com podria quedar la teva web."}
       - {t: "Proposta amb preu tancat", d: "T'envio per escrit què inclou, el preu i la data d'entrega."}
-      - {t: "Dues setmanes de feina", d: "Dissenyo i munto la web. Tu només em passes textos i fotos, o t'hi ajudo."}
+      - {t: "Una setmana de feina", d: "Dissenyo i munto la web. Tu només em passes textos i fotos, o t'hi ajudo."}
       - {t: "Publicació", d: "Ho revisem junts, demanes els canvis que vulguis i la publiquem amb el teu domini."}
   ejemplo:
     h2: "Així podria quedar la teva"
@@ -363,10 +362,10 @@ fr:
     cta_nav: "Parlons-en"
     eyebrow: "Webdesign · Pyrénées catalanes et françaises"
     h1: "Des sites pour les établissements de montagne."
-    sub: "Gîtes, restaurants, producteurs et guides. Prix fixe, prêt en deux semaines, entièrement à distance : vous continuez votre activité."
+    sub: "Gîtes, restaurants, producteurs et guides. Prix fixe, prêt en une semaine, entièrement à distance : vous continuez votre activité."
     cta1: "Voir une réalisation"
     cta2: "Parlons 10 minutes"
-    sellos: ["Prix fixe", "Prêt en 2 semaines", "FR · ES · CA"]
+    sellos: ["Prix fixe", "Prêt en 1 semaine", "FR · ES · CA"]
     movil_nota: "Réservation par WhatsApp en deux gestes"
     problemas_t: "Ce que je rencontre le plus souvent"
     caso_frase: "Un site lisible sur mobile, rapide, qui transforme les visites en réservations."
@@ -385,19 +384,19 @@ fr:
       - {t: "Le sommet", d: "Nous relisons ensemble, vous demandez les modifications voulues et le site est publié sur votre domaine.", cuando: "Jour 15"}
     precios_t: "Prix fixe, sans surprise"
     precios_sub: "50 % au lancement, 50 % à la mise en ligne."
-    lanz_nota: "Prix de lancement pour les 5 premiers établissements"
+    lanz_nota: "Prix de lancement pour les 10 premiers établissements"
     incluido_t: "Toujours inclus"
     incluido: ["Design sur mesure, pas un thème générique", "Adapté au mobile", "Chargement rapide, mesuré avec Google", "Bouton WhatsApp et appel", "Carte et accès", "Référencement de base et fiche Google revue", "Mentions légales, confidentialité et cookies", "30 minutes de formation"]
     antes: "au lieu de"
     elegir: "Je le veux"
     extras_t: "En plus"
   title: "Fernando · Sites web pour les établissements des Pyrénées"
-  description: "Des sites à prix fixe pour gîtes, restaurants et producteurs des Pyrénées. Adaptés au mobile, en plusieurs langues et prêts en deux semaines environ."
+  description: "Des sites à prix fixe pour gîtes, restaurants et producteurs des Pyrénées. Adaptés au mobile, en plusieurs langues et prêts en une semaine."
   nav: {servicios: "Offres", proceso: "Méthode", ejemplo: "Exemple", contacto: "Contact"}
   hero:
     eyebrow: "Webdesign · Pyrénées catalanes et françaises"
     h1: "Des sites pour les établissements de montagne, lisibles sur mobile."
-    sub: "Gîtes, restaurants, producteurs et guides. Prix fixe, environ deux semaines, entièrement à distance : vous continuez votre activité, je m'occupe du reste."
+    sub: "Gîtes, restaurants, producteurs et guides. Prix fixe, en une semaine, entièrement à distance : vous continuez votre activité, je m'occupe du reste."
     cta1: "Voir un site d'exemple"
     cta2: "Parlons 10 minutes"
   problemas:
@@ -440,7 +439,7 @@ fr:
     pasos:
       - {t: "Appel de 10 minutes", d: "Vous me présentez votre activité et je vous montre à quoi pourrait ressembler votre site."}
       - {t: "Proposition à prix fixe", d: "Je vous envoie par écrit le contenu, le prix et la date de livraison."}
-      - {t: "Deux semaines de travail", d: "Je conçois et je construis le site. Vous m'envoyez textes et photos, ou je vous aide à les préparer."}
+      - {t: "Une semaine de travail", d: "Je conçois et je construis le site. Vous m'envoyez textes et photos, ou je vous aide à les préparer."}
       - {t: "Mise en ligne", d: "Nous relisons ensemble, vous demandez les modifications souhaitées et le site est publié sur votre domaine."}
   ejemplo:
     h2: "Voici à quoi pourrait ressembler le vôtre"
