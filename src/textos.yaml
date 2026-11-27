@@ -65,9 +65,11 @@ es:
     - t: Se ve bien en el móvil
       d: Casi todos tus clientes te buscan desde el teléfono. Se lee sin hacer zoom y carga rápido, incluso con poca cobertura.
       img: demo-movil
+      largo: demo-movil-largo
     - t: Se entiende a la primera
       d: Qué ofreces, precios, horarios y cómo llegar, a la vista. Sin menús liosos ni PDFs que nadie abre.
       img: demo-casa
+      largo: demo-casa-largo
     - t: Te contactan con un toque
       d: Un botón para escribirte por WhatsApp o pedir disponibilidad. Sin formularios largos ni correos que se pierden.
       img: demo-panel
