@@ -67,10 +67,11 @@ es:
       img: demo-movil
     - t: Se entiende a la primera
       d: Qué ofreces, precios, horarios y cómo llegar, a la vista. Sin menús liosos ni PDFs que nadie abre.
-      img: demo-habitacion
+      img: demo-casa
     - t: Te contactan con un toque
       d: Un botón para escribirte por WhatsApp o pedir disponibilidad. Sin formularios largos ni correos que se pierden.
-      img: demo-frances
+      img: demo-panel
+      pos: bottom
     antes_t: De esto a esto
     antes_d: 'Desliza para comparar una web antigua con una que funciona: rápida, clara y fácil de usar en el móvil.'
     antes_l: Antes
